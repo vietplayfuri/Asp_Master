@@ -1,0 +1,19 @@
+﻿@using GoPlay.Web.Areas.Admin.Models
+@model AdminEditExchangeModel
+@{
+    ViewBag.Title = "Package: " + Model.name;
+    string urlExchangeIndex = "/admin/exchange";
+    string urlExchangePackageEdit = string.Format("/admin/exchange/package/{0}/edit?previous_page={1}", Model.id, Model.id);
+}
+
+@Html.Partial("_entity_detail_table", Model)
+<table class="exchange-entity-detail model-detail-table">
+    <tr>
+        <td class="width-20">Limited Time Offer</td>
+        <td>@Model.limited_time_offer</td>
+    </tr>
+</table>
+<div class="model-detail-actions">
+    <a class="button small secondary" href="@urlExchangeIndex">Back</a>
+    <a class="button small" href="@urlExchangePackageEdit">Edit</a>
+</div>

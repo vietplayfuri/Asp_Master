@@ -1,0 +1,48 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+<!DOCTYPE html>
+<html lang="en" ng-app="gdineApp" class="html_classes">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta property="fb:app_id" content="812688685436100" />
+
+    @Html.Partial("includes/favicon_meta")
+
+    <title>GToken - @ViewBag.Title</title>
+
+    <base href="@Url.Action("index", "main")" />
+
+    @RenderSection("open_graph_meta_tags", false)
+
+    <link rel="stylesheet" href="~/bower_components/animate.css/animate.min.css" />
+    @RenderSection("lib_stylesheets", false)
+
+    @RenderSection("page_stylesheets", false)
+
+
+    <script src="~/bower_components/modernizr/modernizr.js"></script>
+    @RenderSection("head_js_lib", false)
+
+    <link rel="stylesheet" href="/static/stylesheets/account/register.css" />
+</head>
+<body>
+    @RenderBody()
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-51518799-4', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

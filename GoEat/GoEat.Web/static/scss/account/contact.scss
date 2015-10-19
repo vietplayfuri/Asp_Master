@@ -1,0 +1,108 @@
+﻿@import "settings";
+@import "foundation";
+@import "partials/base";
+
+body {
+}
+
+.main-content {
+    background: url('/static/images/contact.jpg') repeat-y;
+    background-size: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.large-8 {
+    margin-bottom: 10px;
+}
+
+.contact {
+    color: #474747 !important;
+    font-size: 18px;
+    font-weight: lighter;
+    margin: 0 auto;
+    position: relative;
+
+    .row {
+        max-width: 1024px;
+        margin: auto;
+    }
+}
+
+.contact::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: url("/static/images/login_03.png") repeat-x;
+    height: 10px;
+}
+
+h4 {
+    font-size: 31px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    color: #474747;
+    font-family: $font-josefin-slab;
+}
+
+input[type="submit"] {
+    @include upper-font(300, 0.875rem, $pri-white);
+    @include sml-primary-btn($pri-red);
+    border-radius: 40px;
+    background: #ef3f23;
+    display: block;
+    margin: 0 auto;
+    width: 6.125em;
+    height: 49px;
+    transition: all 0.25s ease;
+    moz-transition: all 0.25s ease;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+p {
+    font-weight: normal;
+}
+
+input[type="text"] {
+    font-size: 18px;
+    height: 61px;
+}
+
+textarea {
+    font-size: 18px;
+}
+
+.field-validation-error {
+    color: $pri-red;
+}
+
+#gmap_canvas_small {
+    width: 100%;
+}
+
+@media only screen and (max-width: 320px) {
+    #parent {
+        overflow: hidden;
+        height: 176px;
+        width: 100%;
+    }
+
+    #gmap_canvas_small {
+        height: 176px;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    #gmap_canvas_small {
+        height: 335px;
+    }
+
+    #parent {
+        overflow: hidden;
+        height: 335px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "transactions";
+}
+
+@*@model GoEat.Web.Models.TransactionsViewModel*@
+
+@section page_stylesheets{
+    <link href="/static/stylesheets/account/transaction.css" rel="stylesheet" />
+}
+
+<div id="profile-image">
+    <img src="~/static/images/img-profile.jpg" />
+</div>
+<br />
+<div ng-cloak class="forms-container profile">
+    <div class="row">
+        <h4>TRANSACTIONS</h4>
+        <p>Welcome &nbsp; @Html.GetCurrentUser().nickname !</p>
+        <div class="rounded">
+            <img src="~/static/images/Rounded-Rectangle.png" />
+        </div>
+        <br />
+    </div>
+    <div class="row">
+        <div class="small-12 medium-12 large-12 columns" ng-app ng-controller="TransactionHistoryCtrl">
+            <h4 style="border-bottom: 2px solid #d7d7d7;">HISTORY</h4>
+            <div class="large-12 columns padding-right-left-0">
+                <div class="small-12 medium-2 large-2 columns padding-left-0">
+                    <span>Filter From</span>
+                </div>
+
+                <div class="show-for-medium-up large-10 medium-10 columns padding-right-left-0">
+                    <select class="month-select medium-6" id="fMonth">
+                        <option ng-repeat="month in months" value="{{month.key}}">
+                            {{month.value}}
+                        </option>
+                    </select>
+                    <select class="day-select medium-2" id="fDay">
+                        <option ng-repeat="day in days">{{ day }}</option>
+                    </select>
+                    <select class="year-select medium-4" id="fYear">
+                        <option ng-repeat="year in years">{{ year }}</option>
+                    </select>
+                </div>
+                <div class="show-for-small-only small-12 columns padding-right-left-0">
+                    <select class="month-select small-4" id="fMonth">
+                        <option ng-repeat="month in months" value="{{month.key}}">
+                            {{month.value}}
+                        </option>
+                    </select>
+                    <select class="day-select small-2" id="fDay">
+                        <option ng-repeat="day in days">{{ day }}</option>
+                    </select>
+                    <select class="year-select small-6" id="fYear">
+                        <option ng-repeat="year in years">{{ year }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="large-12 columns padding-right-left-0">
+                <div class="small-12 medium-2 large-2 columns padding-left-0">
+                    <span>To</span>
+                </div>
+                <div class="show-for-medium-up large-10 medium-10 columns padding-right-left-0">
+                    <select class="month-select medium-6" id="tMonth">
+                        <option ng-repeat="month in months" value="{{month.key}}">
+                            {{month.value}}
+                        </option>
+                    </select>
+                    <select class="day-select medium-2" id="tDay">
+                        <option ng-repeat="day in days">{{ day }}</option>
+                    </select>
+                    <select class="year-select medium-4" id="tYear">
+                        <option ng-repeat="year in years">{{ year }}</option>
+                    </select>
+                </div>
+                <div class="show-for-small-only small-12 columns padding-right-left-0">
+                    <select class="month-select small-4" id="tMonth">
+                        <option ng-repeat="month in months" value="{{month.key}}">
+                            {{month.value}}
+                        </option>
+                    </select>
+                    <select class="day-select small-2" id="tDay">
+                        <option ng-repeat="day in days">{{ day }}</option>
+                    </select>
+                    <select class="year-select small-6" id="tYear">
+                        <option ng-repeat="year in years">{{ year }}</option>
+                    </select>
+                </div>
+                <div class="large-12 columns large-offset-10">
+                    <input name="submit" type="submit" value="Search" id="btnFilter" onclick="historyTransaction(true,true)">
+                </div>
+            </div>
+
+            <div class="columns account-container large-centered list-transaction" id="divTransactionHistory" style="display: inline-block;">
+            </div>
+
+            <div class="large-12 columns">
+                <input name="submit" type="submit" value="Back" id="btnBack" onclick="window.history.back();">
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+@section scripts{
+    <script src="/static/js/pages/transactions.js"></script>
+}
+

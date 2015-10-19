@@ -1,0 +1,27 @@
+﻿@import "settings";
+@import "foundation";
+@import "partials/base";
+
+body {
+}
+
+.main-container {
+    background: #000;
+    height: auto;
+}
+
+.terms {
+    margin: 40px auto;
+    color: $pri-white;
+    overflow: hidden;
+}
+
+h4 {
+    font-size: 2.344em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.terms p {
+    font-size: 1em;
+}

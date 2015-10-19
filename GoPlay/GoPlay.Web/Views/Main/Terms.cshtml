@@ -1,0 +1,151 @@
+﻿@using Resources
+@{
+    ViewBag.Title = Resources.Terms_of_Service;
+}
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+}
+
+<section class="terms-wrapper row">
+    <div class="large-12 columns">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Terms_and_condition</h6>
+        </div>
+        <div class="sect-panel terms-content">
+            <p>
+                <strong>@Resources.User_agreement</strong><br>
+                @Resources.User_agreement_description<br><br>
+                <strong>@Resources.PlayToken_and_You</strong><br>
+                <strong>@Resources.PlayToken_is_only_a_Payment_Service_Provider</strong><br><br>
+                @Resources.PlayToken_is_only_a_Payment_Service_Provider_description<br><br>
+                <strong>@Resources.Intellectual_Property</strong> <br><br>
+                @Resources.Intellectual_Property_description<br><br>
+                <strong>@Resources.Assignment</strong> <br><br>
+                @Resources.Assignment_description <br><br>
+                <strong>@Resources.Notices_to_You</strong> <br><br>
+                @Resources.Notices_to_You_description <br><br>
+                <strong>@Resources.Your_Privacy</strong> <br><br>
+                @Resources.Your_Privacy_description<br><br>
+                <strong>@Resources.Privacy_of_Others</strong> <br><br>
+                @Resources.Privacy_of_Others_description<br><br>
+                <strong>@Resources.Eligibility_and_Verification</strong> <br><br>
+                @Resources.Eligibility_and_Verification_description<br><br>
+                <strong>@Resources.Using_Play_Tokens</strong><br>
+                <strong>@Resources.Charging_of_Play_Tokens_to_your_PlayToken_account</strong> <br>
+                @Resources.Charging_of_Play_Tokens_to_your_PlayToken_account_description<br><br>
+                <strong>@Resources.Charging_Limits</strong> <br>
+                @Resources.Charging_Limits_description<br><br>
+                <strong>@Resources.Purchasing_using_Play_Tokens</strong> <br><br>
+                @Resources.Purchasing_using_Play_Tokens_description<br><br>
+                <strong>@Resources.Default_Transaction_Sources</strong> <br><br>
+                @Resources.Default_Transaction_Sources_description<br><br>
+                <strong>@Resources.Refused_Transaction</strong> <br><br>
+                @Resources.Refused_Transaction_description <br><br>
+                <strong>@Resources.Merchant_Processing_Delay</strong> <br><br>
+                @Resources.Merchant_Processing_Delay_description<br><br>
+                <strong>@Resources.PlayToken_account_Balances</strong><br>
+                <strong>@Resources.Balances</strong> <br>
+                @Resources.Balances_description <br><br>
+                <strong>@Resources.Refund_Policy</strong> <br>
+                @Resources.Refund_Policy_description <br><br>
+                <strong>@Resources.Closing_Your_PlayToken_account</strong><br>
+                <strong>@Resources.How_to_Close_Your_PlayToken_account</strong><br><br>
+                @Resources.How_to_Close_Your_PlayToken_account_description<br><br>
+                <strong>@Resources.Dormant_PlayToken_account</strong><br><br>
+                @Resources.Dormant_PlayToken_account_description<br><br>
+                <strong>@Resources.Termination_of_PlayToken_account</strong><br><br>
+                @Resources.Termination_of_PlayToken_account_description<br><br>
+                <strong>@Resources.Restricted_Activities</strong> <br><br>
+                @Resources.Restricted_Activities_description<br><br>
+                @Resources.Restricted_Activities_description_a<br><br>
+                @Resources.Restricted_Activities_description_b<br><br>
+                @Resources.Restricted_Activities_description_c<br><br>
+                @Resources.Restricted_Activities_description_d<br><br>
+                @Resources.Restricted_Activities_description_e<br><br>
+                @Resources.Restricted_Activities_description_f<br><br>
+                @Resources.Restricted_Activities_description_g<br><br>
+                @Resources.Restricted_Activities_description_h<br><br>
+                @Resources.Restricted_Activities_description_i<br><br>
+                @Resources.Restricted_Activities_description_j<br><br>
+                @Resources.Restricted_Activities_description_k<br><br>
+                @Resources.Restricted_Activities_description_l<br><br>
+                @Resources.Restricted_Activities_description_m<br><br>
+                @Resources.Restricted_Activities_description_n<br><br>
+                @Resources.Restricted_Activities_description_o<br><br>
+                @Resources.Restricted_Activities_description_p<br><br>
+                @Resources.Restricted_Activities_description_q<br><br>
+                @Resources.Restricted_Activities_description_r<br><br>
+                @Resources.Restricted_Activities_description_s<br><br>
+                @Resources.Restricted_Activities_description_t<br><br>
+                <strong>@Resources.Liability_Disclaimers</strong><br>
+                <strong>@Resources.Liability_Disclaimers_description_1</strong> <br><br>
+                <strong>@Resources.Liability_Disclaimers_description_2</strong> <br><br>
+                <strong>@Resources.Liability_Disclaimers_description_3</strong> <br><br>
+                <strong>@Resources.Liability_Disclaimers_description_4</strong> <br><br>
+                @Resources.Liability_Disclaimers_description_4_a<br><br>
+                @Resources.Liability_Disclaimers_description_4_b<br><br>
+                @Resources.Liability_Disclaimers_description_4_c<br><br>
+                @Resources.Liability_Disclaimers_description_4_d<br><br>
+                <strong>@Resources.Your_Liability_Actions_We_May_Take</strong><br>
+                <strong>@Resources.Your_Liability_Actions_We_May_Take_description_1</strong> <br><br>
+                @Resources.Your_Liability_Actions_We_May_Take_description_1_a<br><br>
+                @Resources.Your_Liability_Actions_We_May_Take_description_1_b<br><br>
+                @Resources.Your_Liability_Actions_We_May_Take_description_1_c<br><br>
+                @Resources.Your_Liability_Actions_We_May_Take_description_1_d<br><br>
+                <strong>@Resources.Your_Liability_Actions_We_May_Take_description_2</strong> <br><br>
+                <strong>@Resources.Your_Liability_Actions_We_May_Take_description_3</strong> <br><br>
+                <strong>@Resources.Errors_and_Unauthorized_Transactions</strong><br>
+                <strong>@Resources.Identifying_Errors_and_or_Unauthorized_Transactions</strong> <br><br>
+                @Resources.Identifying_Errors_and_or_Unauthorized_Transactions_description<br><br>
+                @Resources.Identifying_Errors_and_or_Unauthorized_Transactions_description_a<br><br>
+                @Resources.Identifying_Errors_and_or_Unauthorized_Transactions_description_b<br><br>
+                @Resources.Identifying_Errors_and_or_Unauthorized_Transactions_description_c<br><br>
+                @Resources.Identifying_Errors_and_or_Unauthorized_Transactions_description_d<br><br>
+                <strong>@Resources.Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions</strong><br><br>
+                @Resources.Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions_description<br><br>
+                <strong>@Resources.Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions</strong><br><br>
+                @Resources.Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_1<br><br>
+                @Resources.Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_2<br><br>
+                <strong>@Resources.Liability_for_Unauthorized_Transactions</strong><br><br>
+                @Resources.Liability_for_Unauthorized_Transactions_description<br><br>
+                <strong>@Resources.Errors</strong><br><br>
+                @Resources.Errors_description_1<br><br>
+                @Resources.Errors_description_2<br><br>
+                @Resources.Errors_description_2_a<br><br>
+                @Resources.Errors_description_2_b<br><br>
+                @Resources.Errors_description_2_c<br><br>
+                <strong>@Resources.Disputes_with_PlayToken</strong><br>
+                <strong>@Resources.Contact_PlayToken_First</strong> <br><br>
+                @Resources.Contact_PlayToken_First_description<br><br>
+                <strong>@Resources.Contact_the_Merchant</strong> <br><br>
+                @Resources.Contact_the_Merchant_description<br><br>
+                <strong>@Resources.No_Waiver</strong> <br><br>
+                @Resources.No_Waiver_description<br><br>
+                <strong>@Resources.Limitations_of_Liability</strong> <br><br>
+                @Resources.Limitations_of_Liability_description<br><br>
+                <strong>@Resources.No_Warranty</strong> <br><br>
+                @Resources.No_Warranty_description_1<br><br>
+                @Resources.No_Warranty_description_2<br><br>
+                @Resources.No_Warranty_description_3<br><br>
+                @Resources.No_Warranty_description_4<br><br>
+                <strong>@Resources.Indemnification</strong> <br><br>
+                @Resources.Indemnification_description<br><br>
+                <strong>@Resources.Complete_Agreement</strong> <br><br>
+                @Resources.Complete_Agreement_description<br><br>
+                <strong>@Resources.Definition</strong><br><br>
+                @Resources.Definition_description<br><br>
+                @Resources.PlayToken<br>
+                @Resources.Definition_description_PlayToken<br><br>
+                @Resources.Play_Tokens<br>
+                @Resources.Definition_description_PlayTokens<br><br>
+                @Resources.PlayToken_account<br>
+                @Resources.Definition_description_PlayToken_account<br><br>
+                @Resources.Merchants<br>
+                @Resources.Definition_description_Merchants<br><br>
+            </p>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+</section>

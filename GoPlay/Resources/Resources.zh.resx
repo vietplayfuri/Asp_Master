@@ -1,0 +1,1240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>关于我们</value>
+  </data>
+  <data name="Awesome_games_supported" xml:space="preserve">
+    <value>最火热的游戏</value>
+  </data>
+  <data name="A_better_way" xml:space="preserve">
+    <value>更好的</value>
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value>俱乐部</value>
+  </data>
+  <data name="Dedicated_staffs_to_provide_assistance" xml:space="preserve">
+    <value>指定人员提供帮助。需要技术支持或想要一起玩游戏的朋友？我们在这里为您服务！</value>
+  </data>
+  <data name="Discover_fun_unique" xml:space="preserve">
+    <value>发现好玩极独一无二的游戏及开发商！</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>游戏</value>
+  </data>
+  <data name="Introducing_GToken" xml:space="preserve">
+    <value>来介绍GToken</value>
+  </data>
+  <data name="It_transferable" xml:space="preserve">
+    <value>这是可转让的</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>新闻</value>
+  </data>
+  <data name="Share_PlayToken_Token_with_your_friends" xml:space="preserve">
+    <value>Share Play Token with your friends and loved ones, and empower them with the freedom to upgrade whichever games they like to play ♥</value>
+  </data>
+  <data name="Signup" xml:space="preserve">
+    <value>登记及得到</value>
+  </data>
+  <data name="Simply_because" xml:space="preserve">
+    <value>那是因为。。。</value>
+  </data>
+  <data name="Stay_supported" xml:space="preserve">
+    <value>始终获得支持</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>客服</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>条款</value>
+  </data>
+  <data name="to_enhance_your_gaming_experience" xml:space="preserve">
+    <value>充分地提升游戏体验</value>
+  </data>
+  <data name="Why_choose_GToken" xml:space="preserve">
+    <value>为何选择GToken？</value>
+  </data>
+  <data name="Get_more_with_GToken" xml:space="preserve">
+    <value>用GToken获得更多</value>
+  </data>
+  <data name="Get_special_deals_best_price" xml:space="preserve">
+    <value>Get special deals, best price for in-game items and exclusive content only available to our GToken members.</value>
+  </data>
+  <data name="Register_your_account_now" xml:space="preserve">
+    <value>马上注册您的帐户以获取免费游戏代币并开始玩游戏！</value>
+  </data>
+  <data name="A_Gateway_to_Play" xml:space="preserve">
+    <value>游戏网关</value>
+  </data>
+  <data name="Home_page" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="We_hope_to_bring_happiness" xml:space="preserve">
+    <value>我们希望能够带来欢乐并与您分享</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Available_from_Mon_Fri_11am_to_7pm" xml:space="preserve">
+    <value>开放时间：周一至周五，上午11点至晚上7点。</value>
+  </data>
+  <data name="Call_our_support_agent" xml:space="preserve">
+    <value>致电我们的支持专员并马上获得答复。</value>
+  </data>
+  <data name="Easy_simple_no_credit_card" xml:space="preserve">
+    <value>轻松简单，无需信用卡</value>
+  </data>
+  <data name="Games_that_GToken_distributes" xml:space="preserve">
+    <value>GToken 分配的游戏</value>
+  </data>
+  <data name="Game_version" xml:space="preserve">
+    <value>游戏版本</value>
+  </data>
+  <data name="PlayToken_Token_is_a_digital_currency_platform" xml:space="preserve">
+    <value>是一个针对手机游戏的数字货币平台，我们所做的一切都是为了为我们的顾客带来更大的选择、便利以及简洁。我们挑选出受欢迎和高品质的游戏介绍给我们的用户。我们对达到VIP身份的用户进行忠诚度奖励，这些奖励可用于为您玩的游戏兑换专享和有限版本的商品。</value>
+  </data>
+  <data name="GToken_is_a_gateway_to_play" xml:space="preserve">
+    <value>GToken是一个玩乐的渠道。当你玩游戏时，能够得到乐趣。我们希望您能够带给您身边的家人及朋友无穷的欢乐。</value>
+  </data>
+  <data name="GToken_website" xml:space="preserve">
+    <value>GToken 网站</value>
+  </data>
+  <data name="Need_Immediate_Help" xml:space="preserve">
+    <value>需要立即获得帮助？</value>
+  </data>
+  <data name="OS_version" xml:space="preserve">
+    <value>操作系统版本</value>
+  </data>
+  <data name="Our_customer_support_team" xml:space="preserve">
+    <value>我们客服组会很乐意的回复您的问题。</value>
+  </data>
+  <data name="Phone_Call" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="Send_Us_A_Message" xml:space="preserve">
+    <value>给我们留言</value>
+  </data>
+  <data name="Send_your_message" xml:space="preserve">
+    <value>发送消息</value>
+  </data>
+  <data name="Skype" xml:space="preserve">
+    <value>Skype</value>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="We_provide_our_undivided_attention" xml:space="preserve">
+    <value>我们向需要帮助和关注的用户提供全身心的关注和支持，无论是关于技术问题、关于如何解决您陷入的困境，甚或是帮助您找到一个您可以一起玩游戏的同伴。PlayToken 是一个游戏网关：您在玩游戏时便可获得快乐。我们希望能够为您带来快乐，让您在通过我们玩游戏时与家人和所爱的人们分享乐趣。</value>
+  </data>
+  <data name="We_will_get_back_to_you_shortly" xml:space="preserve">
+    <value>我们很快会与您联系</value>
+  </data>
+  <data name="What_On_Your_Mind" xml:space="preserve">
+    <value>您在想什么？</value>
+  </data>
+  <data name="WHAT_YOUR_ISSUE_ABOUT" xml:space="preserve">
+    <value>您的问题是关于什么的？</value>
+  </data>
+  <data name="WHICH_GAME_TROUBLES_YOU" xml:space="preserve">
+    <value>哪种游戏困扰着您？</value>
+  </data>
+  <data name="YOUR_CURRENT_OS" xml:space="preserve">
+    <value>您当前的操作系统？</value>
+  </data>
+  <data name="Your_device_model" xml:space="preserve">
+    <value>您的发票模式</value>
+  </data>
+  <data name="Your_email" xml:space="preserve">
+    <value>您的电子邮箱地址</value>
+  </data>
+  <data name="Your_message" xml:space="preserve">
+    <value>您的留言</value>
+  </data>
+  <data name="Your_name" xml:space="preserve">
+    <value>您的姓名</value>
+  </data>
+  <data name="Dont_have_an_account" xml:space="preserve">
+    <value>没有帐号？</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Forgot_Password" xml:space="preserve">
+    <value>忘记密码？</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Login_and_having_fun" xml:space="preserve">
+    <value>登入及享受无穷乐趣！</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>密码</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>保存帐号资料</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Sign_up_get_1_free" xml:space="preserve">
+    <value>登记及获得免费</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>用户名</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Admin_Panel" xml:space="preserve">
+    <value>管理员面板</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>金额</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>余额</value>
+  </data>
+  <data name="Basic_Info" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>兑换</value>
+  </data>
+  <data name="characters_left" xml:space="preserve">
+    <value>剩余 {0} 个字符</value>
+  </data>
+  <data name="Come_and_hangout_with_us" xml:space="preserve">
+    <value>来和我们一起玩吧！</value>
+  </data>
+  <data name="Coming_Soon" xml:space="preserve">
+    <value>即将推出</value>
+  </data>
+  <data name="Coming_soon_encourage" xml:space="preserve">
+    <value>Don't miss any of our exciting new releases</value>
+  </data>
+  <data name="Company_Address" xml:space="preserve">
+    <value>公司地址:</value>
+  </data>
+  <data name="Content_Rating" xml:space="preserve">
+    <value>当前评分</value>
+  </data>
+  <data name="Current_Version" xml:space="preserve">
+    <value>当前版本</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Discover_new_best_releases" xml:space="preserve">
+    <value>发现新推出的最佳产品</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>媒体</value>
+  </data>
+  <data name="Edit_Profile" xml:space="preserve">
+    <value>编辑个人资料</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>电子邮箱</value>
+  </data>
+  <data name="Exchange" xml:space="preserve">
+    <value>兑换</value>
+  </data>
+  <data name="Exchange_your_PlayToken_for_in_game" xml:space="preserve">
+    <value>用您的 PlayToken 兑换游戏内商品，享受游戏乐趣</value>
+  </data>
+  <data name="FEATURED_GAMES" xml:space="preserve">
+    <value>特色游戏</value>
+  </data>
+  <data name="Free_Play_Token" xml:space="preserve">
+    <value>免费游戏代币</value>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>朋友</value>
+  </data>
+  <data name="Game_About" xml:space="preserve">
+    <value>游戏关于</value>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Getting_Started" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="Get_more_PlayToken_and_exchange_in_game" xml:space="preserve">
+    <value>获得更多 PlayToken 并以一个更好的价格在兑换游戏内商品</value>
+  </data>
+  <data name="Get_more_with_PlayToken" xml:space="preserve">
+    <value>通过 PlayToken 获得更多</value>
+  </data>
+  <data name="Get_special_deals" xml:space="preserve">
+    <value>享受我们的 PlayToken 会员可获得的最佳优惠、游戏内商品最优惠价格，以及独家内容。</value>
+  </data>
+  <data name="GToken_believes_that_gaming_is_about_connecting_people" xml:space="preserve">
+    <value>GToken认为，游戏的目的是为了将人们互相联系并享受乐趣，因此，我们致力于创建供我们的会员和朋友们免费使用的生活方式的海上俱乐部。在这里，人们可以与志同道合的人一起玩、连接至高速无线网络，并在玩游戏以及在一种有利的环境中休息放松的同时享受免费茶点。</value>
+  </data>
+  <data name="GToken_Clubs" xml:space="preserve">
+    <value>GToken 俱乐部</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>发票</value>
+  </data>
+  <data name="Join_Date" xml:space="preserve">
+    <value>加入日期</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Log_Out" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Malaysia" xml:space="preserve">
+    <value>马来西亚</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>媒体</value>
+  </data>
+  <data name="More_detail" xml:space="preserve">
+    <value>更多详情</value>
+  </data>
+  <data name="people" xml:space="preserve">
+    <value>人</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>平台</value>
+  </data>
+  <data name="Play_Token" xml:space="preserve">
+    <value>游戏代币</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>个人资料</value>
+  </data>
+  <data name="Referee" xml:space="preserve">
+    <value>推荐人</value>
+  </data>
+  <data name="Referral_Link" xml:space="preserve">
+    <value>推荐链接</value>
+  </data>
+  <data name="Release" xml:space="preserve">
+    <value>发布</value>
+  </data>
+  <data name="Release_Date" xml:space="preserve">
+    <value>发布日期</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Search_games" xml:space="preserve">
+    <value>搜索游戏...</value>
+  </data>
+  <data name="See_all" xml:space="preserve">
+    <value>查看全部</value>
+  </data>
+  <data name="Share_Play_Token" xml:space="preserve">
+    <value>与您的朋友和所爱的人们分享游戏代币，让他们能够自由升级他们想要玩的任何游戏</value>
+  </data>
+  <data name="show" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="Singapore" xml:space="preserve">
+    <value>新加坡</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Something_you_might_want_to_do" xml:space="preserve">
+    <value>您可能会想要做的事情</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="Top_Up" xml:space="preserve">
+    <value>充值</value>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>交易</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>交易</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>转让</value>
+  </data>
+  <data name="Transfer_PlayToken_to_your_friends" xml:space="preserve">
+    <value>向您的朋友转让 PlayToken ，与他们一起享受乐趣</value>
+  </data>
+  <data name="Unfriend" xml:space="preserve">
+    <value>解除朋友关系</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>已更新</value>
+  </data>
+  <data name="Update_in_Latest_Version" xml:space="preserve">
+    <value>在最新版本中更新</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
+  <data name="Where_you_share_Happiness_playing_Together" xml:space="preserve">
+    <value>一起游戏时分享快乐的地方</value>
+  </data>
+  <data name="Why_choose_PlayToken" xml:space="preserve">
+    <value>为什么选择 PlayToken</value>
+  </data>
+  <data name="Write_your_short_bio_here" xml:space="preserve">
+    <value>在这里撰写您的个人简历...</value>
+  </data>
+  <data name="Your_Country" xml:space="preserve">
+    <value>您的国家</value>
+  </data>
+  <data name="Your_Nickname" xml:space="preserve">
+    <value>您的昵称</value>
+  </data>
+  <data name="Your_Short_Bio" xml:space="preserve">
+    <value>您的个人简历</value>
+  </data>
+  <data name="Your_wallet_balance" xml:space="preserve">
+    <value>您的钱包余额</value>
+  </data>
+  <data name="Get_to_know_more_about_us" xml:space="preserve">
+    <value>了解更多关于我们的信息</value>
+  </data>
+  <data name="PlayToken_News" xml:space="preserve">
+    <value>PlayToken 新闻</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Select_game" xml:space="preserve">
+    <value>选择游戏</value>
+  </data>
+  <data name="Send_Message" xml:space="preserve">
+    <value>发送留言</value>
+  </data>
+  <data name="Write_your_message_here" xml:space="preserve">
+    <value>在这里撰写您的留言...</value>
+  </data>
+  <data name="This_PlayToken_account_is_linked_to_another_Facebook_account" xml:space="preserve">
+    <value>This PlayToken account is linked to another Facebook account.</value>
+  </data>
+  <data name="After_this_there_is_no_turning_back" xml:space="preserve">
+    <value>在此之后将不可返回。</value>
+  </data>
+  <data name="All_Games" xml:space="preserve">
+    <value>所有游戏</value>
+  </data>
+  <data name="All_Genres" xml:space="preserve">
+    <value>所有类型</value>
+  </data>
+  <data name="All_Platforms" xml:space="preserve">
+    <value>所有平台</value>
+  </data>
+  <data name="Back_to_Profile_page" xml:space="preserve">
+    <value>返回个人资料页面</value>
+  </data>
+  <data name="Changed_your_mind" xml:space="preserve">
+    <value>您改主意了？</value>
+  </data>
+  <data name="Change_your_email" xml:space="preserve">
+    <value>更改您的电子邮箱地址</value>
+  </data>
+  <data name="Change_your_password" xml:space="preserve">
+    <value>更改您的密码</value>
+  </data>
+  <data name="Confirm_new_password" xml:space="preserve">
+    <value>确认新密码</value>
+  </data>
+  <data name="Games_List" xml:space="preserve">
+    <value>游戏列表</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Login_PlayToken" xml:space="preserve">
+    <value>登录 PlayToken</value>
+  </data>
+  <data name="My_profile" xml:space="preserve">
+    <value>我的个人资料</value>
+  </data>
+  <data name="My_Transactions" xml:space="preserve">
+    <value>我的交易</value>
+  </data>
+  <data name="New_password" xml:space="preserve">
+    <value>新密码</value>
+  </data>
+  <data name="Old_password" xml:space="preserve">
+    <value>旧密码</value>
+  </data>
+  <data name="retype_email" xml:space="preserve">
+    <value>重新输入电子邮箱地址</value>
+  </data>
+  <data name="There_no_games_found" xml:space="preserve">
+    <value>未找到游戏</value>
+  </data>
+  <data name="Your_new_email" xml:space="preserve">
+    <value>您的新电子邮箱地址</value>
+  </data>
+  <data name="Your_password" xml:space="preserve">
+    <value>您的密码</value>
+  </data>
+  <data name="Already_a_member" xml:space="preserve">
+    <value>已经是一名会员？</value>
+  </data>
+  <data name="country" xml:space="preserve">
+    <value>国家</value>
+  </data>
+  <data name="I_agree_to_PlayToken" xml:space="preserve">
+    <value>我同意 PlayToken's {0}</value>
+  </data>
+  <data name="ReferralId_Optional" xml:space="preserve">
+    <value>推荐ID（选项）</value>
+  </data>
+  <data name="Terms_of_Service" xml:space="preserve">
+    <value>服务条款</value>
+  </data>
+  <data name="Issue_Date" xml:space="preserve">
+    <value>发布日期</value>
+  </data>
+  <data name="Item_Name" xml:space="preserve">
+    <value>项目名称</value>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>付款人</value>
+  </data>
+  <data name="Payment_Mode" xml:space="preserve">
+    <value>支付方式</value>
+  </data>
+  <data name="Select_your_payment_method" xml:space="preserve">
+    <value>选择您的支付方式</value>
+  </data>
+  <data name="Top_Up_Card" xml:space="preserve">
+    <value>充值卡</value>
+  </data>
+  <data name="Top_Up_Play_Token" xml:space="preserve">
+    <value>充值 {0}</value>
+  </data>
+  <data name="Card_Number" xml:space="preserve">
+    <value>卡号</value>
+  </data>
+  <data name="Card_Number_Password_combination_does_not_match" xml:space="preserve">
+    <value>卡号/密码组合不匹配</value>
+  </data>
+  <data name="Card_Password" xml:space="preserve">
+    <value>卡密码</value>
+  </data>
+  <data name="Confirm_email_does_not_match" xml:space="preserve">
+    <value>确认邮件不匹配</value>
+  </data>
+  <data name="Confirm_password_does_not_match" xml:space="preserve">
+    <value>确认密码不匹配</value>
+  </data>
+  <data name="Exchanged_successfully" xml:space="preserve">
+    <value>已成功兑换。</value>
+  </data>
+  <data name="For_Play_For_Happiness_For_People" xml:space="preserve">
+    <value>用于人们为了快乐而游戏</value>
+  </data>
+  <data name="if_you_have_any_questions" xml:space="preserve">
+    <value>若有任何疑问或疑虑。请务必转发该邮件以及加快对您的请求的处理。</value>
+  </data>
+  <data name="Incorrect_password_Please_try_again" xml:space="preserve">
+    <value>密码不正确。请重试。</value>
+  </data>
+  <data name="Invalid_email_address" xml:space="preserve">
+    <value>无效邮箱地址</value>
+  </data>
+  <data name="Item_Price" xml:space="preserve">
+    <value>商品价格</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="No_invoice_available_for_you" xml:space="preserve">
+    <value>没有针对您的发票！</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="Password_must_be_more_than_characters" xml:space="preserve">
+    <value>密码长度不得超过3个字符</value>
+  </data>
+  <data name="Please_kindly_contact" xml:space="preserve">
+    <value>请联系我们</value>
+  </data>
+  <data name="Referral_Code_does_not_exist" xml:space="preserve">
+    <value>推荐码不存在</value>
+  </data>
+  <data name="Thank_You" xml:space="preserve">
+    <value>谢谢！</value>
+  </data>
+  <data name="The_card_has_already_been_used" xml:space="preserve">
+    <value>卡已被使用</value>
+  </data>
+  <data name="The_card_has_already_expired" xml:space="preserve">
+    <value>该卡已过期</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Free_Play_Token" xml:space="preserve">
+    <value>本次转换需要消耗 {0} 免费游戏代币。</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Free_Play_Token_and_Play_Token" xml:space="preserve">
+    <value>本次转换需要消耗 {0} 免费游戏代币和 {1} 游戏代币。</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Play_Token" xml:space="preserve">
+    <value>本次转换需要消耗 {0} 游戏代币。</value>
+  </data>
+  <data name="This_username_is_already_taken" xml:space="preserve">
+    <value>该用户名已被使用</value>
+  </data>
+  <data name="Total_Play_Token" xml:space="preserve">
+    <value>游戏代币总额</value>
+  </data>
+  <data name="Total_Price" xml:space="preserve">
+    <value>总价格</value>
+  </data>
+  <data name="Transaction_ID" xml:space="preserve">
+    <value>交易ID</value>
+  </data>
+  <data name="Username_can_only_contain_letters_numbers" xml:space="preserve">
+    <value>用户名只能包含字母、数字 _, - 和 .</value>
+  </data>
+  <data name="Username_is_between_characters" xml:space="preserve">
+    <value>用户名在 3-20 个字符之间</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>Username is required</value>
+  </data>
+  <data name="You_topped_up_Free_Play_Token" xml:space="preserve">
+    <value>您已充值 {0} 免费游戏代币</value>
+  </data>
+  <data name="You_topped_up_Play_Token" xml:space="preserve">
+    <value>您已充值 {0} 游戏代币</value>
+  </data>
+  <data name="Hang_on_Our_server_is_crunching_your_order" xml:space="preserve">
+    <value>坚持一下！我们的服务器正在处理您的订单</value>
+  </data>
+  <data name="Input_play_token_number" xml:space="preserve">
+    <value>输入游戏代币号</value>
+  </data>
+  <data name="Transfer_play_token_to" xml:space="preserve">
+    <value>向 ... 转让游戏代币</value>
+  </data>
+  <data name="PlayToken_and_You" xml:space="preserve">
+    <value>1. PlayToken 和您</value>
+  </data>
+  <data name="User_agreement" xml:space="preserve">
+    <value>用户协议</value>
+  </data>
+  <data name="User_agreement_description" xml:space="preserve">
+    <value>本协议是您和 PlayToken 之间的合约，适用于您对 PlayToken 服务的使用。您必须阅读、同意，以及接受本协议中包含的所有条款和条件。您可以随时在我们的网站上发布修订版本对本协议进行修订。该修订版本从我们发布时开始生效。我们最后修订本协议的时间为2015年3月24日。</value>
+  </data>
+  <data name="Assignment" xml:space="preserve">
+    <value>1.3 转让。</value>
+  </data>
+  <data name="Assignment_description" xml:space="preserve">
+    <value>未经PlayToken事先书面许可，您不可转让或让与您依据本协议拥有的任何权利或义务。PlayToken 保留随时转让或让与本协议或本协议规定的任何权利或义务的权利。</value>
+  </data>
+  <data name="Eligibility_and_Verification" xml:space="preserve">
+    <value>2. 资格和验证</value>
+  </data>
+  <data name="Eligibility_and_Verification_description" xml:space="preserve">
+    <value>您授权PlayToken直接或者通过第三方进行我们认为验证您的身份所必需的任何问询。这可能包括向您索取进一步信息、要求您采取措施确认您的电子邮箱所有权，以及通过第三方数据库或其它资源验证您的信息。</value>
+  </data>
+  <data name="PlayToken_is_only_a_Payment_Service_Provider" xml:space="preserve">
+    <value>1.1 PlayToken 是唯一的支付服务提供商。</value>
+  </data>
+  <data name="PlayToken_is_only_a_Payment_Service_Provider_description" xml:space="preserve">
+    <value>PlayToken 能够帮助您向第三方进行支付和接收付款。除PlayToken 仅担任与您的虚拟游戏代币保管相关的代理外，PlayToken是一家全功能独立合约商。PlayToken对使用我们的服务进行支付的产品或服务不具有控制力或者承担任何义务。我们不保证任何用户的身份或者确保买家或卖家会完成交易。</value>
+  </data>
+  <data name="Intellectual_Property" xml:space="preserve">
+    <value>1.2 知识产权。</value>
+  </data>
+  <data name="Intellectual_Property_description" xml:space="preserve">
+    <value>"PlayToken.com"，"PlayToken"，以及我们网站中描述的所有相关徽标、产品和服务都是PlayToken的商标或者注册商标。未经PlayToken 事先书面许可，您不得对它们进行复制、模仿，或者使用。此外，所有页面标题、自定义图形、按钮图标，以及脚本均为PlayToken的服务标志、商标，和/或商业外观。您不得以任何方式篡改、修改或者更改这些HTML图标，以贬低PlayToken或服务的方式使用它们，或者以任何暗示PlayToken的赞助或授权的方式进行显示。</value>
+  </data>
+  <data name="Notices_to_You" xml:space="preserve">
+    <value>1.4 对您的通知。</value>
+  </data>
+  <data name="Notices_to_You_description" xml:space="preserve">
+    <value>您同意，PlayToken 可能会通过在我们的网站上发布或者发送至您的PlayToken个人资料中列出的电子邮箱地址向您提供通知。若您收回接收电子通信的许可，PlayToken保留关闭您的PlayToken帐户的权利。</value>
+  </data>
+  <data name="Privacy_of_Others" xml:space="preserve">
+    <value>1.6 其他人的隐私。</value>
+  </data>
+  <data name="Privacy_of_Others_description" xml:space="preserve">
+    <value>若您通过该服务接收关于其它PlayToken用户的信息，您必须对这些信息保密并仅将它们用于与该服务相关的用途。除非获得用户的明确同意，您不得向任何第三方透露或分发PlayToken用户的信息用于营销目的。</value>
+  </data>
+  <data name="Using_Play_Tokens" xml:space="preserve">
+    <value>3.3 使用游戏代币购买。</value>
+  </data>
+  <data name="Your_Privacy" xml:space="preserve">
+    <value>1.5 您的隐私。</value>
+  </data>
+  <data name="Your_Privacy_description" xml:space="preserve">
+    <value>保护您的隐私对于PlayToken来说非常重要。请查看我们的隐私政策以更好地理解我们关于维护您的隐私以及使用和披露您的信息的承诺。</value>
+  </data>
+  <data name="Charging_of_Play_Tokens_to_your_PlayToken_account" xml:space="preserve">
+    <value>3.1 将游戏代币充入您的PlayToken帐户。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_of_Play_Tokens_to_your_PlayToken_account_description" xml:space="preserve">
+    <value>用户应将他们的游戏代币充入遵循用户协议注册的个人或经授权PlayToken。若我们认为游戏代币是不恰当充入或者因为用户在充值过程或实践中的不恰当应用造成的错误而充入，PlayToken 不对此负责和/或采取纠正措施。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_Limits" xml:space="preserve">
+    <value>3.2 充值限制。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_Limits_description" xml:space="preserve">
+    <value>我们可能会自行决定对您可以充入PlayToken帐户的游戏代币额设置限制。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Purchasing_using_Play_Tokens" xml:space="preserve">
+    <value>3.3 使用游戏代币购买。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Purchasing_using_Play_Tokens_description" xml:space="preserve">
+    <value>向附属于PlayToken的参与商户进行的支付和交易将仅在PlayToken帐户持有者和交易商户之间进行。交易成功后，以游戏代币形式的支付将从参与用户的PlayToken帐户中扣除。若交易被拒绝，请参阅 3.4部分。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Default_Transaction_Sources" xml:space="preserve">
+    <value>3.4 默认交易源。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Default_Transaction_Sources_description" xml:space="preserve">
+    <value>在进行支付时，会直接从您的注册PlayToken帐户扣除游戏代币。若您的PlayToken帐户中的游戏代币数量不足，交易会被拒绝。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refused_Transaction" xml:space="preserve">
+    <value>3.5 被拒绝的交易。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refused_Transaction_description" xml:space="preserve">
+    <value>您在进行交易时，接收人不一定要接受交易。您同意，您不会因为由接收人决定不接受使用该服务进行的交易造成的任何损害而要求PlayToken负责。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchant_Processing_Delay" xml:space="preserve">
+    <value>3.6 商户处理延迟。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchant_Processing_Delay_description" xml:space="preserve">
+    <value>您向特定商户发送付款时，会向商户提供授权以处理您的付款并完成交易。在商户处理您的付款之前，付款会被保持为待定。有些商户可能会延迟处理您的付款。在这种情况下，您的授权会保持30天有效。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken_account_Balances" xml:space="preserve">
+    <value>4. PlayToken 帐户余额。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Balances" xml:space="preserve">
+    <value>4.1 余额。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Balances_description" xml:space="preserve">
+    <value>您不需要在您的PlayToken帐户中维持余额以拥有一个PlayToken帐户。若您的PlayToken帐户中有余额，会在购买代币并充入PlayToken帐户后的365天内到期。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refund_Policy" xml:space="preserve">
+    <value>4.2 退款政策。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refund_Policy_description" xml:space="preserve">
+    <value>所有未使用的余额都是不可退还的。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Closing_Your_PlayToken_account" xml:space="preserve">
+    <value>5. 关闭您的PlayToken帐户。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="How_to_Close_Your_PlayToken_account" xml:space="preserve">
+    <value>5.1 如何关闭您的PlayToken帐户。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="How_to_Close_Your_PlayToken_account_description" xml:space="preserve">
+    <value>注册PlayToken帐户后，用户不得关闭他们的PlayToken帐户。PlayToken 在维持和使PlayToken帐户信息（若有）可用于调查方面行使自由裁量权。不过，用户可以对特定PlayToken帐户细节做出与隐私政策和用户协议不冲突的有限变更，PlayToken拥有给予变更批准的自由裁量权。若根据特殊情况终止PlayToken帐户，那么，即使在帐户关闭后，使用已终止PlayToken帐户仍然需要对所有与PlayToken相关的义务负责。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Dormant_PlayToken_account" xml:space="preserve">
+    <value>5.2 不活跃PlayToken帐户。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Dormant_PlayToken_account_description" xml:space="preserve">
+    <value>PlayToken不会无限期关闭任何不活跃PlayToken帐户。余额中的游戏代币会在购买代币并充入PlayToken帐户后的365天内到期。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Termination_of_PlayToken_account" xml:space="preserve">
+    <value>5.3 PlayToken帐户的终止。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Termination_of_PlayToken_account_description" xml:space="preserve">
+    <value>若根据 5.1, 6, 7条款终止了PlayToken帐户，不会向用户或第三方退还游戏代币。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities" xml:space="preserve">
+    <value>6. 受限制活动。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description" xml:space="preserve">
+    <value>受限制活动。在您使用我们的网站、您的PlayToken帐户或服务，或者在您与PlayToken、用户或第三方互动时，您不得：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_a" xml:space="preserve">
+    <value>(a) 违反本协议、用户协议和任何其它您与PlayToken签订的协议（包括政策）；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_b" xml:space="preserve">
+    <value>(b) 违反任何法律、法规、法令，或者条例（例如，对金融服务、顾客保护、不公正竞争、反歧视或虚假广告进行管理的法律、法规、法令，或者条例）；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_c" xml:space="preserve">
+    <value>(c) 侵犯PlayToken或者任何第三方的版权、专利、商标、商业机密，或者其它知识产权、公开权或者隐私权；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_d" xml:space="preserve">
+    <value>(d) 以诋毁、商业诽谤、非法威胁，或者非法骚扰等方式行事；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_e" xml:space="preserve">
+    <value>(e) 提供虚假、不准确，或者具有诱导性的信息；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_f" xml:space="preserve">
+    <value>(f) 发送或接收我们有理由相信可能具有欺诈性的资金；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_g" xml:space="preserve">
+    <value>(g) 拒绝在调查中合作或者对您向 我们提供的身份或者任何信息进行确认；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_h" xml:space="preserve">
+    <value>(h) 在纠纷过程中试图通过从PlayToken和商户接收或者尝试接收来自相同的交易的资金 "重复收款" 。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_i" xml:space="preserve">
+    <value>(i) 使用匿名代理服务器；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_j" xml:space="preserve">
+    <value>(j) 控制与另一个参与任何这些受限制活动的PlayToken帐户相链接的PlayToken帐户。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_k" xml:space="preserve">
+    <value>(k) 以会引起或可能会引起投诉的方式从事您的业务或者使用服务，</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_l" xml:space="preserve">
+    <value>(l) 以PlayToken合理认为是对PlayToken系统的滥用或者违反电子支付和计费解决方案的方式使用您的PlayToken帐户或者服务。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_m" xml:space="preserve">
+    <value>(m) 从未包含在PlayToken的许可国家列表中的国家访问服务。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_n" xml:space="preserve">
+    <value>(n) 向第三方透露或分发用户信息，或者将信息用于营销目的 ，除非获得用户的明确同意。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_o" xml:space="preserve">
+    <value>(o) 向用户发送未经请求的电子邮件或者使用服务收款用于发送，或者协助向第三方发送 未经请求的电子邮件；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_p" xml:space="preserve">
+    <value>(p) 采取任何会对我们的基础设施造成不合理或不成比例的大负荷的行动；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_q" xml:space="preserve">
+    <value>(q) 助长可能会损坏、有害 编程 干扰、不正当截获或者侵占任何系统、数据，或者信息的病毒、木马、蠕虫，或者其它电脑程序；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_r" xml:space="preserve">
+    <value>(r) 未经我们的事先 书面许可，使用任何机器人、爬虫、其它自动设备，或者手动程序对我们的网站进行监控或者复制；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_s" xml:space="preserve">
+    <value>(s) 使用任何设备、软件或者程序绕开我们的机器人除外标头，或者干扰或尝试干扰 我们的网站或服务；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_t" xml:space="preserve">
+    <value>(t) 采取任何可能会导致我们失去我们的网络服务提供商、支付 处理商，或者其他供应商提供的任何服务。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers" xml:space="preserve">
+    <value>7. 免责声明</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_1" xml:space="preserve">
+    <value>7.1 本网站中包含的材料（包括文字、图片、图形、链接、声音文件、动画文件、视频文件，或者其它项目和它们的编排）均为 "依当时现状"，"可用性"提供。PlayToken不保证这些材料的准确性、充分性，或者完整性。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_2" xml:space="preserve">
+    <value>7.2  不对本文中包含或者与PlayToken相关的任何信息和材料提供任何类别的明示、暗示或法规性的保证，包括但不限于保证不会侵犯第三方的权利、不动产所有权、令人满意的质量、适销性，和针对任何特定目的的适合性，以及不会感染任何计算机病毒或其它恶意、毁灭性，或者损坏性编程或宏代码。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_3" xml:space="preserve">
+    <value>7.3 PlayToken 可能会附上技术上不准确或者包含排版印刷错误的出版物，并且，PlayToken会在发现这些错误时自行决定进行纠正。此外，我们还会定期对本文中包含的材料添加更改。这些纠正和更改可能会在日后结合到网站中。PlayToken 可能会在通知或者不通知的情况下不定时地对网站上显示的这些条款和条件以及材料（名称、图片、照片、徽标和图标）或者其中推荐的产品和服务进行修改、改进和/或更改。不得依赖通过本网站获得的建议制定个人、法律或者财务决策，您应咨询一名恰当的专业人士获取根据您的状况提供的特别建议。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4" xml:space="preserve">
+    <value>7.4 在任何情况下，PlayToken都不对由以下情况引起或者与之相关的任何损害、损失或开支负责，包括但不限于特别损害、连带损害，或者经济损失。 </value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_a" xml:space="preserve">
+    <value>(a) 对PlayToken服务的任何访问、使用，或者延迟或者无法访问或者使用，或者对所包含的与PlayToken服务相关的材料和/或任何其它信息的依赖；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_b" xml:space="preserve">
+    <value>(b) 任何系统、服务器或连接故障、错误、遗漏、中断、传输延迟，或者电脑 故障；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_c" xml:space="preserve">
+    <value>(c) 对与本 PlayToken.com 相链接的任何其它网站的任何使用或者访问；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_d" xml:space="preserve">
+    <value>(d) 从本 PlayToken.com 获取或者来自任何其它与本网站相链接的网站的任何服务、产品、信息、日期、软件，或者其它材料。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take" xml:space="preserve">
+    <value>8. 您的责任 - 我们可能采取的措施。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1" xml:space="preserve">
+    <value>8.1  PlayToken采取的措施。若您参与任何受限活动，我们可能会采取各种各样的措施以保护PlayToken、用户、第三方或者您不遭受任何索赔、费用、罚款、惩罚，以及承担任何其它义务。我们可能采取的措施包括但不限于如下：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_a" xml:space="preserve">
+    <value>(a) 我们可能会关闭、暂停，或者限制您访问您的PlayToken帐户或服务（例如：限制您使用您的任何游戏代币，以及进行游戏代币充值、购买，或者删除个人信息的能力）；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_b" xml:space="preserve">
+    <value>(b) 我们可能会更新您向我们提供的不准确信息；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_c" xml:space="preserve">
+    <value>(c) 我们可能会在未来拒绝向您提供我们的服务；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_d" xml:space="preserve">
+    <value>(d) 我们可能会对您提起法律诉讼。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_2" xml:space="preserve">
+    <value>8.2 PlayToken自行决定出于任何原因保留终止本协议、对其网站的访问、或者对服务的访问的权利。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_3" xml:space="preserve">
+    <value>8.3 PlayToken帐户关闭、服务终止，或者受限PlayToken帐户访问。如果我们出于任何原因关闭了您的PlayToken帐户或者终止您对我们的服务的使用，我们会通知您我们采取的行动。若我们限制您对您的PlayToken帐户的访问，我们会通知您我们采取的行动以及在恰当时请求恢复访问的机会。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_and_Unauthorized_Transactions" xml:space="preserve">
+    <value>9. 错误和未经授权交易。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.1  识别错误和/或未经授权交易。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>您可以随时在PlayToken网站登录您的PlayToken帐户，而后点击"历史"标签检查您的交易历史。若您有任何理由认为出现了以下活动，请务必立即告知PlayToken：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_a" xml:space="preserve">
+    <value>(a) 出现了从您的PlayToken帐户的未经授权交易；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_b" xml:space="preserve">
+    <value>(b) 出现了对您的PlayToken帐户的未经授权的访问；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_c" xml:space="preserve">
+    <value>(c) 您的PlayToken帐户密码被盗；</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_d" xml:space="preserve">
+    <value>(d) 有人未经您的许可使用您的PlayToken帐户转帐或者可能转帐。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.2 告知PlayToken错误和/或未经授权交易。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>若您认为您的PlayToken帐户出现或者将出现错误或者未经授权交易，请通过客户联系我们。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.3 对错误和/或未经授权交易报告进行审核。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_1" xml:space="preserve">
+    <value>我们会在收到您的通知后的两个工作日内告知您我们的调查结果。若我们 犯了错误，我们会立即纠正。不过，如果我们需要更多时间，我们可能会花多达7天的时间对您的投诉或疑问进行调查。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_2" xml:space="preserve">
+    <value>在调查结束后，我们会在两个工作日内告知您结果。若我们认为没有 任何错误，我们会向您发送一份书面解释。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_for_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.4  未经授权交易的责任。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_for_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>不受理由于对您的PlayToken帐户的不恰当访问（非常闯入、安全威胁、）相关的游戏代币或金钱的偿付。PlayToken帐户持有者将对保护个人PlayToken帐户的安全负全责。 </value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>9.5 错误。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_1" xml:space="preserve">
+    <value>若我们发现了处理错误，会对该错误进行纠正。若错误是由于对服务或商品的支付未扣除游戏代币而导致的，PlayToken会适当扣除该金额。若错误是由于扣除了游戏代币但未收到商品或服务而导致的，PlayToken会进行调查并向商户和用户提供相应的建议。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2" xml:space="preserve">
+    <value>若错误是由于我们未及时或者未以正确金额完成交易而导致的，我们会立即纠正错误，除非：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_a" xml:space="preserve">
+    <value>(a) 您没有足够可用游戏代币以完成交易，并且错不在我们，</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_b" xml:space="preserve">
+    <value>(b) 我们的系统没有恰当运行，并且，您在开始交易时已经知道这个问题，或者</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_c" xml:space="preserve">
+    <value>(c) 尽管我们采取了合理的防范措施，但是，超出我们控制范围的情况（例如：火灾、洪涝，或者网络连接中断）阻止了交易。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Disputes_with_PlayToken" xml:space="preserve">
+    <value>10. 与 PlayToken 的争端。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_PlayToken_First" xml:space="preserve">
+    <value>10.1 先与PlayToken联系。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_PlayToken_First_description" xml:space="preserve">
+    <value>若争端出现在您与PlayToken之间，我们会乐意提供帮助，对您进行指导以解决您的问题。此类争端仅涉及PlayToken服务，与商户服务无关。您与PlayToken之间关于我们的服务的争端可以向在线客服报告。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_the_Merchant" xml:space="preserve">
+    <value>10.2 联系商户。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_the_Merchant_description" xml:space="preserve">
+    <value>若争端出现在您与商户之间并且与他们的产品和服务相关，请直接联系商户获取建议。若争端涉及PlayToken服务，我们会立即帮助解决与用户和商户之间的争端。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Waiver" xml:space="preserve">
+    <value>10.3 不放弃权利。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Waiver_description" xml:space="preserve">
+    <value>我们未能就您或者其他人的违反行为采取措施并不代表我们放弃对随后或相关违反行为采取措施的权利。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Limitations_of_Liability" xml:space="preserve">
+    <value>10.4 责任范围。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Limitations_of_Liability_description" xml:space="preserve">
+    <value>在任何情况下，我们、我们的母公司、雇员，或者我们的供应商都不对由我们的网站、我们的服务，或者本协议造成的或者与之相关的利润损失或任何特殊、连带或者意外损害负责，无论发生原因是什么（包括疏忽）。在任何情况下，我们以及我们的母公司、雇员和供应商对您或者任何第三方的责任都仅限于实际直接损害的金额。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty" xml:space="preserve">
+    <value>10.5 不保证。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_1" xml:space="preserve">
+    <value>PlayToken，我们的母公司、雇员和我们的供应商是 "按当时现状"提供我们的服务的，不作出任何明确、暗示，或者法定保证或条件。PlayToken，我们的母公司、雇员和我们的供应商特别声明不对任何所有权，针对某一特定目的的适销性和适合性，以及非侵权性作出任何暗示保证。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_2" xml:space="preserve">
+    <value>PlayToken 对通过我们的服务支付的产品或服务不具有任何控制力，并且，PlayToken无法保证与您交易的买家或卖家实际上会完成交易。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_3" xml:space="preserve">
+    <value>PlayToken 不保证能够持续、不被中断，或者安全地访问我们的服务，并且，我们的网站可能会受到超出我们控制范围的众多因素的干扰。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_4" xml:space="preserve">
+    <value>PlayToken 会做出合理努力确保涉及PlayToken的实际刮刮卡以及商户的关于PlayToken的交易机制（电子支付）使用的请求和交易会得到及时处理，但是，PlayToken不对完成交易所需的时间作出陈述或者保证，因为我们的服务取决于我们控制范围之外的许多因素，如：PlayToken的网络提供商遇到的技术困难，用户的网络提供商，以及其他参与互联网功能性的网上第三方。有些国家不允许关于暗示保证的免责声明，因此，前述免责声明可能不适用于您。本段赋予特定法律权利，您也可能拥有其它法律权利，视国家的不同而不同。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Indemnification" xml:space="preserve">
+    <value>10.7 赔偿。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Indemnification_description" xml:space="preserve">
+    <value>您同意保护、赔偿，以及使PlayToken、其母公司、官员、主管和雇员不受由任何第三方因您违反本协议和/或您对这些服务的使用而造成或导致的任何索赔或请求（包括律师费用）的损害。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Complete_Agreement" xml:space="preserve">
+    <value>10.8 完整协议。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Complete_Agreement_description" xml:space="preserve">
+    <value>本协议规定了您与PlayToken之间关于本服务的完整理解。第1、7、10 和 14 节，以及其它任何本质上应存续，以及在本协议终止后仍然存续的条款。若本协议的任何规定为无效或者不可实施，则应划去该规定，并应实施其余的规定。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition" xml:space="preserve">
+    <value>11. 定义</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description" xml:space="preserve">
+    <value>关于用户协议：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken" xml:space="preserve">
+    <value>PlayToken：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayToken" xml:space="preserve">
+    <value>• GToken Pte Ltd 公司使用实际刮刮卡作为电子支付解决方法，替代 传统的信用卡或借记卡的使用。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Play_Tokens" xml:space="preserve">
+    <value>游戏代币：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayTokens" xml:space="preserve">
+    <value>• 游戏代币是使用PlayToken帐户和商户之间进行网上购买交易时使用的一种虚拟信用。游戏代币由 GToken Ltd.独家经营。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken_account" xml:space="preserve">
+    <value>PlayToken 帐户：</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayToken_account" xml:space="preserve">
+    <value>• 旨在使用PlayToken在网上对相关商户进行购买的用户必须注册PlayToken帐户。充入PlayToken帐户的游戏代币可用于进行网上支付。PlayToken 帐户可被视作网上电子帐户。</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchants" xml:space="preserve">
+    <value>商户</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_Merchants" xml:space="preserve">
+    <value>• 相关合作伙伴和商户可以申请PlayToken以使用我们的网上支付设施用于增进和推广他们的产品和服务。</value>
+    <comment>Term</comment>
+  </data>
+</root>

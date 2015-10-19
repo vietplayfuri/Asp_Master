@@ -1,0 +1,330 @@
+﻿@model GoPlay.Web.Models.InvoiceViewModel
+@using Platform.Utility
+@using Platform.Models
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PlayToken - Electronic Receipt</title>
+
+    <style media="screen" type="text/css">
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            margin: 0;
+            padding: 0;
+            font-family: Ubuntu, Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            position: relative;
+            z-index: 100;
+            background-color: #24252A;
+            box-shadow: 0px 1px 0px 0px rgba(40,43,48,0.9),0px 3px 8px 0px rgba(0,0,0,0.76);
+            padding: 20px 0px;
+        }
+
+        .row {
+            margin: 0 auto;
+            padding: 0;
+            max-width: 768px;
+            width: 100%;
+        }
+
+        .columns {
+            position: relative;
+            float: left;
+            padding: 0 16px;
+        }
+
+        .row .before,
+        .row .after {
+            content: '';
+            display: table;
+        }
+
+        .row .after {
+            clear: both;
+            width: 100%;
+        }
+
+        .content-container {
+            padding: 24px 0 70px;
+        }
+
+            .content-container h3 {
+                color: #b7b7b7;
+                font-size: 18px;
+                margin: 0;
+                font-weight: 500;
+            }
+
+                .content-container h3 i {
+                    color: #F4C916;
+                    font-style: normal;
+                    font-weight: 600;
+                }
+
+            .content-container h4 {
+                color: #b7b7b7;
+                font-size: 18px;
+                margin: 16px 0;
+                font-weight: 500;
+            }
+
+            .content-container p {
+                font-size: 14px;
+                color: #b7b7b7;
+                margin: 0;
+            }
+
+                .content-container p a {
+                    color: #518DB8;
+                    text-decoration: none;
+                }
+
+            .content-container .row .content table {
+                width: 100%;
+                background: #24252A;
+                border: 1px solid #676767;
+                border-collapse: separate;
+                border-spacing: 0;
+                table-layout: fixed;
+            }
+
+        thead,
+        tr {
+            height: 60px;
+            vertical-align: middle;
+        }
+
+            tr th,
+            tr td {
+                font-size: 14px;
+                color: #b7b7b7;
+                padding: 18px;
+            }
+
+                tr th strong,
+                tr td strong {
+                    color: #b7b7b7;
+                    font-weight: 600;
+                }
+
+            thead > tr:first-child th,
+            thead > tr:first-child td {
+                font-size: 16px;
+                font-weight: 600;
+                color: #b7b7b7;
+                padding: 16px;
+            }
+
+            tr:nth-child(odd) {
+                background: #24252A;
+            }
+
+            tr:nth-child(even) {
+                background: #323338;
+            }
+
+            tr:first-child {
+                border-top: none;
+            }
+
+        .other-info ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .other-info li {
+            display: inline;
+            padding-right: 30px;
+            color: #b7b7b7;
+        }
+
+        .sect-title-bar,
+        .sect-end-bar {
+            position: relative;
+            background-color: #373B42;
+            box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.50), inset 0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px 2px 6px 0px #4E5155;
+            display: block;
+        }
+
+        .sect-title-bar {
+            height: 46px;
+            padding: 12px 12px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        h6.sect-title {
+            color: #F2C737;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
+
+        .sect-end-bar {
+            height: 10px;
+        }
+
+        .sect-panel {
+            position: relative;
+            background: #17181B;
+            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50), inset 0px 1px 0px 0px #3C3C3C, inset 0px 2px 6px 0px rgba(0,0,0,0.50);
+            display: block;
+            padding: 20px 12px;
+        }
+
+        .other-info li strong {
+            font-weight: 600;
+        }
+
+        .other-info li span.status {
+            color: #66C85D;
+            text-transform: uppercase;
+        }
+
+        .other-info li:last-child strong {
+            color: #b7b7b7;
+            text-transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="row">
+            <div class="before">
+            </div>
+            <div class="large-12 columns">
+                <a href="@Model.mainUrl">
+                    <img src="@(Model.mainUrl + "/static/images/logo_img.png")" alt="">
+                </a>
+            </div>
+            <div class="after">
+            </div>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="row">
+            <div class="before">
+            </div>
+            <div class="large-12 columns content">
+                <div class="sect-title-bar">
+                    <h6 class="sect-title">@Resources.Resources.Invoice</h6>
+                </div>
+
+                <div class="sect-panel">
+                    <h3>Dear <i>@Model.payer.GetDisplayName()</i>,</h3>
+                    <p>Thank you for your business. This is an electronic receipt.</p>
+
+                    <div class="payer">
+                        <h4>Payer</h4>
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>@Model.payer.GetDisplayName()</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>@Model.payer.email</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="transactions">
+                        <h4>Transaction</h4>
+                        @if (@Model.transaction.payment_method == Helper.GetDescription(PaymentMethod.PayPal))
+                        {
+                            <table>
+                                <tr>
+                                    <td>Issue Date</td>
+                                    <td>@Model.transaction.created_at.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td>Payment Mode</td>
+                                    <td>@Model.transaction.payment_method</td>
+                                </tr>
+                                <tr>
+                                    <td>Item Name</td>
+                                    <td>@Model.package.name</td>
+                                </tr>
+                                <tr>
+                                    <td>Transaction ID</td>
+                                    <td>@Model.transaction.order_id</td>
+                                </tr>
+                                <tr>
+                                    <td>Item Price</td>
+                                    <td>@(Model.package.price.HasValue ? Model.package.price.Value.ToString("#.##") : "0") @Model.package.currency</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Play Token</td>
+                                    <td>@Helper.displayDecimal(Model.transaction.amount.HasValue?Model.transaction.amount.Value:0) Play Token</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Price</strong></td>
+                                    <td>@(Model.package.price.HasValue ? Model.package.price.Value.ToString("#.##") : "0") @Model.package.currency</td>
+                                </tr>
+                            </table>
+                        }
+                        else if (Model.transaction.payment_method == Helper.GetDescription(PaymentMethod.TopUpCard))
+                        {
+                            <table>
+                                <tr>
+                                    <td>Issue Date</td>
+                                    <td>@Model.transaction.created_at.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td>Payment Mode</td>
+                                    <td>@Model.transaction.payment_method</td>
+                                </tr>
+                                <tr>
+                                    <td>Card Number</td>
+                                    <td>@Model.topupCard.card_number</td>
+                                </tr>
+                                <tr>
+                                    <td>Card Password</td>
+                                    <td>@Model.topupCard.card_password</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Play Token</td>
+                                    <td>@Helper.displayDecimal(Model.transaction.amount.HasValue ? Model.transaction.amount.Value : 0) Play Token</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Price</strong></td>
+                                    <td>@(Model.transaction.price.Value.ToString("#.##")) @Model.topupCard.currency</td>
+                                </tr>
+                            </table>
+                        }
+                    </div>
+                    <p>
+                        Please kindly contact
+                        @*//TODO: change to playtoken in this page*@
+                        <a href="mailto:support@goplay.la">support@goplay.la</a>
+                        if you have any questions or concerns.
+                        Please be sure to forward this email as well to expedite processing of your request.
+                        <br><br>
+                        Thank You!
+                        <br>
+                        PlayToken
+                        <br>
+                        For Play For Happiness For People
+                        <br>
+                        <a href="@Model.mainUrl">@Model.mainUrl</a>
+                    </p>
+                </div>
+                <div class="sect-end-bar">
+                </div>
+            </div>
+            <div class="after">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+@import "partials/color";
+@import "partials/typography";
+
+body {
+    background: black;
+}
+
+.sect-title-bar,
+.sect-end-bar {
+    position: relative;
+    background-image: linear-gradient(0deg, #41444F 0%, #2E3337 100%);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.50), 
+                inset 0px 0px 2px 0px rgba(0,0,0,0.50), 
+                inset 0px 2px 6px 0px #4E5155;
+    display: block;
+}
+
+.sect-title-bar {
+    height: 46px;
+    padding: 12px 12px;
+    box-sizing: border-box;
+    z-index: 1; 
+    h6, p {
+        display: inline;
+    }
+    p {
+        font-weight: 600;
+    }
+    a {
+        float: right;
+    }
+    &:after {
+        content:'';
+        display:block;
+        clear: both;
+    }
+}
+
+.sect-end-bar {
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.sect-panel {
+    position: relative;
+    background: $panel-grey;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50), 
+                inset 0px 1px 0px 0px #3C3C3C,
+                inset 0px 2px 6px 0px rgba(0,0,0,0.50);
+    display: block;
+    &:after {
+        content:'';
+        display:block;
+        clear: both;
+    }
+}
+
+.sect-panel.no-title {
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50), 
+                inset 0px 1px 0px 0px #3C3C3C,
+                inset 0px 0px 0px 0px rgba(0,0,0,0.0);
+}
+
+.sect-panel > div {
+    margin: 16px auto 20px; 
+}
+
+.sect-panel > div  h1 {
+    display: inline-block;
+    font-size: 3.5rem;
+    margin: 0 5px;
+}
+
+.sect-panel > div img {
+    display: inline-block;
+    vertical-align: -8px;
+}
+
+img.loading-icon {
+    animation: loadingIcon linear 1s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    -webkit-animation: loadingIcon linear 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-animation: loadingIcon linear 1s;
+    -moz-animation-iteration-count: infinite;
+    -moz-transform-origin: 50% 50%;
+    -o-animation: loadingIcon linear 1s;
+    -o-animation-iteration-count: infinite;
+    -o-transform-origin: 50% 50%;
+    -ms-animation: loadingIcon linear 1s;
+    -ms-animation-iteration-count: infinite;
+    -ms-transform-origin: 50% 50%;
+}
+
+@keyframes loadingIcon {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@-moz-keyframes loadingIcon {
+    0% {
+        -moz-transform: rotate(360deg);
+    }
+    100% {
+        -moz-transform: rotate(0deg);
+    }
+}
+
+@-webkit-keyframes loadingIcon {
+    0% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@-o-keyframes loadingIcon {
+    0% {
+        -o-transform: rotate(360deg);
+    }
+    100% {
+        -o-transform: rotate(0deg);
+    }
+}
+
+@-ms-keyframes loadingIcon {
+    0% {
+        -ms-transform: rotate(360deg);
+    }
+    100% {
+        -ms-transform: rotate(0deg);
+    }
+}
+
+
+.container {
+    width: 380px;
+    margin: 0 auto;
+    > a {
+        text-align: center;
+        display: block;
+        margin: 76px auto 30px auto;
+    }
+    > div {
+        width: 380px;
+        position: relative;
+        text-align: center;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        &.sect-panel {
+            padding: 12px;
+        }
+        &.error5 {
+            h1, img {
+                -ms-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #b7b7b7;
+        }
+    }
+    p {
+        text-align: center;
+        color: #676767;
+        a {
+            text-decoration: underline;
+            color: #676767;
+            &:hover {
+                color: #b7b7b7;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .container {
+        width: auto;
+        div {
+            width: auto;
+        }
+    }
+}
+
+@media only screen and (max-width: 26em) {
+    .container {
+        p {
+            padding: 0 10px;
+            br {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <br />
+    <br />
+    <a href="@Url.Action("CampaignList", "Referral", new { Area="Admin" })">Manage Campaign</a>
+    <br />
+    <a href="@Url.Action("DownloadHistory", "Referral", new { Area = "Admin" })">Download history</a>
+    <br />
+    <a href="@Url.Action("ImportReferral", "Referral", new { Area = "Admin"})">Import Referral List</a>
+</div>
+

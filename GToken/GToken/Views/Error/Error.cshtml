@@ -1,0 +1,30 @@
+﻿@using Resources
+@{
+    ViewBag.Title = Resources.Something_is_wrong;
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+}
+@section header{
+    <div class="row">
+        <div class="medium-6 medium-offset-3 columns">
+            <h1 class="top-logo"><a href="@Url.Action("index", "main")" title="GToken @Resources.Home_page"><img src="/static/images/header_logo.png" alt="GToken"></a></h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="large-6 large-offset-3 medium-8 medium-offset-2 columns">
+        <div class="panel large">
+            <form class="row">
+                <div class="columns medium-12">
+                    <h3 class="form-header error-title">@Resources.Error</h3>
+                    <img src="/static/images/500.png">
+                    <p>
+                        @Resources.Really_sorry_system_problem<br>
+                        @Resources.Please_try_again_later
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

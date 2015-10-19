@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Transaction;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using GToken.Web.Models
+@model GToken.Web.Models.TransactionsPaging
+
+<section class="main-section">
+    <div class="row">
+        @Html.Partial("~/Views/Account/_account_info.cshtml")
+        <div class="large-8 columns">
+            @Html.Partial("~/Views/transaction/_history.cshtml", @Model)
+        </div>
+    </div>
+</section>
+

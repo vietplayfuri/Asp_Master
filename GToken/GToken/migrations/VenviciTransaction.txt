@@ -1,0 +1,4 @@
+﻿'''''''''''''''''''''''
+12-10-2015
+'''''''''''''''''''''''
+ALTER TABLE venvici_transaction add COLUMN gtoken_add_amount numeric(16,3);

@@ -1,0 +1,105 @@
+@model GoPlay.Web.Models.TransactionViewModel
+
+<section class="exchange-panel sect-panel" ng-show="showExchangePanel">
+    <script>
+        var validGamesID = @Json.Encode(Model.games.Select(x=>x.id).ToList());
+        var gameID = "@Request.Params["game-id"]";
+
+        var exchangeOption = "@Request.Params["exchange-option"]";
+        var exchangeOptionID = "@Request.Params["exchange-option-id"]";
+
+        var exchangeAmount = "@Request.Params["amount"]";
+    </script>
+
+    <a class="close-panel" href=""
+       ng-click="changeTransactionState($event)"
+       data-pushstate-url="/"></a>
+    <h3>@Resources.Resources.Exchange</h3>
+    <section class="exchange" ng-controller="ExchangeCtrl">
+        <p>@Resources.Resources.Exchange_panel_Exchange_your_play_token</p>
+        <input placeholder="@Resources.Resources.Search_games" class="search-game" ng-model="searchTerm" ng-keydown="selectGame($event)" />
+        <div class="game-type">
+            <p class="all left {$ !promotionTab ? 'active': '' $}" ng-click="switchTab(false)">All</p>
+            <p class="promotions left {$ promotionTab ? 'active': '' $}" ng-click="switchTab(true)">
+                <span>Promotions</span>
+            </p>
+        </div>
+        <div class="result-filter topfilter"></div>
+        <ul id="game-result" class="dim-content" slim-scroll="scrollBigGuy" height="288">
+            <p ng-show="!gameList.length">No results</p>
+            <li ng-repeat="game in gameList" class="{$ game.isActive? 'active': '' $} {$game.selected ? 'selected' : ''$}" ng-show="showAll || game.isActive">
+                <a href="#" class="game-icon" ng-click="gameClickHandler(game)">
+                    <img ng-src="{$ game.icon_filename $}" alt="" class="game-icon">
+                    <div class="game-desc">
+                        <p class="game-name">{$game.name$}</p>
+                        <p class="studio" title="{$ game.studio $}">{$ game.studio $}</p>
+                    </div>
+                    <span class="promo right" ng-show="game.promotion.code">
+                        <img alt="promotions-icon" src="/static/images/oval.png" />
+                        promo
+                    </span>
+                </a>
+                <div class="arrow-down"></div>
+                <div class="result-filter topfilter exchange" ng-show='game.isActive'></div>
+                <ul class="game-exchange" ng-show="game.isActive && !displayConfirm" slim-scroll="true" height="200">
+                    <p class="inform" ng-if="game.gameExchange.Credit.length">Please input Gold or Gem amount <br />for desired package</p>
+                    <li ng-repeat="exchange in game.gameExchange.Credit">
+                        <img class="exchange-icon" ng-src="{$ exchange.icon_filename $}" alt="Exchange package">
+                        <a class="nml-button purchase {$ exchange.message === '' && exchange.number > 0? 'validated': '' $}" href="#" ng-click="selectExchange(exchange)" ng-show="exchange.message === '' && exchange.number > 0">
+                            {$ Math.round(exchange.number/exchange.exchange_rate * 1000)/1000 $}
+                            <img class="token-icon" src="/static/images/small-gtoken.png" alt="">
+                        </a>
+                        <input ng-change="validateNumber(exchange)"
+                               ng-model="exchange.number" class="number" name="number" placeholder="{$ exchange.exchange_rate $} {$ exchange.name $} = 1 Play Token" />
+                        <br />
+                        <span class="error" ng-show="exchange.message">{$ exchange.message $}</span>
+                        <div class="clearfix"></div>
+                    </li>
+                    <li ng-repeat="exchange in game.gameExchange.Package">
+                        <img class="exchange-icon" ng-src="{$ exchange.icon_filename $}" alt="Exchange package">
+                        <div class="wrap-package-name">
+                            <p class="package-name">{$ exchange.name $}</p>
+                        </div>
+                        <a class="nml-button purchase" href="#" ng-click="validateNumber(exchange);">
+                            {$ exchange.play_token_value $}
+                            <img class="token-icon" src="/static/images/small-gtoken.png" alt="">
+                        </a>
+                        <br />
+                        <div class="clearfix"></div>
+                        <span class="error" ng-show="exchange.message">{$ exchange.message $}</span>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </li>
+            <div class="confirm-exchange" ng-show="displayConfirm">
+                <p ng-show="!showLoading && !showExchangeSuccess">
+                    Are you sure want to exchange <span class="bold">{$ selectedExchange.play_token_value || Math.round(selectedExchange.number/selectedExchange.exchange_rate * 1000)/1000 $} Play Token</span>
+                    for <span class="bold">{$ selectedExchange.name $}?</span>
+                    <br /><br>
+                    <a class="nml-button confirm" ng-click="displayConfirm = false" onclick="ga('send', 'pageview', {page: '/virtual/exchange-cancel', title: 'Exchange Item Cancel'});">Cancel</a>
+                    <a class="g-nml-button confirm" ng-click="submit();" onclick="ga('send', 'pageview', {page: '/virtual/exchange-confirm',  title: 'Exchange Item Confirm'});">Yes</a>
+                </p>
+            </div>
+            <p ng-show="showLoading">
+                <img class="loading-icon" src="/static/images/loading_icon.png" alt="">
+            </p>
+            <p class="exchange-success" ng-show="showExchangeSuccess">
+                Exchange success! <br /><br />
+                <img src="/static/images/check_icon.png" alt="check-icon">
+            </p>
+        </ul>
+
+        <div class="result-filter bottomfilter"></div>
+        <div class="warning">{$ exchangeError $}</div>
+        <div class="promotion-panel" ng-show="selectedGame.promotion.code">
+            <p class="header"><span class="pri-yellow">{$ selectedGame.promotion.name $}</span> PROMOTION!</p>
+            <p class="time">{$ selectedGame.promotion.start_at*1000 | date : 'dd MMM' $} - {$ selectedGame.promotion.end_at*1000 | date : 'dd MMM' $}</p>
+            <p class="details">{$ selectedGame.promotion.description $}</p>
+            <div class="progress-bar-wrap inset">
+                <div class="progress-bar" style="width:{$ selectedGame.promotion.progress/selectedGame.promotion.threshold * 100 $}%"></div>
+            </div>
+        </div>
+    </section>
+
+    @Html.Partial("~/Views/Transaction/_progress_indicator.cshtml")
+</section>

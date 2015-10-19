@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1738637-605C-4B46-BC5C-B379A09823F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Platform.Models</RootNamespace>
+    <AssemblyName>Platform.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="ConstantValues.cs" />
+    <Compile Include="ErrorCodes.cs" />
+    <Compile Include="Messages.cs" />
+    <Compile Include="Models\ActiveGamerScheme.cs" />
+    <Compile Include="Models\ApiLog.cs" />
+    <Compile Include="Models\AuthAction.cs" />
+    <Compile Include="Models\AuthRole.cs" />
+    <Compile Include="Models\CoinTransaction.cs" />
+    <Compile Include="Models\CreditTransaction.cs" />
+    <Compile Include="Models\CustomerAccounts.cs" />
+    <Compile Include="Models\CustomerLoginOAuth.cs" />
+    <Compile Include="Models\CustomerLoginPassword.cs" />
+    <Compile Include="Models\ExternalExchange.cs" />
+    <Compile Include="Models\FreeCoinTransaction.cs" />
+    <Compile Include="Models\Friend.cs" />
+    <Compile Include="Models\GameAccessToken.cs" />
+    <Compile Include="Models\GCoinTransaction.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\Package.cs" />
+    <Compile Include="Models\ImportReferralHistory.cs" />
+    <Compile Include="Models\RecordDownloadHistory.cs" />
+    <Compile Include="Models\ReferralCampaign.cs" />
+    <Compile Include="Models\PartnerAccount.cs" />
+    <Compile Include="Models\PayPalPreApproval.cs" />
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\TokenTransaction.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\VenviciModel.cs" />
+    <Compile Include="Models\VenviciTransaction.cs" />
+    <Compile Include="Models\VerificationToken.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="Models\Studio.cs" />
+    <Compile Include="Models\StudioAdminAssignment.cs" />
+    <Compile Include="Models\TopupCard.cs" />
+    <Compile Include="Models\UserNotification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GToken.Utility\Platform.Utility.csproj">
+      <Project>{0da1defb-0e51-4148-92c6-13bf0453636f}</Project>
+      <Name>Platform.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

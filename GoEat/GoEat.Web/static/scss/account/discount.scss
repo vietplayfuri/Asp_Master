@@ -1,0 +1,30 @@
+﻿@import "settings";
+@import "foundation";
+@import "partials/base";
+
+body {
+}
+
+.main-container {
+    height: auto;
+}
+
+.discount {
+    width: 100%;
+    opacity: 0.9;
+    background-color: $pri-white;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+}
+
+.discount h4 {
+    color: #000;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.discount .qrcode {
+    margin: auto;
+    max-width: 31.25em;
+}

@@ -1,0 +1,763 @@
+@import "partials/color";
+@import "partials/buttons";
+@import "partials/typography ";
+
+// Game Detail Page Style ******************************************** //
+
+.game-detail-container {
+    @include grey-bg;
+    padding: 60px 0 90px 0;
+}
+
+.game-intro {
+    margin-bottom: 36px;
+}
+
+span.platform {
+    display: none;
+    a {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border: 2px solid $sub-grey;
+        &:hover {
+            opacity: 0.7;
+        }
+        &:first-child {
+            position: relative;
+            right: 2px;
+        }
+    }
+    .ios-plat {
+        background: url(/static/images/ios-icon.png) no-repeat 50% 40%;
+    }
+    .andr-plat {
+        background: url(/static/images/andr-icon.png) no-repeat 50% 54%;
+    }
+}
+
+.page-links-wrap {
+    .page-links {
+        a {
+            @include upper-font(700, 1.25rem, $sub-darkblue);
+            &:first-child:after {
+                content: url(/static/images/descend-icon.png);
+                vertical-align: middle;
+                padding-left: 4px;
+            }
+        }
+    }
+}
+
+.game-cover {    
+    .cover-img {
+        display: block;
+        height: 172px;
+        width: 100%;
+        margin-top: 26px;
+        -moz-box-shadow:    0px 0px 4px 0px rgba(0,0,0,0.20);
+        box-shadow:         0px 0px 4px 0px rgba(0,0,0,0.20);
+        img:not(.upcoming-game) {
+            height: 172px;
+            width: 100%;
+        }
+        img.upcoming-game {
+            top: 18px;
+        }
+        p.upcoming-text {
+            top: 71px;
+        }
+    }
+}
+
+.intro-info {
+    padding-top: 18px;
+}
+
+.game-title-intro {
+    h2 {
+        @include upper-font(700, 3rem, $pri-yellow);
+        line-height: 40px;
+        display: inline-block;
+    }
+    p , a {
+        font-size: 1.125rem;
+        color: $sub-darkblue;
+    }
+    a:hover {
+        opacity: 0.7;
+    }
+    p {
+        margin-bottom: 3px;
+        font-weight: 300;
+        > a {
+            font-weight: 400;
+        }
+    }
+    .platform {
+        margin-left: 14px;
+    }
+    
+    &.has-warning {
+        margin-bottom: -22px;
+        p.warning {
+            color: $pri-red;
+            font-size: 1rem;
+            font-weight: 600;
+            display: block;
+        }
+    }
+    p.warning {
+        display: none;
+    }
+
+}
+
+.game-action-intro {
+    ul {
+        margin: 28px 0 0;
+        list-style-type: none;
+        li {
+            display: inline-block;
+            padding: 0 16px;
+            border-right: 2px solid $sub-grey; 
+            height: 50px;
+            vertical-align: top; 
+        }
+        .game-download {
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+            a.game-download-link.button.split {
+                top: 0;
+                padding: 0;
+                background-color: none;
+                z-index: 99;
+                margin-bottom: 0;
+                span.red-noti {
+                    width: 23px;
+                    height: 23px;
+                    position: absolute;
+                    display: block;
+                    background-color: $pri-red;
+                    border-radius: 30px;
+                    top: -10px;
+                    right: -10px;
+                    border: none;
+                    &:after {
+                        background: none;
+                        border: none;
+                        content: "!";
+                        font-weight: 700; 
+                        font-size: 1rem;
+                        top: 1px;
+                        left: 15px;
+                    }
+                    &:hover {
+                        background-color: darken($pri-red,10%);
+                    }
+                }
+                & ~ ul.f-dropdown {
+                    color: white;
+                    margin-top: 10px;
+                    width: 500px;
+                    height: auto;
+                    border-radius: 4px;
+                    background-color: $sub-darkblue;
+                    border: none;
+                    padding: 1rem;
+                    &:before,
+                    &:after {
+                        border-color: transparent transparent $sub-darkblue transparent;
+                    }
+                    li {
+                        padding: 0;
+                        border-bottom: none;
+                        border-right: none;
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        z-index: 100;
+                        font-size: 0.875rem;
+                        &:hover,
+                        &:focus {
+                            background-color: $sub-darkblue !important;
+                        }
+                        a {
+                            border: none;
+                            width: auto;
+                            height: auto;
+                            display: inline;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            a.game-download-link {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                margin-right: 16px;
+                border-radius: 5px;
+                border: 2px solid $sub-darkblue;
+                -webkit-transition: all 0.25s cubic-bezier(1,0,0.5,1);
+                transition: all 0.25s cubic-bezier(1,0,0.5,1);
+                -moz-transition: all 0.25s cubic-bezier(1,0,0.5,1);
+                &:hover {
+                    border-color: $pri-yellow;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            a.appstore {
+                background: url(/static/images/game-app-store.png) no-repeat -2px -2px;
+                &:hover {
+                    background: url(/static/images/game-app-store.png) no-repeat -2px -53px $pri-yellow;
+                }
+            }
+            a.android {
+                background: url(/static/images/game-google-play.png) no-repeat -2px -2px;
+                &:hover {
+                    background: url(/static/images/game-google-play.png) no-repeat -2px -53px $pri-yellow;
+                }
+            }
+            a.pc {
+                background: url(/static/images/game-pc-download.png) no-repeat -2px -2px;
+                &:hover {
+                    background: url(/static/images/game-pc-download.png) no-repeat -2px -53px $pri-yellow;
+                }
+            }
+            a.apk {
+                background: url(/static/images/game-apk-download.png) no-repeat -2px -2px;
+                &:hover {
+                    background: url(/static/images/game-apk-download.png) no-repeat -2px -53px $pri-yellow;
+                }
+            }
+        }
+        
+        li.warning-line {
+            display: none;
+        }
+        
+        .star-container {
+            display: none;
+            .star-rating {
+                position: relative;
+                width: 170px;
+                height: 24px;
+                background: url(/static/images/stars-nonrate.png) repeat scroll 0% 0% transparent;
+                background-clip: border-box;
+                background-origin: padding-box;
+                .current-rating {
+                    display: block;
+                    position: absolute;
+                    width: 50%;
+                    height: 24px;
+                    background: url(/static/images/stars-rate.png) repeat scroll left bottom transparent;
+                }
+            }
+            .rating-count {
+                p {
+                    text-align: center;
+                    margin-bottom: 0;
+                    position: relative;
+                    top: 8px;
+                }
+            }
+        }
+
+        .support-links {
+            border-right: none;
+            a {
+                color: $sub-darkblue;
+                font-size: 1.25rem;
+                display: block;
+                position: relative;
+                top: 12px;
+                &:hover {
+                    opacity: 0.7;
+                }
+                &:after {
+                    content: url(/static/images/out-link.png);
+                    padding-left: 6px;
+                }
+                &:first-child {
+                    margin: -5px 0 2px; 
+                }
+            }
+        }
+
+    }
+}
+
+.game-screenshot {
+    background: #EBEBEB;
+    -moz-box-shadow:    inset 0px 0px 4px 0px rgba(0,0,0,0.26);
+    box-shadow:         inset 0px 0px 4px 0px rgba(0,0,0,0.26);
+    padding: 40px 0;
+    height: auto;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 0;
+    ul {
+        margin: 0;
+        list-style-type: none;
+        white-space: nowrap;
+        overflow: visible;
+        li {
+            display: inline;
+            margin-right: 32px;
+                img {
+                -moz-box-shadow:    0px 0px 5px 0px rgba(0,0,0,0.36);
+                box-shadow:         0px 0px 5px 0px rgba(0,0,0,0.36);
+                display: inline;
+            }
+        }
+    }
+}
+
+.game-additional-info {
+    padding-top: 30px;
+    h5 {
+        font-weight: 600;
+        color: $sub-darkblue;
+        margin-bottom: 4px;
+    }
+}
+
+br.clear-fix {
+    clear: both;
+}
+
+.statistic {
+    width: 90%;
+    ul {
+        margin: 0;
+        list-style-type: none;
+        li {
+            font-size: 1.125rem;
+            color: $sub-darkblue;
+            font-weight: 300;
+            padding: 16px 0 16px 0;
+            border-bottom: 1px solid $pri-lightgrey;
+            span {
+                display: inline-block;
+                font-weight: 400;
+                float: right;
+                width: 50%;
+                text-align: right;
+                -ms-word-break: break-all;
+                word-break: break-all;
+                word-break: break-word; /* Non standard for webkit */
+                -webkit-hyphens: auto;
+                -moz-hyphens: auto;
+                hyphens: auto;
+                a {
+                    display: inline-block;
+                }
+            }
+            .app-icon {
+                float: left;
+                text-align: left;
+                width: 100%;
+                img {
+                    vertical-align: top;
+                    margin-bottom: 8px;
+                    display: inline-block;
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 16px;
+                }
+                .app-name {
+                    display: inline-block;
+                    margin-left: 8px;
+                    padding-top: 8px;
+                    width: 70%;
+                    a {
+                        font-size: 1.125rem;
+                        color: $sub-darkblue;
+                        display: block;
+                        margin-bottom: -2px;
+                        line-height: 24px;
+                    }
+                    a:first-child {
+                        font-weight: 600;
+                    }
+                }
+            }
+            //.platform {
+            //    width: 25%;
+            //    margin-bottom: -9px;
+            //}
+        }
+    }
+}
+
+.recommendation {
+    display: none;
+    h5 {
+        margin-bottom: 20px;
+    }
+    padding-top: 30px;
+    .recom-game {
+        margin-top: 20px;
+        img {
+            -moz-box-shadow:    0px 0px 5px 0px rgba(0,0,0,0.36);
+            box-shadow:         0px 0px 5px 0px rgba(0,0,0,0.36);
+        }
+        .recom-game-name {
+            display: inline-block;
+            margin-left: 10px;
+            a {
+                color: $sub-darkblue;
+                display: block;
+                position: relative;
+            }
+            a:first-child {
+                font-weight: 600;
+                font-size: 1.125rem;
+                top: -4px;
+            }
+            a:nth-child(2) {
+                font-size: 1rem;
+                font-weight: 300;
+                top: -6px; 
+            }
+            .platform a {
+                top: -2px;
+            }
+        }
+    }
+    .recom-game:first-child {
+        margin-top: none;
+    }
+}
+
+.game-description {
+    section {
+        border-bottom: 1px solid $pri-lightgrey;
+        padding-bottom: 26px;
+        h5 {
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 1rem;
+            color: $pri-grey;
+            line-height: 20px;
+            margin-bottom: 0;
+        }
+        a {
+            color: $pri-blue;
+            &:hover {
+                color: darken($pri-blue, 5%);
+            }
+        }
+        .intro-text {
+            .fadeout {
+                display: none;
+            }
+        }
+        .intro-text.collapsed {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 240px;
+            position: relative;
+            .fadeout {
+                background: url('/static/images/grey-texture-transparent.png') repeat-x;
+                background-size: contain;
+                bottom: 0;
+                display: block;
+                height: 60px;
+                position: absolute;
+                width: 100%;
+            }
+        }
+        .toggle-collapse-button {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    }
+    section:not(.introduction) {
+        padding-top: 20px;
+    }
+    section:last-child {
+        border-bottom: none;
+    }
+    .lasted-ver {
+        h5 i {
+            font-style: normal;
+            font-weight: 300;
+        }
+    }
+}
+
+
+
+@-moz-document url-prefix() {
+
+
+}
+
+
+//Style for viewport max-width 1120px - 70em
+
+@media only screen and (max-width: 70em) {
+
+
+}
+
+// Style for viewport max-width 1024px // Standard Tablet
+
+@media only screen and (max-width: 64em) {
+
+    .statistic {
+        width: 100%;
+    }
+
+    .recommendation {
+        display: none;
+    }
+
+    .introduction {
+        padding-top: 24px;
+    }
+    .game-cover {
+        .cover-img {
+            height: auto;
+            width: 100%;
+            margin-top: 26px;
+            background: none; 
+            img:not(.upcoming-game) {
+                visibility: visible;
+                height: auto;
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+// Style for viewport max-width 640px
+
+@media only screen and (max-width: 40em) {
+
+    .game-title-intro {
+        h2 {
+            @include upper-font(700, 2.25rem, $pri-yellow);
+        }
+    }
+
+    .intro-info {
+        padding-top: 24px;
+    }
+
+    .game-action-intro {
+        ul {
+            li {
+                padding: 0 10px;
+            }
+            .game-download a:first-child {
+                img {
+                    margin-right: 6px;
+                }
+            }
+        }
+    }
+
+}
+
+// Style for viewport max-width 540px
+
+@media only screen and (max-width: 33.75em) {
+
+    .game-title-intro {
+        text-align: center;
+        &.has-warning {
+            margin-bottom: 0;
+            p.warning {
+                display: none;
+            }
+        }
+    }
+
+    .game-action-intro {
+        ul {
+            text-align: center;
+            li.game-download.has-warning {
+                border-bottom: none;
+                padding-bottom: 66px;
+            }
+            li.warning-line {
+                display:none;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                border: 2px solid $pri-red;
+                border-radius: 5px;
+                height: auto;
+                p {
+                    color: $pri-red;
+                    margin-bottom: 0;
+                }
+                &.display {
+                    display:block;
+                }
+            }
+            li {
+                display: inline-block;
+                padding: 0;
+                border-right: none;
+                border-bottom: 1px solid $pri-lightgrey; 
+                padding-bottom: 76px;
+                width: 100%;
+            }
+            li:not(.game-download) {
+                margin-top: 6px;
+            }
+            .game-download {
+                a {
+                    display: inline-block;
+                    img {
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .star-container {
+                .star-rating {
+                    margin: 0 auto;
+                }
+            }
+
+            .support-links {
+                text-align: center;
+                padding-bottom: 0;
+                border-bottom: none;
+                a {
+                    display: inline;
+                    margin: 10px;
+                }
+            }
+
+        }
+    }
+
+}
+
+// Style for 480px width
+
+@media only screen and (max-width: 30em) {
+
+    .page-links-wrap {
+        .page-links {
+            padding-left: 0.9375rem;
+        }
+    }
+
+    .game-cover {
+        padding-left: 0;
+        padding-right: 0;
+        .cover-img {
+            img.upcoming-game {
+                top: 18px;
+                left: -9px;
+            }
+            p.upcoming-text {
+                left: -20px;
+            }
+        }
+    }
+
+    .game-action-intro {
+        .game-download {
+            a:last-child {
+                img {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    .game-screenshot {
+        height: auto;
+    }
+
+}
+
+// Style for 400px width
+
+@media only screen and (max-width: 25em) {
+
+    .game-action-intro {
+        ul {
+            li {
+                width: 100%;
+            }
+            .game-download a:first-child {
+                img {
+                    margin-right: 0px;
+                }
+            }
+            // .game-download a:last-child {
+            //     margin-left: -4px;
+            // }
+            // .game-download a img {
+            //     width: 90%;
+            // }
+        }
+    }
+
+}
+
+// Style for Smartphone
+
+            
+@media only screen and (max-width: 370px) {
+    .game-action-intro {
+        ul {
+            li.game-download.has-warning {
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 23.125em) {
+    
+    .game-action-intro {
+        ul {
+            .game-download {
+                height: auto;
+                padding: 0 0 30px;
+                a.game-download-link {
+                    margin-right: 8px;
+                }
+                a {
+                    display: block;;
+                    img {
+                        width: auto;
+                    }
+                }
+                // a:first-child {
+                //     margin-bottom: 10px;
+                //     margin-right: 0;
+                // }
+                // a:last-child {
+                //     margin-left: 0;
+                // }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 20em) {
+
+
+
+}
+
+

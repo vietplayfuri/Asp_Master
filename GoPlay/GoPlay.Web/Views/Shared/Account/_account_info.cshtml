@@ -1,0 +1,135 @@
+﻿@using Resources;
+@using Platform.Models;
+@{
+    var user = Html.GetCurrentUser();
+    var nick_max = ConstantCommon.NICKNAME_MAX_LENGTH;
+    var bio_max = ConstantCommon.BIO_MAX_LENGTH;
+    
+}
+<div class="large-4 columns basic-info">
+    <div class="sect-title-bar">
+        <h6 class="sect-title">@Resources.Basic_Info</h6>
+    </div>
+    <script>
+        var profile = @Html.Raw(Json.Encode(user));
+    var nicknameMaxLength = @nick_max;//{{ config['NICKNAME_MAX_LENGTH'] }};
+        var bioMaxLength = @bio_max;//{{ config['BIO_MAX_LENGTH'] }};
+    </script>
+    <div class="sect-panel" ng-controller="ProfileInfoCtrl" ng-init='init()'>
+        <div class="user-basic" ng-show="showEditProfileInfoPanel==false">
+            @if (!string.IsNullOrEmpty(user.bio))
+            {
+                <p class="user-intro">@user.bio</p>
+            }
+            <ul class="info-list">
+                @{
+                    var flag_src = "/static/images/flags/64/" + user.country_code.ToLower() + ".png";
+                }
+                <li>@Resources.Location<span><img src='@flag_src' />@user.country_name</span></li>
+                <li>@Resources.Join_Date<span>@user.create_at.ToString("MMM d,")@(user.create_at.Year)</span></li>
+                <li>
+                    @Resources.Referee
+                    <span>
+                        @if (!string.IsNullOrEmpty(user.inviter_username))
+                        {
+                            <a class="referee-name" href="account/profile?userId=@(GoPlay.Web.Helpers.UserHelper.GetIdByUsername(user.inviter_username))">
+                                @user.inviter_username
+                                <img src="@user.inviterAvatarUrl" alt="">
+                            </a>
+                        }
+                        else
+                        {
+                           
+                            @Resources.None
+                        }
+
+                    </span>
+                </li>
+            </ul>
+            <a class="b-nml-button addfriend" href="" ng-click="showEditProfile()">@Resources.Edit_Profile</a>
+            <ul class="account-setting">
+                <li class="referral-link" ng-init="showReferralLink = false">
+                    @Resources.Referral_Link
+                    <span>
+                        <a id="show-referral-link" class="toggle-referral-link nml-link"
+                           ng-show="!showReferralLink" ng-click="showReferralLink = true">
+                           [@Resources.show]
+
+                        </a>
+                        <a id="hide-referral-link" class="toggle-referral-link nml-link"
+                           ng-show="showReferralLink" ng-click="showReferralLink = false">
+                            [@Resources.hide]
+                        </a>
+                    </span>
+                    <input type="text" class="referral-code"
+                           value="@Url.Action("register", "account", new { referralID = user.UserName },Request.Url.Scheme)"
+                           keep-value-to="@Url.Action("register", "account", new { referralID = user.UserName },Request.Url.Scheme)"
+                           ng-show="showReferralLink"
+                           select-input-text="showReferralLink"
+                           onfocus="this.selectionStart=0; this.selectionEnd=this.value.length;"
+                           ontouchend="this.selectionStart=0; this.selectionEnd=this.value.length;"
+                           onmouseup="return false" />
+                </li>
+                <li class="edit-email">
+                    @Resources.email
+                    <a class="nml-link" id="edit-email-button" href="account/change-email">[@Resources.edit]</a>
+                    <span>
+                        <span data-tooltip aria-haspopup="true" class="has-tip tip-top radius" title="@user.Email">
+                            @user.Email
+                        </span>
+                    </span>
+                    <br class="clear-fix" />
+                </li>
+                <li>@Resources.password<span><a class="nml-link" id="edit-password-button" href="account/change-password">[@Resources.change]</a></span></li>
+            </ul>
+
+        </div>
+        <div class="edit-profile-info sect-panel" ng-show="showEditProfileInfoPanel">
+            <form class="edit-form" name="editProfileForm" data-endpoint-url="account/edit-profile"
+                  ng-submit="submitEditProfileForm()">
+
+                <p class="form-label">@Resources.Your_Nickname -</p>
+                <div class="chars-left nickname-chars-left">
+                    @Html.Raw(string.Format(Resources.characters_left,"<span ng-bind='nicknameMaxLength - profile.nickname.length'></span>"))
+                </div>
+                <input name="nickname" type="text" placeholder="@Resources.ex_LordofGame"
+                       ng-model="profile.nickname" my-maxlength="@nick_max">
+
+                <p class="form-label">@Resources.Your_Country</p>
+                <angucomplete-alt type="text" id="country-select" placeholder="@Resources.Your_Country.ToLower()" selected-object="profileCountry"
+                                  local-data="countriesList" search-fields="name,alpha-2" title-field="name"
+                                  minlength="1" initial-value="@user.country_name"
+                                  text-no-results="@Resources.Cannnot_find_this_country">
+                </angucomplete-alt>
+
+                <p class="form-label">@Resources.Your_Short_Bio -</p>
+                <div class="chars-left bio-chars-left">
+                    @Html.Raw(string.Format(Resources.characters_left, "<span ng-bind='bioMaxLength - profile.bio.length'></span>"))
+                </div>
+                <textarea name="bio" class="bio" rows="8" placeholder="@Resources.Write_your_short_bio_here"
+                          ng-model="profile.bio" my-maxlength="@bio_max"></textarea>
+
+
+
+                @if (string.IsNullOrEmpty(user.inviter_username))
+                {
+                    <input name="referralID" type="text" placeholder="@Resources.referral_id_optional"
+                           ng-model="profile.referralID"
+                           ng-change="removeFirstTimeFlag($event); validate()"
+                           ng-blur="removeFirstTimeFlag($event); validate()"
+                           data-first-time-edit="true">
+                }
+                <div class="errors-container">
+                    <ul class="errors" style="display:block !important"></ul>
+                </div>
+                <div class="buttons-wrap">
+                    <a href="" class="nml-button" ng-click="hideEditProfile()">@Resources.Cancel</a>
+                    <input class="g-nml-button" name="submit" type="submit" value="@Resources.Save">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="sect-end-bar">
+    </div>
+</div>

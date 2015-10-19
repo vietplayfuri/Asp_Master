@@ -1,0 +1,465 @@
+﻿@import "settings";
+@import "foundation";
+@import "partials/base";
+
+
+body {
+}
+
+h4 {
+    font-family: $font-josefin-slab;
+    font-weight: 700;
+    font-size: 3.841em;
+}
+
+#profile-image {
+    text-align: center;
+    position: relative;
+}
+
+#profile-image::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    background: url('/static/images/half_circle_up_white.png') repeat-x;
+    height: 11px;
+}
+
+.star::before {
+    content: url('/static/images/star.png');
+    padding-right: 2px;
+}
+
+input[id="ok"] {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #fff;
+    padding: 7px 12px 7px 12px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 40px;
+    background: #ef3f23;
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 43px;
+    transition: all 0.25s ease;
+    moz-transition: all 0.25s ease;
+    cursor: pointer;
+    font-size: 23px;
+    font-family: $font-helvetica-neue;
+    text-align: center;
+}
+
+.profile {
+    position: relative;
+
+    h4, .rounded {
+        font-weight: 400;
+        font-size: 3.841em;
+        font-family: "JosefinSlab";
+        text-align: center;
+        letter-spacing: 5px;
+    }
+
+    p {
+        font-family: $font-josefin-slab;
+        font-size: 1.8em;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: 300;
+        color: #676767;
+    }
+
+    .profile-icon {
+        margin: auto;
+        text-align: center;
+
+        img {
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    input[id="edit"] {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #fff;
+        padding: 7px 12px 7px 12px;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 40px;
+        background: #ef3f23;
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 43px;
+        transition: all 0.25s ease;
+        moz-transition: all 0.25s ease;
+        cursor: pointer;
+        font-size: 23px;
+        font-family: $font-helvetica-neue;
+    }
+
+    input[id="save"] {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #fff;
+        padding: 7px 12px 7px 12px;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 40px;
+        background: #ef3f23;
+        margin: 0 auto;
+        width: 130px;
+        height: 43px;
+        transition: all 0.25s ease;
+        moz-transition: all 0.25s ease;
+        cursor: pointer;
+        font-size: 18px;
+        font-family: $font-helvetica-neue;
+    }
+
+    input[id="cancel"] {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #fff;
+        padding: 7px 12px 7px 12px;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 40px;
+        background: #ef3f23;
+        margin: 0 auto;
+        width: 130px;
+        height: 43px;
+        transition: all 0.25s ease;
+        moz-transition: all 0.25s ease;
+        cursor: pointer;
+        font-size: 18px;
+        font-family: $font-helvetica-neue;
+    }
+
+    .profile-detail {
+        table {
+            width: 550px;
+            margin: auto;
+            border: none;
+            background: none;
+
+            tr {
+                height: 35px;
+            }
+
+            td {
+                padding: 0px;
+                font-size: 15px;
+            }
+
+            td:first-child {
+                width: 96px;
+            }
+
+            td:last-child {
+                float: right;
+                padding-top: 5px;
+            }
+        }
+
+        table tr.even, table tr.alt, table tr:nth-of-type(even) {
+            background: none;
+        }
+    }
+
+    div.label-edit > label {
+        font-size: 21px !important;
+        color: #474747;
+        margin-bottom: 10px;
+    }
+
+    .link-change-password {
+        color: #e74c3c;
+        font-style: italic;
+    }
+
+    label > span {
+        font-weight: 300;
+        font-style: italic;
+        font-size: 18px;
+    }
+
+    input[id="country-select_value"], .input-edit {
+        height: 65px;
+        background-color: #bbb5af;
+        width: 100%;
+        margin-bottom: 10px;
+        color: #fff;
+        font-family: inherit;
+        font-weight: 300;
+        padding: 0.5em;
+        font-size: 0.875em;
+
+        &:hover, &:focus {
+            background-color: #bbb6af;
+        }
+    }
+
+    .textarea-edit {
+        background-color: #bbb5af;
+    }
+}
+
+.profile::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: url("/static/images/login_03.png") repeat-x;
+    height: 10px;
+}
+
+.token-number::after {
+    content: url('/static/images/sugar-token-small.png');
+}
+
+#confirmedModal {
+    background-color: #7a797a;
+    padding: 0px;
+    width: 310px;
+
+    .header {
+        height: 49px;
+        background: url('/static/images/confirmed-popup-header.png') repeat-x;
+
+        h5 {
+            color: #fff;
+            text-align: center;
+            padding-top: 6px;
+        }
+    }
+
+    .body-content {
+        background-color: #e1e1e1;
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    .cancel {
+        background: url('/static/images/cancel.png') no-repeat;
+        width: 126px;
+        height: 47px;
+        /*margin: 0 auto;*/
+    }
+
+
+
+    .confirm {
+        background: url('/static/images/confirm.png') no-repeat;
+        width: 126px;
+        height: 47px;
+    }
+
+    .order-cover {
+        background-color: white;
+    }
+
+    .order {
+        margin: auto;
+        font-weight: 300;
+        font-size: 0.860em;
+        width: calc(100% - 10px);
+
+        .order-row {
+            padding: 15px;
+            border-bottom: 1px solid #dddad1;
+
+            span:last-child {
+                float: right;
+            }
+        }
+    }
+
+    .cash {
+        padding: 15px;
+        font-weight: 300;
+
+        span:first-child {
+            font-size: 18px;
+        }
+
+        span:last-child {
+            float: right;
+            font-size: 30px;
+        }
+    }
+
+    p {
+        font-weight: 300;
+        float: right;
+        word-wrap: break-word;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .profile {
+        h4 {
+            font-size: 2.841em;
+        }
+
+        .profile-detail {
+            table {
+                width: 100% !important;
+            }
+        }
+
+        input[id="edit"] {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 0.875rem;
+            color: #fff;
+            padding: 7px 12px 7px 12px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 40px;
+            background: #ef3f23;
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 43px;
+            transition: all 0.25s ease;
+            moz-transition: all 0.25s ease;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        input[id="save"] {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 0.875rem;
+            color: #fff;
+            padding: 7px 12px 7px 12px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 40px;
+            background: #ef3f23;
+            margin: 0 auto;
+            width: 100px;
+            height: 43px;
+            transition: all 0.25s ease;
+            moz-transition: all 0.25s ease;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        input[id="cancel"] {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 0.875rem;
+            color: #fff;
+            padding: 7px 12px 7px 12px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 40px;
+            background: #ef3f23;
+            margin: 0 auto;
+            width: 100px;
+            height: 43px;
+            transition: all 0.25s ease;
+            moz-transition: all 0.25s ease;
+            cursor: pointer;
+            font-size: 15px;
+        }
+    }
+
+    #confirmedModal {
+        left: 0px;
+        right: 0px;
+        margin: 0 auto;
+        min-height: 0vh;
+    }
+}
+
+div.field-validation-error > span {
+    color: $pri-red;
+    text-align: left;
+    display: block;
+}
+
+.rounded {
+    background: url("/static/images/rounded-rectangle.png") no-repeat;
+    background-size: 100% 100%;
+    width: 225px;
+    height: 7px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.angucomplete-dropdown {
+    border: 2px solid $sub-grey;
+    margin: 5px auto 3px;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    max-height: 220px;
+    overflow-y: scroll;
+    color: #474747 !important;
+
+    .angucomplete-searching {
+        color: #474747;
+        font-size: $sml-upper;
+        font-weight: bold;
+    }
+
+    .angucomplete-selected-row,
+    .angucomplete-row:hover {
+        background-color: $pri-blue;
+    }
+
+    .angucomplete-selected-row {
+        overflow: ellipsis;
+    }
+
+    .angucomplete-image-holder {
+        padding-top: 3px;
+        border: none;
+
+        img {
+            border-radius: 3px;
+            border: none;
+        }
+    }
+
+    .angucomplete-image {
+        height: 40px;
+        width: 40px;
+    }
+
+    .angucomplete-title,
+    .angucomplete-description {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .angucomplete-description {
+        margin-top: -4px;
+        color: $pri-grey;
+    }
+}

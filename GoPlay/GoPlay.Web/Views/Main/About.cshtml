@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = Resources.Resources.About;
+}
+
+
+<link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+
+<section class="about-wrapper row">
+    <div class="large-12 columns">
+        <div class="hero-img">
+            <img src="/static/images/about_hero.png" alt="">
+        </div>
+        <div class="sect-panel about-intro">
+            <div class="big-title">
+                <h1>@Resources.Resources.A_Gateway_to_Play</h1>
+                <h4>@Resources.Resources.We_hope_to_bring_happiness</h4>
+            </div>      
+            <p>
+                @Resources.Resources.PlayToken_Token_is_a_digital_currency_platform
+                <br><br>
+                @Resources.Resources.We_provide_our_undivided_attention
+            </p>
+            <div class="why-PlayToken">
+                <div class="big-title">
+                    <h1>@Resources.Resources.Why_choose_PlayToken?</h1>
+                    <h4>@Resources.Resources.We_hope_to_bring_happiness</h4>
+                </div>
+                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+                    <li>
+                        <img src="/static/images/why_convert.png" alt="">
+                        <h4>@Resources.Resources.Get_more_with_PlayToken</h4>
+                        <p>@Resources.Resources.Get_special_deals</p>
+                    </li>
+                    <li>
+                        <img src="/static/images/why_wallet.png" alt="">
+                        <h4>@Resources.Resources.It_transferable</h4>
+                        <p>@Resources.Resources.Share_Play_Token ♥</p>
+                    </li>
+                    <li>
+                        <img src="/static/images/why_support.png" alt="">
+                        <h4>@Resources.Resources.Stay_supported</h4>
+                        <p>@Resources.Resources.Dedicated_staffs_to_provide_assistance</p>
+                    </li>
+                </ul>
+            </div>
+            @if(Html.GetCurrentUser() ==null)
+            { 
+            <div class="invite-signup">
+                <h4>@Resources.Resources.Register_your_account_now</h4>
+                <a class="g-nml-button" href="account/register">@Resources.Resources.Signup</a>
+            </div>
+            }
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,130 @@
+﻿@model GToken.Web.Models.UserDetail
+@{
+    ViewBag.Title = "User: " + Model.user.id;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@*{% extends 'admin/base.html' %}
+
+    {% block title %} User: {{ user.id }} {% endblock %}
+
+    {% block content %}*@
+<div class="row">
+    <h1> User: @Model.user.GetDisplayName()</h1>
+    <table class="user-detail model-detail-table">
+        <tr>
+            <td class="width-20">ID</td>
+            <td id="user-detail-id">@Model.user.id</td>
+        </tr>
+        <tr>
+            <td>Display Name</td>
+            <td>@Model.user.GetDisplayName()</td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>@Model.user.username</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@Model.user.email</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                @if (!ViewContext.Controller.HasRole("admin"))
+                {
+                    <span>Please contact developer for password revelation</span>
+                }
+                else if (!string.IsNullOrEmpty(Model.user.unhashed_password))
+                {
+                    <span class="label alert radius">@Model.user.unhashed_password</span>
+                }
+
+                @*{% if not check_role_permission("admin") %}
+                        Please contact developer for password revelation
+                        {% elif user.unhashed_password %}
+                    <span class="label alert radius">
+                        {{ user.unhashed_password }}
+                    </span>
+                    {% endif %}*@
+            </td>
+        </tr>
+        <tr>
+            <td>VIP</td>
+            <td>@Model.user.vip</td>
+        </tr>
+        <tr>
+            <td>Referred At</td>
+            <td>@Model.user.referred_at</td>
+        </tr>
+        <tr>
+            <td>GToken / Free Play Token</td>
+            <td>@Model.user.gtoken</td>
+        </tr>
+        <tr>
+            <td>Recommender</td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.user.inviter_username))
+                {
+                    <a href="@Url.Action("user", "admin", new { username = Model.user.inviter_username }, Request.Url.Scheme)">
+                        @Model.user.inviter_username
+                    </a>
+                }
+                @*{% if user.inviter %}
+                    <a href="{{ url_for('admin.userDetail', username=user.inviter.username) }}">
+                        {{ user.inviter.username }}
+                    </a>
+                    {% endif %}*@
+            </td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>@Model.user.country_code / @Model.user.country_name</td>
+        </tr>
+        <tr>
+            <td>Push Account</td>
+            <td>
+                <form method="post" action="#">
+                    @Html.AntiForgeryToken()
+                    @*<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />*@
+                    <input type="submit" name="pushAccount" class="button small" value="Push Account" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Push Transaction</td>
+            <td>
+                <form method="POST" action="#">
+                    @Html.AntiForgeryToken()
+                    @*<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />*@
+                    <input type="text" name="transaction_id" size="20" placeholder="GToken Transaction ID" />
+                    <input type="submit" name="pushTransaction" class="button small" value="Push Transaction" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Transactions History</td>
+            <td>
+                < Waiting for front-end work >
+                @*{# include 'transaction/_history.html' #}*@
+            </td>
+        </tr>
+        <tr>
+            <td>API Logs</td>
+            <td>
+                <table>
+                    @*{% for log in user.apiLogs %}
+                        <tr>
+                            <td>{{ log.action }}</td>
+                            <td>{{ log.getCreatedTime() }}</td>
+                            <td>{{ log.partner.name if log.partner }}</td>
+                            <td>{{ log.ip_address }} / {{ log.country_code }}</td>
+                            <td>{{ log.status }}</td>
+                        </tr>
+                        {% endfor %}*@
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+@*{% endblock %}*@

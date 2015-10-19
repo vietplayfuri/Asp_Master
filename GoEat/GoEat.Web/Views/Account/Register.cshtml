@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = Resources.Resources.Register;
+}
+
+@model GoEat.Web.Models.RegisterViewModel
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/account/register.css" />
+}
+<script src="/static/js/utils/countriesList.js"></script>
+<script>
+    @*var countryCode = "@Model.countryCode";*@
+    var referralID = "@Model.referralID";
+</script>
+<div class="register">
+    <div class="page-container ng-scope" ng-controller="AccountRegisterCtrl" ng-init="init()">
+        <div class="show-for-medium-up medium-3 large-3 columns picture-left">
+            <img src="~/static/images/image-1.png" />
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <div class="forms-container">
+                <h4>
+                    SIGN UP
+                </h4>
+
+                <form id="accounts_signup" class="forms-set ng-pristine ng-invalid ng-invalid-required" name="accountsRegisterForm" method="POST" data-endpoint-url="/account/register/" novalidate="">
+                    @Html.AntiForgeryToken()
+
+                    <label for="username">Username *</label>
+                    <input class="sml-forms user-name ng-pristine ng-untouched ng-isolate-scope ng-invalid ng-invalid-required" data-first-time-edit="true" focus="true" id="username" name="username" ng-blur="removeFirstTimeFlag($event); checkFormData()" ng-change="checkFormData()" ng-model="formData.username" required="required" type="text" value="">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    <label for="email">Email *</label>
+
+                    <input class="sml-forms user-email ng-pristine ng-untouched ng-invalid ng-invalid-required" data-first-time-edit="true" id="email" name="email" ng-blur="removeFirstTimeFlag($event); checkFormData()" ng-change="checkFormData()" ng-model="formData.email" required="required" type="text" value="">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    <label for="confirmEmail">Retype email *</label>
+
+                    <input class="sml-forms user-email-confirm ng-pristine ng-untouched ng-invalid ng-invalid-required" data-first-time-edit="true" id="confirmEmail" name="confirmEmail" ng-blur="removeFirstTimeFlag($event); checkFormData()" ng-change="checkFormData()" ng-model="formData.confirmEmail" required="required" type="text" value="">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    <label for="password">Password *</label><br />
+                    <input class="sml-forms user-password ng-pristine ng-untouched ng-invalid ng-invalid-required" data-first-time-edit="true" id="password" name="password" ng-blur="removeFirstTimeFlag($event); checkFormData()" ng-change="checkFormData()" ng-model="formData.password" required="required" type="password" value="">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    @*<label for="countryCode">Your country</label><br />
+                        <angucomplete-alt id="country-select" name="countryCode" selected-object="userCountry" local-data="countriesList" search-fields="name,alpha-2" title-field="name" minlength="1" initial-value="Singapore" input-class="sml-forms user-country-code" text-no-results="Cannot find this country" class="ng-isolate-scope"><div class="angucomplete-holder" ng-class="{'angucomplete-dropdown-visible': showDropdown}">  <input id="country-select_value" ng-model="searchStr" ng-disabled="disableInput" type="" placeholder="your country" ng-focus="onFocusHandler()" class="sml-forms user-country-code" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)">  <div id="country-select_dropdown" class="angucomplete-dropdown ng-hide" ng-show="showDropdown">    <div class="angucomplete-searching ng-binding ng-hide" ng-show="searching" ng-bind="textSearching">Searching...</div>    <div class="angucomplete-searching ng-binding" ng-show="!searching &amp;&amp; (!results || results.length == 0)" ng-bind="textNoResults">Cannot find this country</div> </div></div></angucomplete-alt>*@
+
+
+                    <label for="referralID">Referral ID (Optional)</label><br />
+                    <input class="sml-forms user-referid ng-pristine ng-untouched ng-valid" data-first-time-edit="true" id="referralID" name="referralID" ng_blur="removeFirstTimeFlag($event); checkFormData()" ng_change="checkFormData()" ng_model="formData.referralID" type="text" value="">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    <div class="errors-container">
+                        <ul class="errors">
+                            <li>@Html.ValidationMessage("CustomError")</li>
+                        </ul>
+
+                    </div>
+
+                    <input class="terms-check check-box" id="acceptTOS" name="acceptTOS" ng_click="checkFormData()" type="checkbox" value="y">
+                    <label class="terms-agree check-label" for="acceptTOS">
+                        I agree to GDine's <a href="@Url.Action("terms", "main")">Terms of Service</a>
+                    </label>
+
+                    <input style="height: 43px;font-size: 20px;width: 57%;"
+                           id="submit" name="submit" type="submit" value="sign up" ng-class="{disabled: !isFormValid(), valid: isFormValid()}" ng-click="submitForm()" class="disabled">
+                </form>
+            </div>
+        </div>
+        <div class="show-for-medium-up medium-3 large-3 columns picture-right">
+            <img src="~/static/images/image-2.png" />
+        </div>
+    </div>
+    <br />
+    <br />
+</div>
+
+@section scripts{
+
+    <script src="/static/js/pages/accountRegister.js"></script>
+}

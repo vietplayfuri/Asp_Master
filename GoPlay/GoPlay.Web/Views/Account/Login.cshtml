@@ -1,0 +1,99 @@
+﻿@using System.Configuration
+@model GoPlay.Web.Models.LoginViewModel
+@{
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+    ViewBag.Title = Resources.Resources.Login;
+}
+
+
+<link rel="stylesheet" href="/static/stylesheets/account/register.css" />
+<div class="row">
+    <div class="large-12 columns">
+        <a class="top-logo" href="/"><img src="/static/images/logo_img.png" alt=""></a>
+        <div class="forms-container">
+
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Login_PlayToken</h6>
+            </div>
+            @if (!Model.loginFB)
+            {
+                <div class="sect-panel separate-panel">
+                    @if (Model.errLoginOauth)
+                    {
+                        <p class="warning red">@Resources.Resources.This_PlayToken_account_is_linked_to_another_Facebook_account</p>
+                    }
+
+                    @using (Html.BeginForm("ExternalLogin", "Account"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="sect-panel separate-panel" id="facebook-button" name="provider" value="Facebook" title="@Resources.Resources.Login_with_Facebook">@Resources.Resources.Login_with_Facebook</button>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="sect-panel separate-panel">
+                    <p class="warning">@Resources.Resources.Cannot_find_the_PlayToken_account_linked_to_Facebook</p>
+                    <a href="account/register" id="facebook-button">@Resources.Resources.Sign_Up_with_my_Facebook</a>
+                </div>
+            }
+
+            <div class="sect-panel">
+                @if (Model.loginFB)
+                {
+                    <h3>@Resources.Resources.I_already_have_PlayToken_account</h3>
+                }
+                <form id="accounts_login" class="forms-set" method="POST"
+                      action="@Url.Action("login", "account")">
+                    @Html.AntiForgeryToken()
+                    <p class="form-label">@Resources.Resources.username *</p>
+                    @Html.TextBoxFor(m => m.username, new { @class = "field-with-errors sml-forms ng-isolate-scop", @focus = "true", @required = "required", @placeholder = @Resources.Resources.username + " *" })
+                    <p class="form-label">@Resources.Resources.password *</p>
+                    @Html.PasswordFor(m => m.password, new { @class = "field-with-errors sml-forms ng-isolate-scop", @required = "required", @placeholder = @Resources.Resources.password + " * " })
+
+                    <div class="errors-container">
+                        <ul class="errors">
+                            <li>
+                                @Html.ValidationMessageFor(model => model.username, "")
+                            </li>
+                            <li>
+                                @Html.ValidationMessageFor(model => model.password, "")
+                            </li>
+                            <li>@Html.ValidationMessage("CustomError")</li>
+                        </ul>
+
+                    </div>
+                    <div class="rem-forg clearfix">
+                        <input type="checkbox" class="check-box login" id="remember_account" name="remember_account">
+                        <label class="check-label login" for="remember_account">@Resources.Resources.Remember_me</label>
+                        <a class="forgot-pwd" href="@ConfigurationManager.AppSettings["RESET_PASSWORD_URL"]">@Resources.Resources.Forgot_Password</a>
+                    </div>
+                    <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+                    @if (!Model.loginFB)
+                    {
+                        <input id="submit" class="g-nml-button" name="submit" type="submit" value="@Resources.Resources.Login">
+                    }
+                    else
+                    {
+                        <input id="submit" class="g-nml-button" name="submit" type="submit" value="@Resources.Resources.Login_and_Connect_my_Facebook">
+                    }
+
+                    @Html.HiddenFor(m => m.returnURL)
+
+                </form>
+            </div>
+            @if (!Model.loginFB)
+            {
+                <div class="bottom-link">
+                    <h5>
+                        @Resources.Resources.Dont_have_an_account
+                        <a href="/account/register/">
+                            @Resources.Resources.Sign_up_get_1_free
+                            <img src="~/static/images/tiny_gtoken.png" />
+                        </a>
+                    </h5>
+                </div>
+            }
+        </div>
+    </div>
+</div>

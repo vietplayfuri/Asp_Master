@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd21e615e5064d65bcebc043d37db22d" Name="Diagram1">
+        <EntityTypeShape EntityType="DbModel.active_gamer_scheme" Width="1.5" PointX="5.875" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.admin_account" Width="1.5" PointX="5.25" PointY="73.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.api_log" Width="1.5" PointX="7.5" PointY="60.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.auth_action" Width="1.5" PointX="0.75" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.auth_role" Width="1.5" PointX="3" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.coin_transaction" Width="1.5" PointX="9.75" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.credit_balance" Width="1.5" PointX="9.75" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.credit_transaction" Width="1.5" PointX="15" PointY="61.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.credit_type" Width="1.5" PointX="7.5" PointY="77.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.customer_account" Width="1.5" PointX="3.875" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.customer_login_oauth" Width="1.5" PointX="1.375" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.customer_login_password" Width="1.5" PointX="1.375" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.external_exchange" Width="1.5" PointX="12.75" PointY="64.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.free_coin_transaction" Width="1.5" PointX="12.75" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.friend" Width="1.5" PointX="3" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.game" Width="1.5" PointX="7.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.game_access_token" Width="1.5" PointX="7.5" PointY="65.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.game_notification" Width="1.5" PointX="7.5" PointY="82.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.gcoin_transaction" Width="1.5" PointX="7.5" PointY="54.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.gtoken_package" Width="1.5" PointX="7.5" PointY="69.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.oauth_client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.package" Width="1.5" PointX="7.5" PointY="85.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.partner_account" Width="1.5" PointX="7.5" PointY="73.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.paypal_preapproval" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.studio" Width="1.5" PointX="5.875" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.topup_card" Width="1.5" PointX="3" PointY="91" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.user_notification" Width="1.5" PointX="9.75" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.venvici_transaction" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.schemup_tables" Width="1.5" PointX="7.875" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="DbModel.active_gamer_scheme_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.active_gamer_scheme_inviter_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.admin_account_studio_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.api_log_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.api_log_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_credit_type_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_gtoken_package_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_package_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_partner_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_reciever_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_sender_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.coin_transaction_topup_card_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_transaction_coin_transaction_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_balance_credit_type_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_balance_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_transaction_credit_type_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_transaction_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_transaction_free_coin_transaction_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_transaction_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_transaction_package_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.credit_type_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.external_exchange_credit_type_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.free_coin_transaction_credit_type_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.customer_account_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.customer_login_oauth_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.customer_login_password_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.external_exchange_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.free_coin_transaction_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.friend_friend1_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.friend_friend2_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.game_access_token_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.gcoin_transaction_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.topup_card_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.user_notification_customer_account_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.external_exchange_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.external_exchange_package_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.free_coin_transaction_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.free_coin_transaction_package_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.free_coin_transaction_topup_card_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.game_access_token_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.game_notification_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.game_studio_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.gcoin_transaction_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.package_game_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.user_notification_game_notification_id_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.auth_assignment" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.auth_role_action" ManuallyRouted="false" />
+        <AssociationConnector Association="DbModel.studio_admin_assignment" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

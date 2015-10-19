@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Partners;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string urlGoPlay = "/partner-detail/GoPlay";
+    string urlIAH = "/partner-detail/IAH";
+    string urlGDine = "/partner-detail/GDine";
+}
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+}
+
+<section class="main-section">
+    <div class="content row">
+        <div class="columns small-12">
+            <div class="panel card">
+                <div class="row">
+                    <div class="columns medium-2 small-only-text-center">
+                        <img src="/static/images/partners/goplay.png" alt="">
+                    </div>
+                    <div class="columns medium-10">
+                        <p>GoPlay is a digital currency platform for mobile games that delivers greater choices, convenience and simplicity to our customers in all that we do. We seek out popular and quality games to introduce to our users. We reward our users who achieve VIP status with loyalty rewards, which can be used to redeem exclusive and limited edition items for the games you play. <a href="@urlGoPlay">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel card">
+                <div class="row">
+                    <div class="columns medium-2 small-only-text-center">
+                        <img src="/static/images/partners/gdine.png" alt="">
+                    </div>
+                    <div class="columns medium-10">
+                        <p>Success in the diverse and intricate Southeast Asian market depends on a combination of knowledge, experience and resources. <a href="@urlGDine">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel card">
+                <div class="row">
+                    <div class="columns medium-2 small-only-text-center">
+                        <img src="/static/images/partners/iah.png" alt="">
+                    </div>
+                    <div class="columns medium-10">
+                        <p>Infocomm Asia Holdings aims to consolidate the online games market in Southeast Asia and be the leading operator and distributor in the region. <a href="@urlIAH">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+

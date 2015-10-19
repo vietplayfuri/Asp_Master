@@ -1,0 +1,116 @@
+﻿@using Platform.Utility
+@model GoPlay.Web.Areas.Admin.Models.AdminReportModel
+@{
+    ViewBag.Title = "DAU/MAU report";
+}
+
+<link href="~/static/js/libs/foundation-datetimepicker/example/stylesheets/foundation-datepicker.css" rel="stylesheet" />
+
+<div>
+    <div class="row">
+        <h1>Active users report</h1>
+        <div class="content active">
+            <form method="post" class="model-form">
+                <div class="row">
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="fromTime" class="right inline ">
+                                From *
+                            </label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="datetime" value="@Model.fromTime" name="fromTime" id="fromTime">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="toTime" class="right inline ">
+                                To *
+                            </label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="datetime" value="@Model.toTime" name="toTime" id="toTime">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="timezone" class="right inline ">
+                                Timezone
+                            </label>
+                        </div>
+                        <div class="small-9 columns">
+                            @Html.DropDownListFor(m => m.timezone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="source" class="right inline ">
+                                Game
+                            </label>
+                        </div>
+                        <div class="small-9 columns">
+                            @Html.DropDownListFor(m => m.game_id, Model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }))
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="isDaily" class="right inline">
+                                Is daily
+                            </label>
+                        </div>
+                        <div class="small-9 columns">
+                            <div class="switch round small">
+                                <input type="checkbox" name="isDaily" id="isDaily" @((!string.IsNullOrEmpty(Model.isDaily) && Model.isDaily == "on") ? "checked" : string.Empty)>
+                                <label for="isDaily">Is daily</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-6 columns"></div>
+                <div class="row">
+                    <div class="small-9 small-offset-3 columns">
+                        <input type="submit" value="Query" name="query" id="query" class="button small">
+                        <input type="submit" value="Export" name="export" id="export" class="button small">
+                    </div>
+                </div>
+            </form>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Game</th>
+                            <th>Number of active users</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.source != null && Model.source.Any())
+                        {
+                            foreach (var record in Model.source)
+                            {
+                                <tr class="@(record.name == "All games" ? "bold" : string.Empty)">
+                                    <td>@record.fromDate</td>
+                                    <td>@record.toDate</td>
+                                    <td>@record.name</td>
+                                    <td>@record.count</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section page_foot_js{
+    <script src="~/static/js/libs/foundation-datetimepicker/example/js/foundation-datetimepicker.js"></script>
+    <script src="/static/js/admin/transaction.js"></script>
+}

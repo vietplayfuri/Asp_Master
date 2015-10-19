@@ -1,0 +1,269 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GoEat.Web.Models.ProfileViewModel
+@section page_stylesheets{
+    <link href="~/static/stylesheets/account/profile.css" rel="stylesheet" />
+    <link href="~/static/stylesheets/account/discount.css" rel="stylesheet" />
+}
+<script>
+    var countryCode = "@Model.Profile.CountryCode";
+    var nickname = "@Model.Profile.Nickname";
+    var email = "@Model.Profile.Email";
+    var bio = "@Model.Profile.ShortBio";
+    var referralID = "";
+</script>
+
+<div id="profile-image">
+    <img src="~/static/images/img-profile.jpg" />
+</div>
+<br />
+<div id="profile" class="profile" ng-controller="ProfileInfoCtrl" ng-init="init()">
+    <div id="div-show-profile">
+        <div class="row">
+            <h4>PROFILE</h4>
+            <p>Welcome &nbsp; @Html.GetCurrentUser().nickname !</p>
+            <div class="discount">
+                @if (!String.IsNullOrEmpty(Model.qrUrl))
+                {
+                    <div class="qrcode">
+                        <img src="@Url.Action("GenerateBarcode", "account", new { barcodeText = Model.qrUrl })" />
+                    </div>
+                }
+            </div>
+            <div class="rounded"></div>
+            @*<div class="small-12 medium-12 large-8 profile-icon">
+                    <div class="small-6 medium-6 large-4 columns">
+                        <a href="@Url.Action("buytoken", "transaction")">
+                            <div>
+                                <img src="~/static/images/profile_03.png" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="small-6 medium-6 large-4 columns">
+                        <a href="@Url.Action("transactions", "transaction")">
+                            <div>
+                                <img src="~/static/images/profile_05.png" />
+                            </div>
+                        </a>
+                    </div>
+                </div>*@
+            <br />
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class=" small-12 large-12">
+                <p>Basic Info</p>
+            </div>
+            <br />
+            <div class="profile-detail">
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="star">Username</td>
+                        <td></td>
+                        <td>@Html.GetCurrentUser().UserName</td>
+                    </tr>
+                    <tr>
+                        <td class="star">Password</td>
+                        <td><a style="color:#e74c3c" href="/account/change-password">[edit]</a></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="star">Location</td>
+                        <td></td>
+                        <td class="location"></td>
+                    </tr>
+                    @*<tr>
+                        <td class="star">Token</td>
+                        <td></td>
+                        <td class="token-number">@Model.TotalToken</td>
+                    </tr>*@
+                </table>
+            </div>
+            <div>
+                <input id="edit" name="submit" type="button" ng-click="showEditProfile()"
+                       value="EDIT PROFILE">
+            </div>
+            <br />
+            <br />
+        </div>
+    </div>
+    <!--Confirmed popup-->
+    <div id="confirmedModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false">
+        <div class="header">
+            <h5>ORDER INFORMATION</h5>
+        </div>
+        <div class="body-content">
+            <div class="order-cover">
+                <div class="order">
+                    <div class="small 12 order-row">
+                        @*<span>Amount</span>
+                        <span>{{transaction.original_price | number:2}}</span>*@
+                        <span>Quantity</span>
+                        <span>{{transaction.quantity | number:0}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="small-12 cash">
+                <span>SUBTOTAL</span>
+                <span> {{transaction.amount| number:2}}</span>
+            </div>
+            <div class="small-12" style="height: 60px">
+                <div class="small-6 large-6 columns">
+                    <div class="cancel" ng-click="cancelRequest()">
+                        <img src="~/static/images/cancel.png" />
+                    </div>
+                </div>
+                <div class="small-6 large-6 columns">
+                    <div class="cancel" ng-click="confimredRequest()">
+                        <img src="~/static/images/confirm.png" />
+                    </div>
+                </div>
+                @*<div class="small-6">
+                    <input class="cancel" type="button" ng-click="cancelRequest()" />
+                </div>
+                <div class="small-6">
+                    <input class="confirm" type="button" ng-click="confimredRequest()" />
+                </div>*@
+            </div>
+
+        </div>
+    </div>
+    <!--Confirmed popup-->
+
+    <div id="div-edit-profile" class="row" style="display:none">
+        <h4>PROFILE</h4>
+        <div class="discount">
+            <div class="small-12 medium-12 large-12 small-centered medium-centered large-centered columns">
+                @if (!String.IsNullOrEmpty(Model.qrUrl))
+                {
+                    <div class="qrcode">
+                        <img src="@Url.Action("GenerateBarcode", "account", new { barcodeText = Model.qrUrl })" />
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="rounded"></div>
+        <p>Welcome &nbsp; @Html.GetCurrentUser().nickname !</p>
+        <br />
+
+
+        <div class="small-12 medium-12 large-5 profile-icon">
+            <form ng-submit="submitEditProfile()" id="edit-profile" name="form" class="columns forms-set ng-pristine ng-invalid ng-invalid-required" method="POST" novalidate="">
+                <h4 style="border-bottom: 2px solid #d7d7d7;margin:15px 0px; padding-bottom: 15px;font-weight: 300; font-size: 2.5em ">EDIT PROFILE</h4>
+
+                <div class="text-left label-edit"><label>Your Nickname - <span id="nicknameLeft">@(20 - Model.Profile.Nickname.Length)</span>  <span> characters left</span></label></div>
+
+                <input type="text" ng-model="nickname" name="nickname" class="input-edit" placeholder="Nickname" my-maxlength="20" my-minlength="1" required="" ng-keyup="nicknameKeyup()" />
+                <div class="field-validation-error" ng-show="form.$submitted || form.nickname.$touched || form.nickname.$dirty">
+                    <span ng-show="form.nickname.$error.required">*Please input your Nickname</span>
+                    <span ng-show="form.nickname.$error.min || form.nickname.$error.max">
+                        The nickname must be in range 1 to 20!
+                    </span>
+                </div>
+                <div class="text-left label-edit">
+                    <label>Your Country</label>
+                </div>
+
+                <angucomplete-alt id="country-select" name="countryCode" selected-object="userCountry" local-data="countriesList" search-fields="name,alpha-2"
+                                  title-field="name" minlength="1" initial-value="@Model.Profile.Country" input-class="sml-forms user-country-code"
+                                  text-no-results="Cannot find this country" class="ng-isolate-scope">
+                    <div class="angucomplete-holder" ng-class="{'angucomplete-dropdown-visible': showDropdown}">
+                        <input id="country-select_value" ng-model="searchStr" ng-disabled="disableInput" type="" style="width:100%"
+                               placeholder="your country" ng-focus="onFocusHandler()" class="sml-forms user-country-code"
+                               ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off"
+                               ng-change="inputChangeHandler(searchStr)">
+                        <div id="country-select_dropdown" class="angucomplete-dropdown ng-hide" ng-show="showDropdown">
+                            <div class="angucomplete-searching ng-binding ng-hide" ng-show="searching" ng-bind="textSearching">Searching...</div>
+                            <div class="angucomplete-searching ng-binding" ng-show="!searching &amp;&amp; (!results || results.length == 0)" ng-bind="textNoResults">Cannot find this country</div>
+
+                        </div>
+                    </div>
+                </angucomplete-alt>
+
+                <div class="text-left label-edit">
+                    <label>Your email</label>
+                </div>
+                <input type="text" ng-model="email" name="email" class="input-edit" placeholder="Email" my-maxlength="50" my-minlength="5" required="" ng-pattern="EMAIL_REGEXP" />
+                <div class="field-validation-error" ng-show="form.$submitted || form.email.$touched || form.email.$dirty">
+                    <span ng-show="form.email.$error.pattern">*Email is invalid</span>
+                    <span ng-show="form.email.$error.required">*Please input your Email</span>
+                    <span ng-show="form.email.$error.min || form.email.$error.max">
+                        Email must be in range 5 to 50!
+                    </span>
+                </div>
+
+                <div class="text-left label-edit">
+                    <label>Your Short Bio <span>- <span id="bioLeft">@(225 - Model.Profile.ShortBio.Length)</span> characters left</span></label>
+                </div>
+                <textarea ng-model="bio" name="bio" placeholder="Write your short bio here...." rows="8" my-maxlength="225" my-minlength="1" ng-keyup="bioKeyup()"></textarea>
+                <div class="field-validation-error" ng-show="form.$submitted || form.bio.$touched || form.bio.$dirty">
+                    <span ng-show="form.bio.$error.min || form.bio.$error.max">
+                        This field must be in range 1 to 225!
+                    </span>
+                </div>
+
+                <div class="text-left label-edit">
+                    <a href="/account/change-password" class="link-change-password">Change my password</a>
+                </div>
+                <div style="text-align: center; margin: 15px 0px;" class="columns">
+                    <div class="large-6 medium-6 small-6 columns right">
+                        <input type="submit" value="SAVE" name="Submit" ng-disabled="form.$invalid" id="save">
+                    </div>
+                    <div class="large-6 medium-6 small-6 columns left">
+                        <input type="button" value="CANCEL" ng-click="cancelEditProfile()" name="Cancel" id="cancel">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <br />
+    </div>
+</div>
+@*<a href="#" data-reveal-id="confirmedModal">Click Me For A Modal</a>*@
+
+@section scripts{
+    <script src="~/static/js/pages/accountProfile.js"></script>
+    <script src="~/static/js/utils/countriesList.js"></script>
+    <script type="text/javascript">
+        var country_code = "@Html.GetCurrentUser().country_code";
+        (function () {
+            for (var x in countriesList) {
+                if (countriesList[x]["alpha-2"] === country_code) {
+                    $(".location").text(countriesList[x]["name"]);
+                    break;
+                }
+            }
+        })();
+    </script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            var chat = $.connection.NotifyHub;
+            chat.client.showTransactionConfirmation = function (transactions) {
+                // alert("amount: " + transactions.amount + " orderId: " + transactions.order_id + + " token_amount: " + transactions.token_amount + " cash_amount: " + transactions.cash_amount);
+                $('#confirmedModal').foundation('reveal', 'open');
+                var scope = angular.element(document.getElementById('profile')).scope();
+                scope.$apply(function () {
+                    scope.transaction = transactions;
+                    scope.showModal();
+                });
+            };
+            chat.client.closePopupConfirm = function () {
+                $('#confirmedModal').foundation('reveal', 'close');
+            };
+            $.connection.hub.start({ transport: 'longPolling' }).done(function () {
+                console.log("start");
+            });
+        });
+        // This optional function html-encodes messages for display in the page.
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+    </script>
+}

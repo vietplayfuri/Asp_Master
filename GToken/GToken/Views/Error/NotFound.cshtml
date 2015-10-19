@@ -1,0 +1,30 @@
+﻿@using Resources
+@{
+    ViewBag.Title = Resources.Page_not_found;
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+}
+@section header{
+    <div class="row">
+        <div class="medium-6 medium-offset-3 columns">
+            <h1 class="top-logo"><a href="@Url.Action("index", "main")" title="GToken @Resources.Home_page"><img src="/static/images/header_logo.png" alt="GToken"></a></h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="large-6 large-offset-3 medium-8 medium-offset-2 columns">
+        <div class="panel large">
+            <form class="row">
+                <div class="columns medium-12">
+                    <h3 class="form-header error-title">@Resources.Error</h3>
+                    <img src="/static/images/404.png">
+                    <p>
+                        @Resources.Sorry_not_found<br>
+                        @Resources.How_about_going_back_to <a href="/">@Resources.Home_page</a>?
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

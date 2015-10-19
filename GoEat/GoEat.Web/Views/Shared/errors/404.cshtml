@@ -1,0 +1,28 @@
+<!--{% block title %}{{ _('Page not found!') }}{% endblock %}-->
+@section page_stylesheets{
+<link rel="stylesheet" href="/static/stylesheets/error_page.css" />
+}
+
+<!--{% block flashed_messages %}{% endblock %}-->
+
+
+<div class="row">
+    <div class="large-12 columns container">
+        <a href="{{ url_for("main.index") }}"><img src="/static/images/logo-center.png" alt=""></a>
+        <div>
+            <p>
+                <strong>{{ _('Error') }} #404</strong>
+                <br>{{ _('Your page is stolen') }}
+            </p>
+            <img src="/static/images/error-404.png" alt="">
+        </div>
+        <p>
+            {{ _('Well, the page that you’re looking for can’t be found.') }}
+            <br class="break-line">
+            {% autoescape false %}
+            {{ gettext('Why not explore our %(games_page)s instead?',
+                         games_page="<a href='%s'>%s</a>" % (url_for("game.index"), _('Games'))) }}
+            {% endautoescape %}
+        </p>
+    </div>
+</div>

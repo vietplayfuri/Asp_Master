@@ -1,0 +1,82 @@
+body {
+    background: url(/static/images/diamond-texture.png) repeat;
+    font-family: 'Source Sans Pro';
+    font-size: 1.125rem;
+    color: white;
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+    > a {
+        text-align: center;
+        display: block;
+        margin: 76px auto 30px auto;
+    }
+    div {
+        width: 460px;
+        background: white;
+        border-radius: 5px;
+        margin: 0px auto 20px;
+        position: relative;
+        text-align: center;
+        padding: 0 16px 30px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        img {
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+        }
+        > p {
+            padding-top: 16px;
+            margin-bottom: 20px;
+            color: #20282A;
+            text-align: center;
+            font-weight: 300;
+            font-size: 1.25rem;
+            strong {
+                font-weight: 600;
+                font-size: 1.5rem;
+            }
+        }
+    }
+    p {
+        text-align: center;
+        a {
+            text-decoration: none;
+            color: #F4C916;
+            &:focus,
+            &:active {
+                color: #F4C916;
+            }
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 40em) {
+    .container {
+        width: 100%;
+        div {
+            width: 95%;
+        }
+    }
+}
+
+@media only screen and (max-width: 26em) {
+    .container {
+        p {
+            padding: 0 10px;
+            br {
+                display: none;
+            }
+        }
+    }
+}

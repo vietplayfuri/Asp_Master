@@ -1,0 +1,5 @@
+
+--------------ALTER TABLE record_download_history 
+
+ALTER TABLE record_download_history ADD COLUMN earned_username VARCHAR;
+------------------------------------------------

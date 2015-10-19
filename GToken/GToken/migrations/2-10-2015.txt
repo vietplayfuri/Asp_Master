@@ -1,0 +1,2 @@
+﻿ALTER TABLE record_download_history DROP CONSTRAINT record_download_history_game_id_referral_campaign_id_device_key;
+ALTER TABLE import_referral_history add COLUMN result character varying;

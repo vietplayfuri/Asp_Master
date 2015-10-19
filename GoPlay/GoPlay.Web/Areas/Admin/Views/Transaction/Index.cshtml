@@ -1,0 +1,370 @@
+﻿@{
+    ViewBag.Title = "Transactions";
+}
+@model GoPlay.Web.Areas.Admin.Models.TransactionQueryForm
+@using Platform.Utility
+@using System.Configuration
+@using System
+
+@section page_stylesheets{
+    <link href="~/static/js/libs/foundation-datetimepicker/example/stylesheets/foundation-datepicker.css" rel="stylesheet" />
+}
+
+<div class="row">
+    <h1>Transactions</h1>
+
+    <dl class="tabs" data-tab data-options="deep_linking:true">
+        <dd class="active"><a href="#exchange">Exchange</a></dd>
+        @if (ViewContext.Controller.HasPermission("access_admin_accountant_page"))
+        {
+            <dd><a href="#topup">Top Up</a></dd>
+            <dd><a href="#gcoin-income">Gcoin Income</a></dd>
+            <dd><a href="#gcoin-outcome">Gcoin Outcome</a></dd>
+        }
+    </dl>
+</div>
+<div class="tabs-content">
+    <div class="content active" id="exchange">
+        <form class="model-form" method="post">
+            <div class="row" tabindex="0">
+                <div style="display:none;" tabindex="0">
+
+                    @*@Html.AntiForgeryToken()*@
+                </div>
+
+                <div class="small-3 columns">
+                    @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                </div>
+
+                <div class="small-3 columns">
+                    <input id="orderID" name="orderID" placeholder="Order ID" type="text" value="@Model.orderID" tabindex="0">
+                </div>
+
+                <div class="small-3 columns">
+                    <input id="username" name="username" placeholder="Nick, username or email" type="text" value="@Model.username" tabindex="0">
+                </div>
+
+                <div class="small-3 columns">
+                    @Html.DropDownListFor(m => m.status, @Model.statusList.Select(x => new SelectListItem() { Text = Helper.UppercaseFirst(x.ToString()), Value = x.ToString() }), "All")
+                </div>
+
+                <div class="small-3 columns">
+                    @Html.DropDownListFor(m => m.gameID, @Model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }), "All games")
+                </div>
+
+                <div class="small-3 columns">
+                    <input id="startTime" name="startTime" placeholder="Start from" type="datetime" value="@Model.startTime" tabindex="0">
+                </div>
+
+
+                <div class="small-3 columns">
+                    <input id="endTime" name="endTime" placeholder="Until" type="datetime" value="@Model.endTime" tabindex="0">
+                </div>
+
+                <input type="hidden" name="tab" value="exchange">
+            </div>
+            <div class="row">
+                <input class="button small" id="query" name="query" type="submit" value="Query" tabindex="0">
+                <input class="button small" id="export" name="export" type="submit" value="Export">
+            </div>
+        </form>
+        <div class="table-wrap">
+            <!--<table class="wide-table">--><table>
+                <thead>
+                    <tr>
+                        <th>Order No</th>
+                        <th>Free Transaction</th>
+                        <th>Account</th>
+                        <th>Amount</th>
+                        <th>Game</th>
+                        <th>Exchange Option</th>
+                        <th>Country Code</th>
+                        <th>Created At</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.tab != null && ViewBag.tab == "exchange")
+                    {
+                        var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+
+                        foreach (var tr in Model.transactions)
+                        {
+                            DateTime targetTime = TimeZoneInfo.ConvertTimeFromUtc(tr.created_at, est);
+                            var exchange_option = tr.credit_type_id.HasValue ? tr.credit_type_name : tr.package_name;
+                            <tr>
+                                <td>@tr.order_id</td>
+                                <td>@tr.is_free </td>
+                                <td>@tr.username</td>
+                                <td>@tr.amount</td>
+                                <td>@tr.game_name</td>
+                                <td>@exchange_option</td>
+                                <td>@tr.country_code</td>
+                                <td>@targetTime.ToString(ConfigurationManager.AppSettings["DATETIMEFORMAT"])</td>
+                                <td>@tr.status</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @if (ViewContext.Controller.HasPermission("access_admin_accountant_page"))
+    {
+        <div class="content" id="gcoin-outcome">
+            <form class="model-form" method="post">
+                <div class="row" tabindex="0">
+                    <div style="display:none;" tabindex="0">
+                        @*@Html.AntiForgeryToken()*@
+                    </div>
+
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="orderID" name="orderID" placeholder="Order ID" type="text" value="@Model.orderID" tabindex="0">
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="username" name="username" placeholder="Nick, username or email" type="text" value="@Model.username" tabindex="0">
+                    </div>
+
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.status, @Model.statusList.Select(x => new SelectListItem() { Text = Helper.UppercaseFirst(x.ToString()), Value = x.ToString() }), "All")
+                    </div>
+
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.gameID, @Model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }), "All games")
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="startTime" name="startTime" placeholder="Start from" type="datetime" value="@Model.startTime" tabindex="0">
+                    </div>
+
+
+                    <div class="small-3 columns">
+                        <input id="endTime" name="endTime" placeholder="Until" type="datetime" value="@Model.endTime" tabindex="0">
+                    </div>
+
+                    <input type="hidden" name="tab" value="gcoin-outcome">
+                </div>
+                <div class="row">
+                    <input class="button small" id="query" name="query" type="submit" value="Query" tabindex="0">
+                    <input class="button small" id="export" name="export" type="submit" value="Export">
+                </div>
+            </form>
+            <div class="table-wrap">
+                <!--<table class="wide-table">--><table>
+                    <thead>
+                        <tr>
+                            <th>Order No</th>
+                            <th>Account</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Country Code</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.tab != null && ViewBag.tab == "gcoin-outcome")
+                        {
+                            var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+                            foreach (var tr in Model.gcoinTransaction)
+                            {
+                                DateTime targetTime = TimeZoneInfo.ConvertTimeFromUtc(tr.created_at, est);
+                                <tr>
+                                    <td>@tr.order_id</td>
+                                    <td>@tr.username</td>
+                                    <td>@tr.amount</td>
+                                    <td>@tr.description</td>
+                                    <td>@tr.country_code</td>
+                                    <td>@targetTime.ToString(ConfigurationManager.AppSettings["DATETIMEFORMAT"])</td>
+                                    <td>@tr.status</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="content" id="gcoin-income">
+            <form class="model-form" method="post">
+                <div class="row" tabindex="0">
+                    <div style="display:none;" tabindex="0">
+                        @*@Html.AntiForgeryToken()*@
+                    </div>
+
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="orderID" name="orderID" placeholder="Order ID" type="text" value="@Model.orderID" tabindex="0">
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="username" name="username" placeholder="Nick, username or email" type="text" value="@Model.username" tabindex="0">
+                    </div>
+
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.status, @Model.statusList.Select(x => new SelectListItem() { Text = Helper.UppercaseFirst(x.ToString()), Value = x.ToString() }), "All")
+                    </div>
+
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.gameID, @Model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }), "All games")
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="startTime" name="startTime" placeholder="Start from" type="datetime" value="@Model.startTime" tabindex="0">
+                    </div>
+
+
+                    <div class="small-3 columns">
+                        <input id="endTime" name="endTime" placeholder="Until" type="datetime" value="@Model.endTime" tabindex="0">
+                    </div>
+
+                    <input type="hidden" name="tab" value="gcoin-income">
+                </div>
+                <div class="row">
+                    <input class="button small" id="query" name="query" type="submit" value="Query" tabindex="0">
+                    <input class="button small" id="export" name="export" type="submit" value="Export">
+                </div>
+            </form>
+            <div class="table-wrap">
+                <!--<table class="wide-table">--><table>
+                    <thead>
+                        <tr>
+                            <th>Order No</th>
+                            <th>Account</th>
+                            <th>Token Amount</th>
+                            <th>Description</th>
+                            <th>Game</th>
+                            <th>Country Code</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.tab != null && ViewBag.tab == "gcoin-income")
+                        {
+                            var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+                            foreach (var tr in Model.gcoinTransaction)
+                            {
+                                DateTime targetTime = TimeZoneInfo.ConvertTimeFromUtc(tr.created_at, est);
+                                <tr>
+                                    <td>@tr.order_id</td>
+                                    <td>@tr.username</td>
+                                    <td>@tr.amount</td>
+                                    <td>@tr.description</td>
+                                    <td>@tr.game_name</td>
+                                    <td>@tr.country_code</td>
+                                    <td>@targetTime.ToString(ConfigurationManager.AppSettings["DATETIMEFORMAT"])</td>
+                                    <td>@tr.status</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="content" id="topup">
+            <form class="model-form" method="post">
+                <div class="row" tabindex="0">
+                    <div style="display:none;" tabindex="0"><input id="csrf_token" name="csrf_token" type="hidden" value="1435210151.28##28f288eb4fe488da8f94f2c01da7ae19add69450" tabindex="0"></div>
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="orderID" name="orderID" placeholder="Order ID" type="text" value="@Model.orderID" tabindex="0">
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="username" name="username" placeholder="Nick, username or email" type="text" value="@Model.username" tabindex="0">
+                    </div>
+
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.status, @Model.statusList.Select(x => new SelectListItem() { Text = Helper.UppercaseFirst(x.ToString()), Value = x.ToString() }), "All")
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="startTime" name="startTime" placeholder="Start from" type="datetime" value="@Model.startTime" tabindex="0">
+                    </div>
+
+                    <div class="small-3 columns">
+                        <input id="endTime" name="endTime" placeholder="Until" type="datetime" value="@Model.endTime" tabindex="0">
+                    </div>
+
+                    <input type="hidden" name="tab" value="topup">
+                </div>
+                <div class="row">
+                    <input class="button small" id="query" name="query" type="submit" value="Query" tabindex="0">
+                    <input class="button small" id="export" name="export" type="submit" value="Export">
+                </div>
+            </form>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order No</th>
+                            <th>Free Transaction</th>
+                            <th>Account</th>
+                            <th>Token Amount</th>
+                            <th>Price</th>
+                            <th>Source</th>
+                            <th>Description</th>
+                            <th>Country Code</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if (ViewBag.tab != null && ViewBag.tab == "topup")
+                        {
+                            var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+
+                            foreach (var tr in Model.transactions)
+                            {
+                                DateTime targetTime = TimeZoneInfo.ConvertTimeFromUtc(tr.created_at, est);
+                                var exchange_option = tr.credit_type_id.HasValue ? tr.credit_type_name : tr.package_name;
+                                var price = tr.price ?? 0;
+                                <tr>
+                                    <td>@tr.order_id</td>
+                                    <td>@tr.is_free </td>
+                                    <td>
+                                        <a href="@Url.Action("UserDetail", "user", new { Area="admin", id = tr.customer_account_id })">
+                                            @tr.username
+                                        </a>
+                                    </td>
+                                    <td>@tr.amount</td>
+                                    <td>@price</td>
+                                    <td>@tr.source()</td>
+                                    <td>@tr.description</td>
+                                    <td>@tr.country_code</td>
+                                    <td>@targetTime.ToString(ConfigurationManager.AppSettings["DATETIMEFORMAT"])</td>
+                                    <td>@tr.status</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+
+@*{% macro render_field(field) %}
+    <div class="small-3 columns">
+        {{ field(placeholder=field.label.text) }}
+    </div>
+    {% endmacro %}*@
+
+
+@section page_foot_js{
+    <script src="~/static/js/libs/foundation-datetimepicker/example/js/foundation-datetimepicker.js"></script>
+    <script src="/static/js/admin/transaction.js"></script>
+}
+

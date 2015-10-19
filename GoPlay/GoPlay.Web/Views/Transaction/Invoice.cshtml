@@ -1,0 +1,183 @@
+﻿@model GoPlay.Web.Models.InvoiceViewModel
+@using Platform.Utility
+@using Platform.Models
+@using GoPlay.Web.Helpers
+@using GoPlay.Web.Models
+@using Resources
+@{
+    ViewBag.Title = Resources.PlayToken_Electronic_Receipt;
+    var payer = Html.GetCurrentUser();
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic'
+          rel='stylesheet' type='text/css'>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/static/stylesheets/account/user_invoice.css?rnd=20150420" />
+    @Html.Partial("~/Views/Shared/includes/favicon_meta.cshtml")
+</head>
+<body>
+    <div class="header">
+        <div class="row">
+            <div class="large-12 columns">
+                <a href="/">
+                    <img src="/static/images/logo_img.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="invoice-wrapper">
+        <div class="row">
+            <div class="large-12 columns">
+
+                <div class="sect-title-bar">
+                    <h6 class="sect-title">@Resources.Invoice</h6>
+                </div>
+
+                <div class="sect-panel">
+                    @if (Model.generalTrans != null)
+                    {
+                        <h3>Dear <i>@payer.display_name</i>,</h3>
+                        <p>Thank you for your business. This is an electronic receipt.</p>
+
+                        <div class="payer">
+                            <h4>@Resources.Payer</h4>
+                            <table>
+                                <tr>
+                                    <td>@Resources.Name</td>
+                                    <td>@payer.display_name</td>
+                                </tr>
+                                <tr>
+                                    <td>@Resources.email</td>
+                                    <td>@payer.Email</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="transactions">
+                            <h4>@Resources.Transactions</h4>
+                            @if (Model.generalTrans.payment_method == Helper.GetDescription(PaymentMethod.PayPal))
+                            {
+                                <table>
+                                    <tr>
+                                        <td>@Resources.Issue_Date</td>
+                                        <td>@DateTimeHelper.localizeDatetime(Model.generalTrans.created_at)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Payment_Mode</td>
+                                        <td>@Model.generalTrans.payment_method</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Item_Name</td>
+                                        <td>@Model.package.name</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Transaction_ID</td>
+                                        <td>@Model.generalTrans.order_id</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Item_Price</td>
+                                        <td>@(Model.package.price.HasValue ? Model.package.price.Value.ToString("#,##") : string.Empty) @Model.package.currency</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Total_Play_Token</td>
+                                        <td>@Helper.displayDecimal(Model.generalTrans.amount) Play Token</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>@Resources.Total_Price</strong></td>
+                                        <td>@(Model.generalTrans.price.HasValue ? Model.generalTrans.price.Value.ToString("#,##") : string.Empty) @Model.package.currency</td>
+                                    </tr>
+                                </table>
+                            }
+                            else if (Model.generalTrans.payment_method == Helper.GetDescription(PaymentMethod.TopUpCard))
+                            {
+                                <table>
+                                    <tr>
+                                        <td>@Resources.Issue_Date</td>
+                                        <td>@DateTimeHelper.localizeDatetime(Model.generalTrans.created_at)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Payment_Mode</td>
+                                        <td>@Model.generalTrans.payment_method</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Card_Number</td>
+                                        <td>@Model.topupCard.card_number</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Card_Password</td>
+                                        <td>@Model.topupCard.card_password</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Total_Play_Token</td>
+                                        <td>@Helper.displayDecimal(Model.generalTrans.amount) Play Token</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>@Resources.Total_Price</strong></td>
+                                        <td>@(Model.generalTrans.price.HasValue ? Model.generalTrans.price.Value.ToString("#,##") : string.Empty) @Model.topupCard.currency</td>
+                                    </tr>
+                                </table>
+                            }
+                            else if (Model.generalTrans.payment_method == Helper.GetDescription(PaymentMethod.Convert_Gcoin))
+                            {
+                                <table>
+                                    <tr>
+                                        <td>@Resources.Issue_Date</td>
+                                        <td>@DateTimeHelper.localizeDatetime(Model.generalTrans.created_at)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Payment_Mode</td>
+                                        <td>@Resources.PayPal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Amount</td>
+                                        <td>
+                                            @Helper.displayDecimal(-Model.generalTrans.amount)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Resources.Description</td>
+                                        <td>@TransactionHelper.getDescription(Model.generalTrans)</td>
+                                    </tr>
+                                </table>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        @Resources.No_invoice_available_for_you
+                    }
+                    <br>
+                    <p>
+                        @Resources.Please_kindly_contact
+                        <a class="nml-link" href="mailto:support@goplay.la">support@goplay.la</a>
+                        @Resources.if_you_have_any_questions
+                        <br><br>
+                        @Resources.Thank_You
+                        <br>
+                        PlayToken
+                        <br>
+                        @Resources.For_Play_For_Happiness_For_People
+                        <br>
+                        <a class="nml-link" href="">http://goplay.la</a>
+                    </p>
+
+                </div>
+
+                <div class="sect-end-bar">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

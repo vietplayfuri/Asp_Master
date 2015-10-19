@@ -1,0 +1,55 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+<div class="header" id="header">
+    <nav class="top-bar row" data-topbar role="navigation" data-options="is_hover: false; custom_back_text: true; back_text:Back">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a target="_self" href="@Url.Action("index", "main")"><img src="~/static/images/logo.png" alt="GToken Logo"></a></h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            @if (@Html.GetCurrentUser() != null)
+            {
+                <ul class="right menuright top-user-nav">
+                    <li class="has-dropdown not-click top-user-dropdown">
+                        <a class="topbar-user" href="">
+                            <span class="topbar-user-name">Hi &nbsp; @Html.GetCurrentUser().nickname</span>
+                        </a>
+                        <ul class="dropdown topbar-user-ul">
+                            @if (ViewContext.Controller.IsCustomer())
+                            {
+                                <li><a target="_self" href="@Url.Action("profile", "account")">PROFILE</a></li>
+                            }
+                            <li><a target="_self" href="@Url.Action("transactions", "transaction")">@Resources.Resources.Transaction</a></li>
+                            <li><a class="user-log-out" target="_self" href="@Url.Action("Logout", "Account")">@Resources.Resources.Log_Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="right menuright">
+                    <li><a target="_self" href="/Account/Login">Login</a></li>
+                    <li>
+                        <a target="_self" href="@Url.Action("register", "account")">
+                            SIGN UP
+                        </a>
+                    </li>
+                </ul>
+            }
+
+            <!-- Left Nav Section -->
+            <ul class="left menuleft">
+                <li><a target="_self" href="@Url.Action("about", "main")">@Resources.Resources.About</a></li>
+                <li> <a target="_self" href="@Url.Action("partners", "main")">DINING PARTNERS</a></li>
+                <li><a target="_self" href="@Url.Action("contact", "account")">@Resources.Resources.Contact</a></li>
+            </ul>
+        </section>
+    </nav>
+</div>

@@ -1,0 +1,88 @@
+@import "main";
+
+// User Invoice Page Content Style ******************************************** //
+
+body {
+    background: url('../../images/grey-texture.png') repeat;
+}
+
+.row {
+    max-width: 860px;
+}
+
+.header {
+    background: url('../../images/diamond-texture.png') repeat;
+    div > div {
+        padding-top: 15px;
+    }
+}
+
+.content-container {
+    padding-bottom: 80px;
+}
+
+.content {
+    padding-top: 24px;
+    h3 {
+        color: $sub-darkblue;
+        font-weight: 600;
+        line-height: 40px;
+        i {
+            color: $pri-yellow;
+            font-style: normal;
+        }
+    }
+    h4 {
+        color: $pri-grey;
+    }
+    p:last-child {
+        padding-top: 14px;
+        border-top: 1px solid $sub-grey;
+    }
+}
+
+.payer,.transactions {
+    table {
+            tr {
+            td:first-child {
+                border-right: 2px solid $sub-grey;
+            }
+            td:nth-child(odd) {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.other-info {
+    ul {
+        list-style-type: none;
+        margin:0;
+        li {
+            display: inline;
+            padding-right: 30px;
+            color: $pri-grey;
+            strong {
+                font-weight: 600;
+            }
+        }
+        li:last-child {
+            color: $pri-green;
+            text-transform: uppercase;
+            strong {
+                text-transform: none;
+                color: $pri-grey;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 30em) {
+
+    .content {
+        h3 {
+            font-size: 1.5rem;
+        }
+    }
+
+}

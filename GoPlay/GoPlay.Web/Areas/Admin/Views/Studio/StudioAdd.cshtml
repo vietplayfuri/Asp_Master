@@ -1,0 +1,40 @@
+﻿@model GoPlay.Web.Areas.Admin.Models.StudioAdminViewModel
+@{
+    ViewBag.Title = "Add Studio";
+    var hasError = ViewData.ModelState.IsValid;
+    var action = Model.action == "edit" ? "/admin/studio/" + Model.studio_id + "/edit" : "/admin/studio/add";
+    var headerText = Model.action == "edit" ? "Edit Studio:" + Model.name : "Add Studio";
+    var btnValue = Model.action == "edit" ? "Update Studio": "Add Studio";
+
+    string urlBack = !string.IsNullOrEmpty(Model.previous_page) ? string.Format("/admin/studio/{0}", Model.studio_id) : "/admin/studio/";
+}
+<h1 class="text-center">@headerText</h1>
+<form id="admin-studios-add-form" class="model-form" method="post"
+      enctype="multipart/form-data" action="@action">
+    @Html.HiddenFor(m => m.studio_id)
+    @Html.HiddenFor(m => m.previous_page)
+    @Html.HiddenFor(m => m.action)
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline @(hasError?string.Empty:"error")" for="name">
+                Name *
+            </label>
+        </div>
+        <div class="small-9 columns">
+            @Html.TextBoxFor(m => m.name, new { @placeholder = "Name", @class = "alert-box " + (hasError ? string.Empty : "error") })
+            @if (!hasError)
+            {
+                <small class="error">
+                    This field is required.
+                </small>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-9 small-offset-3 columns">
+            <a class="button small secondary" href="@urlBack">Back</a>
+            <input class="button small" id="submit" name="submit" type="submit" value="@btnValue">
+        </div>
+    </div>
+</form>
+

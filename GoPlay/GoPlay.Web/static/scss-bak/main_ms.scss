@@ -1,0 +1,163 @@
+
+.top-bar-section {
+    ul.left.menuleft {
+        li {
+            padding-left: 1.5rem;
+        }
+        li.has-dropdown {
+            text-indent: 2rem;
+            background: url(/static/images/lang-icon.png) no-repeat 28px 11px, url(/static/images/dropdown-icon.png) no-repeat 97% 50%;
+        }
+    }
+}
+
+.progress-indict {
+    height: 200px;
+}
+
+.footer-content {
+    .footer-nav ul.menuleft {
+        li {
+            padding-left: 1.5rem;
+        }
+        li.footer-logo {
+            padding-left: 0;
+        }
+    }
+}
+
+
+.top-bar-section .left li .dropdown.lang-opts li {
+    padding-left: 0;
+}
+
+.exchange-submit {
+    padding: 7px 16px;
+}
+.search-board form #transfer-submit {
+    width: 110px;
+}
+.topup-specific a#submit-custom-gtoken-form {
+    width: 120px;
+}
+
+section.profile-info,
+section.profile-settings {
+    ul {
+        li:nth-child(2) {
+            span {
+                width: 46%;
+            }
+        }
+    }
+}
+
+//Style for viewport max-width 1152px - 72em
+
+@media only screen and (max-width: 72em) {
+
+    .hero-content-wrap {
+        h1 {
+            font-size: 2.25rem;
+            margin-bottom: -8px;
+            line-height: 40px;
+        }
+        h2 {
+            font-size: 2.25rem;
+        }
+    }
+
+}
+
+// Style for viewport max-width 1020px - 63.75em
+
+@media only screen and (max-width: 63.75em) {
+
+        .footer-nav {
+            width: 73.667%;
+        }
+        .social-icon {
+            width: 25.333%;
+        }
+
+}
+
+// Style for viewport max-width 896px - 56em
+
+@media only screen and (max-width: 56em) {
+
+    .top-bar-section .left li .dropdown.lang-opts li {
+        padding-left: 1rem;
+    }
+
+    .footer-nav,
+    .social-icon {
+        width: 100%;
+    }
+    .footer-content {
+        .footer-nav {
+            ul.menuleft {
+                margin-left: 0;
+                text-align: center;
+                li {
+                    padding-right: 0.65rem;
+                    padding-left: 0.65rem;
+                }
+                .footer-logo {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+    .social-icon {
+        .menuright.social-links {
+            text-align: center;
+            padding-top: 0;
+        }
+    }
+    .menuleft li.has-dropdown {
+        text-indent: 1.2rem;
+    }
+}
+
+
+// Style for 540px width
+
+@media only screen and (max-width: 33.75em) { 
+
+    .hero-container {
+        height: 720px
+    }
+    .forms-container .check-box + label {
+        text-align: left;
+    }
+    input[type="checkbox"] + label,
+    input[type="radio"] + label {
+        margin-left: 0.9rem;
+        margin-right: 0.5rem;
+    }
+    .support-call ul li span {
+        width: 40%;
+    }
+
+}
+
+@media only screen and (max-width: 24em) {
+
+    .hero-content-wrap {
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+    }
+    
+}
+
+
+
+
+

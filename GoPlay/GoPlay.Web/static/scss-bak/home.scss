@@ -1,0 +1,835 @@
+@import "partials/color";
+@import "partials/typography";
+@import "partials/buttons";
+
+// Home Page Content Style ******************************************** //
+.popuphide{
+    display:none !important;
+}
+
+#popupWindow {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.5);
+    > div {
+        padding: 30px;
+        max-width: 480px;
+        min-height: 260px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 2px;
+        top: 10%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        > div {
+            margin-top: 20px;
+        }
+    }
+}
+
+.hero-container {
+    height: 614px;
+    background: url(/static/images/hero-cover.jpg) no-repeat center $sub-lightblue;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    .scroll-down {
+        margin: 0 auto;
+        position: relative;
+        top: 24px;
+        border-radius: 70px;
+        display: block;
+        width: 70px;
+        height: 70px;
+        background: url(/static/images/scroll-down.png) no-repeat center, url(/static/images/grey-texture.png) repeat;
+    }
+}
+
+.hero-content-wrap {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    h1,
+    h2 {
+        @include upper-font(700, 4.375rem, $pri-yellow);
+        text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.50);
+    }
+    h1 {
+        margin-top: 110px;
+        margin-bottom: -14px;
+    }
+    h2 {
+        font-size: 2.375rem;
+        line-height: 40px;
+    }
+    h4 {
+        @include h4-pri(white, 300);
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+    }
+    .video-intro {
+        > a {
+            position: relative;
+            margin: 34px auto;
+            padding: 40px;
+            display: block;
+            width: 320px;
+            height: 200px;
+            border-radius: 5px;
+            background: rgba(32, 40, 42, 0.9);
+            border: 1px solid rgba(31, 31, 31, 0.15);
+            -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.20);
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.20);
+            img {
+                position: relative;
+                vertical-align: middle;
+                display: block;
+                margin: 0 auto;
+                transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+            }
+            &:hover {
+                background: rgba(32, 40, 42, 0.75);
+                img {
+                    -ms-transform: scale(0.92, 0.92);
+                    -webkit-transform: scale(0.92, 0.92);
+                    transform: scale(0.92, 0.92);
+                }
+            }
+        }
+    }
+}
+
+body {
+
+    .reveal-modal.hero-video-wrap {
+        width: 60%;
+        padding: 0px;
+        background: transparent;
+        border: none;
+        top: 22% !important;
+        position: fixed;
+        max-width: 600px;
+        .hero-vid {
+            margin-bottom: 0;
+        }
+        a.vid-close {
+            position: fixed;
+            top: 36px;
+            right: 40px;
+            width: 39px;
+            height: 39px;
+            display: block;
+            background: url(/static/images/reveal-close.png) no-repeat center;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+}
+
+.gameshow-container,
+.feature-container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.gameshow-content-wrap,
+.feature-title-wrap {
+    text-align: center;
+    h3 {
+        @include upper-font(700, 2.25rem, $pri-yellow);
+        margin-bottom: -6px
+    }
+    h5 {
+        font-weight: 300;
+    }
+}
+
+.gameshow-container {
+    position: relative;
+    @include grey-bg;
+    > .row {
+        .scroll-down {
+            margin: 0 auto;
+            position: absolute;
+            top: -35px;
+            border-radius: 70px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            width: 70px;
+            height: 70px;
+            background: url(/static/images/scroll-down.png) no-repeat center, url(/static/images/grey-texture.png) repeat;
+        }
+    }
+}
+
+.feature-container {
+    @include dark-primary-bg;
+    z-index: 15;
+    position: relative;
+}
+
+.gameshow-content-wrap {
+    h5 {
+        color: $sub-darkblue;
+        margin-bottom: 40px;
+    }
+    .star-container .star-rating {
+        position: relative;
+        margin: 0 auto;
+        width: 145px;
+        height: 20px;
+        background: url(/static/images/stars-sml-nonrate.png) repeat scroll 0% 0% transparent;
+        .current-rating {
+            display: block;
+            position: absolute;
+            width: 95%;
+            height: 20px;
+            background: url(/static/images/stars-sml-rate.png) repeat scroll left bottom transparent;
+        }
+    }
+    #feature-games-slider {
+        width: auto;
+        max-width: 940px;
+        margin: 24px auto;
+        -moz-box-shadow:    0px 0px 5px 0px rgba(0,0,0,0.30);
+        box-shadow:         0px 0px 5px 0px rgba(0,0,0,0.30);
+        .slick-next,
+        .slick-prev {
+            width: 34px;
+            height: 60px;
+            top: 48%;
+        }
+        .slick-next {
+            right: -70px;
+        }
+        .slick-prev {
+            left: -70px;
+        }
+        .slick-next:before {
+            content: url(/static/images/slider-next.png);
+        }
+        .slick-prev:before {
+            content: url(/static/images/slider-pre.png);
+        }
+        .slick-dots {
+            bottom: -65px;
+            li {
+                height: 16px;
+                width: 16px;
+                button {
+                    padding: 3px;
+                    &:before {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 10px;
+                        margin: 0 auto;
+                        left: 0;
+                        right: 0;
+                        background-color: $pri-lightgrey;
+                        opacity: 0.75;
+                        color: transparent;
+                    }
+                }
+            }
+            li.slick-active button:before {
+                background-color: $pri-yellow;
+            }
+        }
+    }
+}
+
+.feature-title-wrap {
+    h5 {
+        color: white;
+    }
+}
+
+.feature-content-wrap {
+    margin-top: 60px;
+    .feature-item {
+        text-align: center;
+        .animated-pic {
+            margin: 0 auto;
+            margin-bottom: 30px;
+            position: relative;
+            display: block;
+            height: 170px;
+            -webkit-transition: all 0.8s linear;  
+            transition: all 0.8s linear;
+            -moz-transition: all 0.8s linear;
+            > div {
+                position: absolute;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                -webkit-transition: all 300ms;  
+                transition: all 300ms;
+                -moz-transition: all 300ms;
+            }
+        }
+        // Convert Icon Animation
+        .animated-pic.convert {
+            .c1-anmt {
+                width: 120px;
+                height: 90px;
+                z-index: 10;
+                background: url(/static/images/featitem-convert/g-coin.png) no-repeat;
+                background-position: 16px;
+            }
+            .c2-anmt {
+                width: 170px;
+                height: 128px;
+                top: 34px;
+                z-index: 20;
+                background: url(/static/images/featitem-convert/ipad.png) no-repeat;
+                background-position: 6px;
+            }
+            .c3-anmt {
+                width: 80px;
+                height: 50px;
+                top: 87px;
+                z-index: 30;
+                background: url(/static/images/featitem-convert/big-diamond.png) no-repeat;
+                background-position: 11px;
+            }
+            .c4-anmt {
+                width: 110px;
+                height: 27px;
+                top: 112px;
+                z-index: 40;
+                background: url(/static/images/featitem-convert/left-diamond.png) no-repeat;
+                background-position: 78px;
+            }
+            .c5-anmt {
+                width: 110px;
+                height: 27px;
+                top: 112px;
+                z-index: 40;
+                background: url(/static/images/featitem-convert/right-diamond.png) no-repeat;
+                background-position: 10px;
+            }
+        }
+        .animated-pic.convert:hover {
+            .c1-anmt {
+                transform: translateY(8px);
+                -webkit-transform: translateY(8px);
+            }
+            .c2-anmt {
+                transform: scale(1.03,1.03);
+                -webkit-transform: scale(1.02,1.02);
+            }
+            .c3-anmt {
+                transform: translateY(3px);
+                -webkit-transform: translateY(3px);
+            }
+            .c4-anmt {
+                transform: translateX(5px);
+                -webkit-transform: translateX(5px);
+            }
+            .c5-anmt {
+                transform: translateX(-5px);
+                -webkit-transform: translateX(-5px);
+            }
+        }
+        // Wallet Icon Animation
+        .animated-pic.wallet {
+            .w1-anmt {
+                width: 150px;
+                height: 90px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/wallet-base.png) no-repeat;
+                background-position: 12px;
+                top: 76px;
+            }
+            .w2-anmt {
+                width: 200px;
+                height: 60px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/g-coin-right.png) no-repeat;
+                background-position: 130px;
+                top: 64px;
+            }
+            .w3-anmt {
+                width: 200px;
+                height: 50px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/g-coin-left.png) no-repeat;
+                background-position: 28px;
+                top: 72px;
+            }
+            .w4-anmt {
+                width: 250px;
+                height: 50px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/right-arrow.png) no-repeat;
+                background-position: 175px;
+                top: 107px;
+            }
+            .w5-anmt {
+                width: 250px;
+                height: 50px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/left-arrow.png) no-repeat;
+                background-position: 24px;
+                top: 107px;
+            }
+            .w6-anmt {
+                width: 150px;
+                height: 80px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/wallet-paper.png) no-repeat;
+                background-position: 9px;
+                top: 80px;
+            }
+            .w7-anmt {
+                width: 116px;
+                height: 84px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/g-coin-mid.png) no-repeat;
+                background-position: 4px;
+                top: 35px;
+            }
+            .w8-anmt {
+                width: 144px;
+                height: 84px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/wallet-top.png) no-repeat;
+                background-position: 6px;
+                top: 83px;
+            }
+            .w9-anmt {
+                width: 90px;
+                height: 50px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/g-coin-top.png) no-repeat;
+                background-position: 38px;
+                top: -10px;
+            }
+            .w10-anmt {
+                width: 220px;
+                height: 84px;
+                z-index: 10;
+                background: url(/static/images/featitem-wallet/g-coin-blur.png) no-repeat;
+                top: -1px;
+                left: 34px;
+            }
+        }
+        .animated-pic.wallet:hover {
+            .w2-anmt {
+                transform: translate(3px,-3px);
+                -webkit-transform: translate(3px,-3px);
+            }
+            .w3-anmt {
+                transform: translate(-3px,-3px);
+                -webkit-transform: translate(-3px,-3px);
+            }
+            .w4-anmt {
+                transform: translateX(5px);
+                -webkit-transform: translateX(5px);
+            }
+            .w5-anmt {
+                transform: translateX(-5px);
+                -webkit-transform: translateX(-5px);
+            }
+            .w7-anmt {
+                transform: translateY(6px);
+                -webkit-transform: translateY(6px);
+            }
+            .w8-anmt,
+            .w1-anmt,
+            .w6-anmt {
+                transform: scale(1.02,1.02);
+                -webkit-transform: scale(1.02,1.02);
+            }
+            .w9-anmt {
+                transform: translateY(4px);
+                -webkit-transform: translateY(4px);
+            }
+            .w10-anmt {
+                transform: scale(0.85,0.85);
+                -webkit-transform: scale(0.85,0.85);
+            }
+        }
+        // Support Icon Animation
+        .animated-pic.support {
+            .s1-anmt {
+                width: 180px;
+                height: 180px;
+                z-index: 10;
+                background: url(/static/images/featitem-support/rear.png) no-repeat;
+                background-position: 5px;
+                top: -8px;
+            }
+            .s2-anmt {
+                width: 170px;
+                height: 170px;
+                z-index: 10;
+                background: url(/static/images/featitem-support/float.png) no-repeat;
+                background-position: 5px;
+                top: -3px;
+            }
+            .s3-anmt {
+                width: 70px;
+                height: 52px;
+                z-index: 10;
+                background: url(/static/images/featitem-support/check.png) no-repeat;
+                background-position: 2px;
+                top: 58px;
+            }
+            .s4-anmt {
+                width: 50px;
+                height: 50px;
+                z-index: 10;
+                background: url(/static/images/featitem-support/heart.png) no-repeat;
+                background-position: -1px;
+                top: 70px;
+                opacity: 0;
+            }
+        }
+        .animated-pic.support:hover {
+            .s1-anmt,
+            .s2-anmt {
+                transform: scale(1.02,1.02);
+                -webkit-transform: scale(1.02,1.02);
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+            }
+            .s3-anmt {
+                transform: translateY(4px);
+                -webkit-transform: translateY(4px);
+                opacity: 0;
+            }
+            .s4-anmt {
+                transform: translateY(-10px);
+                -webkit-transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        img {
+            margin: 0 auto;
+            margin-bottom: 30px;
+            display: none;
+        }
+        h5,
+        p {
+            display: block;
+        }
+        h5 {
+            color: $pri-yellow;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        p {
+            color: #D2DADD;
+            font-size: 1rem;
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+}
+
+//Style for viewport max-width 1120px - 70em
+
+@media only screen and (max-width: 70em) {
+
+    .gameshow-content-wrap {
+        #feature-games-slider {
+            max-width: 800px;
+        }
+    }
+
+}
+
+// Style for viewport max-width 1024px // Standard Tablet
+
+@media only screen and (max-width: 64em) {
+
+    .gameshow-content-wrap {
+        #feature-games-slider {
+            .slick-prev,
+            .slick-next {
+                display: none !important;
+                &:before {
+                    display:none;
+                }
+            }
+        }
+    }
+
+}
+
+// Style for viewport max-width 896px - 56em // Tablet & Phablet
+
+@media only screen and (max-width: 56em) {
+
+    .gameshow-content-wrap {
+        #feature-games-slider {
+            max-width: 100%;
+        }
+    }
+
+    .hero-content-wrap {
+        h1 {
+            font-size: 3rem;
+        }
+        h2 {
+            font-size: 2.25rem;
+        }
+    }
+
+    .feature-content-wrap {
+        .feature-item {
+            .animated-pic.wallet {
+                .w4-anmt {
+                    background-position: 90%;
+                }
+                .w5-anmt {
+                    background-position: 10%;
+                }
+            }
+            img {
+                margin-bottom: 18px;
+            }
+            p {
+                width: 85%;
+            }
+        }
+    }
+
+    .gameshow-content-wrap,
+    .feature-title-wrap {
+        h3 {
+            font-size: 2rem;
+        }
+    }
+
+    body {
+        .reveal-modal.hero-video-wrap {
+            width: 80%;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 50.875em) {
+    
+    .feature-content-wrap {
+        .feature-item {
+            .animated-pic.wallet {
+                .w4-anmt {
+                    background-position: 88%;
+                }
+                .w5-anmt {
+                    background-position: 4%;
+                }
+                .w10-anmt {
+                    left: 12px;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 46.25em) {
+    
+    .feature-content-wrap {
+        .feature-item {
+            .animated-pic.wallet {
+                .w4-anmt {
+                    background-position: 75%;
+                }
+                .w5-anmt {
+                    background-position: 0%;
+                }
+                .w10-anmt {
+                    left: 6px;
+                }
+            }
+        }
+    }
+
+}
+
+
+// Style for viewport max-width 640px
+
+@media only screen and (max-width: 40em) {
+
+    .hero-content-wrap {
+        h1 {
+            margin-bottom: -18px;
+        }
+        h2 {
+            margin-top: 10px;
+        }
+    }
+
+    .gameshow-content-wrap,
+    .feature-title-wrap {
+        h3 {
+            font-size: 1.875rem;
+        }
+    }
+
+    .feature-content-wrap {
+        .feature-item {
+            margin-bottom: 70px;
+            .animated-pic.wallet {
+                .w4-anmt {
+                    background-position: 175px;
+                }
+                .w5-anmt {
+                    background-position: 24px;
+                }
+                .w10-anmt {
+                    left: 34px;
+                }
+            }
+            img {
+                margin-bottom: 0;
+            }
+            p {
+                width: 70%;
+            }
+        }
+    }
+
+    body {
+        .reveal-modal.hero-video-wrap {
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            a.vid-close {
+                left: 0 !important;
+                right: 0 !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                top: 50px !important;
+            }
+        }
+    }
+
+}
+
+// Style for viewport max-width 540px
+
+@media only screen and (max-width: 33.75em) {
+
+}
+
+// Style for 480px width
+
+@media only screen and (max-width: 30em) {
+
+    .hero-content-wrap {
+        h1 {
+            margin-bottom: 0;
+            font-size: 2rem;
+            line-height: 18px;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 36px;
+        }
+    }
+
+    .feature-content-wrap {
+        .feature-item {
+            p {
+                width: 90%;
+            }
+        }
+    }
+
+    .gameshow-content-wrap,
+    .feature-title-wrap {
+        h3 {
+            line-height: 32px;
+        }
+        h5 {
+            margin-top: 10px;
+        }
+    }
+
+    body {
+        .reveal-modal.hero-video-wrap {
+            width: 90%;
+            top: 26% !important;
+        }
+    }
+
+}
+
+// Style for 400px width
+
+@media only screen and (max-width: 25em) {
+
+}
+
+// Style for Smartphone
+
+@media only screen and (max-width: 22.5em) {
+
+    .hero-content-wrap {
+        .video-intro {
+            > a {
+                width: 90%;
+                height: auto;
+                img {
+                    width: 48%;
+                }
+            }
+        }
+    }
+
+    .gameshow-content-wrap,
+    .feature-title-wrap {
+        h3 {
+            margin-bottom: 0px;
+        }
+        h5 {
+            font-size: 1.125rem;
+        }
+    }
+
+    body {
+        .reveal-modal.hero-video-wrap {
+            width: 94%;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 20em) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

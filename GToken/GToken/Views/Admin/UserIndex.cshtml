@@ -1,0 +1,111 @@
+﻿@model GToken.Web.Models.UserQueryForm
+@using Platform.Utility
+@using Platform.Models
+@{
+    ViewBag.Title = "UserIndex";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h1>Users</h1>
+</div>
+<div class="tabs-content">
+    @if (ViewContext.Controller.HasPermission("access_admin_accountant_page"))
+    {
+        <div class="content active" id="transaction">
+            <form class="model-form" method="post" action="#">
+                <div class="row">
+                    <div class="small-3 columns">
+                        <input id="username" name="username" placeholder="Nick, username or email" type="text" value='@Model.username'>
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="referrer" name="referrer" placeholder="Referrer nick, username or email" type="text" value="@Model.referrer">
+                    </div>
+                    <div class="small-3 columns">
+                        <select id="source" name="source"><option value="">All</option><option value="website">Website</option><option value="goplay">GoPlay</option><option value="venvici">Venvici</option><option value="gdine">GDine</option></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <input id="regStartTime" name="regStartTime" placeholder="Registered from" type="datetime" value="@Model.regStartTime">
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="regEndTime" name="regEndTime" placeholder="Until" type="datetime" value="@Model.regEndTime">
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="loginStartTime" name="loginStartTime" placeholder="Log in from" type="datetime" value="@Model.loginStartTime">
+                        </div>
+                        <div class="small-3 columns">
+                            <input id="loginEndTime" name="loginEndTime" placeholder="Until" type="datetime" value="@Model.loginEndTime">
+                        </div>
+                    </div>
+      
+        <div class="row">
+            <div class="small-3 columns">
+                @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+            </div>
+            <input type="hidden" name="tab" value="user">
+        </div>
+
+        <div class="row">
+            <input name="query" class="button small" value="Query" type="submit" />
+            <input name="export" class="button small" value="Export" type="submit" />
+        </div>
+            </form>
+    </div>
+        <div class="table-wrap">
+            <!--<table class="wide-table">--><table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nickname</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>GToken</th>
+                        <th>VIP</th>
+                        <th>Source</th>
+                        <th>Country</th>
+                        <th>Register time</th>
+                        <th>Last login at</th>
+                        <th>Recommender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewData["Users"] != null)
+                    {
+                        var formatDate = "yyyy-MM-dd hh:mm:ss";
+                        var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+                        foreach (var item in ViewData["Users"] as List<CustomerAccount>)
+                        {
+                            item.created_at = TimeZoneInfo.ConvertTimeFromUtc(item.created_at, est);
+                            item.last_login_at = TimeZoneInfo.ConvertTimeFromUtc(item.last_login_at, est);
+                            <tr>
+                                <td>@Html.ActionLink(item.id.ToString(), "user/" + item.username, "admin")</td>
+                                <td>@item.nickname</td>
+                                <td>@item.username</td>
+                                <td>@item.email</td>
+                                <td>@item.gtoken</td>
+                                <td>@item.vip</td>
+                                <td>@(!string.IsNullOrEmpty(item.partner_name) ? item.partner_name : "Website")</td>
+                                <td>@item.country_name</td>
+                                <td>@item.created_at.ToString(formatDate)</td>
+                                <td>@item.last_login_at.ToString(formatDate)</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.inviter_username))
+                                    {
+                                        @Html.ActionLink(item.inviter_username, "user/" + item.inviter_username, "admin")
+                                    }
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    </div>
+
+    @section page_foot_js{
+        <script src="/static/js/admin/transaction.js"></script>
+    }
+

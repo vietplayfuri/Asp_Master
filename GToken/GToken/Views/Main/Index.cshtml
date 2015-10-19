@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = Resources.Resources.Home;
+    ViewBag.body_classes = "homepage";
+}
+
+<section class="main-section">
+    <div class="hero section text-center large-text-left">
+        <div class="row">
+            <div class="columns small-12">
+                <h2 mr-page-enter="entered" class="entered entered-active">WE GET YOU <br>THE <strong>BIGGEST BENEFITS</strong> <br> WITH THE <strong>BEST</strong> BRANDS</h2>
+                @if (!Request.IsAuthenticated)
+                {
+                    <hr class="small">
+                    <a href="@Url.Action("register", "account")" class="button large entered entered-active" mr-page-enter="entered">SIGN UP</a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="what-is section entered entered-active" mr-page-enter="entered">
+        <div class="row small-only-text-center">
+            <div class="columns large-4">
+                <h3 class="large-text-left">WHAT IS <strong>GTOKEN</strong>?</h3>
+            </div>
+            <div class="columns large-8 text-center large-text-left">
+                <p>GToken is a digital currency platform that gets you the biggest value and benefits with the best brands and business. <a href="/about" class="learn-more">Learn more</a></p>
+            </div>
+        </div>
+        <hr class="row">
+
+    </div>
+    <div class="section how-it-work entered entered-active" mr-page-enter="entered">
+        <div class="row" data-equalizer="">
+            <div class="columns large-4 large-push-8 title-column" data-equalizer-watch="" style="height: 145px;">
+                <h3 class="large-text-right">HOW <strong>IT WORKS</strong>?</h3>
+            </div>
+            <div class="columns large-8 large-pull-4" data-equalizer-watch="" style="height: 145px;">
+                <div class="row">
+                    <div class="columns small-12 medium-7 small-centered large-9 large-uncentered">
+                        <div class="path-animation entered entered-active" mr-page-enter="entered">
+                            <div class="path path-1 row">
+                                <div class="path-left">
+                                    <span class="title">Step 1</span>
+                                    <div class="circle">
+
+
+                                    </div>
+                                    <img src="/static/images/Join.png">
+                                    <div class="progress-bar">
+                                        <div class="progress-meter"></div>
+                                    </div>
+                                </div>
+                                Join free
+                            </div>
+                            <div class="path path-2 row">
+                                <div class="path-left">
+                                    <span class="title">Step 2</span>
+                                    <span class="circle circle-2"></span>
+                                    <img src="/static/images/svg/discount.svg">
+                                </div>
+                                Get Discounts from our Partners
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="row">
+    </div>
+    <div class="why section entered entered-active" mr-page-enter="entered">
+        <div class="row">
+            <div class="columns small-12">
+                <h3 class="text-center">WHY <strong>GTOKEN</strong>?</h3>
+            </div>
+            <div class="columns small-12">
+                <ul class="medium-block-grid-2 large-block-grid-3">
+                    <li>
+                        <div class="media-item">
+                            <img src="/static/images/key.png" alt="">
+                            <h4>@Resources.Resources.One_Login_To_All</h4>
+                            <p>@Resources.Resources.One_Login_To_All_description</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="media-item">
+                            <img src="/static/images/discount.png" alt="">
+                            <h4>@Resources.Resources.Get_Great_Discounts</h4>
+                            <p>@Resources.Resources.Get_Great_Discounts_description</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="media-item">
+                            <img src="/static/images/club.png" alt="">
+                            <h4>@Resources.Resources.GToken_Clubhouses</h4>
+                            <p>@Resources.Resources.GToken_Clubhouses_description</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <hr class="row">
+    </div>
+    <div class="partner section entered entered-active" mr-page-enter="entered">
+        <div class="row">
+            <div class="columns small-12">
+                <h3 class="text-center">OUR <strong>PARTNERS</strong></h3>
+                <ul class="inline-list center">
+                    <li>
+                        <a href="/partner-detail/GDine" title="GDine" class="half-opacity"><img src="/static/images/partners/gdine.png" alt="GDine"></a>
+                    </li>
+                    <li>
+                        <a href="/partner-detail/GoPlay" title=" go play"><img src="/static/images/partners/goplay.png" alt="Go Play"></a>
+                    </li>
+                    <li>
+                        <a href="/partner-detail/IAH" t title="IAHGames" class="half-opacity"><img src="/static/images/partners/iah.png" alt="IAHGames"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

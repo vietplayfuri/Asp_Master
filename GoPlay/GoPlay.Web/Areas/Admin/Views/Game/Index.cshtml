@@ -1,0 +1,98 @@
+﻿@model List<GoPlay.Models.Game>
+@using GoPlay.Web.ActionFilter;
+@using GoPlay.Web.Identity;
+@using GoPlay.Web
+@using Platform.Models
+@using GoPlay.Models
+@{
+    ViewBag.Title = "Games";
+    // bool isRoleGameAdmin = Html.GetCurrentUser().GetRoles().Any(r=>r.RoleName == GoPlayConstantValues.S_ROLE_GAME_ADMIN);
+}
+<div class="row">
+    <h1>Games</h1>
+    @if (ViewContext.Controller.HasRole(GoPlayConstantValues.S_ROLE_GAME_ADMIN))
+    {
+        <a class="button" href="/admin/game/add">Add Game</a>
+    }
+    <table class="games-table model-table" role="grid">
+        <thead>
+            <tr>
+                <th class="id width-5">ID</th>
+                <th class="width-10">Icon</th>
+                <th class="width-10">Name</th>
+                <th class="width-10">Studio</th>
+                <th class="width-10">Current Version</th>
+                <th>Updated At</th>
+                <th class="width-15">Status</th>
+                <th class="width-15">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var game in Model)
+                {
+                    <tr id="game-row-@game.id">
+                        <td>@game.id</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(game.icon_filename))
+                            {
+                                <img src="@game.icon_filename" alt="" width="64" height="64" />
+                            }
+                            else
+                            {
+                                @("None")
+                            }
+                        </td>
+                        <td>@game.name</td>
+                        <td>
+                            @if (game.studio_id > 0)
+                            {
+                                <a href="/admin/studio/@game.studio_id">
+                                    @game.studio_name
+                                </a>
+                            }
+                            else
+                            {
+                                @("None")
+                            }
+                        </td>
+                        <td>@(!string.IsNullOrEmpty(game.current_version) ? game.current_version : "None")</td>
+                        <td>@(game.updated_at.ToString(ConstantValues.S_DATETIME_FORMAT)) UTC</td>
+                        <td>
+                            @if (game.is_archived)
+                            {
+                                <span class="label warning">Archived</span>
+                            }
+                            @if (game.is_featured)
+                            {
+                                <span class="label success">Featured</span>
+                            }
+                            @if (game.is_popular)
+                            {
+                                <span class="label success">Popular</span>
+                            }
+                            @if (game.is_active)
+                            {
+                                <span class="label success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="label warning">Inactive</span>
+                            }
+                        </td>
+                        <td class="model-actions">
+                            <ul class="stack button-group">
+                                <li><a class="button small" href="/admin/game/@game.id">View</a></li>
+                                @if (ViewContext.Controller.HasRole(GoPlayConstantValues.S_ROLE_GAME_ADMIN))
+                                {
+                                    <li><a class="button small" href="/admin/game/@game.id/edit">Edit</a></li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,309 @@
+@import "account_main";
+// User Profile Page Content Style ******************************************** //
+
+img.notify-icon {
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: -3px;
+}
+
+.welcome-board {
+    @include white-panel;
+    width: 100%;
+    padding: 20px;
+    color: $pri-grey;
+    margin-bottom: 24px;
+    p.welcome-line {
+        text-align: left;
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 86%;
+        span {
+            font-weight: 600;
+        }
+    }
+    .user-todo-list {
+        text-align: center;
+        list-style-type: none;
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        li {
+            display: inline;
+            border-right: 2px solid $sub-grey;
+            padding-bottom: 0;
+            a {
+                display: inline-block;
+                color: $pri-grey;
+            }
+        }
+        li:last-child {
+            border-right: none;
+        }
+    }
+}
+
+.transfer-td,
+.exchange-td,
+.topup-td {
+    -webkit-transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    &:hover {
+        opacity: 0.75;
+        &:before {
+            transform: translateY(-5px);
+            -webkit-transform: translateY(-5px);
+        }
+    }
+    &:before {
+        transition: 0.2s linear;
+        -webkit-transition: 0.2s linear;
+        display: block;
+        margin-bottom: 2px;
+        vertical-align: middle;
+        height: 60px;
+    }
+}
+
+.transfer-td {
+    &:before {
+        content: url(/static/images/transfer-gtoken.png);
+        padding-top: 3px;
+    }
+}
+
+.exchange-td {
+    &:before {
+        content: url(/static/images/exchange-item.png);
+        padding-top: 8px;
+    }
+}
+
+.topup-td {
+    &:before {
+        content: url(/static/images/topup-gtoken.png);
+        padding-top: 5px;
+    }
+}
+
+.recent-activity {
+    display: none;
+    h4 {
+        font-weight: 600;
+        color: $sub-darkblue;
+    }
+    .activity-event {
+        color: $pri-grey;
+        padding: 0;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        background: none;
+        border: none;
+        .event-date,
+        .even-num {
+            color: $pri-grey;
+        }
+        .event-num {
+            a {
+                margin-left: 4px;
+                img {
+                    vertical-align: -3px;
+                }
+            }
+        }
+    }
+    .activity {
+        @include white-panel;
+        padding: 22px 20px 18px 20px;
+    }
+    .activity {
+        p.notify-text {
+            text-align: left;
+            position: relative;
+            top: -2px;
+            margin-bottom: 0;
+            display: inline-block;
+            width: 86%;
+        }
+    }
+}
+
+.recommend-game {
+    h4 {
+        font-weight: 600;
+        color: $sub-darkblue;
+    }
+    .games-row {
+        margin-top: 24px;
+        li {
+            position: relative;
+            img.upcoming-game {
+                position: absolute;
+                top: -9px;
+                left: 1px;
+            }
+            p.upcoming-text {
+                margin-bottom: 0;
+                color: $sub-darkblue;
+                font-family: 'Ubuntu';
+                font-size: 21px;
+                font-weight: 600;
+                text-transform: uppercase;
+                position: absolute;
+                z-index: 2;
+                top: 37px;
+                left: -14px;
+                transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                text-shadow: 0px 1px 1px #000000;
+            }
+            img:not(.upcoming-game) {
+                display: block;
+                width: 100%;
+                box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.25);
+                -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.25);
+                margin-bottom: 10px;
+            }
+            span.game-title {
+                width: auto;
+            }
+            span.game-title > a {
+                display: block;
+                h5 {
+                    color: $sub-darkblue;
+                    font-weight: 600;
+                    line-height: 28px;
+                    margin-bottom: 4px;
+                }
+                p {
+                    color: $sub-darkblue;
+                    font-weight: 300;
+                    padding: 0;
+                    font-size: 1rem;
+                    margin-bottom: 0 !important;
+                    line-height: 20px;
+                }
+                &.plat-icon {
+                    width: 20px;
+                    height: 20px;
+                    display: inline-block;
+                    position: relative;
+                    top: 3px;
+                }
+                &.ios-plat {
+                    background: url(/static/images/ios-icon.png) no-repeat 50% 40%;
+                }
+                &.gplay-plat {
+                    background: url(/static/images/gplay-icon.png) no-repeat 50% 54%;
+                }
+                &.pc-plat {
+                    background: url(/static/images/pc-icon.png) no-repeat 50% 40%;
+                }
+                &.apk-plat {
+                    background: url(/static/images/andr-icon.png) no-repeat 50% 54%;
+                }
+            }
+            span.game-title a.g-genre {
+                display: inline-block;
+                padding-right: 6px;
+                border-right: 1px solid $pri-lightgrey;
+                margin-right: 3px;
+            }
+            p {
+                font-size: 1rem;
+                color: $pri-grey;
+                padding-top: 10px;
+            }
+            .clear-fix {
+                clear: both;
+                display: block;
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+}
+
+
+// Style for viewport max-width 640px
+
+@media #{$small-only} {
+
+    .welcome-board {
+        .user-todo-list {
+            li {
+                border-right: none;
+                display: inline;
+            }
+        }
+    }
+
+    .recommend-game {
+        .games-row {
+            text-align: center;
+            li {
+                margin-bottom: 10px;
+            }
+            li img:not(.upcoming-game) {
+                margin: 0 auto;
+            }
+            li span.game-title > a {
+                h5 {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+}
+
+// Style for 480px width
+
+@media only screen and (max-width: 30em) {
+
+
+
+}
+
+// Style for Smartphone
+
+@media only screen and (max-width: 22.5em) {
+
+    .welcome-board {
+        padding: 16px 0px;
+        img {
+            margin-left: 12px;
+            margin-top: -2px;
+        }
+        p.welcome-line {
+            top: 0;
+            width: 80%;
+        }
+    }
+
+    .recent-activity {
+        .activity-event {
+            margin-bottom: 0;
+        }
+        .activity {
+            padding: 16px 12px;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 20em) {
+
+
+}
+
+
+
+
+
+
+

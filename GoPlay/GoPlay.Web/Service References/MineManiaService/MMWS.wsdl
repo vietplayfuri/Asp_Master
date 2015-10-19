@@ -1,0 +1,1757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UpdateProgress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFBId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:Progress" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Progress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Level" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Passed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stars" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GoldDelta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SPsDelta" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateProgressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateProgesssResult" nillable="true" type="tns:UpdateProgressResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateProgressResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Passed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Level" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateStatsDelta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFBId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delta" type="tns:StatsDelta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StatsDelta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GoldDelta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SPsDelta" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateStatsDeltaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateStatsDeltaResult" type="tns:PlayerStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PlayerStats">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gold" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SPs" type="tns:ArrayOfInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="HighestPlayedLevel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HighestUnlockedLevel" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SyncAllWithMLM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sGTokenId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:SyncInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SyncInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FbId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LevelScores" type="tns:ArrayOfLevelScore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLevelScore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LevelScore" nillable="true" type="tns:LevelScore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LevelScore">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Level" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stars" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SyncAllWithMLMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncAll" nillable="true" type="tns:SyncResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SyncResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LevelScores" type="tns:ArrayOfLevelScore" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlayerStats" type="tns:PlayerStats" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsGetGoldFromGToken" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GoldAmount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="End" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecordResult" type="tns:ArrayOfGTokenRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGTokenRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GTokenRecord" nillable="true" type="tns:GTokenRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GTokenRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GTokenId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gold" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateGoldForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sGTokenId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nGoldAmount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGoldForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateGoldForUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHighestLevelForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sGTokenId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHighestLevelForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetHighestLevelForUserResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:SyncInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncAll" nillable="true" type="tns:SyncResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRankings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFriendIds" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRankingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRankingsResult" type="tns:ArrayOfScore" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Score" nillable="true" type="tns:Score" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Score">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FriendId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TopScore" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IsNewDay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsNewDayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Usage" nillable="true" type="tns:UsageResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsageResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsNewDay" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CumulativeDaysPlayed" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGiftRedemptionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGiftRedemptionInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGiftRedemptionInfoResult" type="tns:GiftRedemptionInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GiftRedemptionInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RedeemedCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetGiftRedemptionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nRedeemCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetGiftRedemptionInfoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTicketInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTicketInfoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTicketInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FbIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTicketInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTicketInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnlockLevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnlockLevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnlockLevelResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2GetUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SocialId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GTokenId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2GetUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="V2GetUserIdResult" type="tns:UserInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="V2UpdateProgress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:Progress" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2UpdateProgressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateProgesssResult" nillable="true" type="tns:UpdateProgressResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2UpdateStatsDelta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="delta" type="tns:StatsDelta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2UpdateStatsDeltaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="V2UpdateStatsDeltaResult" type="tns:PlayerStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2SyncAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:SyncInfoV2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SyncInfoV2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LevelScores" type="tns:ArrayOfLevelScore" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="V2SyncAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncAll" nillable="true" type="tns:SyncResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2GetRankings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFriendIds" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="nMyUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2GetRankingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="V2GetRankingsResult" type="tns:ArrayOfScore" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2IsNewDay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2IsNewDayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Usage" nillable="true" type="tns:UsageResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2GetGiftRedemptionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2GetGiftRedemptionInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="V2GetGiftRedemptionInfoResult" type="tns:GiftRedemptionInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2SetGiftRedemptionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nRedeemCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2SetGiftRedemptionInfoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="V2GetTicketInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2GetTicketInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="V2GetTicketInfoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2AddTicketInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sMyFBId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FbIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2AddTicketInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="V2AddTicketInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2UnlockLevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="V2UnlockLevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="V2UnlockLevelResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfGTokenRecord" nillable="true" type="tns:ArrayOfGTokenRecord" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="int" type="s:int" />
+      <s:element name="Usage" nillable="true" type="tns:UsageResult" />
+      <s:element name="GiftRedemptionInfo" nillable="true" type="tns:GiftRedemptionInfo" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateProgressSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProgress" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProgressSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsDeltaSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateStatsDelta" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsDeltaSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStatsDeltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncAllWithMLMSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncAllWithMLM" />
+  </wsdl:message>
+  <wsdl:message name="SyncAllWithMLMSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncAllWithMLMResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecord" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGoldForUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGoldForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHighestLevelForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHighestLevelForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetHighestLevelForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHighestLevelForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncAllSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncAll" />
+  </wsdl:message>
+  <wsdl:message name="SyncAllSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRankings" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRankingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsNewDaySoapIn">
+    <wsdl:part name="parameters" element="tns:IsNewDay" />
+  </wsdl:message>
+  <wsdl:message name="IsNewDaySoapOut">
+    <wsdl:part name="parameters" element="tns:IsNewDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGiftRedemptionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetGiftRedemptionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGiftRedemptionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetGiftRedemptionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetGiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetGiftRedemptionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetGiftRedemptionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTicketInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTicketInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTicketInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTicketInfo" />
+  </wsdl:message>
+  <wsdl:message name="AddTicketInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTicketInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnlockLevelSoapIn">
+    <wsdl:part name="parameters" element="tns:UnlockLevel" />
+  </wsdl:message>
+  <wsdl:message name="UnlockLevelSoapOut">
+    <wsdl:part name="parameters" element="tns:UnlockLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2GetUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:V2GetUserId" />
+  </wsdl:message>
+  <wsdl:message name="V2GetUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:V2GetUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2UpdateProgressSoapIn">
+    <wsdl:part name="parameters" element="tns:V2UpdateProgress" />
+  </wsdl:message>
+  <wsdl:message name="V2UpdateProgressSoapOut">
+    <wsdl:part name="parameters" element="tns:V2UpdateProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2UpdateStatsDeltaSoapIn">
+    <wsdl:part name="parameters" element="tns:V2UpdateStatsDelta" />
+  </wsdl:message>
+  <wsdl:message name="V2UpdateStatsDeltaSoapOut">
+    <wsdl:part name="parameters" element="tns:V2UpdateStatsDeltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2SyncAllSoapIn">
+    <wsdl:part name="parameters" element="tns:V2SyncAll" />
+  </wsdl:message>
+  <wsdl:message name="V2SyncAllSoapOut">
+    <wsdl:part name="parameters" element="tns:V2SyncAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2GetRankingsSoapIn">
+    <wsdl:part name="parameters" element="tns:V2GetRankings" />
+  </wsdl:message>
+  <wsdl:message name="V2GetRankingsSoapOut">
+    <wsdl:part name="parameters" element="tns:V2GetRankingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2IsNewDaySoapIn">
+    <wsdl:part name="parameters" element="tns:V2IsNewDay" />
+  </wsdl:message>
+  <wsdl:message name="V2IsNewDaySoapOut">
+    <wsdl:part name="parameters" element="tns:V2IsNewDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2GetGiftRedemptionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:V2GetGiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2GetGiftRedemptionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:V2GetGiftRedemptionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2SetGiftRedemptionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:V2SetGiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2SetGiftRedemptionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:V2SetGiftRedemptionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2GetTicketInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:V2GetTicketInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2GetTicketInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:V2GetTicketInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2AddTicketInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:V2AddTicketInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2AddTicketInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:V2AddTicketInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="V2UnlockLevelSoapIn">
+    <wsdl:part name="parameters" element="tns:V2UnlockLevel" />
+  </wsdl:message>
+  <wsdl:message name="V2UnlockLevelSoapOut">
+    <wsdl:part name="parameters" element="tns:V2UnlockLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordHttpGetIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfGTokenRecord" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpGetIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+    <wsdl:part name="nGoldAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetHighestLevelForUserHttpGetIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHighestLevelForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="IsNewDayHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsNewDayHttpGetOut">
+    <wsdl:part name="Body" element="tns:Usage" />
+  </wsdl:message>
+  <wsdl:message name="GetGiftRedemptionInfoHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGiftRedemptionInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:GiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetGiftRedemptionInfoHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nRedeemCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetGiftRedemptionInfoHttpGetOut" />
+  <wsdl:message name="GetTicketInfoHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="UnlockLevelHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UnlockLevelHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="V2GetUserIdHttpGetIn">
+    <wsdl:part name="SocialId" type="s:string" />
+    <wsdl:part name="GTokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2GetUserIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:UserInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2IsNewDayHttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2IsNewDayHttpGetOut">
+    <wsdl:part name="Body" element="tns:Usage" />
+  </wsdl:message>
+  <wsdl:message name="V2GetGiftRedemptionInfoHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2GetGiftRedemptionInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:GiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2SetGiftRedemptionInfoHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nRedeemCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2SetGiftRedemptionInfoHttpGetOut" />
+  <wsdl:message name="V2GetTicketInfoHttpGetIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2GetTicketInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="V2UnlockLevelHttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2UnlockLevelHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordHttpPostIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfGTokenRecord" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpPostIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+    <wsdl:part name="nGoldAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetHighestLevelForUserHttpPostIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHighestLevelForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="IsNewDayHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsNewDayHttpPostOut">
+    <wsdl:part name="Body" element="tns:Usage" />
+  </wsdl:message>
+  <wsdl:message name="GetGiftRedemptionInfoHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGiftRedemptionInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:GiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetGiftRedemptionInfoHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nRedeemCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetGiftRedemptionInfoHttpPostOut" />
+  <wsdl:message name="GetTicketInfoHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="UnlockLevelHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UnlockLevelHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="V2GetUserIdHttpPostIn">
+    <wsdl:part name="SocialId" type="s:string" />
+    <wsdl:part name="GTokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2GetUserIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:UserInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2IsNewDayHttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2IsNewDayHttpPostOut">
+    <wsdl:part name="Body" element="tns:Usage" />
+  </wsdl:message>
+  <wsdl:message name="V2GetGiftRedemptionInfoHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2GetGiftRedemptionInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:GiftRedemptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="V2SetGiftRedemptionInfoHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nRedeemCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2SetGiftRedemptionInfoHttpPostOut" />
+  <wsdl:message name="V2GetTicketInfoHttpPostIn">
+    <wsdl:part name="sMyFBId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2GetTicketInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="V2UnlockLevelHttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="V2UnlockLevelHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="MMWSSoap">
+    <wsdl:operation name="UpdateProgress">
+      <wsdl:input message="tns:UpdateProgressSoapIn" />
+      <wsdl:output message="tns:UpdateProgressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsDelta">
+      <wsdl:input message="tns:UpdateStatsDeltaSoapIn" />
+      <wsdl:output message="tns:UpdateStatsDeltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncAllWithMLM">
+      <wsdl:input message="tns:SyncAllWithMLMSoapIn" />
+      <wsdl:output message="tns:SyncAllWithMLMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecord">
+      <wsdl:input message="tns:GetRecordSoapIn" />
+      <wsdl:output message="tns:GetRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <wsdl:input message="tns:UpdateGoldForUserSoapIn" />
+      <wsdl:output message="tns:UpdateGoldForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHighestLevelForUser">
+      <wsdl:input message="tns:GetHighestLevelForUserSoapIn" />
+      <wsdl:output message="tns:GetHighestLevelForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncAll">
+      <wsdl:input message="tns:SyncAllSoapIn" />
+      <wsdl:output message="tns:SyncAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRankings">
+      <wsdl:input message="tns:GetRankingsSoapIn" />
+      <wsdl:output message="tns:GetRankingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsNewDay">
+      <wsdl:input message="tns:IsNewDaySoapIn" />
+      <wsdl:output message="tns:IsNewDaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftRedemptionInfo">
+      <wsdl:input message="tns:GetGiftRedemptionInfoSoapIn" />
+      <wsdl:output message="tns:GetGiftRedemptionInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGiftRedemptionInfo">
+      <wsdl:input message="tns:SetGiftRedemptionInfoSoapIn" />
+      <wsdl:output message="tns:SetGiftRedemptionInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketInfo">
+      <wsdl:input message="tns:GetTicketInfoSoapIn" />
+      <wsdl:output message="tns:GetTicketInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTicketInfo">
+      <wsdl:input message="tns:AddTicketInfoSoapIn" />
+      <wsdl:output message="tns:AddTicketInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockLevel">
+      <wsdl:input message="tns:UnlockLevelSoapIn" />
+      <wsdl:output message="tns:UnlockLevelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetUserId">
+      <wsdl:input message="tns:V2GetUserIdSoapIn" />
+      <wsdl:output message="tns:V2GetUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2UpdateProgress">
+      <wsdl:input message="tns:V2UpdateProgressSoapIn" />
+      <wsdl:output message="tns:V2UpdateProgressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2UpdateStatsDelta">
+      <wsdl:input message="tns:V2UpdateStatsDeltaSoapIn" />
+      <wsdl:output message="tns:V2UpdateStatsDeltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2SyncAll">
+      <wsdl:input message="tns:V2SyncAllSoapIn" />
+      <wsdl:output message="tns:V2SyncAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetRankings">
+      <wsdl:input message="tns:V2GetRankingsSoapIn" />
+      <wsdl:output message="tns:V2GetRankingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2IsNewDay">
+      <wsdl:input message="tns:V2IsNewDaySoapIn" />
+      <wsdl:output message="tns:V2IsNewDaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetGiftRedemptionInfo">
+      <wsdl:input message="tns:V2GetGiftRedemptionInfoSoapIn" />
+      <wsdl:output message="tns:V2GetGiftRedemptionInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2SetGiftRedemptionInfo">
+      <wsdl:input message="tns:V2SetGiftRedemptionInfoSoapIn" />
+      <wsdl:output message="tns:V2SetGiftRedemptionInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetTicketInfo">
+      <wsdl:input message="tns:V2GetTicketInfoSoapIn" />
+      <wsdl:output message="tns:V2GetTicketInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2AddTicketInfo">
+      <wsdl:input message="tns:V2AddTicketInfoSoapIn" />
+      <wsdl:output message="tns:V2AddTicketInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2UnlockLevel">
+      <wsdl:input message="tns:V2UnlockLevelSoapIn" />
+      <wsdl:output message="tns:V2UnlockLevelSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MMWSHttpGet">
+    <wsdl:operation name="GetRecord">
+      <wsdl:input message="tns:GetRecordHttpGetIn" />
+      <wsdl:output message="tns:GetRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <wsdl:input message="tns:UpdateGoldForUserHttpGetIn" />
+      <wsdl:output message="tns:UpdateGoldForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHighestLevelForUser">
+      <wsdl:input message="tns:GetHighestLevelForUserHttpGetIn" />
+      <wsdl:output message="tns:GetHighestLevelForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsNewDay">
+      <wsdl:input message="tns:IsNewDayHttpGetIn" />
+      <wsdl:output message="tns:IsNewDayHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftRedemptionInfo">
+      <wsdl:input message="tns:GetGiftRedemptionInfoHttpGetIn" />
+      <wsdl:output message="tns:GetGiftRedemptionInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGiftRedemptionInfo">
+      <wsdl:input message="tns:SetGiftRedemptionInfoHttpGetIn" />
+      <wsdl:output message="tns:SetGiftRedemptionInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketInfo">
+      <wsdl:input message="tns:GetTicketInfoHttpGetIn" />
+      <wsdl:output message="tns:GetTicketInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockLevel">
+      <wsdl:input message="tns:UnlockLevelHttpGetIn" />
+      <wsdl:output message="tns:UnlockLevelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetUserId">
+      <wsdl:input message="tns:V2GetUserIdHttpGetIn" />
+      <wsdl:output message="tns:V2GetUserIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2IsNewDay">
+      <wsdl:input message="tns:V2IsNewDayHttpGetIn" />
+      <wsdl:output message="tns:V2IsNewDayHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetGiftRedemptionInfo">
+      <wsdl:input message="tns:V2GetGiftRedemptionInfoHttpGetIn" />
+      <wsdl:output message="tns:V2GetGiftRedemptionInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2SetGiftRedemptionInfo">
+      <wsdl:input message="tns:V2SetGiftRedemptionInfoHttpGetIn" />
+      <wsdl:output message="tns:V2SetGiftRedemptionInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetTicketInfo">
+      <wsdl:input message="tns:V2GetTicketInfoHttpGetIn" />
+      <wsdl:output message="tns:V2GetTicketInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2UnlockLevel">
+      <wsdl:input message="tns:V2UnlockLevelHttpGetIn" />
+      <wsdl:output message="tns:V2UnlockLevelHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MMWSHttpPost">
+    <wsdl:operation name="GetRecord">
+      <wsdl:input message="tns:GetRecordHttpPostIn" />
+      <wsdl:output message="tns:GetRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <wsdl:input message="tns:UpdateGoldForUserHttpPostIn" />
+      <wsdl:output message="tns:UpdateGoldForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHighestLevelForUser">
+      <wsdl:input message="tns:GetHighestLevelForUserHttpPostIn" />
+      <wsdl:output message="tns:GetHighestLevelForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsNewDay">
+      <wsdl:input message="tns:IsNewDayHttpPostIn" />
+      <wsdl:output message="tns:IsNewDayHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftRedemptionInfo">
+      <wsdl:input message="tns:GetGiftRedemptionInfoHttpPostIn" />
+      <wsdl:output message="tns:GetGiftRedemptionInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGiftRedemptionInfo">
+      <wsdl:input message="tns:SetGiftRedemptionInfoHttpPostIn" />
+      <wsdl:output message="tns:SetGiftRedemptionInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketInfo">
+      <wsdl:input message="tns:GetTicketInfoHttpPostIn" />
+      <wsdl:output message="tns:GetTicketInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockLevel">
+      <wsdl:input message="tns:UnlockLevelHttpPostIn" />
+      <wsdl:output message="tns:UnlockLevelHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetUserId">
+      <wsdl:input message="tns:V2GetUserIdHttpPostIn" />
+      <wsdl:output message="tns:V2GetUserIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2IsNewDay">
+      <wsdl:input message="tns:V2IsNewDayHttpPostIn" />
+      <wsdl:output message="tns:V2IsNewDayHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetGiftRedemptionInfo">
+      <wsdl:input message="tns:V2GetGiftRedemptionInfoHttpPostIn" />
+      <wsdl:output message="tns:V2GetGiftRedemptionInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2SetGiftRedemptionInfo">
+      <wsdl:input message="tns:V2SetGiftRedemptionInfoHttpPostIn" />
+      <wsdl:output message="tns:V2SetGiftRedemptionInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetTicketInfo">
+      <wsdl:input message="tns:V2GetTicketInfoHttpPostIn" />
+      <wsdl:output message="tns:V2GetTicketInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="V2UnlockLevel">
+      <wsdl:input message="tns:V2UnlockLevelHttpPostIn" />
+      <wsdl:output message="tns:V2UnlockLevelHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MMWSSoap" type="tns:MMWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateProgress">
+      <soap:operation soapAction="http://tempuri.org/UpdateProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsDelta">
+      <soap:operation soapAction="http://tempuri.org/UpdateStatsDelta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncAllWithMLM">
+      <soap:operation soapAction="http://tempuri.org/SyncAllWithMLM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecord">
+      <soap:operation soapAction="http://tempuri.org/GetRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <soap:operation soapAction="http://tempuri.org/UpdateGoldForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHighestLevelForUser">
+      <soap:operation soapAction="http://tempuri.org/GetHighestLevelForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncAll">
+      <soap:operation soapAction="http://tempuri.org/SyncAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRankings">
+      <soap:operation soapAction="http://tempuri.org/GetRankings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsNewDay">
+      <soap:operation soapAction="http://tempuri.org/IsNewDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftRedemptionInfo">
+      <soap:operation soapAction="http://tempuri.org/GetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGiftRedemptionInfo">
+      <soap:operation soapAction="http://tempuri.org/SetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketInfo">
+      <soap:operation soapAction="http://tempuri.org/GetTicketInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTicketInfo">
+      <soap:operation soapAction="http://tempuri.org/AddTicketInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockLevel">
+      <soap:operation soapAction="http://tempuri.org/UnlockLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetUserId">
+      <soap:operation soapAction="http://tempuri.org/V2GetUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UpdateProgress">
+      <soap:operation soapAction="http://tempuri.org/V2UpdateProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UpdateStatsDelta">
+      <soap:operation soapAction="http://tempuri.org/V2UpdateStatsDelta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2SyncAll">
+      <soap:operation soapAction="http://tempuri.org/V2SyncAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetRankings">
+      <soap:operation soapAction="http://tempuri.org/V2GetRankings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2IsNewDay">
+      <soap:operation soapAction="http://tempuri.org/V2IsNewDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetGiftRedemptionInfo">
+      <soap:operation soapAction="http://tempuri.org/V2GetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2SetGiftRedemptionInfo">
+      <soap:operation soapAction="http://tempuri.org/V2SetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetTicketInfo">
+      <soap:operation soapAction="http://tempuri.org/V2GetTicketInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2AddTicketInfo">
+      <soap:operation soapAction="http://tempuri.org/V2AddTicketInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UnlockLevel">
+      <soap:operation soapAction="http://tempuri.org/V2UnlockLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MMWSSoap12" type="tns:MMWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateProgress">
+      <soap12:operation soapAction="http://tempuri.org/UpdateProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsDelta">
+      <soap12:operation soapAction="http://tempuri.org/UpdateStatsDelta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncAllWithMLM">
+      <soap12:operation soapAction="http://tempuri.org/SyncAllWithMLM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecord">
+      <soap12:operation soapAction="http://tempuri.org/GetRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <soap12:operation soapAction="http://tempuri.org/UpdateGoldForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHighestLevelForUser">
+      <soap12:operation soapAction="http://tempuri.org/GetHighestLevelForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncAll">
+      <soap12:operation soapAction="http://tempuri.org/SyncAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRankings">
+      <soap12:operation soapAction="http://tempuri.org/GetRankings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsNewDay">
+      <soap12:operation soapAction="http://tempuri.org/IsNewDay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftRedemptionInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGiftRedemptionInfo">
+      <soap12:operation soapAction="http://tempuri.org/SetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetTicketInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTicketInfo">
+      <soap12:operation soapAction="http://tempuri.org/AddTicketInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockLevel">
+      <soap12:operation soapAction="http://tempuri.org/UnlockLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetUserId">
+      <soap12:operation soapAction="http://tempuri.org/V2GetUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UpdateProgress">
+      <soap12:operation soapAction="http://tempuri.org/V2UpdateProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UpdateStatsDelta">
+      <soap12:operation soapAction="http://tempuri.org/V2UpdateStatsDelta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2SyncAll">
+      <soap12:operation soapAction="http://tempuri.org/V2SyncAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetRankings">
+      <soap12:operation soapAction="http://tempuri.org/V2GetRankings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2IsNewDay">
+      <soap12:operation soapAction="http://tempuri.org/V2IsNewDay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetGiftRedemptionInfo">
+      <soap12:operation soapAction="http://tempuri.org/V2GetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2SetGiftRedemptionInfo">
+      <soap12:operation soapAction="http://tempuri.org/V2SetGiftRedemptionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetTicketInfo">
+      <soap12:operation soapAction="http://tempuri.org/V2GetTicketInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2AddTicketInfo">
+      <soap12:operation soapAction="http://tempuri.org/V2AddTicketInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UnlockLevel">
+      <soap12:operation soapAction="http://tempuri.org/V2UnlockLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MMWSHttpGet" type="tns:MMWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetRecord">
+      <http:operation location="/GetRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <http:operation location="/UpdateGoldForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHighestLevelForUser">
+      <http:operation location="/GetHighestLevelForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsNewDay">
+      <http:operation location="/IsNewDay" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftRedemptionInfo">
+      <http:operation location="/GetGiftRedemptionInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGiftRedemptionInfo">
+      <http:operation location="/SetGiftRedemptionInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketInfo">
+      <http:operation location="/GetTicketInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockLevel">
+      <http:operation location="/UnlockLevel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetUserId">
+      <http:operation location="/V2GetUserId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2IsNewDay">
+      <http:operation location="/V2IsNewDay" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetGiftRedemptionInfo">
+      <http:operation location="/V2GetGiftRedemptionInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2SetGiftRedemptionInfo">
+      <http:operation location="/V2SetGiftRedemptionInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetTicketInfo">
+      <http:operation location="/V2GetTicketInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UnlockLevel">
+      <http:operation location="/V2UnlockLevel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MMWSHttpPost" type="tns:MMWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetRecord">
+      <http:operation location="/GetRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <http:operation location="/UpdateGoldForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHighestLevelForUser">
+      <http:operation location="/GetHighestLevelForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsNewDay">
+      <http:operation location="/IsNewDay" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftRedemptionInfo">
+      <http:operation location="/GetGiftRedemptionInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGiftRedemptionInfo">
+      <http:operation location="/SetGiftRedemptionInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketInfo">
+      <http:operation location="/GetTicketInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockLevel">
+      <http:operation location="/UnlockLevel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetUserId">
+      <http:operation location="/V2GetUserId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2IsNewDay">
+      <http:operation location="/V2IsNewDay" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2GetGiftRedemptionInfo">
+      <http:operation location="/V2GetGiftRedemptionInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2SetGiftRedemptionInfo">
+      <http:operation location="/V2SetGiftRedemptionInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="V2GetTicketInfo">
+      <http:operation location="/V2GetTicketInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="V2UnlockLevel">
+      <http:operation location="/V2UnlockLevel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MMWS">
+    <wsdl:port name="MMWSSoap" binding="tns:MMWSSoap">
+      <soap:address location="http://playfuryservereasia.cloudapp.net/MMWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MMWSSoap12" binding="tns:MMWSSoap12">
+      <soap12:address location="http://playfuryservereasia.cloudapp.net/MMWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MMWSHttpGet" binding="tns:MMWSHttpGet">
+      <http:address location="http://playfuryservereasia.cloudapp.net/MMWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MMWSHttpPost" binding="tns:MMWSHttpPost">
+      <http:address location="http://playfuryservereasia.cloudapp.net/MMWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

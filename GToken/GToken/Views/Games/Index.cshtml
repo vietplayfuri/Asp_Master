@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Games;
+}
+@using GoPlay.Web.Helpers;
+@using GoPlay.Web.Helpers.Extensions;
+@model GoPlay.Web.Models.GamesViewModel
+@{
+    var gameHelper = new GameHelper();
+}
+
+@section page_stylesheets{
+
+    <link rel="stylesheet" href="/static/stylesheets/games/games_main.css" />
+}
+
+
+<div class="games-container">
+    <div class="page-title row">
+        <div class="large-12 columns">
+            <h2>@Resources.Resources.Games</h2>
+            <h5>Well-supported with GToken for better gaming experiences</h5>
+        </div>
+    </div>
+    <div class="games-content row">
+        <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+            @foreach (var game in Model.games)
+            {
+                var downloadLink = gameHelper.getDownloadLinksForCurrentUser(game, Html.GetCurrentUser(), Request.GetRequestIP());
+                <li class="wow fadeInUp animated" data-wow-delat="0.3s">
+                    <div id="game-{{ game.id }}" class="game-wrap">
+                        <a href="@Url.Action("detail", "game", new{param = @gameHelper.generateParam(game) })">
+                            @if (gameHelper.isComingSoon(game, Html.GetCurrentUser(), Request.GetRequestIP()))
+                            {
+                                <p class="upcoming-text">@Resources.Resources.Coming_Soon</p>
+                                <img class="upcoming-game" src="/static/images/coming-soon-stripe.png">
+                            }
+                            <img class="game-thumb" src="@gameHelper.getThumbFilename(game)" alt="">
+                        </a>
+                        <ul class="game-brief">
+                            <li>
+                                <span class="game-title">
+                                    <a href="@Url.Action("detail", "game", new{param = @gameHelper.generateParam(game) })" class="g-title">
+                                        <h4>@game.name</h4>
+                                    </a>
+                                    <a href="" class="g-genre"><p>@gameHelper.getLocalized(game, "genre")</p></a>
+                                    @if (downloadLink["apple"] != null)
+                                    {
+                                        <a class="plat-icon ios-plat" href="@downloadLink["apple"]" target="_blank"></a>
+                                    }
+                                    @if (downloadLink["google"] != null)
+                                    {
+                                        <a class="plat-icon gplay-plat" href="@downloadLink["google"]" t target="_blank"></a>
+                                    }
+                                    @if (downloadLink["pc"] != null)
+                                    {
+                                        <a class="plat-icon pc-plat" href="@downloadLink["pc"]" target="_blank"></a>
+                                    }
+                                    @if (downloadLink["apk"] != null)
+                                    {
+                                        <a class="plat-icon apk-plat" href="@downloadLink["apk"]" ta target="_blank"></a>
+                                    }
+                                </span>
+                                <div class="clear-fix">&nbsp;&nbsp;</div>
+                            </li>
+
+                            <li>
+                                <p>@gameHelper.getLocalized(game, "short_description")</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+@Html.Partial("Includes/bottom_call_to_action_register")
+
+
+

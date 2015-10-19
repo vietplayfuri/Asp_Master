@@ -1,0 +1,55 @@
+﻿@model GoEat.Web.Models.TransactionsViewModel
+@using GoEat.Models
+
+@{
+    var timezone = "Singapore Standard Time";
+    var est = TimeZoneInfo.FindSystemTimeZoneById(timezone);
+}
+
+<div class="account-content">
+    <input type="hidden" id="pageIndex" value="@ViewBag.currentPageIndex" />
+    <div class="row transaction-history small-12 medium-12 large-10 small-centered large-centered">
+        <table>
+            <thead>
+                <tr>
+                    <th span="1" style="width: 15%;">Order ID</th>
+                    <th span="1" style="width: 15%;">Amount</th>
+                    <th span="1" style="width: 15%;">Token</th>
+                    <th span="1" style="width: 15%;">Original Amount</th>
+                    <th span="1" style="width: 20%;">Description</th>
+                    <th span="1" style="width: 20%;">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transaction in Model.transactions)
+                {
+                    DateTime targetTime = TimeZoneInfo.ConvertTimeFromUtc(transaction.created_date, est);
+                    <tr>
+                        <td>@transaction.order_id</td>
+                        <td>@transaction.amount</td>
+                        <td>@transaction.token_amount</td>
+                        <td>@transaction.original_price</td>
+                        <td>@transaction.method</td>
+                        <td>@targetTime.ToString(ConstantValues.S_SHORT_DATETIME_FORMAT)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @if (ViewBag.currentPageIndex > 1)
+    {
+        <input type="button" id="btnPrevious" value="<<" onclick="historyTransaction(false,true)" />
+    }
+    else
+    {
+        <input type="button" value="<<" disabled />
+    }
+    @if (ViewBag.currentPageIndex < ViewBag.lastPageIndex)
+    {
+        <input type="button" id="btnNext" value=">>" onclick="historyTransaction(false,false)" />
+    }
+    else
+    {
+        <input type="button" value=">>" disabled />
+    }
+</div>

@@ -1,0 +1,79 @@
+@import "settings";
+@import "compass/css3/transition";
+
+button, .button {
+    background: none;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    min-width: 94px;
+    border: solid 2px $anchor-color;
+    color: $anchor-color;
+    border-radius: $global-radius;
+    z-index: 1;
+    outline: none;
+    @include transition(color 0.1s);
+
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 0%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $anchor-color;
+        @include transition(width 0.2s);
+    }
+
+    &:hover, &.zeroclipboard-is-hover {
+        background:none;
+        color: $white;
+        outline: none;
+        &:after {
+            width: 100%;
+        }
+    }
+
+    &:focus {
+        background: none;
+    }
+
+    &.large, &.large:focus {
+        background: none;
+        padding: 10px 30px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+        min-width: 94px;
+        border: solid 2px $primary-color;
+        color: $primary-color;
+        margin-bottom: 0.5em;
+
+        &:after {
+            background: $primary-color;
+        }
+        &:hover {
+            color: $white;
+           
+        }
+    }
+
+    &.secondary, &.secondary:focus {
+        border: none;
+        background: none;
+        color: $secondary-color;
+        outline: none;
+
+        &:after {
+            background: none;
+        }
+
+        &:hover {
+            background: none;
+            color: $strong-color;
+        }
+    }
+
+    
+}

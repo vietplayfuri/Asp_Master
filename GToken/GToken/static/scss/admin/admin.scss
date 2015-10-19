@@ -1,0 +1,86 @@
+@import "foundation";
+
+.alert-box {
+    margin-bottom: 0;
+}
+
+.top-bar {
+    max-width:  64.063em !important;
+    background: #333;
+}
+
+.model-table,
+.model-detail-table {
+    .width-5 {
+        width: 5%;
+    }
+    .width-10 {
+        width: 10%;
+    }
+    .width-15 {
+        width: 15%;
+    }
+    .width-20 {
+        width: 20%;
+    }
+    .width-30 {
+        width: 30%;
+    }
+    .width-50 {
+        width: 50%;
+    }
+}
+
+.model-delete-form {
+    .close-reveal-modal {
+        font-size: 0.8125rem;
+        font-weight: normal;
+        position: inherit;
+    }
+}
+
+.model-form textarea {
+    height: 110px;
+}
+
+.model-form .l10n-fields-scope {
+    border-bottom: 1px solid #C2C2C2;
+    margin-bottom: 20px;
+    .row {
+        &:first-child {
+            input,
+            textarea {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .toggle-button {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+
+.wide-table {
+    min-width: 2000px;
+    td {
+        white-space: pre;           /* CSS 2.0 */
+        white-space: pre-wrap;      /* CSS 2.1 */
+        white-space: pre-line;      /* CSS 3.0 */
+        white-space: -pre-wrap;     /* Opera 4-6 */
+        white-space: -o-pre-wrap;   /* Opera 7 */
+        white-space: -moz-pre-wrap; /* Mozilla */
+        white-space: -hp-pre-wrap;  /* HP Printers */
+        word-wrap: break-word;      /* IE 5+ */
+    }
+}
+
+.gcoin-table
+{
+    table-layout: fixed;
+}
+
+.bold
+{
+    font-weight : bold;
+    background-color: #0ea8b3 !important;
+}

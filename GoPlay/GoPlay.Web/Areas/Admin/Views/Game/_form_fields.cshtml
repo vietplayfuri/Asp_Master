@@ -1,0 +1,22 @@
+﻿
+
+{% for field in form %}
+  {% if field.flags.localizable %}
+{{ render_admin_l10n_field(field) }}
+  {% elif field.type == "BooleanField" and (field.label.text != "Is Featured" or check_role_permission("admin")) %}
+{{ render_admin_selectbox_field(field) }}
+  {% elif field.type != "SubmitField" and field.type != "HiddenField" and field.type != "CSRFTokenField" %}
+{{ render_admin_model_field(field, placeholder=field.label.text) }}
+  {% endif %}
+{% endfor %}
+
+<div class="row">
+    <div class="small-3 columns">
+        <label class="right inline" for="">
+            Slider Images
+        </label>
+    </div>
+    <div class="small-9 columns">
+        <input type="file" name="sliderImages" multiple />
+    </div>
+</div>

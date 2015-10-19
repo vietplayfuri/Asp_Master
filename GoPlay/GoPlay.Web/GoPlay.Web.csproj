@@ -1,0 +1,2777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE28FA28-B557-4F99-B60F-06D3C531824D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoPlay.Web</RootNamespace>
+    <AssemblyName>GoPlay.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Project-All\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\Project-All\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\..\Project-All\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\..\Project-All\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\..\Project-All\packages\Autofac.Mvc5.3.3.3\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\..\Project-All\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\Project-All\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\..\Project-All\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\Project-All\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Project-All\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.WebApi.MessageHandlers.Compression">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.MessageHandlers.Compression.1.3.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Microsoft.AspNet.WebApi.MessageHandlers.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Project-All\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MultipartDataMediaFormatter">
+      <HintPath>..\..\Project-All\packages\MultipartDataMediaFormatter.1.1.0.0\lib\net45\MultipartDataMediaFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\NodaTime.1.3.1\lib\net35-Client\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\Project-All\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal">
+      <HintPath>..\..\Project-All\packages\PayPal.1.4.4\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalAdaptiveAccountsSDK, Version=2.7.110.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\PayPalAdaptiveAccountsSDK.2.7.110\lib\net20\PayPalAdaptiveAccountsSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalAdaptivePaymentsSDK">
+      <HintPath>..\..\Project-All\packages\PayPalAdaptivePaymentsSDK.2.14.117\lib\net20\PayPalAdaptivePaymentsSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalCoreSDK, Version=1.6.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\PayPalCoreSDK.1.6.1\lib\net451\PayPalCoreSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="PreMailer.Net">
+      <HintPath>..\..\Project-All\packages\PreMailer.Net.1.4.1\lib\net40\PreMailer.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\Project-All\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\Project-All\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\Project-All\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\..\Project-All\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilter\Attributes.cs" />
+    <Compile Include="ActionFilter\RBAC.cs" />
+    <Compile Include="ActionFilter\RBACExtension.cs" />
+    <Compile Include="Api\Filters\CustomFilter.cs" />
+    <Compile Include="Api\NamespaceHttpControllerSelector.cs" />
+    <Compile Include="Api\Results\GetProgressResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Results\LoginOAuthResult.cs" />
+    <Compile Include="Api\Results\Profile.cs" />
+    <Compile Include="Api\Results\ProfileResult.cs" />
+    <Compile Include="Api\Results\RegisterOrLoginResult.cs" />
+    <Compile Include="Api\Results\Result.cs" />
+    <Compile Include="Api\Results\SaveProgressResult.cs" />
+    <Compile Include="Api\V1\BaseController.cs" />
+    <Compile Include="Api\V1\FriendController.cs" />
+    <Compile Include="Api\V1\AccountController.cs" />
+    <Compile Include="Api\V1\GameController.cs" />
+    <Compile Include="Api\V1\TransactionController.cs" />
+    <Compile Include="Api\V2\AccountController.cs" />
+    <Compile Include="App_Start\ApplicationUserManager.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DependancyInjectionConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TopupCardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TransactionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PaypalController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ExchangeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StudioController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GameController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\AdminUserModel.cs" />
+    <Compile Include="Areas\Admin\Models\AdminReportModel.cs" />
+    <Compile Include="Areas\Admin\Models\AdminExchangeModel.cs" />
+    <Compile Include="Areas\Admin\Models\AdminViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GameAdminViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GcoinPendingTransaction.cs" />
+    <Compile Include="Areas\Admin\Models\StudioViewModel.cs" />
+    <Compile Include="Const\Common.cs" />
+    <Compile Include="Const\Constants.cs" />
+    <Compile Include="Const\Local.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\OauthController.cs" />
+    <Compile Include="Controllers\ResetDBController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountPartnerController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FriendController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="Controllers\UpointController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\ExchangeHandler.cs" />
+    <Compile Include="Helpers\Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\Extensions\HtmlHelperExtension.cs" />
+    <Compile Include="Helpers\Extensions\StringHelper.cs" />
+    <Compile Include="Helpers\Extensions\WebIpHelper.cs" />
+    <Compile Include="Helpers\FlashHelper.cs" />
+    <Compile Include="Helpers\GameHelper.cs" />
+    <Compile Include="Helpers\Extensions\IpHelper.cs" />
+    <Compile Include="Helpers\PaypalHelper.cs" />
+    <Compile Include="Helpers\PermissionHelper.cs" />
+    <Compile Include="Helpers\TraceExceptionLogger.cs" />
+    <Compile Include="Helpers\TransactionHelper.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Identity\ApplicationUserStore.cs" />
+    <Compile Include="Identity\IdentityExtensions.cs" />
+    <Compile Include="Identity\IdentityModule.cs" />
+    <Compile Include="Models\FriendViewModel.cs" />
+    <Compile Include="Models\GameViewModels.cs" />
+    <Compile Include="Models\MainViewModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OauthViewModels.cs" />
+    <Compile Include="Models\PartnerViewModel.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Models\PaypalPaymentSearchForm.cs" />
+    <Compile Include="Models\TopupCardForm.cs" />
+    <Compile Include="Models\TransactionViewModel.cs" />
+    <Compile Include="Models\UpointViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\MineManiaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SuzyService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="docs\goplay\.gitignore" />
+    <Content Include="docs\goplay\conf.py" />
+    <Content Include="docs\goplay\images\chat_system_protocol.png" />
+    <Content Include="docs\goplay\images\exchange_no_server_flow.png" />
+    <Content Include="docs\goplay\images\exchange_with_server_flow.png" />
+    <Content Include="docs\goplay\images\fb1.png" />
+    <Content Include="docs\goplay\images\fb2.png" />
+    <Content Include="docs\goplay\images\fb3.png" />
+    <Content Include="docs\goplay\images\fb4.png" />
+    <Content Include="docs\goplay\images\goplay_la_dev.png" />
+    <Content Include="docs\goplay\images\goplay_la_prod.png" />
+    <Content Include="docs\goplay\images\gtoken_architecture.png" />
+    <Content Include="docs\goplay\images\GToken_exchange_user_flow.jpg" />
+    <Content Include="docs\goplay\images\gtoken_flow.png" />
+    <Content Include="docs\goplay\images\program_flow.png" />
+    <Content Include="docs\goplay\images\ui_flow.png" />
+    <Content Include="docs\messenger\conf.py" />
+    <Content Include="docs\messenger\_image\chatsystem_architecture.jpg" />
+    <Content Include="docs\messenger\_image\messenger_architecture.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Icon.png" />
+    <Content Include="ReadMe.md" />
+    <Content Include="Areas\Admin\Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Game\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Studio\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Exchange\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Paypal\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Transaction\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TopupCard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Exchange\CreditTypeDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Exchange\_entity_detail_table.cshtml" />
+    <Content Include="Areas\Admin\Views\Game\GameDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Game\_render_l10n_attr.cshtml" />
+    <Content Include="Areas\Admin\Views\Exchange\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Paypal\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Game\GameAdd.cshtml" />
+    <Content Include="Areas\Admin\Views\Helper\render_admin_l10n_field.cshtml" />
+    <Content Include="Areas\Admin\Views\Helper\render_admin_selectbox_field.cshtml" />
+    <Content Include="Areas\Admin\Views\Helper\render_admin_model_field.cshtml" />
+    <Content Include="Areas\Admin\Views\Game\_form_fields.cshtml" />
+    <Content Include="Areas\Admin\Views\Helper\render_admin_l10n_field_textarea.cshtml" />
+    <Content Include="Areas\Admin\Views\Paypal\submit.cshtml" />
+    <Content Include="Areas\Admin\Views\Paypal\gcoin_index.cshtml" />
+    <Content Include="Areas\Admin\Views\Exchange\PackageDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\ReportActiveUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Studio\StudioDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Studio\StudioAdd.cshtml" />
+    <Content Include="Areas\Admin\Views\Studio\StudioAssignAdminOrAccountant.cshtml" />
+    <Content Include="Areas\Admin\Views\User\UserDetail.cshtml" />
+    <Content Include="Data\country\countries-20140629.csv" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="docs\goplay\api.rst" />
+    <Content Include="docs\goplay\api_cn.rst" />
+    <Content Include="docs\goplay\api_proxy.rst" />
+    <Content Include="docs\goplay\architecture.rst" />
+    <Content Include="docs\goplay\index.rst" />
+    <Content Include="docs\goplay\introduction.rst" />
+    <Content Include="docs\goplay\in_app_purchase.rst" />
+    <Content Include="docs\goplay\Makefile" />
+    <Content Include="docs\goplay\schema.rst" />
+    <Content Include="docs\goplay\schema_bak.rst" />
+    <Content Include="docs\goplay\sdk.rst" />
+    <Content Include="docs\goplay\stack.rst" />
+    <Content Include="docs\messenger\architecture.rst" />
+    <Content Include="docs\messenger\index.rst" />
+    <Content Include="docs\messenger\introduction.rst" />
+    <Content Include="docs\messenger\make.bat" />
+    <Content Include="docs\messenger\Makefile" />
+    <Content Include="docs\messenger\stack.rst" />
+    <Content Include="docs\goplay\make.bat" />
+    <None Include="Properties\PublishProfiles\goplay.pubxml" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.GiftRedemptionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.GTokenRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.IsNewDayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.PlayerStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.Score.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.SyncAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.SyncAllWithMLMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.SyncResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.UpdateProgressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.UpdateProgressResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.UsageResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.UserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.V2IsNewDayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.V2SyncAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MineManiaService\GoPlay.Web.MineManiaService.V2UpdateProgressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <None Include="Service References\MineManiaService\MMWS.wsdl" />
+    <None Include="Service References\SuzyService\configuration91.svcinfo" />
+    <None Include="Service References\SuzyService\configuration.svcinfo" />
+    <None Include="Service References\MineManiaService\configuration91.svcinfo" />
+    <None Include="Service References\MineManiaService\configuration.svcinfo" />
+    <None Include="Service References\MineManiaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SuzyService\GoPlay.Web.SuzyService.GTokenRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SuzyService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="static\fonts\ubuntu\generator_config.txt" />
+    <Content Include="static\fonts\ubuntu\specimen_files\easytabs.js" />
+    <Content Include="static\fonts\ubuntu\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="static\fonts\ubuntu\specimen_files\specimen_stylesheet.css" />
+    <Content Include="static\fonts\ubuntu\ubuntu-b-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-b-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bi-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bi-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-c-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-c-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-l-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-l-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-li-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-li-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-m-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-m-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-mi-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-mi-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-r-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-r-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-ri-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-ri-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu.css" />
+    <Content Include="static\images\2.png" />
+    <Content Include="static\images\3.png" />
+    <Content Include="static\images\4.png" />
+    <Content Include="static\images\5.png" />
+    <Content Include="static\images\505_icon.png" />
+    <Content Include="static\images\8.png" />
+    <Content Include="static\images\9.png" />
+    <Content Include="static\images\about_hero.png" />
+    <Content Include="static\images\act_addfr.png" />
+    <Content Include="static\images\act_alreadyfr.png" />
+    <Content Include="static\images\act_chat.png" />
+    <Content Include="static\images\act_chat_online.png" />
+    <Content Include="static\images\act_sentfr.png" />
+    <Content Include="static\images\act_transfer.png" />
+    <Content Include="static\images\act_unfr.png" />
+    <Content Include="static\images\android_ico.png" />
+    <Content Include="static\images\apk_ico.png" />
+    <Content Include="static\images\app_icon.png" />
+    <Content Include="static\images\call_icon.png" />
+    <Content Include="static\images\chat_loading_icon.png" />
+    <Content Include="static\images\chat_notify_icon.png" />
+    <Content Include="static\images\checkbox.png" />
+    <Content Include="static\images\checkbox_checked.png" />
+    <Content Include="static\images\check_icon.png" />
+    <Content Include="static\images\close_chat.png" />
+    <Content Include="static\images\club-imgs\club-1.png" />
+    <Content Include="static\images\club-imgs\club-2.png" />
+    <Content Include="static\images\club-imgs\club-3.png" />
+    <Content Include="static\images\club-imgs\club-4.png" />
+    <Content Include="static\images\club-imgs\club-5.png" />
+    <Content Include="static\images\collapse_icon.png" />
+    <Content Include="static\images\convert_icon.png" />
+    <Content Include="static\images\cover.jpg" />
+    <Content Include="static\images\download_icon.png" />
+    <Content Include="static\images\dropdown_icon.png" />
+    <Content Include="static\images\endgodsbanner.png" />
+    <Content Include="static\images\exchange-gem.png" />
+    <Content Include="static\images\exchange-gold.png" />
+    <Content Include="static\images\exchange-package.png" />
+    <Content Include="static\images\exchange_icon.png" />
+    <Content Include="static\images\expand_icon.png" />
+    <Content Include="static\images\facebook.png" />
+    <Content Include="static\images\facebook_login.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-114x114.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-120x120.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-144x144.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-152x152.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-180x180.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-57x57.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-60x60.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-72x72.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-76x76.png" />
+    <Content Include="static\images\favicons\apple-touch-icon-precomposed.png" />
+    <Content Include="static\images\favicons\apple-touch-icon.png" />
+    <Content Include="static\images\favicons\browserconfig.xml" />
+    <Content Include="static\images\favicons\favicon-16x16.png" />
+    <Content Include="static\images\favicons\favicon-32x32.png" />
+    <Content Include="static\images\favicons\favicon-96x96.png" />
+    <Content Include="static\images\favicons\favicon.ico" />
+    <Content Include="static\images\favicons\mstile-144x144.png" />
+    <Content Include="static\images\favicons\mstile-150x150.png" />
+    <Content Include="static\images\favicons\mstile-310x150.png" />
+    <Content Include="static\images\favicons\mstile-310x310.png" />
+    <Content Include="static\images\favicons\mstile-70x70.png" />
+    <Content Include="static\images\flags\128\ad.png" />
+    <Content Include="static\images\flags\128\ae.png" />
+    <Content Include="static\images\flags\128\af.png" />
+    <Content Include="static\images\flags\128\ag.png" />
+    <Content Include="static\images\flags\128\ai.png" />
+    <Content Include="static\images\flags\128\al.png" />
+    <Content Include="static\images\flags\128\am.png" />
+    <Content Include="static\images\flags\128\an.png" />
+    <Content Include="static\images\flags\128\ao.png" />
+    <Content Include="static\images\flags\128\aq.png" />
+    <Content Include="static\images\flags\128\ar.png" />
+    <Content Include="static\images\flags\128\as.png" />
+    <Content Include="static\images\flags\128\at.png" />
+    <Content Include="static\images\flags\128\au.png" />
+    <Content Include="static\images\flags\128\aw.png" />
+    <Content Include="static\images\flags\128\ax.png" />
+    <Content Include="static\images\flags\128\az.png" />
+    <Content Include="static\images\flags\128\ba.png" />
+    <Content Include="static\images\flags\128\bb.png" />
+    <Content Include="static\images\flags\128\bd.png" />
+    <Content Include="static\images\flags\128\be.png" />
+    <Content Include="static\images\flags\128\bf.png" />
+    <Content Include="static\images\flags\128\bg.png" />
+    <Content Include="static\images\flags\128\bh.png" />
+    <Content Include="static\images\flags\128\bi.png" />
+    <Content Include="static\images\flags\128\bj.png" />
+    <Content Include="static\images\flags\128\bl.png" />
+    <Content Include="static\images\flags\128\bm.png" />
+    <Content Include="static\images\flags\128\bn.png" />
+    <Content Include="static\images\flags\128\bo.png" />
+    <Content Include="static\images\flags\128\bq.png" />
+    <Content Include="static\images\flags\128\br.png" />
+    <Content Include="static\images\flags\128\bs.png" />
+    <Content Include="static\images\flags\128\bt.png" />
+    <Content Include="static\images\flags\128\bv.png" />
+    <Content Include="static\images\flags\128\bw.png" />
+    <Content Include="static\images\flags\128\by.png" />
+    <Content Include="static\images\flags\128\bz.png" />
+    <Content Include="static\images\flags\128\ca.png" />
+    <Content Include="static\images\flags\128\cc.png" />
+    <Content Include="static\images\flags\128\cd.png" />
+    <Content Include="static\images\flags\128\cf.png" />
+    <Content Include="static\images\flags\128\cg.png" />
+    <Content Include="static\images\flags\128\ch.png" />
+    <Content Include="static\images\flags\128\ci.png" />
+    <Content Include="static\images\flags\128\ck.png" />
+    <Content Include="static\images\flags\128\cl.png" />
+    <Content Include="static\images\flags\128\cm.png" />
+    <Content Include="static\images\flags\128\cn.png" />
+    <Content Include="static\images\flags\128\co.png" />
+    <Content Include="static\images\flags\128\cr.png" />
+    <Content Include="static\images\flags\128\cu.png" />
+    <Content Include="static\images\flags\128\cv.png" />
+    <Content Include="static\images\flags\128\cw.png" />
+    <Content Include="static\images\flags\128\cx.png" />
+    <Content Include="static\images\flags\128\cy.png" />
+    <Content Include="static\images\flags\128\cz.png" />
+    <Content Include="static\images\flags\128\de.png" />
+    <Content Include="static\images\flags\128\dj.png" />
+    <Content Include="static\images\flags\128\dk.png" />
+    <Content Include="static\images\flags\128\dm.png" />
+    <Content Include="static\images\flags\128\do.png" />
+    <Content Include="static\images\flags\128\dz.png" />
+    <Content Include="static\images\flags\128\ec.png" />
+    <Content Include="static\images\flags\128\ee.png" />
+    <Content Include="static\images\flags\128\eg.png" />
+    <Content Include="static\images\flags\128\eh.png" />
+    <Content Include="static\images\flags\128\er.png" />
+    <Content Include="static\images\flags\128\es.png" />
+    <Content Include="static\images\flags\128\et.png" />
+    <Content Include="static\images\flags\128\fi.png" />
+    <Content Include="static\images\flags\128\fj.png" />
+    <Content Include="static\images\flags\128\fk.png" />
+    <Content Include="static\images\flags\128\fm.png" />
+    <Content Include="static\images\flags\128\fo.png" />
+    <Content Include="static\images\flags\128\fr.png" />
+    <Content Include="static\images\flags\128\ga.png" />
+    <Content Include="static\images\flags\128\gb.png" />
+    <Content Include="static\images\flags\128\gd.png" />
+    <Content Include="static\images\flags\128\ge.png" />
+    <Content Include="static\images\flags\128\gf.png" />
+    <Content Include="static\images\flags\128\gg.png" />
+    <Content Include="static\images\flags\128\gh.png" />
+    <Content Include="static\images\flags\128\gi.png" />
+    <Content Include="static\images\flags\128\gl.png" />
+    <Content Include="static\images\flags\128\gm.png" />
+    <Content Include="static\images\flags\128\gn.png" />
+    <Content Include="static\images\flags\128\gp.png" />
+    <Content Include="static\images\flags\128\gq.png" />
+    <Content Include="static\images\flags\128\gr.png" />
+    <Content Include="static\images\flags\128\gs.png" />
+    <Content Include="static\images\flags\128\gt.png" />
+    <Content Include="static\images\flags\128\gu.png" />
+    <Content Include="static\images\flags\128\gw.png" />
+    <Content Include="static\images\flags\128\gy.png" />
+    <Content Include="static\images\flags\128\hk.png" />
+    <Content Include="static\images\flags\128\hm.png" />
+    <Content Include="static\images\flags\128\hn.png" />
+    <Content Include="static\images\flags\128\hr.png" />
+    <Content Include="static\images\flags\128\ht.png" />
+    <Content Include="static\images\flags\128\hu.png" />
+    <Content Include="static\images\flags\128\id.png" />
+    <Content Include="static\images\flags\128\ie.png" />
+    <Content Include="static\images\flags\128\il.png" />
+    <Content Include="static\images\flags\128\im.png" />
+    <Content Include="static\images\flags\128\in.png" />
+    <Content Include="static\images\flags\128\io.png" />
+    <Content Include="static\images\flags\128\iq.png" />
+    <Content Include="static\images\flags\128\ir.png" />
+    <Content Include="static\images\flags\128\is.png" />
+    <Content Include="static\images\flags\128\it.png" />
+    <Content Include="static\images\flags\128\je.png" />
+    <Content Include="static\images\flags\128\jm.png" />
+    <Content Include="static\images\flags\128\jo.png" />
+    <Content Include="static\images\flags\128\jp.png" />
+    <Content Include="static\images\flags\128\ke.png" />
+    <Content Include="static\images\flags\128\kg.png" />
+    <Content Include="static\images\flags\128\kh.png" />
+    <Content Include="static\images\flags\128\ki.png" />
+    <Content Include="static\images\flags\128\km.png" />
+    <Content Include="static\images\flags\128\kn.png" />
+    <Content Include="static\images\flags\128\kp.png" />
+    <Content Include="static\images\flags\128\kr.png" />
+    <Content Include="static\images\flags\128\kw.png" />
+    <Content Include="static\images\flags\128\ky.png" />
+    <Content Include="static\images\flags\128\kz.png" />
+    <Content Include="static\images\flags\128\la.png" />
+    <Content Include="static\images\flags\128\lb.png" />
+    <Content Include="static\images\flags\128\lc.png" />
+    <Content Include="static\images\flags\128\li.png" />
+    <Content Include="static\images\flags\128\lk.png" />
+    <Content Include="static\images\flags\128\lr.png" />
+    <Content Include="static\images\flags\128\ls.png" />
+    <Content Include="static\images\flags\128\lt.png" />
+    <Content Include="static\images\flags\128\lu.png" />
+    <Content Include="static\images\flags\128\lv.png" />
+    <Content Include="static\images\flags\128\ly.png" />
+    <Content Include="static\images\flags\128\ma.png" />
+    <Content Include="static\images\flags\128\mc.png" />
+    <Content Include="static\images\flags\128\md.png" />
+    <Content Include="static\images\flags\128\me.png" />
+    <Content Include="static\images\flags\128\mf.png" />
+    <Content Include="static\images\flags\128\mg.png" />
+    <Content Include="static\images\flags\128\mh.png" />
+    <Content Include="static\images\flags\128\mk.png" />
+    <Content Include="static\images\flags\128\ml.png" />
+    <Content Include="static\images\flags\128\mm.png" />
+    <Content Include="static\images\flags\128\mn.png" />
+    <Content Include="static\images\flags\128\mo.png" />
+    <Content Include="static\images\flags\128\mp.png" />
+    <Content Include="static\images\flags\128\mq.png" />
+    <Content Include="static\images\flags\128\mr.png" />
+    <Content Include="static\images\flags\128\ms.png" />
+    <Content Include="static\images\flags\128\mt.png" />
+    <Content Include="static\images\flags\128\mu.png" />
+    <Content Include="static\images\flags\128\mv.png" />
+    <Content Include="static\images\flags\128\mw.png" />
+    <Content Include="static\images\flags\128\mx.png" />
+    <Content Include="static\images\flags\128\my.png" />
+    <Content Include="static\images\flags\128\mz.png" />
+    <Content Include="static\images\flags\128\na.png" />
+    <Content Include="static\images\flags\128\nc.png" />
+    <Content Include="static\images\flags\128\ne.png" />
+    <Content Include="static\images\flags\128\nf.png" />
+    <Content Include="static\images\flags\128\ng.png" />
+    <Content Include="static\images\flags\128\ni.png" />
+    <Content Include="static\images\flags\128\nl.png" />
+    <Content Include="static\images\flags\128\no.png" />
+    <Content Include="static\images\flags\128\np.png" />
+    <Content Include="static\images\flags\128\nr.png" />
+    <Content Include="static\images\flags\128\nu.png" />
+    <Content Include="static\images\flags\128\nz.png" />
+    <Content Include="static\images\flags\128\om.png" />
+    <Content Include="static\images\flags\128\pa.png" />
+    <Content Include="static\images\flags\128\pe.png" />
+    <Content Include="static\images\flags\128\pf.png" />
+    <Content Include="static\images\flags\128\pg.png" />
+    <Content Include="static\images\flags\128\ph.png" />
+    <Content Include="static\images\flags\128\pk.png" />
+    <Content Include="static\images\flags\128\pl.png" />
+    <Content Include="static\images\flags\128\pm.png" />
+    <Content Include="static\images\flags\128\pn.png" />
+    <Content Include="static\images\flags\128\pr.png" />
+    <Content Include="static\images\flags\128\ps.png" />
+    <Content Include="static\images\flags\128\pt.png" />
+    <Content Include="static\images\flags\128\pw.png" />
+    <Content Include="static\images\flags\128\py.png" />
+    <Content Include="static\images\flags\128\qa.png" />
+    <Content Include="static\images\flags\128\re.png" />
+    <Content Include="static\images\flags\128\rn.png" />
+    <Content Include="static\images\flags\128\ro.png" />
+    <Content Include="static\images\flags\128\rs.png" />
+    <Content Include="static\images\flags\128\ru.png" />
+    <Content Include="static\images\flags\128\rw.png" />
+    <Content Include="static\images\flags\128\sa.png" />
+    <Content Include="static\images\flags\128\sb.png" />
+    <Content Include="static\images\flags\128\sc.png" />
+    <Content Include="static\images\flags\128\sd.png" />
+    <Content Include="static\images\flags\128\se.png" />
+    <Content Include="static\images\flags\128\sg.png" />
+    <Content Include="static\images\flags\128\sh.png" />
+    <Content Include="static\images\flags\128\si.png" />
+    <Content Include="static\images\flags\128\sj.png" />
+    <Content Include="static\images\flags\128\sk.png" />
+    <Content Include="static\images\flags\128\sl.png" />
+    <Content Include="static\images\flags\128\sm.png" />
+    <Content Include="static\images\flags\128\sn.png" />
+    <Content Include="static\images\flags\128\so.png" />
+    <Content Include="static\images\flags\128\sr.png" />
+    <Content Include="static\images\flags\128\ss.png" />
+    <Content Include="static\images\flags\128\st.png" />
+    <Content Include="static\images\flags\128\sv.png" />
+    <Content Include="static\images\flags\128\sx.png" />
+    <Content Include="static\images\flags\128\sy.png" />
+    <Content Include="static\images\flags\128\sz.png" />
+    <Content Include="static\images\flags\128\tc.png" />
+    <Content Include="static\images\flags\128\td.png" />
+    <Content Include="static\images\flags\128\tf.png" />
+    <Content Include="static\images\flags\128\tg.png" />
+    <Content Include="static\images\flags\128\th.png" />
+    <Content Include="static\images\flags\128\tj.png" />
+    <Content Include="static\images\flags\128\tk.png" />
+    <Content Include="static\images\flags\128\tl.png" />
+    <Content Include="static\images\flags\128\tm.png" />
+    <Content Include="static\images\flags\128\to.png" />
+    <Content Include="static\images\flags\128\tr.png" />
+    <Content Include="static\images\flags\128\tt.png" />
+    <Content Include="static\images\flags\128\tv.png" />
+    <Content Include="static\images\flags\128\tw.png" />
+    <Content Include="static\images\flags\128\tz.png" />
+    <Content Include="static\images\flags\128\ua.png" />
+    <Content Include="static\images\flags\128\ug.png" />
+    <Content Include="static\images\flags\128\um.png" />
+    <Content Include="static\images\flags\128\us.png" />
+    <Content Include="static\images\flags\128\uy.png" />
+    <Content Include="static\images\flags\128\uz.png" />
+    <Content Include="static\images\flags\128\va.png" />
+    <Content Include="static\images\flags\128\vc.png" />
+    <Content Include="static\images\flags\128\ve.png" />
+    <Content Include="static\images\flags\128\vg.png" />
+    <Content Include="static\images\flags\128\vi.png" />
+    <Content Include="static\images\flags\128\vn.png" />
+    <Content Include="static\images\flags\128\vu.png" />
+    <Content Include="static\images\flags\128\wf.png" />
+    <Content Include="static\images\flags\128\ws.png" />
+    <Content Include="static\images\flags\128\ye.png" />
+    <Content Include="static\images\flags\128\yt.png" />
+    <Content Include="static\images\flags\128\za.png" />
+    <Content Include="static\images\flags\128\zm.png" />
+    <Content Include="static\images\flags\128\zw.png" />
+    <Content Include="static\images\flags\128\_African-Union.png" />
+    <Content Include="static\images\flags\128\_Alderney.png" />
+    <Content Include="static\images\flags\128\_Arab-League.png" />
+    <Content Include="static\images\flags\128\_ASEAN.png" />
+    <Content Include="static\images\flags\128\_Basque-Country.png" />
+    <Content Include="static\images\flags\128\_CARICOM.png" />
+    <Content Include="static\images\flags\128\_Catalonia.png" />
+    <Content Include="static\images\flags\128\_CIS.png" />
+    <Content Include="static\images\flags\128\_Commonwealth.png" />
+    <Content Include="static\images\flags\128\_England.png" />
+    <Content Include="static\images\flags\128\_European-Union.png" />
+    <Content Include="static\images\flags\128\_FAO.png" />
+    <Content Include="static\images\flags\128\_Galicia.png" />
+    <Content Include="static\images\flags\128\_IAEA.png" />
+    <Content Include="static\images\flags\128\_IHO.png" />
+    <Content Include="static\images\flags\128\_Islamic-Conference.png" />
+    <Content Include="static\images\flags\128\_Kosovo.png" />
+    <Content Include="static\images\flags\128\_NATO.png" />
+    <Content Include="static\images\flags\128\_Northern-Cyprus.png" />
+    <Content Include="static\images\flags\128\_Northern-Ireland.png" />
+    <Content Include="static\images\flags\128\_OAS.png" />
+    <Content Include="static\images\flags\128\_OECD.png" />
+    <Content Include="static\images\flags\128\_Olimpic-Movement.png" />
+    <Content Include="static\images\flags\128\_OPEC.png" />
+    <Content Include="static\images\flags\128\_Quebec.png" />
+    <Content Include="static\images\flags\128\_Red-Cross.png" />
+    <Content Include="static\images\flags\128\_Scotland.png" />
+    <Content Include="static\images\flags\128\_Somaliland.png" />
+    <Content Include="static\images\flags\128\_Tristan-da-Cunha.png" />
+    <Content Include="static\images\flags\128\_UNESCO.png" />
+    <Content Include="static\images\flags\128\_UNICEF.png" />
+    <Content Include="static\images\flags\128\_United-Nations.png" />
+    <Content Include="static\images\flags\128\_Wales.png" />
+    <Content Include="static\images\flags\128\_WHO.png" />
+    <Content Include="static\images\flags\128\_WTO.png" />
+    <Content Include="static\images\flags\16\ad.png" />
+    <Content Include="static\images\flags\16\ae.png" />
+    <Content Include="static\images\flags\16\af.png" />
+    <Content Include="static\images\flags\16\ag.png" />
+    <Content Include="static\images\flags\16\ai.png" />
+    <Content Include="static\images\flags\16\al.png" />
+    <Content Include="static\images\flags\16\am.png" />
+    <Content Include="static\images\flags\16\an.png" />
+    <Content Include="static\images\flags\16\ao.png" />
+    <Content Include="static\images\flags\16\aq.png" />
+    <Content Include="static\images\flags\16\ar.png" />
+    <Content Include="static\images\flags\16\as.png" />
+    <Content Include="static\images\flags\16\at.png" />
+    <Content Include="static\images\flags\16\au.png" />
+    <Content Include="static\images\flags\16\aw.png" />
+    <Content Include="static\images\flags\16\ax.png" />
+    <Content Include="static\images\flags\16\az.png" />
+    <Content Include="static\images\flags\16\ba.png" />
+    <Content Include="static\images\flags\16\bb.png" />
+    <Content Include="static\images\flags\16\bd.png" />
+    <Content Include="static\images\flags\16\be.png" />
+    <Content Include="static\images\flags\16\bf.png" />
+    <Content Include="static\images\flags\16\bg.png" />
+    <Content Include="static\images\flags\16\bh.png" />
+    <Content Include="static\images\flags\16\bi.png" />
+    <Content Include="static\images\flags\16\bj.png" />
+    <Content Include="static\images\flags\16\bl.png" />
+    <Content Include="static\images\flags\16\bm.png" />
+    <Content Include="static\images\flags\16\bn.png" />
+    <Content Include="static\images\flags\16\bo.png" />
+    <Content Include="static\images\flags\16\bq.png" />
+    <Content Include="static\images\flags\16\br.png" />
+    <Content Include="static\images\flags\16\bs.png" />
+    <Content Include="static\images\flags\16\bt.png" />
+    <Content Include="static\images\flags\16\bv.png" />
+    <Content Include="static\images\flags\16\bw.png" />
+    <Content Include="static\images\flags\16\by.png" />
+    <Content Include="static\images\flags\16\bz.png" />
+    <Content Include="static\images\flags\16\ca.png" />
+    <Content Include="static\images\flags\16\cc.png" />
+    <Content Include="static\images\flags\16\cd.png" />
+    <Content Include="static\images\flags\16\cf.png" />
+    <Content Include="static\images\flags\16\cg.png" />
+    <Content Include="static\images\flags\16\ch.png" />
+    <Content Include="static\images\flags\16\ci.png" />
+    <Content Include="static\images\flags\16\ck.png" />
+    <Content Include="static\images\flags\16\cl.png" />
+    <Content Include="static\images\flags\16\cm.png" />
+    <Content Include="static\images\flags\16\cn.png" />
+    <Content Include="static\images\flags\16\co.png" />
+    <Content Include="static\images\flags\16\cr.png" />
+    <Content Include="static\images\flags\16\cu.png" />
+    <Content Include="static\images\flags\16\cv.png" />
+    <Content Include="static\images\flags\16\cw.png" />
+    <Content Include="static\images\flags\16\cx.png" />
+    <Content Include="static\images\flags\16\cy.png" />
+    <Content Include="static\images\flags\16\cz.png" />
+    <Content Include="static\images\flags\16\de.png" />
+    <Content Include="static\images\flags\16\dj.png" />
+    <Content Include="static\images\flags\16\dk.png" />
+    <Content Include="static\images\flags\16\dm.png" />
+    <Content Include="static\images\flags\16\do.png" />
+    <Content Include="static\images\flags\16\dz.png" />
+    <Content Include="static\images\flags\16\ec.png" />
+    <Content Include="static\images\flags\16\ee.png" />
+    <Content Include="static\images\flags\16\eg.png" />
+    <Content Include="static\images\flags\16\eh.png" />
+    <Content Include="static\images\flags\16\er.png" />
+    <Content Include="static\images\flags\16\es.png" />
+    <Content Include="static\images\flags\16\et.png" />
+    <Content Include="static\images\flags\16\fi.png" />
+    <Content Include="static\images\flags\16\fj.png" />
+    <Content Include="static\images\flags\16\fk.png" />
+    <Content Include="static\images\flags\16\fm.png" />
+    <Content Include="static\images\flags\16\fo.png" />
+    <Content Include="static\images\flags\16\fr.png" />
+    <Content Include="static\images\flags\16\ga.png" />
+    <Content Include="static\images\flags\16\gb.png" />
+    <Content Include="static\images\flags\16\gd.png" />
+    <Content Include="static\images\flags\16\ge.png" />
+    <Content Include="static\images\flags\16\gf.png" />
+    <Content Include="static\images\flags\16\gg.png" />
+    <Content Include="static\images\flags\16\gh.png" />
+    <Content Include="static\images\flags\16\gi.png" />
+    <Content Include="static\images\flags\16\gl.png" />
+    <Content Include="static\images\flags\16\gm.png" />
+    <Content Include="static\images\flags\16\gn.png" />
+    <Content Include="static\images\flags\16\gp.png" />
+    <Content Include="static\images\flags\16\gq.png" />
+    <Content Include="static\images\flags\16\gr.png" />
+    <Content Include="static\images\flags\16\gs.png" />
+    <Content Include="static\images\flags\16\gt.png" />
+    <Content Include="static\images\flags\16\gu.png" />
+    <Content Include="static\images\flags\16\gw.png" />
+    <Content Include="static\images\flags\16\gy.png" />
+    <Content Include="static\images\flags\16\hk.png" />
+    <Content Include="static\images\flags\16\hm.png" />
+    <Content Include="static\images\flags\16\hn.png" />
+    <Content Include="static\images\flags\16\hr.png" />
+    <Content Include="static\images\flags\16\ht.png" />
+    <Content Include="static\images\flags\16\hu.png" />
+    <Content Include="static\images\flags\16\id.png" />
+    <Content Include="static\images\flags\16\ie.png" />
+    <Content Include="static\images\flags\16\il.png" />
+    <Content Include="static\images\flags\16\im.png" />
+    <Content Include="static\images\flags\16\in.png" />
+    <Content Include="static\images\flags\16\io.png" />
+    <Content Include="static\images\flags\16\iq.png" />
+    <Content Include="static\images\flags\16\ir.png" />
+    <Content Include="static\images\flags\16\is.png" />
+    <Content Include="static\images\flags\16\it.png" />
+    <Content Include="static\images\flags\16\je.png" />
+    <Content Include="static\images\flags\16\jm.png" />
+    <Content Include="static\images\flags\16\jo.png" />
+    <Content Include="static\images\flags\16\jp.png" />
+    <Content Include="static\images\flags\16\ke.png" />
+    <Content Include="static\images\flags\16\kg.png" />
+    <Content Include="static\images\flags\16\kh.png" />
+    <Content Include="static\images\flags\16\ki.png" />
+    <Content Include="static\images\flags\16\km.png" />
+    <Content Include="static\images\flags\16\kn.png" />
+    <Content Include="static\images\flags\16\kp.png" />
+    <Content Include="static\images\flags\16\kr.png" />
+    <Content Include="static\images\flags\16\kw.png" />
+    <Content Include="static\images\flags\16\ky.png" />
+    <Content Include="static\images\flags\16\kz.png" />
+    <Content Include="static\images\flags\16\la.png" />
+    <Content Include="static\images\flags\16\lb.png" />
+    <Content Include="static\images\flags\16\lc.png" />
+    <Content Include="static\images\flags\16\li.png" />
+    <Content Include="static\images\flags\16\lk.png" />
+    <Content Include="static\images\flags\16\lr.png" />
+    <Content Include="static\images\flags\16\ls.png" />
+    <Content Include="static\images\flags\16\lt.png" />
+    <Content Include="static\images\flags\16\lu.png" />
+    <Content Include="static\images\flags\16\lv.png" />
+    <Content Include="static\images\flags\16\ly.png" />
+    <Content Include="static\images\flags\16\ma.png" />
+    <Content Include="static\images\flags\16\mc.png" />
+    <Content Include="static\images\flags\16\md.png" />
+    <Content Include="static\images\flags\16\me.png" />
+    <Content Include="static\images\flags\16\mf.png" />
+    <Content Include="static\images\flags\16\mg.png" />
+    <Content Include="static\images\flags\16\mh.png" />
+    <Content Include="static\images\flags\16\mk.png" />
+    <Content Include="static\images\flags\16\ml.png" />
+    <Content Include="static\images\flags\16\mm.png" />
+    <Content Include="static\images\flags\16\mn.png" />
+    <Content Include="static\images\flags\16\mo.png" />
+    <Content Include="static\images\flags\16\mp.png" />
+    <Content Include="static\images\flags\16\mq.png" />
+    <Content Include="static\images\flags\16\mr.png" />
+    <Content Include="static\images\flags\16\ms.png" />
+    <Content Include="static\images\flags\16\mt.png" />
+    <Content Include="static\images\flags\16\mu.png" />
+    <Content Include="static\images\flags\16\mv.png" />
+    <Content Include="static\images\flags\16\mw.png" />
+    <Content Include="static\images\flags\16\mx.png" />
+    <Content Include="static\images\flags\16\my.png" />
+    <Content Include="static\images\flags\16\mz.png" />
+    <Content Include="static\images\flags\16\na.png" />
+    <Content Include="static\images\flags\16\nc.png" />
+    <Content Include="static\images\flags\16\ne.png" />
+    <Content Include="static\images\flags\16\nf.png" />
+    <Content Include="static\images\flags\16\ng.png" />
+    <Content Include="static\images\flags\16\ni.png" />
+    <Content Include="static\images\flags\16\nl.png" />
+    <Content Include="static\images\flags\16\no.png" />
+    <Content Include="static\images\flags\16\np.png" />
+    <Content Include="static\images\flags\16\nr.png" />
+    <Content Include="static\images\flags\16\nu.png" />
+    <Content Include="static\images\flags\16\nz.png" />
+    <Content Include="static\images\flags\16\om.png" />
+    <Content Include="static\images\flags\16\pa.png" />
+    <Content Include="static\images\flags\16\pe.png" />
+    <Content Include="static\images\flags\16\pf.png" />
+    <Content Include="static\images\flags\16\pg.png" />
+    <Content Include="static\images\flags\16\ph.png" />
+    <Content Include="static\images\flags\16\pk.png" />
+    <Content Include="static\images\flags\16\pl.png" />
+    <Content Include="static\images\flags\16\pm.png" />
+    <Content Include="static\images\flags\16\pn.png" />
+    <Content Include="static\images\flags\16\pr.png" />
+    <Content Include="static\images\flags\16\ps.png" />
+    <Content Include="static\images\flags\16\pt.png" />
+    <Content Include="static\images\flags\16\pw.png" />
+    <Content Include="static\images\flags\16\py.png" />
+    <Content Include="static\images\flags\16\qa.png" />
+    <Content Include="static\images\flags\16\re.png" />
+    <Content Include="static\images\flags\16\ro.png" />
+    <Content Include="static\images\flags\16\rs.png" />
+    <Content Include="static\images\flags\16\ru.png" />
+    <Content Include="static\images\flags\16\rw.png" />
+    <Content Include="static\images\flags\16\sa.png" />
+    <Content Include="static\images\flags\16\sb.png" />
+    <Content Include="static\images\flags\16\sc.png" />
+    <Content Include="static\images\flags\16\sd.png" />
+    <Content Include="static\images\flags\16\se.png" />
+    <Content Include="static\images\flags\16\sg.png" />
+    <Content Include="static\images\flags\16\sh.png" />
+    <Content Include="static\images\flags\16\si.png" />
+    <Content Include="static\images\flags\16\sj.png" />
+    <Content Include="static\images\flags\16\sk.png" />
+    <Content Include="static\images\flags\16\sl.png" />
+    <Content Include="static\images\flags\16\sm.png" />
+    <Content Include="static\images\flags\16\sn.png" />
+    <Content Include="static\images\flags\16\so.png" />
+    <Content Include="static\images\flags\16\sr.png" />
+    <Content Include="static\images\flags\16\ss.png" />
+    <Content Include="static\images\flags\16\st.png" />
+    <Content Include="static\images\flags\16\sv.png" />
+    <Content Include="static\images\flags\16\sx.png" />
+    <Content Include="static\images\flags\16\sy.png" />
+    <Content Include="static\images\flags\16\sz.png" />
+    <Content Include="static\images\flags\16\tc.png" />
+    <Content Include="static\images\flags\16\td.png" />
+    <Content Include="static\images\flags\16\tf.png" />
+    <Content Include="static\images\flags\16\tg.png" />
+    <Content Include="static\images\flags\16\th.png" />
+    <Content Include="static\images\flags\16\tj.png" />
+    <Content Include="static\images\flags\16\tk.png" />
+    <Content Include="static\images\flags\16\tl.png" />
+    <Content Include="static\images\flags\16\tm.png" />
+    <Content Include="static\images\flags\16\tn.png" />
+    <Content Include="static\images\flags\16\to.png" />
+    <Content Include="static\images\flags\16\tr.png" />
+    <Content Include="static\images\flags\16\tt.png" />
+    <Content Include="static\images\flags\16\tv.png" />
+    <Content Include="static\images\flags\16\tw.png" />
+    <Content Include="static\images\flags\16\tz.png" />
+    <Content Include="static\images\flags\16\ua.png" />
+    <Content Include="static\images\flags\16\ug.png" />
+    <Content Include="static\images\flags\16\um.png" />
+    <Content Include="static\images\flags\16\us.png" />
+    <Content Include="static\images\flags\16\uy.png" />
+    <Content Include="static\images\flags\16\uz.png" />
+    <Content Include="static\images\flags\16\va.png" />
+    <Content Include="static\images\flags\16\vc.png" />
+    <Content Include="static\images\flags\16\ve.png" />
+    <Content Include="static\images\flags\16\vg.png" />
+    <Content Include="static\images\flags\16\vi.png" />
+    <Content Include="static\images\flags\16\vn.png" />
+    <Content Include="static\images\flags\16\vu.png" />
+    <Content Include="static\images\flags\16\wf.png" />
+    <Content Include="static\images\flags\16\ws.png" />
+    <Content Include="static\images\flags\16\ye.png" />
+    <Content Include="static\images\flags\16\yt.png" />
+    <Content Include="static\images\flags\16\za.png" />
+    <Content Include="static\images\flags\16\zm.png" />
+    <Content Include="static\images\flags\16\zw.png" />
+    <Content Include="static\images\flags\16\_African Union.png" />
+    <Content Include="static\images\flags\16\_Alderney.png" />
+    <Content Include="static\images\flags\16\_Arab League.png" />
+    <Content Include="static\images\flags\16\_ASEAN.png" />
+    <Content Include="static\images\flags\16\_Basque Country.png" />
+    <Content Include="static\images\flags\16\_CARICOM.png" />
+    <Content Include="static\images\flags\16\_Catalonia.png" />
+    <Content Include="static\images\flags\16\_CIS.png" />
+    <Content Include="static\images\flags\16\_Commonwealth.png" />
+    <Content Include="static\images\flags\16\_England.png" />
+    <Content Include="static\images\flags\16\_European Union.png" />
+    <Content Include="static\images\flags\16\_FAO.png" />
+    <Content Include="static\images\flags\16\_Galicia.png" />
+    <Content Include="static\images\flags\16\_IAEA.png" />
+    <Content Include="static\images\flags\16\_IHO.png" />
+    <Content Include="static\images\flags\16\_Islamic Conference.png" />
+    <Content Include="static\images\flags\16\_Kosovo.png" />
+    <Content Include="static\images\flags\16\_NATO.png" />
+    <Content Include="static\images\flags\16\_Northern Cyprus.png" />
+    <Content Include="static\images\flags\16\_Northern Ireland.png" />
+    <Content Include="static\images\flags\16\_OAS.png" />
+    <Content Include="static\images\flags\16\_OECD.png" />
+    <Content Include="static\images\flags\16\_Olimpic Movement.png" />
+    <Content Include="static\images\flags\16\_OPEC.png" />
+    <Content Include="static\images\flags\16\_Quebec.png" />
+    <Content Include="static\images\flags\16\_Red Cross.png" />
+    <Content Include="static\images\flags\16\_Scotland.png" />
+    <Content Include="static\images\flags\16\_Somaliland.png" />
+    <Content Include="static\images\flags\16\_Tristan-da-Cunha.png" />
+    <Content Include="static\images\flags\16\_UNESCO.png" />
+    <Content Include="static\images\flags\16\_UNICEF.png" />
+    <Content Include="static\images\flags\16\_United Nations.png" />
+    <Content Include="static\images\flags\16\_Wales.png" />
+    <Content Include="static\images\flags\16\_WHO.png" />
+    <Content Include="static\images\flags\16\_WTO.png" />
+    <Content Include="static\images\flags\24\ad.png" />
+    <Content Include="static\images\flags\24\ae.png" />
+    <Content Include="static\images\flags\24\af.png" />
+    <Content Include="static\images\flags\24\ag.png" />
+    <Content Include="static\images\flags\24\ai.png" />
+    <Content Include="static\images\flags\24\al.png" />
+    <Content Include="static\images\flags\24\am.png" />
+    <Content Include="static\images\flags\24\an.png" />
+    <Content Include="static\images\flags\24\ao.png" />
+    <Content Include="static\images\flags\24\aq.png" />
+    <Content Include="static\images\flags\24\ar.png" />
+    <Content Include="static\images\flags\24\as.png" />
+    <Content Include="static\images\flags\24\at.png" />
+    <Content Include="static\images\flags\24\au.png" />
+    <Content Include="static\images\flags\24\aw.png" />
+    <Content Include="static\images\flags\24\ax.png" />
+    <Content Include="static\images\flags\24\az.png" />
+    <Content Include="static\images\flags\24\ba.png" />
+    <Content Include="static\images\flags\24\bb.png" />
+    <Content Include="static\images\flags\24\bd.png" />
+    <Content Include="static\images\flags\24\be.png" />
+    <Content Include="static\images\flags\24\bf.png" />
+    <Content Include="static\images\flags\24\bg.png" />
+    <Content Include="static\images\flags\24\bh.png" />
+    <Content Include="static\images\flags\24\bi.png" />
+    <Content Include="static\images\flags\24\bj.png" />
+    <Content Include="static\images\flags\24\bl.png" />
+    <Content Include="static\images\flags\24\bm.png" />
+    <Content Include="static\images\flags\24\bn.png" />
+    <Content Include="static\images\flags\24\bo.png" />
+    <Content Include="static\images\flags\24\bq.png" />
+    <Content Include="static\images\flags\24\br.png" />
+    <Content Include="static\images\flags\24\bs.png" />
+    <Content Include="static\images\flags\24\bt.png" />
+    <Content Include="static\images\flags\24\bv.png" />
+    <Content Include="static\images\flags\24\bw.png" />
+    <Content Include="static\images\flags\24\by.png" />
+    <Content Include="static\images\flags\24\bz.png" />
+    <Content Include="static\images\flags\24\ca.png" />
+    <Content Include="static\images\flags\24\cc.png" />
+    <Content Include="static\images\flags\24\cd.png" />
+    <Content Include="static\images\flags\24\cf.png" />
+    <Content Include="static\images\flags\24\cg.png" />
+    <Content Include="static\images\flags\24\ch.png" />
+    <Content Include="static\images\flags\24\ci.png" />
+    <Content Include="static\images\flags\24\ck.png" />
+    <Content Include="static\images\flags\24\cl.png" />
+    <Content Include="static\images\flags\24\cm.png" />
+    <Content Include="static\images\flags\24\cn.png" />
+    <Content Include="static\images\flags\24\co.png" />
+    <Content Include="static\images\flags\24\cr.png" />
+    <Content Include="static\images\flags\24\cu.png" />
+    <Content Include="static\images\flags\24\cv.png" />
+    <Content Include="static\images\flags\24\cw.png" />
+    <Content Include="static\images\flags\24\cx.png" />
+    <Content Include="static\images\flags\24\cy.png" />
+    <Content Include="static\images\flags\24\cz.png" />
+    <Content Include="static\images\flags\24\de.png" />
+    <Content Include="static\images\flags\24\dj.png" />
+    <Content Include="static\images\flags\24\dk.png" />
+    <Content Include="static\images\flags\24\dm.png" />
+    <Content Include="static\images\flags\24\do.png" />
+    <Content Include="static\images\flags\24\dz.png" />
+    <Content Include="static\images\flags\24\ec.png" />
+    <Content Include="static\images\flags\24\ee.png" />
+    <Content Include="static\images\flags\24\eg.png" />
+    <Content Include="static\images\flags\24\eh.png" />
+    <Content Include="static\images\flags\24\er.png" />
+    <Content Include="static\images\flags\24\es.png" />
+    <Content Include="static\images\flags\24\et.png" />
+    <Content Include="static\images\flags\24\fi.png" />
+    <Content Include="static\images\flags\24\fj.png" />
+    <Content Include="static\images\flags\24\fk.png" />
+    <Content Include="static\images\flags\24\fm.png" />
+    <Content Include="static\images\flags\24\fo.png" />
+    <Content Include="static\images\flags\24\fr.png" />
+    <Content Include="static\images\flags\24\ga.png" />
+    <Content Include="static\images\flags\24\gb.png" />
+    <Content Include="static\images\flags\24\gd.png" />
+    <Content Include="static\images\flags\24\ge.png" />
+    <Content Include="static\images\flags\24\gf.png" />
+    <Content Include="static\images\flags\24\gg.png" />
+    <Content Include="static\images\flags\24\gh.png" />
+    <Content Include="static\images\flags\24\gi.png" />
+    <Content Include="static\images\flags\24\gl.png" />
+    <Content Include="static\images\flags\24\gm.png" />
+    <Content Include="static\images\flags\24\gn.png" />
+    <Content Include="static\images\flags\24\gp.png" />
+    <Content Include="static\images\flags\24\gq.png" />
+    <Content Include="static\images\flags\24\gr.png" />
+    <Content Include="static\images\flags\24\gs.png" />
+    <Content Include="static\images\flags\24\gt.png" />
+    <Content Include="static\images\flags\24\gu.png" />
+    <Content Include="static\images\flags\24\gw.png" />
+    <Content Include="static\images\flags\24\gy.png" />
+    <Content Include="static\images\flags\24\hk.png" />
+    <Content Include="static\images\flags\24\hm.png" />
+    <Content Include="static\images\flags\24\hn.png" />
+    <Content Include="static\images\flags\24\hr.png" />
+    <Content Include="static\images\flags\24\ht.png" />
+    <Content Include="static\images\flags\24\hu.png" />
+    <Content Include="static\images\flags\24\id.png" />
+    <Content Include="static\images\flags\24\ie.png" />
+    <Content Include="static\images\flags\24\il.png" />
+    <Content Include="static\images\flags\24\im.png" />
+    <Content Include="static\images\flags\24\in.png" />
+    <Content Include="static\images\flags\24\io.png" />
+    <Content Include="static\images\flags\24\iq.png" />
+    <Content Include="static\images\flags\24\ir.png" />
+    <Content Include="static\images\flags\24\is.png" />
+    <Content Include="static\images\flags\24\it.png" />
+    <Content Include="static\images\flags\24\je.png" />
+    <Content Include="static\images\flags\24\jm.png" />
+    <Content Include="static\images\flags\24\jo.png" />
+    <Content Include="static\images\flags\24\jp.png" />
+    <Content Include="static\images\flags\24\ke.png" />
+    <Content Include="static\images\flags\24\kg.png" />
+    <Content Include="static\images\flags\24\kh.png" />
+    <Content Include="static\images\flags\24\ki.png" />
+    <Content Include="static\images\flags\24\km.png" />
+    <Content Include="static\images\flags\24\kn.png" />
+    <Content Include="static\images\flags\24\kp.png" />
+    <Content Include="static\images\flags\24\kr.png" />
+    <Content Include="static\images\flags\24\kw.png" />
+    <Content Include="static\images\flags\24\ky.png" />
+    <Content Include="static\images\flags\24\kz.png" />
+    <Content Include="static\images\flags\24\la.png" />
+    <Content Include="static\images\flags\24\lb.png" />
+    <Content Include="static\images\flags\24\lc.png" />
+    <Content Include="static\images\flags\24\li.png" />
+    <Content Include="static\images\flags\24\lk.png" />
+    <Content Include="static\images\flags\24\lr.png" />
+    <Content Include="static\images\flags\24\ls.png" />
+    <Content Include="static\images\flags\24\lt.png" />
+    <Content Include="static\images\flags\24\lu.png" />
+    <Content Include="static\images\flags\24\lv.png" />
+    <Content Include="static\images\flags\24\ly.png" />
+    <Content Include="static\images\flags\24\ma.png" />
+    <Content Include="static\images\flags\24\mc.png" />
+    <Content Include="static\images\flags\24\md.png" />
+    <Content Include="static\images\flags\24\me.png" />
+    <Content Include="static\images\flags\24\mf.png" />
+    <Content Include="static\images\flags\24\mg.png" />
+    <Content Include="static\images\flags\24\mh.png" />
+    <Content Include="static\images\flags\24\mk.png" />
+    <Content Include="static\images\flags\24\ml.png" />
+    <Content Include="static\images\flags\24\mm.png" />
+    <Content Include="static\images\flags\24\mn.png" />
+    <Content Include="static\images\flags\24\mo.png" />
+    <Content Include="static\images\flags\24\mp.png" />
+    <Content Include="static\images\flags\24\mq.png" />
+    <Content Include="static\images\flags\24\mr.png" />
+    <Content Include="static\images\flags\24\ms.png" />
+    <Content Include="static\images\flags\24\mt.png" />
+    <Content Include="static\images\flags\24\mu.png" />
+    <Content Include="static\images\flags\24\mv.png" />
+    <Content Include="static\images\flags\24\mw.png" />
+    <Content Include="static\images\flags\24\mx.png" />
+    <Content Include="static\images\flags\24\my.png" />
+    <Content Include="static\images\flags\24\mz.png" />
+    <Content Include="static\images\flags\24\na.png" />
+    <Content Include="static\images\flags\24\nc.png" />
+    <Content Include="static\images\flags\24\ne.png" />
+    <Content Include="static\images\flags\24\nf.png" />
+    <Content Include="static\images\flags\24\ng.png" />
+    <Content Include="static\images\flags\24\ni.png" />
+    <Content Include="static\images\flags\24\nl.png" />
+    <Content Include="static\images\flags\24\no.png" />
+    <Content Include="static\images\flags\24\np.png" />
+    <Content Include="static\images\flags\24\nr.png" />
+    <Content Include="static\images\flags\24\nu.png" />
+    <Content Include="static\images\flags\24\nz.png" />
+    <Content Include="static\images\flags\24\om.png" />
+    <Content Include="static\images\flags\24\pa.png" />
+    <Content Include="static\images\flags\24\pe.png" />
+    <Content Include="static\images\flags\24\pf.png" />
+    <Content Include="static\images\flags\24\pg.png" />
+    <Content Include="static\images\flags\24\ph.png" />
+    <Content Include="static\images\flags\24\pk.png" />
+    <Content Include="static\images\flags\24\pl.png" />
+    <Content Include="static\images\flags\24\pm.png" />
+    <Content Include="static\images\flags\24\pn.png" />
+    <Content Include="static\images\flags\24\pr.png" />
+    <Content Include="static\images\flags\24\ps.png" />
+    <Content Include="static\images\flags\24\pt.png" />
+    <Content Include="static\images\flags\24\pw.png" />
+    <Content Include="static\images\flags\24\py.png" />
+    <Content Include="static\images\flags\24\qa.png" />
+    <Content Include="static\images\flags\24\re.png" />
+    <Content Include="static\images\flags\24\ro.png" />
+    <Content Include="static\images\flags\24\rs.png" />
+    <Content Include="static\images\flags\24\ru.png" />
+    <Content Include="static\images\flags\24\rw.png" />
+    <Content Include="static\images\flags\24\sa.png" />
+    <Content Include="static\images\flags\24\sb.png" />
+    <Content Include="static\images\flags\24\sc.png" />
+    <Content Include="static\images\flags\24\sd.png" />
+    <Content Include="static\images\flags\24\se.png" />
+    <Content Include="static\images\flags\24\sg.png" />
+    <Content Include="static\images\flags\24\sh.png" />
+    <Content Include="static\images\flags\24\si.png" />
+    <Content Include="static\images\flags\24\sj.png" />
+    <Content Include="static\images\flags\24\sk.png" />
+    <Content Include="static\images\flags\24\sl.png" />
+    <Content Include="static\images\flags\24\sm.png" />
+    <Content Include="static\images\flags\24\sn.png" />
+    <Content Include="static\images\flags\24\so.png" />
+    <Content Include="static\images\flags\24\sr.png" />
+    <Content Include="static\images\flags\24\ss.png" />
+    <Content Include="static\images\flags\24\st.png" />
+    <Content Include="static\images\flags\24\sv.png" />
+    <Content Include="static\images\flags\24\sx.png" />
+    <Content Include="static\images\flags\24\sy.png" />
+    <Content Include="static\images\flags\24\sz.png" />
+    <Content Include="static\images\flags\24\tc.png" />
+    <Content Include="static\images\flags\24\td.png" />
+    <Content Include="static\images\flags\24\tf.png" />
+    <Content Include="static\images\flags\24\tg.png" />
+    <Content Include="static\images\flags\24\th.png" />
+    <Content Include="static\images\flags\24\tj.png" />
+    <Content Include="static\images\flags\24\tk.png" />
+    <Content Include="static\images\flags\24\tl.png" />
+    <Content Include="static\images\flags\24\tm.png" />
+    <Content Include="static\images\flags\24\tn.png" />
+    <Content Include="static\images\flags\24\to.png" />
+    <Content Include="static\images\flags\24\tr.png" />
+    <Content Include="static\images\flags\24\tt.png" />
+    <Content Include="static\images\flags\24\tv.png" />
+    <Content Include="static\images\flags\24\tw.png" />
+    <Content Include="static\images\flags\24\tz.png" />
+    <Content Include="static\images\flags\24\ua.png" />
+    <Content Include="static\images\flags\24\ug.png" />
+    <Content Include="static\images\flags\24\um.png" />
+    <Content Include="static\images\flags\24\us.png" />
+    <Content Include="static\images\flags\24\uy.png" />
+    <Content Include="static\images\flags\24\uz.png" />
+    <Content Include="static\images\flags\24\va.png" />
+    <Content Include="static\images\flags\24\vc.png" />
+    <Content Include="static\images\flags\24\ve.png" />
+    <Content Include="static\images\flags\24\vg.png" />
+    <Content Include="static\images\flags\24\vi.png" />
+    <Content Include="static\images\flags\24\vn.png" />
+    <Content Include="static\images\flags\24\vu.png" />
+    <Content Include="static\images\flags\24\wf.png" />
+    <Content Include="static\images\flags\24\ws.png" />
+    <Content Include="static\images\flags\24\ye.png" />
+    <Content Include="static\images\flags\24\yt.png" />
+    <Content Include="static\images\flags\24\za.png" />
+    <Content Include="static\images\flags\24\zm.png" />
+    <Content Include="static\images\flags\24\zw.png" />
+    <Content Include="static\images\flags\24\_African Union.png" />
+    <Content Include="static\images\flags\24\_Alderney.png" />
+    <Content Include="static\images\flags\24\_Arab League.png" />
+    <Content Include="static\images\flags\24\_ASEAN.png" />
+    <Content Include="static\images\flags\24\_Basque Country.png" />
+    <Content Include="static\images\flags\24\_CARICOM.png" />
+    <Content Include="static\images\flags\24\_Catalonia.png" />
+    <Content Include="static\images\flags\24\_CIS.png" />
+    <Content Include="static\images\flags\24\_Commonwealth.png" />
+    <Content Include="static\images\flags\24\_England.png" />
+    <Content Include="static\images\flags\24\_European Union.png" />
+    <Content Include="static\images\flags\24\_FAO.png" />
+    <Content Include="static\images\flags\24\_Galicia.png" />
+    <Content Include="static\images\flags\24\_IAEA.png" />
+    <Content Include="static\images\flags\24\_IHO.png" />
+    <Content Include="static\images\flags\24\_Islamic Conference.png" />
+    <Content Include="static\images\flags\24\_Kosovo.png" />
+    <Content Include="static\images\flags\24\_NATO.png" />
+    <Content Include="static\images\flags\24\_Northern Cyprus.png" />
+    <Content Include="static\images\flags\24\_Northern Ireland.png" />
+    <Content Include="static\images\flags\24\_OAS.png" />
+    <Content Include="static\images\flags\24\_OECD.png" />
+    <Content Include="static\images\flags\24\_Olimpic Movement.png" />
+    <Content Include="static\images\flags\24\_OPEC.png" />
+    <Content Include="static\images\flags\24\_Quebec.png" />
+    <Content Include="static\images\flags\24\_Red Cross.png" />
+    <Content Include="static\images\flags\24\_Scotland.png" />
+    <Content Include="static\images\flags\24\_Somaliland.png" />
+    <Content Include="static\images\flags\24\_Tristan-da-Cunha.png" />
+    <Content Include="static\images\flags\24\_UNESCO.png" />
+    <Content Include="static\images\flags\24\_UNICEF.png" />
+    <Content Include="static\images\flags\24\_United Nations.png" />
+    <Content Include="static\images\flags\24\_Wales.png" />
+    <Content Include="static\images\flags\24\_WHO.png" />
+    <Content Include="static\images\flags\24\_WTO.png" />
+    <Content Include="static\images\flags\32\ad.png" />
+    <Content Include="static\images\flags\32\ae.png" />
+    <Content Include="static\images\flags\32\af.png" />
+    <Content Include="static\images\flags\32\ag.png" />
+    <Content Include="static\images\flags\32\ai.png" />
+    <Content Include="static\images\flags\32\al.png" />
+    <Content Include="static\images\flags\32\am.png" />
+    <Content Include="static\images\flags\32\an.png" />
+    <Content Include="static\images\flags\32\ao.png" />
+    <Content Include="static\images\flags\32\aq.png" />
+    <Content Include="static\images\flags\32\ar.png" />
+    <Content Include="static\images\flags\32\as.png" />
+    <Content Include="static\images\flags\32\at.png" />
+    <Content Include="static\images\flags\32\au.png" />
+    <Content Include="static\images\flags\32\aw.png" />
+    <Content Include="static\images\flags\32\ax.png" />
+    <Content Include="static\images\flags\32\az.png" />
+    <Content Include="static\images\flags\32\ba.png" />
+    <Content Include="static\images\flags\32\bb.png" />
+    <Content Include="static\images\flags\32\bd.png" />
+    <Content Include="static\images\flags\32\be.png" />
+    <Content Include="static\images\flags\32\bf.png" />
+    <Content Include="static\images\flags\32\bg.png" />
+    <Content Include="static\images\flags\32\bh.png" />
+    <Content Include="static\images\flags\32\bi.png" />
+    <Content Include="static\images\flags\32\bj.png" />
+    <Content Include="static\images\flags\32\bl.png" />
+    <Content Include="static\images\flags\32\bm.png" />
+    <Content Include="static\images\flags\32\bn.png" />
+    <Content Include="static\images\flags\32\bo.png" />
+    <Content Include="static\images\flags\32\bq.png" />
+    <Content Include="static\images\flags\32\br.png" />
+    <Content Include="static\images\flags\32\bs.png" />
+    <Content Include="static\images\flags\32\bt.png" />
+    <Content Include="static\images\flags\32\bv.png" />
+    <Content Include="static\images\flags\32\bw.png" />
+    <Content Include="static\images\flags\32\by.png" />
+    <Content Include="static\images\flags\32\bz.png" />
+    <Content Include="static\images\flags\32\ca.png" />
+    <Content Include="static\images\flags\32\cc.png" />
+    <Content Include="static\images\flags\32\cd.png" />
+    <Content Include="static\images\flags\32\cf.png" />
+    <Content Include="static\images\flags\32\cg.png" />
+    <Content Include="static\images\flags\32\ch.png" />
+    <Content Include="static\images\flags\32\ci.png" />
+    <Content Include="static\images\flags\32\ck.png" />
+    <Content Include="static\images\flags\32\cl.png" />
+    <Content Include="static\images\flags\32\cm.png" />
+    <Content Include="static\images\flags\32\cn.png" />
+    <Content Include="static\images\flags\32\co.png" />
+    <Content Include="static\images\flags\32\cr.png" />
+    <Content Include="static\images\flags\32\cu.png" />
+    <Content Include="static\images\flags\32\cv.png" />
+    <Content Include="static\images\flags\32\cw.png" />
+    <Content Include="static\images\flags\32\cx.png" />
+    <Content Include="static\images\flags\32\cy.png" />
+    <Content Include="static\images\flags\32\cz.png" />
+    <Content Include="static\images\flags\32\de.png" />
+    <Content Include="static\images\flags\32\dj.png" />
+    <Content Include="static\images\flags\32\dk.png" />
+    <Content Include="static\images\flags\32\dm.png" />
+    <Content Include="static\images\flags\32\do.png" />
+    <Content Include="static\images\flags\32\dz.png" />
+    <Content Include="static\images\flags\32\ec.png" />
+    <Content Include="static\images\flags\32\ee.png" />
+    <Content Include="static\images\flags\32\eg.png" />
+    <Content Include="static\images\flags\32\eh.png" />
+    <Content Include="static\images\flags\32\er.png" />
+    <Content Include="static\images\flags\32\es.png" />
+    <Content Include="static\images\flags\32\et.png" />
+    <Content Include="static\images\flags\32\fi.png" />
+    <Content Include="static\images\flags\32\fj.png" />
+    <Content Include="static\images\flags\32\fk.png" />
+    <Content Include="static\images\flags\32\fm.png" />
+    <Content Include="static\images\flags\32\fo.png" />
+    <Content Include="static\images\flags\32\fr.png" />
+    <Content Include="static\images\flags\32\ga.png" />
+    <Content Include="static\images\flags\32\gb.png" />
+    <Content Include="static\images\flags\32\gd.png" />
+    <Content Include="static\images\flags\32\ge.png" />
+    <Content Include="static\images\flags\32\gf.png" />
+    <Content Include="static\images\flags\32\gg.png" />
+    <Content Include="static\images\flags\32\gh.png" />
+    <Content Include="static\images\flags\32\gi.png" />
+    <Content Include="static\images\flags\32\gl.png" />
+    <Content Include="static\images\flags\32\gm.png" />
+    <Content Include="static\images\flags\32\gn.png" />
+    <Content Include="static\images\flags\32\gp.png" />
+    <Content Include="static\images\flags\32\gq.png" />
+    <Content Include="static\images\flags\32\gr.png" />
+    <Content Include="static\images\flags\32\gs.png" />
+    <Content Include="static\images\flags\32\gt.png" />
+    <Content Include="static\images\flags\32\gu.png" />
+    <Content Include="static\images\flags\32\gw.png" />
+    <Content Include="static\images\flags\32\gy.png" />
+    <Content Include="static\images\flags\32\hk.png" />
+    <Content Include="static\images\flags\32\hm.png" />
+    <Content Include="static\images\flags\32\hn.png" />
+    <Content Include="static\images\flags\32\hr.png" />
+    <Content Include="static\images\flags\32\ht.png" />
+    <Content Include="static\images\flags\32\hu.png" />
+    <Content Include="static\images\flags\32\id.png" />
+    <Content Include="static\images\flags\32\ie.png" />
+    <Content Include="static\images\flags\32\il.png" />
+    <Content Include="static\images\flags\32\im.png" />
+    <Content Include="static\images\flags\32\in.png" />
+    <Content Include="static\images\flags\32\io.png" />
+    <Content Include="static\images\flags\32\iq.png" />
+    <Content Include="static\images\flags\32\ir.png" />
+    <Content Include="static\images\flags\32\is.png" />
+    <Content Include="static\images\flags\32\it.png" />
+    <Content Include="static\images\flags\32\je.png" />
+    <Content Include="static\images\flags\32\jm.png" />
+    <Content Include="static\images\flags\32\jo.png" />
+    <Content Include="static\images\flags\32\jp.png" />
+    <Content Include="static\images\flags\32\ke.png" />
+    <Content Include="static\images\flags\32\kg.png" />
+    <Content Include="static\images\flags\32\kh.png" />
+    <Content Include="static\images\flags\32\ki.png" />
+    <Content Include="static\images\flags\32\km.png" />
+    <Content Include="static\images\flags\32\kn.png" />
+    <Content Include="static\images\flags\32\kp.png" />
+    <Content Include="static\images\flags\32\kr.png" />
+    <Content Include="static\images\flags\32\kw.png" />
+    <Content Include="static\images\flags\32\ky.png" />
+    <Content Include="static\images\flags\32\kz.png" />
+    <Content Include="static\images\flags\32\la.png" />
+    <Content Include="static\images\flags\32\lb.png" />
+    <Content Include="static\images\flags\32\lc.png" />
+    <Content Include="static\images\flags\32\li.png" />
+    <Content Include="static\images\flags\32\lk.png" />
+    <Content Include="static\images\flags\32\lr.png" />
+    <Content Include="static\images\flags\32\ls.png" />
+    <Content Include="static\images\flags\32\lt.png" />
+    <Content Include="static\images\flags\32\lu.png" />
+    <Content Include="static\images\flags\32\lv.png" />
+    <Content Include="static\images\flags\32\ly.png" />
+    <Content Include="static\images\flags\32\ma.png" />
+    <Content Include="static\images\flags\32\mc.png" />
+    <Content Include="static\images\flags\32\md.png" />
+    <Content Include="static\images\flags\32\me.png" />
+    <Content Include="static\images\flags\32\mf.png" />
+    <Content Include="static\images\flags\32\mg.png" />
+    <Content Include="static\images\flags\32\mh.png" />
+    <Content Include="static\images\flags\32\mk.png" />
+    <Content Include="static\images\flags\32\ml.png" />
+    <Content Include="static\images\flags\32\mm.png" />
+    <Content Include="static\images\flags\32\mn.png" />
+    <Content Include="static\images\flags\32\mo.png" />
+    <Content Include="static\images\flags\32\mp.png" />
+    <Content Include="static\images\flags\32\mq.png" />
+    <Content Include="static\images\flags\32\mr.png" />
+    <Content Include="static\images\flags\32\ms.png" />
+    <Content Include="static\images\flags\32\mt.png" />
+    <Content Include="static\images\flags\32\mu.png" />
+    <Content Include="static\images\flags\32\mv.png" />
+    <Content Include="static\images\flags\32\mw.png" />
+    <Content Include="static\images\flags\32\mx.png" />
+    <Content Include="static\images\flags\32\my.png" />
+    <Content Include="static\images\flags\32\mz.png" />
+    <Content Include="static\images\flags\32\na.png" />
+    <Content Include="static\images\flags\32\nc.png" />
+    <Content Include="static\images\flags\32\ne.png" />
+    <Content Include="static\images\flags\32\nf.png" />
+    <Content Include="static\images\flags\32\ng.png" />
+    <Content Include="static\images\flags\32\ni.png" />
+    <Content Include="static\images\flags\32\nl.png" />
+    <Content Include="static\images\flags\32\no.png" />
+    <Content Include="static\images\flags\32\np.png" />
+    <Content Include="static\images\flags\32\nr.png" />
+    <Content Include="static\images\flags\32\nu.png" />
+    <Content Include="static\images\flags\32\nz.png" />
+    <Content Include="static\images\flags\32\om.png" />
+    <Content Include="static\images\flags\32\pa.png" />
+    <Content Include="static\images\flags\32\pe.png" />
+    <Content Include="static\images\flags\32\pf.png" />
+    <Content Include="static\images\flags\32\pg.png" />
+    <Content Include="static\images\flags\32\ph.png" />
+    <Content Include="static\images\flags\32\pk.png" />
+    <Content Include="static\images\flags\32\pl.png" />
+    <Content Include="static\images\flags\32\pm.png" />
+    <Content Include="static\images\flags\32\pn.png" />
+    <Content Include="static\images\flags\32\pr.png" />
+    <Content Include="static\images\flags\32\ps.png" />
+    <Content Include="static\images\flags\32\pt.png" />
+    <Content Include="static\images\flags\32\pw.png" />
+    <Content Include="static\images\flags\32\py.png" />
+    <Content Include="static\images\flags\32\qa.png" />
+    <Content Include="static\images\flags\32\re.png" />
+    <Content Include="static\images\flags\32\ro.png" />
+    <Content Include="static\images\flags\32\rs.png" />
+    <Content Include="static\images\flags\32\ru.png" />
+    <Content Include="static\images\flags\32\rw.png" />
+    <Content Include="static\images\flags\32\sa.png" />
+    <Content Include="static\images\flags\32\sb.png" />
+    <Content Include="static\images\flags\32\sc.png" />
+    <Content Include="static\images\flags\32\sd.png" />
+    <Content Include="static\images\flags\32\se.png" />
+    <Content Include="static\images\flags\32\sg.png" />
+    <Content Include="static\images\flags\32\sh.png" />
+    <Content Include="static\images\flags\32\si.png" />
+    <Content Include="static\images\flags\32\sj.png" />
+    <Content Include="static\images\flags\32\sk.png" />
+    <Content Include="static\images\flags\32\sl.png" />
+    <Content Include="static\images\flags\32\sm.png" />
+    <Content Include="static\images\flags\32\sn.png" />
+    <Content Include="static\images\flags\32\so.png" />
+    <Content Include="static\images\flags\32\sr.png" />
+    <Content Include="static\images\flags\32\ss.png" />
+    <Content Include="static\images\flags\32\st.png" />
+    <Content Include="static\images\flags\32\sv.png" />
+    <Content Include="static\images\flags\32\sx.png" />
+    <Content Include="static\images\flags\32\sy.png" />
+    <Content Include="static\images\flags\32\sz.png" />
+    <Content Include="static\images\flags\32\tc.png" />
+    <Content Include="static\images\flags\32\td.png" />
+    <Content Include="static\images\flags\32\tf.png" />
+    <Content Include="static\images\flags\32\tg.png" />
+    <Content Include="static\images\flags\32\th.png" />
+    <Content Include="static\images\flags\32\tj.png" />
+    <Content Include="static\images\flags\32\tk.png" />
+    <Content Include="static\images\flags\32\tl.png" />
+    <Content Include="static\images\flags\32\tm.png" />
+    <Content Include="static\images\flags\32\tn.png" />
+    <Content Include="static\images\flags\32\to.png" />
+    <Content Include="static\images\flags\32\tr.png" />
+    <Content Include="static\images\flags\32\tt.png" />
+    <Content Include="static\images\flags\32\tv.png" />
+    <Content Include="static\images\flags\32\tw.png" />
+    <Content Include="static\images\flags\32\tz.png" />
+    <Content Include="static\images\flags\32\ua.png" />
+    <Content Include="static\images\flags\32\ug.png" />
+    <Content Include="static\images\flags\32\um.png" />
+    <Content Include="static\images\flags\32\us.png" />
+    <Content Include="static\images\flags\32\uy.png" />
+    <Content Include="static\images\flags\32\uz.png" />
+    <Content Include="static\images\flags\32\va.png" />
+    <Content Include="static\images\flags\32\vc.png" />
+    <Content Include="static\images\flags\32\ve.png" />
+    <Content Include="static\images\flags\32\vg.png" />
+    <Content Include="static\images\flags\32\vi.png" />
+    <Content Include="static\images\flags\32\vn.png" />
+    <Content Include="static\images\flags\32\vu.png" />
+    <Content Include="static\images\flags\32\wf.png" />
+    <Content Include="static\images\flags\32\ws.png" />
+    <Content Include="static\images\flags\32\ye.png" />
+    <Content Include="static\images\flags\32\yt.png" />
+    <Content Include="static\images\flags\32\za.png" />
+    <Content Include="static\images\flags\32\zm.png" />
+    <Content Include="static\images\flags\32\zw.png" />
+    <Content Include="static\images\flags\32\_African Union.png" />
+    <Content Include="static\images\flags\32\_Alderney.png" />
+    <Content Include="static\images\flags\32\_Arab League.png" />
+    <Content Include="static\images\flags\32\_ASEAN.png" />
+    <Content Include="static\images\flags\32\_Basque Country.png" />
+    <Content Include="static\images\flags\32\_CARICOM.png" />
+    <Content Include="static\images\flags\32\_Catalonia.png" />
+    <Content Include="static\images\flags\32\_CIS.png" />
+    <Content Include="static\images\flags\32\_Commonwealth.png" />
+    <Content Include="static\images\flags\32\_England.png" />
+    <Content Include="static\images\flags\32\_European Union.png" />
+    <Content Include="static\images\flags\32\_FAO.png" />
+    <Content Include="static\images\flags\32\_Galicia.png" />
+    <Content Include="static\images\flags\32\_IAEA.png" />
+    <Content Include="static\images\flags\32\_IHO.png" />
+    <Content Include="static\images\flags\32\_Islamic Conference.png" />
+    <Content Include="static\images\flags\32\_Kosovo.png" />
+    <Content Include="static\images\flags\32\_NATO.png" />
+    <Content Include="static\images\flags\32\_Northern Cyprus.png" />
+    <Content Include="static\images\flags\32\_Northern Ireland.png" />
+    <Content Include="static\images\flags\32\_OAS.png" />
+    <Content Include="static\images\flags\32\_OECD.png" />
+    <Content Include="static\images\flags\32\_Olimpic Movement.png" />
+    <Content Include="static\images\flags\32\_OPEC.png" />
+    <Content Include="static\images\flags\32\_Quebec.png" />
+    <Content Include="static\images\flags\32\_Red Cross.png" />
+    <Content Include="static\images\flags\32\_Scotland.png" />
+    <Content Include="static\images\flags\32\_Somaliland.png" />
+    <Content Include="static\images\flags\32\_Tristan-da-Cunha.png" />
+    <Content Include="static\images\flags\32\_UNESCO.png" />
+    <Content Include="static\images\flags\32\_UNICEF.png" />
+    <Content Include="static\images\flags\32\_United Nations.png" />
+    <Content Include="static\images\flags\32\_Wales.png" />
+    <Content Include="static\images\flags\32\_WHO.png" />
+    <Content Include="static\images\flags\32\_WTO.png" />
+    <Content Include="static\images\flags\48\ad.png" />
+    <Content Include="static\images\flags\48\ae.png" />
+    <Content Include="static\images\flags\48\af.png" />
+    <Content Include="static\images\flags\48\ag.png" />
+    <Content Include="static\images\flags\48\ai.png" />
+    <Content Include="static\images\flags\48\al.png" />
+    <Content Include="static\images\flags\48\am.png" />
+    <Content Include="static\images\flags\48\an.png" />
+    <Content Include="static\images\flags\48\ao.png" />
+    <Content Include="static\images\flags\48\aq.png" />
+    <Content Include="static\images\flags\48\ar.png" />
+    <Content Include="static\images\flags\48\as.png" />
+    <Content Include="static\images\flags\48\at.png" />
+    <Content Include="static\images\flags\48\au.png" />
+    <Content Include="static\images\flags\48\aw.png" />
+    <Content Include="static\images\flags\48\ax.png" />
+    <Content Include="static\images\flags\48\az.png" />
+    <Content Include="static\images\flags\48\ba.png" />
+    <Content Include="static\images\flags\48\bb.png" />
+    <Content Include="static\images\flags\48\bd.png" />
+    <Content Include="static\images\flags\48\be.png" />
+    <Content Include="static\images\flags\48\bf.png" />
+    <Content Include="static\images\flags\48\bg.png" />
+    <Content Include="static\images\flags\48\bh.png" />
+    <Content Include="static\images\flags\48\bi.png" />
+    <Content Include="static\images\flags\48\bj.png" />
+    <Content Include="static\images\flags\48\bl.png" />
+    <Content Include="static\images\flags\48\bm.png" />
+    <Content Include="static\images\flags\48\bn.png" />
+    <Content Include="static\images\flags\48\bo.png" />
+    <Content Include="static\images\flags\48\bq.png" />
+    <Content Include="static\images\flags\48\br.png" />
+    <Content Include="static\images\flags\48\bs.png" />
+    <Content Include="static\images\flags\48\bt.png" />
+    <Content Include="static\images\flags\48\bv.png" />
+    <Content Include="static\images\flags\48\bw.png" />
+    <Content Include="static\images\flags\48\by.png" />
+    <Content Include="static\images\flags\48\bz.png" />
+    <Content Include="static\images\flags\48\ca.png" />
+    <Content Include="static\images\flags\48\cc.png" />
+    <Content Include="static\images\flags\48\cd.png" />
+    <Content Include="static\images\flags\48\cf.png" />
+    <Content Include="static\images\flags\48\cg.png" />
+    <Content Include="static\images\flags\48\ch.png" />
+    <Content Include="static\images\flags\48\ci.png" />
+    <Content Include="static\images\flags\48\ck.png" />
+    <Content Include="static\images\flags\48\cl.png" />
+    <Content Include="static\images\flags\48\cm.png" />
+    <Content Include="static\images\flags\48\cn.png" />
+    <Content Include="static\images\flags\48\co.png" />
+    <Content Include="static\images\flags\48\cr.png" />
+    <Content Include="static\images\flags\48\cu.png" />
+    <Content Include="static\images\flags\48\cv.png" />
+    <Content Include="static\images\flags\48\cw.png" />
+    <Content Include="static\images\flags\48\cx.png" />
+    <Content Include="static\images\flags\48\cy.png" />
+    <Content Include="static\images\flags\48\cz.png" />
+    <Content Include="static\images\flags\48\de.png" />
+    <Content Include="static\images\flags\48\dj.png" />
+    <Content Include="static\images\flags\48\dk.png" />
+    <Content Include="static\images\flags\48\dm.png" />
+    <Content Include="static\images\flags\48\do.png" />
+    <Content Include="static\images\flags\48\dz.png" />
+    <Content Include="static\images\flags\48\ec.png" />
+    <Content Include="static\images\flags\48\ee.png" />
+    <Content Include="static\images\flags\48\eg.png" />
+    <Content Include="static\images\flags\48\eh.png" />
+    <Content Include="static\images\flags\48\er.png" />
+    <Content Include="static\images\flags\48\es.png" />
+    <Content Include="static\images\flags\48\et.png" />
+    <Content Include="static\images\flags\48\fi.png" />
+    <Content Include="static\images\flags\48\fj.png" />
+    <Content Include="static\images\flags\48\fk.png" />
+    <Content Include="static\images\flags\48\fm.png" />
+    <Content Include="static\images\flags\48\fo.png" />
+    <Content Include="static\images\flags\48\fr.png" />
+    <Content Include="static\images\flags\48\ga.png" />
+    <Content Include="static\images\flags\48\gb.png" />
+    <Content Include="static\images\flags\48\gd.png" />
+    <Content Include="static\images\flags\48\ge.png" />
+    <Content Include="static\images\flags\48\gf.png" />
+    <Content Include="static\images\flags\48\gg.png" />
+    <Content Include="static\images\flags\48\gh.png" />
+    <Content Include="static\images\flags\48\gi.png" />
+    <Content Include="static\images\flags\48\gl.png" />
+    <Content Include="static\images\flags\48\gm.png" />
+    <Content Include="static\images\flags\48\gn.png" />
+    <Content Include="static\images\flags\48\gp.png" />
+    <Content Include="static\images\flags\48\gq.png" />
+    <Content Include="static\images\flags\48\gr.png" />
+    <Content Include="static\images\flags\48\gs.png" />
+    <Content Include="static\images\flags\48\gt.png" />
+    <Content Include="static\images\flags\48\gu.png" />
+    <Content Include="static\images\flags\48\gw.png" />
+    <Content Include="static\images\flags\48\gy.png" />
+    <Content Include="static\images\flags\48\hk.png" />
+    <Content Include="static\images\flags\48\hm.png" />
+    <Content Include="static\images\flags\48\hn.png" />
+    <Content Include="static\images\flags\48\hr.png" />
+    <Content Include="static\images\flags\48\ht.png" />
+    <Content Include="static\images\flags\48\hu.png" />
+    <Content Include="static\images\flags\48\id.png" />
+    <Content Include="static\images\flags\48\ie.png" />
+    <Content Include="static\images\flags\48\il.png" />
+    <Content Include="static\images\flags\48\im.png" />
+    <Content Include="static\images\flags\48\in.png" />
+    <Content Include="static\images\flags\48\io.png" />
+    <Content Include="static\images\flags\48\iq.png" />
+    <Content Include="static\images\flags\48\ir.png" />
+    <Content Include="static\images\flags\48\is.png" />
+    <Content Include="static\images\flags\48\it.png" />
+    <Content Include="static\images\flags\48\je.png" />
+    <Content Include="static\images\flags\48\jm.png" />
+    <Content Include="static\images\flags\48\jo.png" />
+    <Content Include="static\images\flags\48\jp.png" />
+    <Content Include="static\images\flags\48\ke.png" />
+    <Content Include="static\images\flags\48\kg.png" />
+    <Content Include="static\images\flags\48\kh.png" />
+    <Content Include="static\images\flags\48\ki.png" />
+    <Content Include="static\images\flags\48\km.png" />
+    <Content Include="static\images\flags\48\kn.png" />
+    <Content Include="static\images\flags\48\kp.png" />
+    <Content Include="static\images\flags\48\kr.png" />
+    <Content Include="static\images\flags\48\kw.png" />
+    <Content Include="static\images\flags\48\ky.png" />
+    <Content Include="static\images\flags\48\kz.png" />
+    <Content Include="static\images\flags\48\la.png" />
+    <Content Include="static\images\flags\48\lb.png" />
+    <Content Include="static\images\flags\48\lc.png" />
+    <Content Include="static\images\flags\48\li.png" />
+    <Content Include="static\images\flags\48\lk.png" />
+    <Content Include="static\images\flags\48\lr.png" />
+    <Content Include="static\images\flags\48\ls.png" />
+    <Content Include="static\images\flags\48\lt.png" />
+    <Content Include="static\images\flags\48\lu.png" />
+    <Content Include="static\images\flags\48\lv.png" />
+    <Content Include="static\images\flags\48\ly.png" />
+    <Content Include="static\images\flags\48\ma.png" />
+    <Content Include="static\images\flags\48\mc.png" />
+    <Content Include="static\images\flags\48\md.png" />
+    <Content Include="static\images\flags\48\me.png" />
+    <Content Include="static\images\flags\48\mf.png" />
+    <Content Include="static\images\flags\48\mg.png" />
+    <Content Include="static\images\flags\48\mh.png" />
+    <Content Include="static\images\flags\48\mk.png" />
+    <Content Include="static\images\flags\48\ml.png" />
+    <Content Include="static\images\flags\48\mm.png" />
+    <Content Include="static\images\flags\48\mn.png" />
+    <Content Include="static\images\flags\48\mo.png" />
+    <Content Include="static\images\flags\48\mp.png" />
+    <Content Include="static\images\flags\48\mq.png" />
+    <Content Include="static\images\flags\48\mr.png" />
+    <Content Include="static\images\flags\48\ms.png" />
+    <Content Include="static\images\flags\48\mt.png" />
+    <Content Include="static\images\flags\48\mu.png" />
+    <Content Include="static\images\flags\48\mv.png" />
+    <Content Include="static\images\flags\48\mw.png" />
+    <Content Include="static\images\flags\48\mx.png" />
+    <Content Include="static\images\flags\48\my.png" />
+    <Content Include="static\images\flags\48\mz.png" />
+    <Content Include="static\images\flags\48\na.png" />
+    <Content Include="static\images\flags\48\nc.png" />
+    <Content Include="static\images\flags\48\ne.png" />
+    <Content Include="static\images\flags\48\nf.png" />
+    <Content Include="static\images\flags\48\ng.png" />
+    <Content Include="static\images\flags\48\ni.png" />
+    <Content Include="static\images\flags\48\nl.png" />
+    <Content Include="static\images\flags\48\no.png" />
+    <Content Include="static\images\flags\48\np.png" />
+    <Content Include="static\images\flags\48\nr.png" />
+    <Content Include="static\images\flags\48\nu.png" />
+    <Content Include="static\images\flags\48\nz.png" />
+    <Content Include="static\images\flags\48\om.png" />
+    <Content Include="static\images\flags\48\pa.png" />
+    <Content Include="static\images\flags\48\pe.png" />
+    <Content Include="static\images\flags\48\pf.png" />
+    <Content Include="static\images\flags\48\pg.png" />
+    <Content Include="static\images\flags\48\ph.png" />
+    <Content Include="static\images\flags\48\pk.png" />
+    <Content Include="static\images\flags\48\pl.png" />
+    <Content Include="static\images\flags\48\pm.png" />
+    <Content Include="static\images\flags\48\pn.png" />
+    <Content Include="static\images\flags\48\pr.png" />
+    <Content Include="static\images\flags\48\ps.png" />
+    <Content Include="static\images\flags\48\pt.png" />
+    <Content Include="static\images\flags\48\pw.png" />
+    <Content Include="static\images\flags\48\py.png" />
+    <Content Include="static\images\flags\48\qa.png" />
+    <Content Include="static\images\flags\48\re.png" />
+    <Content Include="static\images\flags\48\ro.png" />
+    <Content Include="static\images\flags\48\rs.png" />
+    <Content Include="static\images\flags\48\ru.png" />
+    <Content Include="static\images\flags\48\rw.png" />
+    <Content Include="static\images\flags\48\sa.png" />
+    <Content Include="static\images\flags\48\sb.png" />
+    <Content Include="static\images\flags\48\sc.png" />
+    <Content Include="static\images\flags\48\sd.png" />
+    <Content Include="static\images\flags\48\se.png" />
+    <Content Include="static\images\flags\48\sg.png" />
+    <Content Include="static\images\flags\48\sh.png" />
+    <Content Include="static\images\flags\48\si.png" />
+    <Content Include="static\images\flags\48\sj.png" />
+    <Content Include="static\images\flags\48\sk.png" />
+    <Content Include="static\images\flags\48\sl.png" />
+    <Content Include="static\images\flags\48\sm.png" />
+    <Content Include="static\images\flags\48\sn.png" />
+    <Content Include="static\images\flags\48\so.png" />
+    <Content Include="static\images\flags\48\sr.png" />
+    <Content Include="static\images\flags\48\ss.png" />
+    <Content Include="static\images\flags\48\st.png" />
+    <Content Include="static\images\flags\48\sv.png" />
+    <Content Include="static\images\flags\48\sx.png" />
+    <Content Include="static\images\flags\48\sy.png" />
+    <Content Include="static\images\flags\48\sz.png" />
+    <Content Include="static\images\flags\48\tc.png" />
+    <Content Include="static\images\flags\48\td.png" />
+    <Content Include="static\images\flags\48\tf.png" />
+    <Content Include="static\images\flags\48\tg.png" />
+    <Content Include="static\images\flags\48\th.png" />
+    <Content Include="static\images\flags\48\tj.png" />
+    <Content Include="static\images\flags\48\tk.png" />
+    <Content Include="static\images\flags\48\tl.png" />
+    <Content Include="static\images\flags\48\tm.png" />
+    <Content Include="static\images\flags\48\tn.png" />
+    <Content Include="static\images\flags\48\to.png" />
+    <Content Include="static\images\flags\48\tr.png" />
+    <Content Include="static\images\flags\48\tt.png" />
+    <Content Include="static\images\flags\48\tv.png" />
+    <Content Include="static\images\flags\48\tw.png" />
+    <Content Include="static\images\flags\48\tz.png" />
+    <Content Include="static\images\flags\48\ua.png" />
+    <Content Include="static\images\flags\48\ug.png" />
+    <Content Include="static\images\flags\48\um.png" />
+    <Content Include="static\images\flags\48\us.png" />
+    <Content Include="static\images\flags\48\uy.png" />
+    <Content Include="static\images\flags\48\uz.png" />
+    <Content Include="static\images\flags\48\va.png" />
+    <Content Include="static\images\flags\48\vc.png" />
+    <Content Include="static\images\flags\48\ve.png" />
+    <Content Include="static\images\flags\48\vg.png" />
+    <Content Include="static\images\flags\48\vi.png" />
+    <Content Include="static\images\flags\48\vn.png" />
+    <Content Include="static\images\flags\48\vu.png" />
+    <Content Include="static\images\flags\48\wf.png" />
+    <Content Include="static\images\flags\48\ws.png" />
+    <Content Include="static\images\flags\48\ye.png" />
+    <Content Include="static\images\flags\48\yt.png" />
+    <Content Include="static\images\flags\48\za.png" />
+    <Content Include="static\images\flags\48\zm.png" />
+    <Content Include="static\images\flags\48\zw.png" />
+    <Content Include="static\images\flags\48\_African Union.png" />
+    <Content Include="static\images\flags\48\_Alderney.png" />
+    <Content Include="static\images\flags\48\_Arab League.png" />
+    <Content Include="static\images\flags\48\_ASEAN.png" />
+    <Content Include="static\images\flags\48\_Basque Country.png" />
+    <Content Include="static\images\flags\48\_CARICOM.png" />
+    <Content Include="static\images\flags\48\_Catalonia.png" />
+    <Content Include="static\images\flags\48\_CIS.png" />
+    <Content Include="static\images\flags\48\_Commonwealth.png" />
+    <Content Include="static\images\flags\48\_England.png" />
+    <Content Include="static\images\flags\48\_European Union.png" />
+    <Content Include="static\images\flags\48\_FAO.png" />
+    <Content Include="static\images\flags\48\_Galicia.png" />
+    <Content Include="static\images\flags\48\_IAEA.png" />
+    <Content Include="static\images\flags\48\_IHO.png" />
+    <Content Include="static\images\flags\48\_Islamic Conference.png" />
+    <Content Include="static\images\flags\48\_Kosovo.png" />
+    <Content Include="static\images\flags\48\_NATO.png" />
+    <Content Include="static\images\flags\48\_Northern Cyprus.png" />
+    <Content Include="static\images\flags\48\_Northern Ireland.png" />
+    <Content Include="static\images\flags\48\_OAS.png" />
+    <Content Include="static\images\flags\48\_OECD.png" />
+    <Content Include="static\images\flags\48\_Olimpic Movement.png" />
+    <Content Include="static\images\flags\48\_OPEC.png" />
+    <Content Include="static\images\flags\48\_Quebec.png" />
+    <Content Include="static\images\flags\48\_Red Cross.png" />
+    <Content Include="static\images\flags\48\_Scotland.png" />
+    <Content Include="static\images\flags\48\_Somaliland.png" />
+    <Content Include="static\images\flags\48\_Tristan-da-Cunha.png" />
+    <Content Include="static\images\flags\48\_UNESCO.png" />
+    <Content Include="static\images\flags\48\_UNICEF.png" />
+    <Content Include="static\images\flags\48\_United Nations.png" />
+    <Content Include="static\images\flags\48\_Wales.png" />
+    <Content Include="static\images\flags\48\_WHO.png" />
+    <Content Include="static\images\flags\48\_WTO.png" />
+    <Content Include="static\images\flags\64\ad.png" />
+    <Content Include="static\images\flags\64\ae.png" />
+    <Content Include="static\images\flags\64\af.png" />
+    <Content Include="static\images\flags\64\ag.png" />
+    <Content Include="static\images\flags\64\ai.png" />
+    <Content Include="static\images\flags\64\al.png" />
+    <Content Include="static\images\flags\64\am.png" />
+    <Content Include="static\images\flags\64\an.png" />
+    <Content Include="static\images\flags\64\ao.png" />
+    <Content Include="static\images\flags\64\aq.png" />
+    <Content Include="static\images\flags\64\ar.png" />
+    <Content Include="static\images\flags\64\as.png" />
+    <Content Include="static\images\flags\64\at.png" />
+    <Content Include="static\images\flags\64\au.png" />
+    <Content Include="static\images\flags\64\aw.png" />
+    <Content Include="static\images\flags\64\ax.png" />
+    <Content Include="static\images\flags\64\az.png" />
+    <Content Include="static\images\flags\64\ba.png" />
+    <Content Include="static\images\flags\64\bb.png" />
+    <Content Include="static\images\flags\64\bd.png" />
+    <Content Include="static\images\flags\64\be.png" />
+    <Content Include="static\images\flags\64\bf.png" />
+    <Content Include="static\images\flags\64\bg.png" />
+    <Content Include="static\images\flags\64\bh.png" />
+    <Content Include="static\images\flags\64\bi.png" />
+    <Content Include="static\images\flags\64\bj.png" />
+    <Content Include="static\images\flags\64\bl.png" />
+    <Content Include="static\images\flags\64\bm.png" />
+    <Content Include="static\images\flags\64\bn.png" />
+    <Content Include="static\images\flags\64\bo.png" />
+    <Content Include="static\images\flags\64\bq.png" />
+    <Content Include="static\images\flags\64\br.png" />
+    <Content Include="static\images\flags\64\bs.png" />
+    <Content Include="static\images\flags\64\bt.png" />
+    <Content Include="static\images\flags\64\bv.png" />
+    <Content Include="static\images\flags\64\bw.png" />
+    <Content Include="static\images\flags\64\by.png" />
+    <Content Include="static\images\flags\64\bz.png" />
+    <Content Include="static\images\flags\64\ca.png" />
+    <Content Include="static\images\flags\64\cc.png" />
+    <Content Include="static\images\flags\64\cd.png" />
+    <Content Include="static\images\flags\64\cf.png" />
+    <Content Include="static\images\flags\64\cg.png" />
+    <Content Include="static\images\flags\64\ch.png" />
+    <Content Include="static\images\flags\64\ci.png" />
+    <Content Include="static\images\flags\64\ck.png" />
+    <Content Include="static\images\flags\64\cl.png" />
+    <Content Include="static\images\flags\64\cm.png" />
+    <Content Include="static\images\flags\64\cn.png" />
+    <Content Include="static\images\flags\64\co.png" />
+    <Content Include="static\images\flags\64\cr.png" />
+    <Content Include="static\images\flags\64\cu.png" />
+    <Content Include="static\images\flags\64\cv.png" />
+    <Content Include="static\images\flags\64\cw.png" />
+    <Content Include="static\images\flags\64\cx.png" />
+    <Content Include="static\images\flags\64\cy.png" />
+    <Content Include="static\images\flags\64\cz.png" />
+    <Content Include="static\images\flags\64\de.png" />
+    <Content Include="static\images\flags\64\dj.png" />
+    <Content Include="static\images\flags\64\dk.png" />
+    <Content Include="static\images\flags\64\dm.png" />
+    <Content Include="static\images\flags\64\do.png" />
+    <Content Include="static\images\flags\64\dz.png" />
+    <Content Include="static\images\flags\64\ec.png" />
+    <Content Include="static\images\flags\64\ee.png" />
+    <Content Include="static\images\flags\64\eg.png" />
+    <Content Include="static\images\flags\64\eh.png" />
+    <Content Include="static\images\flags\64\er.png" />
+    <Content Include="static\images\flags\64\es.png" />
+    <Content Include="static\images\flags\64\et.png" />
+    <Content Include="static\images\flags\64\fi.png" />
+    <Content Include="static\images\flags\64\fj.png" />
+    <Content Include="static\images\flags\64\fk.png" />
+    <Content Include="static\images\flags\64\fm.png" />
+    <Content Include="static\images\flags\64\fo.png" />
+    <Content Include="static\images\flags\64\fr.png" />
+    <Content Include="static\images\flags\64\ga.png" />
+    <Content Include="static\images\flags\64\gb.png" />
+    <Content Include="static\images\flags\64\gd.png" />
+    <Content Include="static\images\flags\64\ge.png" />
+    <Content Include="static\images\flags\64\gf.png" />
+    <Content Include="static\images\flags\64\gg.png" />
+    <Content Include="static\images\flags\64\gh.png" />
+    <Content Include="static\images\flags\64\gi.png" />
+    <Content Include="static\images\flags\64\gl.png" />
+    <Content Include="static\images\flags\64\gm.png" />
+    <Content Include="static\images\flags\64\gn.png" />
+    <Content Include="static\images\flags\64\gp.png" />
+    <Content Include="static\images\flags\64\gq.png" />
+    <Content Include="static\images\flags\64\gr.png" />
+    <Content Include="static\images\flags\64\gs.png" />
+    <Content Include="static\images\flags\64\gt.png" />
+    <Content Include="static\images\flags\64\gu.png" />
+    <Content Include="static\images\flags\64\gw.png" />
+    <Content Include="static\images\flags\64\gy.png" />
+    <Content Include="static\images\flags\64\hk.png" />
+    <Content Include="static\images\flags\64\hm.png" />
+    <Content Include="static\images\flags\64\hn.png" />
+    <Content Include="static\images\flags\64\hr.png" />
+    <Content Include="static\images\flags\64\ht.png" />
+    <Content Include="static\images\flags\64\hu.png" />
+    <Content Include="static\images\flags\64\id.png" />
+    <Content Include="static\images\flags\64\ie.png" />
+    <Content Include="static\images\flags\64\il.png" />
+    <Content Include="static\images\flags\64\im.png" />
+    <Content Include="static\images\flags\64\in.png" />
+    <Content Include="static\images\flags\64\io.png" />
+    <Content Include="static\images\flags\64\iq.png" />
+    <Content Include="static\images\flags\64\ir.png" />
+    <Content Include="static\images\flags\64\is.png" />
+    <Content Include="static\images\flags\64\it.png" />
+    <Content Include="static\images\flags\64\je.png" />
+    <Content Include="static\images\flags\64\jm.png" />
+    <Content Include="static\images\flags\64\jo.png" />
+    <Content Include="static\images\flags\64\jp.png" />
+    <Content Include="static\images\flags\64\ke.png" />
+    <Content Include="static\images\flags\64\kg.png" />
+    <Content Include="static\images\flags\64\kh.png" />
+    <Content Include="static\images\flags\64\ki.png" />
+    <Content Include="static\images\flags\64\km.png" />
+    <Content Include="static\images\flags\64\kn.png" />
+    <Content Include="static\images\flags\64\kp.png" />
+    <Content Include="static\images\flags\64\kr.png" />
+    <Content Include="static\images\flags\64\kw.png" />
+    <Content Include="static\images\flags\64\ky.png" />
+    <Content Include="static\images\flags\64\kz.png" />
+    <Content Include="static\images\flags\64\la.png" />
+    <Content Include="static\images\flags\64\lb.png" />
+    <Content Include="static\images\flags\64\lc.png" />
+    <Content Include="static\images\flags\64\li.png" />
+    <Content Include="static\images\flags\64\lk.png" />
+    <Content Include="static\images\flags\64\lr.png" />
+    <Content Include="static\images\flags\64\ls.png" />
+    <Content Include="static\images\flags\64\lt.png" />
+    <Content Include="static\images\flags\64\lu.png" />
+    <Content Include="static\images\flags\64\lv.png" />
+    <Content Include="static\images\flags\64\ly.png" />
+    <Content Include="static\images\flags\64\ma.png" />
+    <Content Include="static\images\flags\64\mc.png" />
+    <Content Include="static\images\flags\64\md.png" />
+    <Content Include="static\images\flags\64\me.png" />
+    <Content Include="static\images\flags\64\mf.png" />
+    <Content Include="static\images\flags\64\mg.png" />
+    <Content Include="static\images\flags\64\mh.png" />
+    <Content Include="static\images\flags\64\mk.png" />
+    <Content Include="static\images\flags\64\ml.png" />
+    <Content Include="static\images\flags\64\mm.png" />
+    <Content Include="static\images\flags\64\mn.png" />
+    <Content Include="static\images\flags\64\mo.png" />
+    <Content Include="static\images\flags\64\mp.png" />
+    <Content Include="static\images\flags\64\mq.png" />
+    <Content Include="static\images\flags\64\mr.png" />
+    <Content Include="static\images\flags\64\ms.png" />
+    <Content Include="static\images\flags\64\mt.png" />
+    <Content Include="static\images\flags\64\mu.png" />
+    <Content Include="static\images\flags\64\mv.png" />
+    <Content Include="static\images\flags\64\mw.png" />
+    <Content Include="static\images\flags\64\mx.png" />
+    <Content Include="static\images\flags\64\my.png" />
+    <Content Include="static\images\flags\64\mz.png" />
+    <Content Include="static\images\flags\64\na.png" />
+    <Content Include="static\images\flags\64\nc.png" />
+    <Content Include="static\images\flags\64\ne.png" />
+    <Content Include="static\images\flags\64\nf.png" />
+    <Content Include="static\images\flags\64\ng.png" />
+    <Content Include="static\images\flags\64\ni.png" />
+    <Content Include="static\images\flags\64\nl.png" />
+    <Content Include="static\images\flags\64\no.png" />
+    <Content Include="static\images\flags\64\np.png" />
+    <Content Include="static\images\flags\64\nr.png" />
+    <Content Include="static\images\flags\64\nu.png" />
+    <Content Include="static\images\flags\64\nz.png" />
+    <Content Include="static\images\flags\64\om.png" />
+    <Content Include="static\images\flags\64\pa.png" />
+    <Content Include="static\images\flags\64\pe.png" />
+    <Content Include="static\images\flags\64\pf.png" />
+    <Content Include="static\images\flags\64\pg.png" />
+    <Content Include="static\images\flags\64\ph.png" />
+    <Content Include="static\images\flags\64\pk.png" />
+    <Content Include="static\images\flags\64\pl.png" />
+    <Content Include="static\images\flags\64\pm.png" />
+    <Content Include="static\images\flags\64\pn.png" />
+    <Content Include="static\images\flags\64\pr.png" />
+    <Content Include="static\images\flags\64\ps.png" />
+    <Content Include="static\images\flags\64\pt.png" />
+    <Content Include="static\images\flags\64\pw.png" />
+    <Content Include="static\images\flags\64\py.png" />
+    <Content Include="static\images\flags\64\qa.png" />
+    <Content Include="static\images\flags\64\re.png" />
+    <Content Include="static\images\flags\64\ro.png" />
+    <Content Include="static\images\flags\64\rs.png" />
+    <Content Include="static\images\flags\64\ru.png" />
+    <Content Include="static\images\flags\64\rw.png" />
+    <Content Include="static\images\flags\64\sa.png" />
+    <Content Include="static\images\flags\64\sb.png" />
+    <Content Include="static\images\flags\64\sc.png" />
+    <Content Include="static\images\flags\64\sd.png" />
+    <Content Include="static\images\flags\64\se.png" />
+    <Content Include="static\images\flags\64\sg.png" />
+    <Content Include="static\images\flags\64\sh.png" />
+    <Content Include="static\images\flags\64\si.png" />
+    <Content Include="static\images\flags\64\sj.png" />
+    <Content Include="static\images\flags\64\sk.png" />
+    <Content Include="static\images\flags\64\sl.png" />
+    <Content Include="static\images\flags\64\sm.png" />
+    <Content Include="static\images\flags\64\sn.png" />
+    <Content Include="static\images\flags\64\so.png" />
+    <Content Include="static\images\flags\64\sr.png" />
+    <Content Include="static\images\flags\64\ss.png" />
+    <Content Include="static\images\flags\64\st.png" />
+    <Content Include="static\images\flags\64\sv.png" />
+    <Content Include="static\images\flags\64\sx.png" />
+    <Content Include="static\images\flags\64\sy.png" />
+    <Content Include="static\images\flags\64\sz.png" />
+    <Content Include="static\images\flags\64\tc.png" />
+    <Content Include="static\images\flags\64\td.png" />
+    <Content Include="static\images\flags\64\tf.png" />
+    <Content Include="static\images\flags\64\tg.png" />
+    <Content Include="static\images\flags\64\th.png" />
+    <Content Include="static\images\flags\64\tj.png" />
+    <Content Include="static\images\flags\64\tk.png" />
+    <Content Include="static\images\flags\64\tl.png" />
+    <Content Include="static\images\flags\64\tm.png" />
+    <Content Include="static\images\flags\64\tn.png" />
+    <Content Include="static\images\flags\64\to.png" />
+    <Content Include="static\images\flags\64\tr.png" />
+    <Content Include="static\images\flags\64\tt.png" />
+    <Content Include="static\images\flags\64\tv.png" />
+    <Content Include="static\images\flags\64\tw.png" />
+    <Content Include="static\images\flags\64\tz.png" />
+    <Content Include="static\images\flags\64\ua.png" />
+    <Content Include="static\images\flags\64\ug.png" />
+    <Content Include="static\images\flags\64\um.png" />
+    <Content Include="static\images\flags\64\us.png" />
+    <Content Include="static\images\flags\64\uy.png" />
+    <Content Include="static\images\flags\64\uz.png" />
+    <Content Include="static\images\flags\64\va.png" />
+    <Content Include="static\images\flags\64\vc.png" />
+    <Content Include="static\images\flags\64\ve.png" />
+    <Content Include="static\images\flags\64\vg.png" />
+    <Content Include="static\images\flags\64\vi.png" />
+    <Content Include="static\images\flags\64\vn.png" />
+    <Content Include="static\images\flags\64\vu.png" />
+    <Content Include="static\images\flags\64\wf.png" />
+    <Content Include="static\images\flags\64\ws.png" />
+    <Content Include="static\images\flags\64\ye.png" />
+    <Content Include="static\images\flags\64\yt.png" />
+    <Content Include="static\images\flags\64\za.png" />
+    <Content Include="static\images\flags\64\zm.png" />
+    <Content Include="static\images\flags\64\zw.png" />
+    <Content Include="static\images\flags\64\_African-Union.png" />
+    <Content Include="static\images\flags\64\_Alderney.png" />
+    <Content Include="static\images\flags\64\_Arab League.png" />
+    <Content Include="static\images\flags\64\_ASEAN.png" />
+    <Content Include="static\images\flags\64\_Basque Country.png" />
+    <Content Include="static\images\flags\64\_CARICOM.png" />
+    <Content Include="static\images\flags\64\_Catalonia.png" />
+    <Content Include="static\images\flags\64\_CIS.png" />
+    <Content Include="static\images\flags\64\_Commonwealth.png" />
+    <Content Include="static\images\flags\64\_England.png" />
+    <Content Include="static\images\flags\64\_European Union.png" />
+    <Content Include="static\images\flags\64\_FAO.png" />
+    <Content Include="static\images\flags\64\_Galicia.png" />
+    <Content Include="static\images\flags\64\_IAEA.png" />
+    <Content Include="static\images\flags\64\_IHO.png" />
+    <Content Include="static\images\flags\64\_Islamic Conference.png" />
+    <Content Include="static\images\flags\64\_Kosovo.png" />
+    <Content Include="static\images\flags\64\_NATO.png" />
+    <Content Include="static\images\flags\64\_Northern Cyprus.png" />
+    <Content Include="static\images\flags\64\_Northern Ireland.png" />
+    <Content Include="static\images\flags\64\_OAS.png" />
+    <Content Include="static\images\flags\64\_OECD.png" />
+    <Content Include="static\images\flags\64\_Olimpic Movement.png" />
+    <Content Include="static\images\flags\64\_OPEC.png" />
+    <Content Include="static\images\flags\64\_Quebec.png" />
+    <Content Include="static\images\flags\64\_Red Cross.png" />
+    <Content Include="static\images\flags\64\_Scotland.png" />
+    <Content Include="static\images\flags\64\_Somaliland.png" />
+    <Content Include="static\images\flags\64\_Tristan da Cunha.png" />
+    <Content Include="static\images\flags\64\_UNESCO.png" />
+    <Content Include="static\images\flags\64\_UNICEF.png" />
+    <Content Include="static\images\flags\64\_United-Nations.png" />
+    <Content Include="static\images\flags\64\_Wales.png" />
+    <Content Include="static\images\flags\64\_WHO.png" />
+    <Content Include="static\images\flags\64\_WTO.png" />
+    <Content Include="static\images\game_img_cover.jpg" />
+    <Content Include="static\images\game_invite.png" />
+    <Content Include="static\images\game_page_picture.jpg" />
+    <Content Include="static\images\gtoken_watermark.png" />
+    <Content Include="static\images\header_highlight.png" />
+    <Content Include="static\images\header_highlight_mobil.png" />
+    <Content Include="static\images\hero_img.jpg" />
+    <Content Include="static\images\hero_img.png" />
+    <Content Include="static\images\home_video.png" />
+    <Content Include="static\images\ios_ico.png" />
+    <Content Include="static\images\Kenneth.jpg" />
+    <Content Include="static\images\language_icon.png" />
+    <Content Include="static\images\loading_icon.png" />
+    <Content Include="static\images\logo_center.png" />
+    <Content Include="static\images\logo_footer.png" />
+    <Content Include="static\images\logo_img.png" />
+    <Content Include="static\images\mobile_chat_logo.png" />
+    <Content Include="static\images\more_button.png" />
+    <Content Include="static\images\m_friend_icon.png" />
+    <Content Include="static\images\m_notify_icon.png" />
+    <Content Include="static\images\m_search_icon.png" />
+    <Content Include="static\images\news\news_1.jpg" />
+    <Content Include="static\images\next_icon.png" />
+    <Content Include="static\images\oval.png" />
+    <Content Include="static\images\pc_ico.png" />
+    <Content Include="static\images\prev_icon.png" />
+    <Content Include="static\images\profile_avatars\0.png" />
+    <Content Include="static\images\profile_avatars\1.png" />
+    <Content Include="static\images\profile_avatars\10.png" />
+    <Content Include="static\images\profile_avatars\11.png" />
+    <Content Include="static\images\profile_avatars\12.png" />
+    <Content Include="static\images\profile_avatars\13.png" />
+    <Content Include="static\images\profile_avatars\14.png" />
+    <Content Include="static\images\profile_avatars\2.png" />
+    <Content Include="static\images\profile_avatars\3.png" />
+    <Content Include="static\images\profile_avatars\4.png" />
+    <Content Include="static\images\profile_avatars\5.png" />
+    <Content Include="static\images\profile_avatars\6.png" />
+    <Content Include="static\images\profile_avatars\7.png" />
+    <Content Include="static\images\profile_avatars\8.png" />
+    <Content Include="static\images\profile_avatars\9.png" />
+    <Content Include="static\images\profile_covers\0.png" />
+    <Content Include="static\images\profile_covers\1.png" />
+    <Content Include="static\images\profile_covers\10.png" />
+    <Content Include="static\images\profile_covers\2.png" />
+    <Content Include="static\images\profile_covers\3.png" />
+    <Content Include="static\images\profile_covers\4.png" />
+    <Content Include="static\images\profile_covers\5.png" />
+    <Content Include="static\images\profile_covers\6.png" />
+    <Content Include="static\images\profile_covers\7.png" />
+    <Content Include="static\images\profile_covers\8.png" />
+    <Content Include="static\images\profile_covers\9.png" />
+    <Content Include="static\images\replied_icon.png" />
+    <Content Include="static\images\reveal_close.png" />
+    <Content Include="static\images\reveal_password.png" />
+    <Content Include="static\images\reveal_password_active.png" />
+    <Content Include="static\images\re_accept.png" />
+    <Content Include="static\images\re_close.png" />
+    <Content Include="static\images\search_icon.png" />
+    <Content Include="static\images\skype_icon.png" />
+    <Content Include="static\images\small-gcoin.png" />
+    <Content Include="static\images\small-gtoken.png" />
+    <Content Include="static\images\star-white.png" />
+    <Content Include="static\images\star.png" />
+    <Content Include="static\images\tiny_gcoin.png" />
+    <Content Include="static\images\tiny_gtoken.png" />
+    <Content Include="static\images\topbar_texture.png" />
+    <Content Include="static\images\topup-conquer\arrow_1.png" />
+    <Content Include="static\images\topup-conquer\arrow_2.png" />
+    <Content Include="static\images\topup-conquer\crown.png" />
+    <Content Include="static\images\topup-conquer\sword.png" />
+    <Content Include="static\images\topup_conquer.png" />
+    <Content Include="static\images\topup_gold.png" />
+    <Content Include="static\images\topup_icon.png" />
+    <Content Include="static\images\topup_newbie.png" />
+    <Content Include="static\images\topup_skill.png" />
+    <Content Include="static\images\trans-exchange-icon.png" />
+    <Content Include="static\images\trans-topup-icon.png" />
+    <Content Include="static\images\trans-transfer-icon.png" />
+    <Content Include="static\images\trans-ven-icon.png" />
+    <Content Include="static\images\transfer_icon.png" />
+    <Content Include="static\images\twitter.png" />
+    <Content Include="static\images\upoint_speedy.png" />
+    <Content Include="static\images\upoint_spinfun.png" />
+    <Content Include="static\images\upoint_telkomsel.png" />
+    <Content Include="static\images\warning_icon.png" />
+    <Content Include="static\images\why_convert.png" />
+    <Content Include="static\images\why_support.png" />
+    <Content Include="static\images\why_wallet.png" />
+    <Content Include="static\js\admin\game.js" />
+    <Content Include="static\js\admin\paypal.js" />
+    <Content Include="static\js\admin\topup_card.js" />
+    <Content Include="static\js\admin\transaction.js" />
+    <Content Include="static\js\admin\user.js" />
+    <Content Include="static\js\admin\validation.js" />
+    <Content Include="static\js\app.js" />
+    <Content Include="static\js\chat.js" />
+    <Content Include="static\js\controllers.js" />
+    <Content Include="static\js\friend.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\example.html" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\foundation-datetimepicker.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.kr.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\stylesheets\example.css" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\stylesheets\foundation-datepicker.css" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\humans.txt" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\bullets.jpg" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\left-arrow-small.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\left-arrow.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\loading.gif" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\mask-black.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\pause-black.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\right-arrow-small.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\right-arrow.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\rotator-black.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\images\foundation\orbit\timer-black.png" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\index.html" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\app.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\foundation.min.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.event.move.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.event.swipe.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.accordion.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.alerts.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.buttons.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.clearing.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.forms.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.joyride.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.magellan.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.mediaQueryToggle.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.navigation.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.orbit.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.reveal.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.tabs.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.tooltips.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.foundation.topbar.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\jquery.placeholder.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\javascripts\modernizr.foundation.js" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\robots.txt" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\stylesheets\app.css" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\stylesheets\foundation.css" />
+    <Content Include="static\js\libs\foundation-datetimepicker\foundation\stylesheets\foundation.min.css" />
+    <Content Include="static\js\mchat.js" />
+    <Content Include="static\js\pages\accountChangeEmail.js" />
+    <Content Include="static\js\pages\accountProfile.js" />
+    <Content Include="static\js\pages\accountRegister.js" />
+    <Content Include="static\js\pages\customerSupport.js" />
+    <Content Include="static\js\pages\transactions.js" />
+    <Content Include="static\js\routing.js" />
+    <Content Include="static\js\utils\countriesList.js" />
+    <Content Include="static\js\wow.min.js" />
+    <Content Include="static\stylesheets\account\register.css" />
+    <Content Include="static\stylesheets\account\user_friends.css" />
+    <Content Include="static\stylesheets\account\user_invoice.css" />
+    <Content Include="static\stylesheets\account\user_profile.css" />
+    <Content Include="static\stylesheets\account\user_transactions.css" />
+    <Content Include="static\stylesheets\admin\admin.css" />
+    <Content Include="static\stylesheets\app.css" />
+    <Content Include="static\stylesheets\error_page.css" />
+    <Content Include="static\stylesheets\games\games_main.css" />
+    <Content Include="static\stylesheets\home.css" />
+    <Content Include="static\stylesheets\main.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\stylesheets\build.less" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\stylesheets\datetimepicker.less" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\stylesheets\example.less" />
+    <Content Include="static\js\libs\foundation-datetimepicker\example\stylesheets\foundation-datepicker.less" />
+    <Content Include="static\js\libs\foundation-datetimepicker\LICENSE" />
+    <Content Include="static\js\libs\foundation-datetimepicker\README.md" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
+    <Content Include="config.rb" />
+    <Content Include="Gemfile" />
+    <Content Include="Gemfile.lock" />
+    <Content Include="Data\geoip_db\GeoLite2-Country.mmdb" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="static\stylesheets\main_ms.css" />
+    <Content Include="static\stylesheets\main_th.css" />
+    <Content Include="static\stylesheets\main_zh.css" />
+    <Content Include="static\stylesheets\static_pages.css" />
+    <Content Include="Views\Main\About.cshtml" />
+    <Content Include="Views\Main\Club.cshtml" />
+    <Content Include="Views\Main\Contact.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Main\News.cshtml" />
+    <Content Include="Views\Main\Support.cshtml" />
+    <Content Include="Views\Main\Terms.cshtml" />
+    <Content Include="Views\Shared\errors\404.cshtml" />
+    <Content Include="Views\Shared\errors\500.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="uploads\.gitignore" />
+    <Content Include="Views\Games\Details.cshtml" />
+    <Content Include="Views\Account\EnterNewPassword.cshtml" />
+    <Content Include="Views\Shared\Account\_account_info.cshtml" />
+    <Content Include="Views\Shared\Account\_account_topbar.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangeEmail.cshtml" />
+    <Content Include="Views\Games\SeachGame.cshtml" />
+    <Content Include="Views\Friend\Index.cshtml" />
+    <Content Include="Views\Friend\Search.cshtml" />
+    <Content Include="Views\Friend\_transfer_panel.cshtml" />
+    <None Include="Service References\SuzyService\SuzyService.wsdl" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="static\fonts\ubuntu\ubuntu-b-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-b-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-b-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-b-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bi-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bi-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bi-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bi-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-c-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-c-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-c-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-c-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-l-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-l-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-l-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-l-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-li-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-li-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-li-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-li-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-m-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-m-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-m-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-m-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-mi-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-mi-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-mi-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-mi-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-r-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-r-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-r-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-r-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-ri-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-ri-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-ri-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-ri-webfont.woff2" />
+    <Content Include="static\scss\#home_abtest.scss#" />
+    <Content Include="static\scss\account\mobile_chat.scss" />
+    <Content Include="static\scss\account\register.scss" />
+    <Content Include="static\scss\account\user_friends.scss" />
+    <Content Include="static\scss\account\user_invoice.scss" />
+    <Content Include="static\scss\account\user_profile.scss" />
+    <Content Include="static\scss\account\user_transactions.scss" />
+    <Content Include="static\scss\account\_account_main.scss" />
+    <Content Include="static\scss\account\_account_main_user.scss" />
+    <Content Include="static\scss\admin\admin.scss" />
+    <Content Include="static\scss\app.scss" />
+    <Content Include="static\scss\error_page.scss" />
+    <Content Include="static\scss\games\games_detail.scss" />
+    <Content Include="static\scss\games\games_main.scss" />
+    <Content Include="static\scss\home.scss" />
+    <Content Include="static\scss\home_abtest.scss" />
+    <Content Include="static\scss\main.scss" />
+    <Content Include="static\scss\main_ms.scss" />
+    <Content Include="static\scss\main_th.scss" />
+    <Content Include="static\scss\main_zh.scss" />
+    <Content Include="static\scss\partials\_base.scss" />
+    <Content Include="static\scss\partials\_buttons.scss" />
+    <Content Include="static\scss\partials\_color.scss" />
+    <Content Include="static\scss\partials\_forms.scss" />
+    <Content Include="static\scss\partials\_reset_and_overwrite.scss" />
+    <Content Include="static\scss\partials\_typography.scss" />
+    <Content Include="static\scss\static_pages.scss" />
+    <Content Include="static\scss\_settings.scss" />
+    <None Include="Views\Shared\Includes\bottom_call_to_action_register.cshtml" />
+    <None Include="Views\Shared\Includes\favicon_meta.cshtml" />
+    <None Include="Views\Shared\Includes\footer.cshtml" />
+    <None Include="Views\Shared\Includes\header.cshtml" />
+    <None Include="Views\Shared\Transaction\_exchange_panel.cshtml" />
+    <None Include="Views\Shared\Transaction\_gcoin_panel.cshtml" />
+    <None Include="Views\Shared\Transaction\_history.cshtml" />
+    <Content Include="Views\Shared\Transaction\_progress_indicator.cshtml" />
+    <None Include="Views\Shared\Transaction\_top_up_panel.cshtml" />
+    <None Include="Views\Shared\Transaction\_gcoin_convert_final_step.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Support\Index.cshtml" />
+    <Content Include="Views\Shared\_RegisterLayout.cshtml" />
+    <Content Include="Views\TemplateEmail\WelcomeMessageTemplate.cshtml" />
+    <Content Include="Views\TemplateEmail\ResetPasswordTemplate.cshtml" />
+    <Content Include="Views\TemplateEmail\SupportTemplate.cshtml" />
+    <Content Include="Views\Transaction\Index.cshtml" />
+    <Content Include="Views\Shared\_No_header_No_footer_Layout.cshtml" />
+    <Content Include="Views\TemplateEmail\Invoice.cshtml" />
+    <Content Include="Views\Transaction\_progress_indicator.cshtml" />
+    <Content Include="Views\Transaction\Invoice.cshtml" />
+    <Content Include="Views\Shared\_Flash.cshtml" />
+    <Content Include="Views\TemplateEmail\SentFriendRequestTemplate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="game_progresses\" />
+    <Folder Include="Views\AccountPartner\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Upoint\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\GToken.Core\Platform.Core.csproj">
+      <Project>{54922c4b-5bfd-4b54-9ae4-7701d95f7fcb}</Project>
+      <Name>Platform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\GToken.Models\Platform.Models.csproj">
+      <Project>{a1738637-605c-4b46-bc5c-b379a09823f7}</Project>
+      <Name>Platform.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\GToken.Utility\Platform.Utility.csproj">
+      <Project>{0da1defb-0e51-4148-92c6-13bf0453636f}</Project>
+      <Name>Platform.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoPlay.Core\GoPlay.Core.csproj">
+      <Project>{7ec3e27a-0ac8-4be3-aa27-9710195e114c}</Project>
+      <Name>GoPlay.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoPlay.Core\GoPlay.Core.csproj">
+      <Project>{7ec3e27a-0ac8-4be3-aa27-9710195e114c}</Project>
+      <Name>GoPlay.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoPlay.Dal\GoPlay.Dal.csproj">
+      <Project>{ba46f574-23bb-4045-9d94-400e453ed663}</Project>
+      <Name>GoPlay.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoPlay.Models\GoPlay.Models.csproj">
+      <Project>{0db27e0e-14af-4901-acbe-f1e1f23e3a65}</Project>
+      <Name>GoPlay.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{ebbede43-00f3-421c-98d6-269d5eefc569}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MineManiaService\" />
+    <WCFMetadataStorage Include="Service References\SuzyService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>24713</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8090/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8090/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\..\Project-All\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\Project-All\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\Project-All\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\Project-All\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

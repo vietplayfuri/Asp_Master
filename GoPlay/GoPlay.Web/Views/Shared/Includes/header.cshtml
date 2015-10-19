@@ -1,0 +1,129 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+    var languages = CultureHelper._languges;
+    var display_language = CultureHelper.get_display_language(Html.GetCurrentUser(), Session["locale"] != null ? Session["locale"].ToString() : String.Empty);
+}
+
+<div ng-controller="LocaleSelectCtrl">
+    <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="@Url.Action("index", "main")"><img src="/static/images/logo_img.png"></a></h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+
+                @if (Request.IsAuthenticated)
+                {
+                    <ul class="right top-user-nav">
+                        <!--ng-controller="NotificationCtrl"-->
+
+                        <li class="top-user-section">
+                            <ul class="top-user-container">
+                                <li class="has-dropdown top-user-name">
+                                    <a class="sub-link" href="">@Html.GetCurrentUser().display_name</a>
+                                    <ul class="dropdown .default-dropdown">
+                                        @if (ViewContext.Controller.HasPermission("access_admin_page"))
+                                        {
+                                            <li><a href="@Url.Action("index", "default", new { Area="admin"})" target="_self">@Resources.Resources.Admin_Panel</a></li>
+                                        }
+                                        <li><a href="@Url.Action("profile", "account")" target="_self">@Resources.Resources.Profile</a></li>
+                                        <li><a href="@Url.Action("index", "transaction")" target="_self">@Resources.Resources.Transaction</a></li>
+                                        <li><a href="@Url.Action("index", "friend")" target="_self">@Resources.Resources.Friends</a></li>
+                                        <li><a href="@Url.Action("logout", "account")" target="_self">@Resources.Resources.Log_Out</a></li>
+                                    </ul>
+                                </li>
+                                <li class="topbar-user-avatar">
+                                    <a href="">
+                                        <img src="@Html.GetCurrentUser().avatar_filename" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--li class="has-dropdown chat-notify">
+                          <div class="notify-wrap" ng-click="getNotification()"></div>
+                          <div class="notify-icon"></div>
+                          <a href="javascript:;" class="notify-count" ng-if="count > 0"><p ng-bind="count" ></p></a>
+                          <ul class="dropdown notifi-list perfectScroll">
+                            <li class="noti-item loading" ng-show="loading">
+                              <img class="loading-icon" src="/static/images/chat_loading_icon.png">
+                            </li>
+                            <li class="noti-item {$ item.count > 0 ? 'active' : '' $}" chat-button-directive ng-repeat="item in notifications" data-username="{$ item.userinfo.account $}">
+                              <a href="javascript:;" ng-click="chatButtonClickedByUserName(item.userinfo.account); ">
+                                <img ng-src="{$ item.userinfo.avatar $}" alt="{$ item.userinfo.account $}">
+                                <div class="noti-content">
+                                  <h6>{$ item.userinfo.account $}<span ng-if="item.count > 0">&nbsp;({$ item.count $})</span>
+                                    <div class="online-status" data-username="{$ item.userinfo.account $}" ng-if="friend.status=='online'" ></div>
+                                  </h6>
+                                  <p ng-if="item.type == 1">{$ item.chat.message $}</p>
+                                  <p ng-if="item.type == 2">Sent a game invite</p>
+                                </div>
+                                <p class="last-time" ng-if="item.type == 1">{$ toDateTime(item.chat.timestamp * 1) $}</p>
+                                <p class="last-time" ng-if="item.type == 2">{$ toDateTime(item.game.timestamp * 1) $}</p>
+                              </a>
+                            </li>
+                            <li class="noti-item no-data" ng-show="noData">
+                              <p>You have no notification at the moment</p>
+                            </li>
+                          </ul>
+                        </li-->
+                    </ul>
+
+                }
+                else
+                {
+
+                <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li><a href="@Url.Action("login", "account")">@Resources.Resources.Login</a></li>
+                        <li><a href="@Url.Action("register", "account")">@Resources.Resources.Signup @("+1")</a></li>
+                    </ul>
+                }
+
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li><a class="header-pri-link" target="_self" href="@Url.Action("index", "game")">@Resources.Resources.Games.ToUpper()</a></li>
+                    <li><a class="header-pri-link" target="_self" href="@Url.Action("about", "main")">@Resources.Resources.About.ToUpper()</a></li>
+                    <li><a class="header-pri-link" target="_self" href="@Url.Action("club", "main")">@Resources.Resources.Clubs.ToUpper()</a></li>
+                    <li><a class="header-pri-link" target="_self" href="@Url.Action("news", "main")">@Resources.Resources.News.ToUpper()</a></li>
+                    <li><a class="header-pri-link" target="_self" href="@Url.Action("support", "main")">@Resources.Resources.Support.ToUpper()</a></li>
+                    <li class="has-dropdown language-mobile">
+                        <a href="#">@display_language</a>
+                        <ul class="dropdown">
+                            @foreach (var lang in languages)
+                            {
+                                <li>
+                                    <a ng-click="locale = '@lang.Key'; updateLocale()">@lang.Value</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+        </nav>
+    </div>
+    <form id="update-locale-form" class="hide" action="@Url.Action("update-locale", "account", new { next = Request.Path + "?" + Request.QueryString.ToString() })" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="locale" ng-model="locale" />
+    </form>
+    <div class="row language-wrap">
+        <div class="large-12 columns">
+            <a class="language-select" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">@display_language</a>
+            <ul id="drop1" class="f-dropdown language-dropdown default-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+                @foreach (var lang in languages)
+                {
+                    <li>
+                        <a ng-click="locale = '@lang.Key'; updateLocale()">@lang.Value</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+@import "settings";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/animation";
+
+.panel {
+    background-color: #fff;
+    border-color: $border-color;
+    margin-bottom: 15px;
+    color: #666;
+    @include box-shadow(rgba(0,0,0, 0.15) 0 2px 4px);
+
+    &.large {
+        padding: 15px 20px;
+
+        @media #{$medium-up} { 
+            
+            padding-left: 36px;
+            padding-right: 36px;
+            
+        }
+
+        @media #{$large-up} { 
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        color: $primary-color;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+.card {
+  @include animation(fly-in-from-left .5s 1s ease both);
+  @include transform-origin(top left);
+}
+.card:nth-child(even){
+  @include animation-name(fly-in-from-right);
+  @include animation-delay(1.1s);
+  @include transform-origin(top right);
+}
+
+@include keyframes(fly-in-from-left) {
+  from {
+    @include transform(translateY(15rem) rotate(15deg));
+    opacity:0;
+  }
+}
+
+@include keyframes(fly-in-from-right) {
+  from {
+    @include transform(translateY(15rem) rotate(-15deg));
+    opacity:0;
+  }
+}

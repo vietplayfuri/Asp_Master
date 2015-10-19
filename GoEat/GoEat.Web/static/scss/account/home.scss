@@ -1,0 +1,697 @@
+@import "partials/color";
+@import "partials/typography";
+@import "partials/buttons";
+
+// Home Page Content Style ******************************************** //
+h4 {
+    color: #606060;
+}
+
+.main-container {
+    height: 100%;
+}
+
+.main-content {
+    background: none;
+    width: 100%;
+    height: 100%;
+}
+
+.main-page {
+    overflow: hidden;
+
+    h4 {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 3em;
+        font-family:$font-helvetica-neue;
+    }
+
+    p {
+        font-weight: 300;
+
+        &:first-child {
+            font-size: 1.800em;
+        }
+
+        &:last-child {
+            font-weight: 300;
+            font-size: 1.125em;
+        }
+    }
+}
+
+#food-slider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: url('/static/images/half_circle_up_white.png') repeat-x;
+    height: 10px;
+}
+
+#food-slider {
+    max-width: 1920px;
+    margin: auto;
+}
+
+#restaurant-icon {
+    position: absolute;
+    z-index: 1000;
+    left: 0px;
+    right: 0px;
+    width: 20%;
+    top: 15vh;
+    margin: auto;
+}
+
+.food-slide {
+    height: 100%;
+}
+
+.step {
+    display: inline-block;
+    float: none;
+    padding: 10px 30px;
+
+    a img {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+@media screen and (max-width: 56em ) {
+    .main-page h4 {
+        font-size: 2em;
+    }
+}
+
+
+@import "settings";
+@import "foundation";
+@import "partials/base";
+
+// Register Style
+
+body {
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px black inset !important;
+    -webkit-text-fill-color: white;
+}
+
+.picture-left {
+    padding: 0px;
+    padding-top: 10px;
+}
+
+.picture-right {
+    padding: 0px;
+
+    img {
+        margin-top: 76%;
+    }
+}
+
+.rounded-rectangle {
+    background: url('/static/images/rounded-rectangle.png')no-repeat;
+    background-size: 100% 100%;
+    width: 325px;
+    height: 10px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.slogan {
+    height: 52px;
+    margin: 0 auto;
+}
+
+.top-logo {
+    width: 153px;
+    height: 119px;
+    text-align: center;
+    display: block;
+    margin: 80px auto 50px;
+}
+
+.forms-container {
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    color: #474747;
+
+    br {
+        display: none;
+    }
+
+    h4 {
+        @include h4-pri($pri-white, 400);
+        margin-bottom: 4px;
+        font-size: 58px;
+        margin-top: 90px;
+        color: #474747;
+
+        img {
+            position: relative;
+            top: -2px;
+        }
+    }
+
+    .subheader {
+        @include subheader($pri-lightgrey, 400, 0.875rem);
+        padding: 0 0.875rem;
+    }
+
+    input.sml-forms {
+        @include sml-forms;
+        margin: 0 auto 14px;
+        text-indent: 6px;
+        color: $pri-white;
+        border: none;
+        opacity: 0.6;
+        height: 5.625em;
+        /*&:focus {
+            background-color: $sub-lightgrey;
+        }*/
+        &::-webkit-input-placeholder {
+            text-indent: 6px;
+            line-height: 18px;
+            color: $pri-white;
+        }
+
+        &::-moz-placeholder {
+            text-indent: 6px;
+            line-height: 18px;
+            color: $pri-white;
+        }
+
+        &:-ms-input-placeholder {
+            text-indent: 6px;
+            line-height: 18px;
+            color: $pri-white;
+        }
+    }
+
+    input.sml-forms.username {
+        margin-top: 30px;
+    }
+
+    .break-line {
+        width: 72%;
+        height: 1px;
+        display: block;
+        margin: 10px auto 10px;
+        border-bottom: 1px solid $sub-grey;
+    }
+
+    input[type="submit"] {
+        @include upper-font(300, 0.875rem, $pri-white);
+        @include sml-primary-btn($pri-red);
+        border-radius: 40px;
+        background: #ef3f23;
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 43px;
+        transition: all 0.25s ease;
+        moz-transition: all 0.25s ease;
+        cursor: pointer;
+        font-size: 23px;
+
+        &:hover {
+            /*background-color: $pri-black;
+            color: white;*/
+        }
+    }
+
+    h6 {
+        color: $pri-grey;
+        font-size: 0.875em;
+        margin: 10px auto 14px;
+
+        &:before,
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 40px;
+            height: 1px;
+            border-top: 1px dashed $sub-grey;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+    }
+
+    .check-box {
+        opacity: 0;
+        float: left;
+        width: 18px;
+    }
+
+    .check-box + label {
+        clear: none;
+        /* Left padding makes room for image */
+        padding: 5px 0 4px 24px;
+        /* Make look clickable because they are */
+        cursor: pointer;
+        background: url('/static/images/checkbox.png')left center no-repeat;
+    }
+
+    .check-box:checked + label {
+        background: url(/static/images/checkbox-checked.png) left center no-repeat;
+    }
+
+    .check-label {
+        margin-top: 4px;
+        margin-bottom: 14px;
+    }
+}
+
+.angucomplete-dropdown {
+    border: 2px solid $sub-grey;
+    margin: 5px auto 3px;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    max-height: 220px;
+    overflow-y: scroll;
+
+    .angucomplete-searching {
+        color: $pri-grey;
+        font-size: $sml-upper;
+        font-weight: bold;
+    }
+
+    .angucomplete-selected-row,
+    .angucomplete-row:hover {
+        background-color: $pri-blue;
+    }
+
+    .angucomplete-selected-row {
+        overflow: ellipsis;
+    }
+
+    .angucomplete-image-holder {
+        padding-top: 3px;
+        border: none;
+
+        img {
+            border-radius: 3px;
+            border: none;
+        }
+    }
+
+    .angucomplete-image {
+        height: 40px;
+        width: 40px;
+    }
+
+    .angucomplete-title,
+    .angucomplete-description {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .angucomplete-description {
+        margin-top: -4px;
+        color: $pri-grey;
+    }
+}
+
+#accounts_signup {
+    margin-top: 30px;
+}
+
+@-moz-document url-prefix() {
+
+    .forms-container {
+        input.sml-forms {
+            padding: 1.5em 0 1.5em 0 !important;
+            padding-top: 2em !important;
+            text-indent: 12px;
+
+            &::-webkit-input-placeholder {
+                line-height: 21px;
+            }
+
+            &::-moz-placeholder {
+                line-height: 21px;
+            }
+
+            &:-ms-input-placeholder {
+                line-height: 21px;
+            }
+        }
+
+        input[type="submit"] {
+            padding: 4px 12px 6px;
+        }
+    }
+
+    #accounts_login #username, #accounts_login #password {
+        padding-left: 4.8em !important;
+    }
+}
+
+.bottom-link {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 90px;
+    margin-top: 20px;
+
+    h5 {
+        @include subheader($sub-lightblue, 400, 1.125rem);
+
+        a {
+            @include subheader($sub-lightblue, 400, 1.125rem);
+            text-decoration: underline;
+        }
+    }
+}
+
+.forms-set {
+    padding: 1px 0;
+    width: inherit;
+
+    .errors-container {
+        position: relative;
+        width: 24.875em;
+        margin: 0 auto 14px !important;
+
+        ul.errors {
+            margin: 0 auto;
+            display: none;
+            color: $pri-red;
+            list-style-type: none;
+            position: relative;
+            text-align: left;
+            width: 100%;
+            margin-left: 14px !important;
+        }
+    }
+
+    .field-with-errors {
+        &.sml-forms {
+            margin-bottom: 0px;
+        }
+
+        & + .errors-container {
+            ul.errors {
+                display: block;
+                padding: 8px 12px 8px 12px;
+            }
+        }
+    }
+
+    .field-valid {
+        &.sml-forms {
+            background: #F9F9F9 url(/static/images/form-checked.png) 96% center no-repeat;
+        }
+    }
+
+    #submit.disabled {
+        opacity: 0.4;
+        cursor: default;
+
+        &:hover {
+            /*background-color: white;
+            color: $pri-green;*/
+        }
+    }
+
+    #submit.valid {
+        background-color: $pri-green;
+        color: white;
+    }
+}
+
+// Login Style
+
+.forms-container.login {
+    h4 {
+        margin-bottom: 20px;
+        color: #474747;
+    }
+
+    .break-line {
+        margin: 15px auto 20px;
+    }
+
+    #username {
+        background-image: url('/static/images/ng-icon.png');
+        background-repeat: no-repeat;
+        background-position: left top;
+        padding-left: 4.8em;
+        width: 24.875em;
+        background-color: #bbb5af;
+    }
+
+    #remember_account {
+        display: none;
+    }
+
+    #username.field-with-errors {
+        margin-bottom: 14px;
+    }
+
+    .errors-container ul.errors {
+        padding-right: 0;
+    }
+
+    #password {
+        background-image: url('/static/images/lock-icon.png');
+        background-repeat: no-repeat;
+        background-position: left top;
+        padding-left: 4.8em;
+        width: 24.875em;
+        background-color: #bbb5af;
+    }
+}
+
+.rem-forg {
+    max-width: 24.875em;
+    margin: 0 auto;
+
+    .check-box.login + label {
+        font-size: 1em;
+        color: #474747;
+        padding: 5px 0 4px 47px;
+        margin: 0;
+        position: relative;
+        left: 26px;
+        float: left;
+        font-weight: 300;
+    }
+
+    .check-box.login:checked + label {
+        background: url(/static/images/checkbox-checked.png) left center no-repeat;
+    }
+
+    .forgot-pwd {
+        float: right;
+        @include subheader($pri-grey, 300, 0.875rem);
+        padding-top: 3px;
+        color: red;
+        position: relative;
+        padding-right: 24px;
+
+        &:hover {
+            font-weight: 400;
+        }
+    }
+}
+
+// Change password style
+
+#account-change-password {
+    input.sml-forms#oldPassword {
+        margin-top: 30px;
+    }
+
+    .errors-container + .break-line {
+        margin-top: 7px;
+    }
+}
+
+// Change email style
+
+#account-change-email {
+    margin-top: 30px;
+}
+
+#account-change-password,
+#account-change-email {
+    .break-line {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}
+
+// Media queries
+
+@media #{$small-only} {
+
+    .rounded-rectangle {
+        background: url('/static/images/rounded-rectangle.png')no-repeat;
+        background-size: 100% 100%;
+        width: 225px;
+        height: 7px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+    }
+
+    .slogan {
+        width: 275px;
+        line-height: 30px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+    }
+
+    div.logo > img {
+        max-height: 55px;
+    }
+
+    .forms-container {
+        width: 100%;
+
+        input.sml-forms,
+        input[type="submit"],
+        .break-line {
+            width: 100% !important;
+        }
+    }
+
+    .forms-set {
+        width: inherit;
+
+        .errors-container {
+            margin-left: 0px;
+            width: 100%;
+
+            ul.errors {
+                padding: 8px 0;
+                width: 100%;
+
+                li {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+
+        #country-select_dropdown {
+            width: 84%;
+        }
+    }
+
+    .rem-forg {
+        width: 100%;
+    }
+
+    .rem-forg .check-box.login + label {
+        left: 0px;
+    }
+
+    .main-page .slogan-div {
+        margin: auto;
+    }
+
+    .partner-div h4 {
+        font-size: 2.5em !important;
+        padding-bottom: 0px !important;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px), only screen and ( min--moz-device-pixel-ratio: 2) and (min-width: 320px), only screen and ( -o-min-device-pixel-ratio: 2/1) and (min-width: 320px), only screen and ( min-device-pixel-ratio: 2) and (min-width: 320px), only screen and ( min-resolution: 192dpi) and (min-width: 320px), only screen and ( min-resolution: 2dppx) and (min-width: 320px), only screen and (-webkit-min-device-pixel-ratio: 3) and (min-width: 360px), only screen and ( min--moz-device-pixel-ratio: 3) and (min-width: 360px), only screen and ( -o-min-device-pixel-ratio: 3/1) and (min-width: 360px), only screen and ( min-device-pixel-ratio: 3) and (min-width: 360px) {
+
+    .bottom-link.login {
+        h5 a {
+            display: block;
+        }
+    }
+}
+
+.address {
+    color: #4d4d4d;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.address hr {
+    width: 50px;
+    border: 2px solid #898989;
+    margin: 15px auto;
+}
+
+.slogan-div {
+    color: #fff;
+    padding: 25px;
+}
+
+.partner-div h4 {
+    letter-spacing: 8px;
+    font-size: 47px;
+    color: #474747;
+    padding: 26px 0px 0px 0px;
+    font-weight: 700;
+    font-family: $font-josefin-slab;
+}
+
+.partner-div .logo {
+    float: none;
+    padding-right: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+#main-page {
+    position: relative;
+}
+
+#main-page::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: url('/static/images/login_03.png') repeat-x;
+    height: 10px;
+}
+
+
+@media only screen and (max-width: 48em) {
+
+    h4 {
+        font-size: 3.364em;
+    }
+}
+//min-width: 768px;
+@media only screen and (min-width: 48em) {
+    #country-select_value {
+        width: 100%;
+    }
+
+    .main-page .slogan-div {
+        margin-top: 13.000em;
+    }
+}
+
+
+@media only screen and (max-width: 760px) {
+    .forms-container.login {
+        input {
+            width: 100% !important;
+        }
+    }
+
+    .rem-forg .forgot-pwd {
+        padding: 0px;
+    }
+}

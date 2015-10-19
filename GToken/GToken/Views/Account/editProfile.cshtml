@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.My_profile;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model GToken.Web.Models.EditProfileForm
+
+<section class="main-section">
+    <div class="row">
+        @Html.Partial("~/Views/Account/_account_info.cshtml")
+        <div class="large-8 columns thin-padding">
+            <div class="panel">
+                <div class="row">
+                    <div class="large-10 columns large-offset-1">
+                        <h4 class="uppercase">@Resources.Resources.Edit_Profile</h4>
+                        <!-- edit-profile-form-->
+                        <form name="editProfileForm" id="editProfileForm" class="with-label ng-pristine ng-scope ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-compare-to" novalidate="" ng-controller="EditProfileController as editProfileCtrl" ng-submit="editProfile()" ng-init="init(@Model.dob_epoch, '@Model.country_code', '@Model.inviter_username')">
+                            <input type="hidden" name="username" ng-model="username" ng-init="username='@Model.username'" />
+                            <div class="row">
+                                <div class="columns medium-12">
+                                    <div class="avatar-upload">
+                                        <div class="avatar-container">
+                                            <img src="@Html.GetCurrentUser().avatar_filename" alt="Inky" id="avatar-photo">
+                                        </div>
+                                        <div class="button" ngf-select ngf-drop ng-model="avatar"
+                                             ngf-accept="'image/*'" ngf-max-size="8000000"
+                                             ngf-drag-over-class="{accept:'acceptClass', reject:'rejectClass', delay:100}">
+                                            <!-- 8MB -->
+                                            @Resources.Resources.Upload_new_photo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="medium-12 columns">
+                                    <label>
+                                        @Resources.Resources.Nick_name:
+                                        <input type="text" name="nickname" ng-model="nickName" class="ng-pristine ng-untouched ng-valid" ng-init="nickName='@Model.nickname'" />
+                                    </label>
+                                    <div class="errors-container clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columns medium-12">
+                                    <label>
+                                        @Resources.Resources.email:
+                                        <input type="text" name="email" ng-model="email" ng-init="email='@Model.email'" class="ng-pristine ng-untouched ng-valid">
+                                    </label>
+                                    <div class="errors-container clearfix"></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="columns medium-12">
+                                    <label>
+                                        @Resources.Resources.Referal_ID:
+                                        @if (!string.IsNullOrEmpty(Model.inviter_username))
+                                        {
+                                        <input type="text" ng-init="inviterUsername='@Model.inviter_username'" name="inviter_username" ng-model="inviterUsername" class="ng-pristine ng-untouched ng-valid" readonly>
+                                        }
+                                        else
+                                        {
+                                        <input type="text" ng-init="inviterUsername='@Model.inviter_username'" name="inviter_username" ng-model="inviterUsername" class="ng-pristine ng-untouched ng-valid">
+                                        }
+                                    </label>
+                                    <div class="errors-container clearfix"></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="columns medium-12">
+                                    <label>
+                                        @Resources.Resources.Location:
+                                        <angucomplete-alt id="country-select" name="countryCode" type="text"
+                                                          placeholder="@Resources.Resources.Select" selected-object="countryCode"
+                                                          local-data="countriesList" search-fields="name,alpha-2" title-field="name"
+                                                          minlength="1" initial-value="@Html.GetCurrentUser().country_name"
+                                                          input-class="sml-forms user-country-code"
+                                                          text-no-results="Cannot find this country" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columns medium-6">
+                                    <label for="">@Resources.Resources.Date_of_birth:</label>
+                                </div>
+                                <div class="columns medium-6">
+                                    <div class="row">
+                                        <div class="columns small-4">
+                                            <select name="day" ng-model="selectedday" ng-change="validateDate()" class="ng-pristine ng-untouched ng-valid">
+                                                @for (int i = 1; i <= 31; i++)
+                                                {
+                                                <option value="@i" label="@i">@i</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="columns small-4">
+                                            <select name="month" ng-model="selectedmonth" ng-change="validateDate()" class="ng-pristine ng-untouched ng-valid">
+                                                <option value="0">Jan</option>
+                                                <option value="1">Feb</option>
+                                                <option value="2">Mar</option>
+                                                <option value="3">Apr</option>
+                                                <option value="4">May</option>
+                                                <option value="5">Jun</option>
+                                                <option value="6">Jul</option>
+                                                <option value="7">Aug</option>
+                                                <option value="8">Sep</option>
+                                                <option value="9">Oct</option>
+                                                <option value="10">Nov</option>
+                                                <option value="11">Dec</option>
+                                            </select>
+                                        </div>
+                                        <div class="columns small-4">
+                                            <select name="year" ng-model="selectedyear" ng-change="validateDate()" class="ng-pristine ng-untouched ng-valid">
+                                                @for (int i = 1900; i <= DateTime.Now.Year; i++)
+                                                {
+                                                <option value="@i" label="@i">@i</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- ngIf: editProfileForm.day.$dirty || editProfileForm.month.$dirty || editProfileForm.year.$dirty -->
+                                </div>
+                                <div class="errors-container clearfix"></div>
+                            </div>
+                            <div ng-init="isShow = false"></div>
+                            <div class="row">
+                                <div class="columns small-12">
+                                    <p>
+                                        <a href="javascript:;" ng-click="isShow = !isShow" ng-show="!isShow">Change password</a>
+                                        <span ng-show="isShow" class="ng-hide">Change password</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div ng-show="isShow" class="toggle-show ng-hide">
+                                <div class="row">
+                                    <div class="columns medium-6">
+                                        <label>
+                                            Current password:
+                                            <input type="password" name="password" ng-model="password" ng-required="isShow" class="ng-pristine ng-untouched ng-valid ng-valid-required">
+                                            <!-- ngIf: editProfileForm.$submitted || editProfileForm.currentPassword.$touched -->
+                                        </label>
+                                        <div class="errors-container clearfix"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="row">
+                                        <div class="columns medium-6">
+                                            <label>
+                                                New password:
+                                                <input type="password" name="new_password" ng-model="newPassword" ng-required="isShow" class="ng-pristine ng-untouched ng-valid ng-valid-required">
+                                                <!-- ngIf: editProfileForm.$submitted || editProfileForm.newPassword.$touched -->
+                                            </label>
+                                            <div class="errors-container clearfix"></div>
+                                        </div>
+                                        <div class="columns medium-6">
+                                            <label>
+                                                Confirm new password:
+                                                <input type="password" name="confirm_new_password" ng-model="confirmPassword" ng-required="isShow" class="ng-pristine ng-untouched ng-valid ng-valid-required">
+                                            </label>
+                                            <div class="errors-container clearfix"></div>
+                                            <!-- ngIf: editProfileForm.$submitted || editProfileForm.confirmPassword.$touched -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="columns small-12">
+                                            <div class="margin-top">
+                                                <a href="javascript:;" ng-click="isShow = !isShow">@Resources.Resources.Nah_dont_change_password</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columns small-12 text-right">
+                                    @*<button class="button secondary" >@Resources.Resources.Cancel</button>*@
+                                    <a href="@Url.Action("index", "transaction", null, this.Request.Url.Scheme)" class="button secondary">@Resources.Resources.Cancel</a>
+                                    <button class="button slide-effect" id="save-button" type="submit">@Resources.Resources.SAVE</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /edit-profile-form-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section foot_js{
+    <script src="/static/js/utils/countriesList.js"></script>
+    <script src="/static/js/controllers/editProfile.js"></script>
+}
+
+

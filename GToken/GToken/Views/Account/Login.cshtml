@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Login;
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+}
+@model GToken.Web.Models.LoginViewModel
+
+@section header{
+    <div class="row">
+        <div class="medium-6 medium-offset-3 columns">
+            <h1 class="top-logo"><a href="@Url.Action("index", "main")" title="GToken @Resources.Resources.Home_page"><img src="/static/images/header_logo.png" alt="GToken"></a></h1>
+        </div>
+    </div>
+}
+
+
+<!--   login-section -->
+<div class="row">
+    <div class="large-6 large-offset-3 medium-8 medium-offset-2 columns">
+        <div class="panel large">
+            <!--           login-form-->
+            <form name="loginForm" class="row" novalidate ng-controller="LoginController as loginCtrl" method="POST" action="@Url.Action("login", "account", new{next=Request.Params["next"]})">
+                @Html.AntiForgeryToken()
+                <div class="columns medium-12">
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <h3 class="form-header ">@Resources.Resources.Login</h3>
+                            <div class="columns medium-12">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="columns medium-12">
+                                @Html.TextBoxFor(m => m.username, new { @placeholder = @Resources.Resources.username, @class = "", @focus = "true", @required = "required", @maxlength = "20" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="columns medium-12">
+                                @Html.PasswordFor(m => m.password, new { @placeholder = @Resources.Resources.password, @class = "", @focus = "true", @required = "required", @maxlength = "20" })
+                                @if (ViewBag.Errors != null)
+                                {
+                                    <small class="label alert" data-error-message="@ViewBag.Errors">@ViewBag.Errors</small>
+                                }
+                                <a href="@Url.Action("resetPassword", "account")" class="highlight-link">@Resources.Resources.Forgot_Password</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="columns medium-12">
+                                <input type="checkbox" id="chkRemember" name="rememberMe"><label for="chkRemember">@Resources.Resources.Remember_me</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row text-center">
+                            <button class="button large" type="submit">@Resources.Resources.Login</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <!--            /login-form-->
+        </div>
+        <p class="text-center">@Resources.Resources.Dont_have_an_account <a href="@Url.Action("register", "account")">@Resources.Resources.Signup_now</a></p>
+    </div>
+</div>

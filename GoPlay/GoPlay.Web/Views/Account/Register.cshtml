@@ -1,0 +1,143 @@
+﻿@model GoPlay.Web.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_No_header_No_footer_Layout.cshtml";
+    ViewBag.Title = Resources.Resources.Register;
+}
+<script>
+    var countryCode = "@Model.countryCode";
+    var referralID = "@Model.referralID";
+    var facebook_email = "@Model.facebook_email";
+</script>
+
+@section lib_stylesheets {
+    <link rel="stylesheet" href="/bower_components/angucomplete-alt/angucomplete-alt.css" />
+    <link rel="stylesheet" href="/static/stylesheets/account/register.css?rnd=20150420" />
+}
+
+@*{# Unused blocks #}
+    {% block flashed_messages %}{% endblock %}
+    {% block header %}{% endblock %}
+    {% block footer %}{% endblock %}
+
+    {% block content %}*@
+
+<div class="row" ng-controller="AccountRegisterCtrl" ng-init="init()">
+    <div class="large-12 columns">
+        <a class="top-logo" href="@Url.Action("index", "main")"><img src="/static/images/logo_img.png" alt=""></a>
+        <div class="forms-container">
+            <div class="sect-title-bar">
+                @*<h6 class="sect-title">{{ _('Sign Up') }}{% if facebook_email %}{{ _(' with Facebook') }}{% endif %}</h6>*@
+                <h6 class="sect-title">@Resources.Resources.Signup @(string.IsNullOrEmpty(Model.facebook_email) ? string.Empty : Resources.Resources.with_facebook)</h6>
+            </div>
+
+            <div class="sect-panel">
+
+                <form id="accounts_signup" class="forms-set" name="accountsRegisterForm" method="POST" data-endpoint-url="@Url.Action("register", "account")" novalidate>
+                    @Html.AntiForgeryToken()
+
+                    <p class="form-label">@Resources.Resources.username *</p>
+                    <input type="text" value="" required="required" placeholder="ex: GameLordxX"
+                           ng-model="formData.username" ng-change="checkFormData()"
+                           ng-blur="removeFirstTimeFlag($event); checkFormData()"
+                           name="username" id="username" focus="true" data-first-time-edit="true"
+                           class="sml-forms user-name ng-pristine ng-isolate-scope ng-invalid ng-invalid-required ng-touched field-with-errors">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    <p class="form-label">@Resources.Resources.email *</p>
+                    <input type="text" value="" required="required" placeholder="you@mail.com"
+                           ng-model="formData.email" ng-change="checkFormData()"
+                           ng-blur="removeFirstTimeFlag($event); checkFormData()"
+                           name="email" id="email" data-first-time-edit="true"
+                           class="sml-forms user-email ng-pristine ng-untouched ng-invalid ng-invalid-required">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    <p class="form-label">@Resources.Resources.retype_email *</p>
+                    <input type="text" value="" required="required" placeholder=" "
+                           ng-model="formData.confirmEmail" ng-change="checkFormData()"
+                           ng-blur="removeFirstTimeFlag($event); checkFormData()"
+                           name="confirmEmail" id="confirmEmail" data-first-time-edit="true"
+                           class="sml-forms user-email-confirm ng-pristine ng-untouched ng-invalid ng-invalid-required">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+
+                    <div class="password-group">
+                        <a class="reveal-password {$ passwordReveal==='text'? 'active': '' $}" ng-click="revealPasswordClick()" style="top:30px"></a>
+                    </div>
+                    <p class="form-label">@Resources.Resources.password *</p>
+                    <input value="" required="required" placeholder="At least 3 characters"
+                           type="{$ passwordReveal $}" ,
+                           ng-model="formData.password" ng-change="checkFormData()"
+                           ng-blur="removeFirstTimeFlag($event); checkFormData()"
+                           name="password" id="password" data-first-time-edit="true"
+                           class="sml-forms user-password ng-pristine ng-untouched ng-invalid ng-invalid-required">
+                    <div class="errors-container clearfix">
+                        <ul class="errors"></ul>
+                    </div>
+                    
+
+                    <p class="form-label">@Resources.Resources.country *</p>
+                    <angucomplete-alt text-no-results="Cannot find this country" input-class="sml-forms user-country-code"
+                                      initial-value="Singapore" minlength="1" title-field="name" search-fields="name,alpha-2"
+                                      local-data="countriesList" selected-object="userCountry" placeholder="@Resources.Resources.select"
+                                      type="text" name="countryCode" id="country-select" class="ng-isolate-scope field-valid">
+                        <div ng-class="{'angucomplete-dropdown-visible': showDropdown}" class="angucomplete-holder">
+                            <input type="text" ng-change="inputChangeHandler(searchStr)" autocomplete="off"
+                                   autocorrect="off" autocapitalize="off"
+                                   ng-blur="hideResults($event)" class="sml-forms user-country-code ng-touched" ng-focus="onFocusHandler()"
+                                   placeholder="Select" ng-disabled="disableInput" ng-model="searchStr" id="country-select_value">
+                            <div ng-show="showDropdown" class="angucomplete-dropdown ng-hide" id="country-select_dropdown">
+                                <div ng-bind="textSearching" ng-show="searching" class="angucomplete-searching ng-binding ng-hide">
+                                    Searching...
+                                </div>
+                                <div ng-bind="textNoResults" ng-show="!searching &amp;&amp; (!results || results.length == 0)"
+                                     class="angucomplete-searching ng-binding">
+                                    @Resources.Resources.Cannnot_find_this_country
+                                </div>
+                            </div>
+                        </div>
+                    </angucomplete-alt>
+                    <p class="form-label">@Resources.Resources.ReferralId_Optional *</p>
+                    <input type="text" value="" placeholder=" " ng_model="formData.referralID" ng_change="checkFormData()"
+                           ng_blur="removeFirstTimeFlag($event); checkFormData()" name="referralID" id="referralID"
+                           data-first-time-edit="true" class="sml-forms user-referid ng-pristine ng-valid ng-touched">
+
+                    <div class="errors-container clearfix">
+                            <ul class="errors"></ul>
+                        </div>
+                    <input type="hidden" name="CustomError" />
+                    <div class="errors-container">
+                        <ul class="errors">
+                        </ul>
+
+                    </div>
+                    <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+                    <input type="checkbox" ng_click="checkFormData()" name="acceptTOS" id="acceptTOS"
+                            class="terms-check check-box">
+                    <label for="acceptTOS" class="terms-agree check-label">
+                        @Html.Raw(string.Format(Resources.Resources.I_agree_to_PlayToken, "<a href='" + Url.Action("terms", "main") + "' class='nml-link'>" + Resources.Resources.Terms_of_Service + "</a>"))
+                    </label>
+                    <input id="submit" name="submit" class="g-nml-button" type="submit" value="@Resources.Resources.Signup"
+                           ng-class="{disabled: !isFormValid(), valid: isFormValid()}"
+                           ng-click="submitForm()">
+                </form>
+            </div>
+
+            @if (string.IsNullOrEmpty(Model.facebook_email))
+            {
+                <div class="bottom-link">
+                    <p>@Resources.Resources.Already_a_member <a href="@Url.Action("login", "account")">@Resources.Resources.Login</a></p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section page_foot_js{
+    <script src="/static/js/utils/countriesList.js?rnd=20150420"></script>
+    <script src="/static/js/pages/accountRegister.js?rnd=20150420"></script>
+}

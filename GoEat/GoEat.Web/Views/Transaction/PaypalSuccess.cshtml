@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "PaypalSuccess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section page_stylesheets{
+    <link href="~/static/stylesheets/transaction/buytoken.css" rel="stylesheet" />
+}
+<div id="profile-image">
+    <img src="~/static/images/img-profile.jpg" />
+</div>
+<div id="profile" class="profile paypal-notifiy" ng-controller="ProfileInfoCtrl" ng-init="init()">
+    <div class="row">
+        <h4>SUCCESSFULL!</h4>
+        <div class="rounded">
+            <img src="~/static/images/Rounded-Rectangle.png" />
+        </div>
+        <br />
+    </div>
+    <div class="row text-center messages">
+        <p class="text-center">Your transaction has been successfully!</p>
+        <div class="text-center">
+            <span class="plus-sugar">+ @Model.amount.ToString("#.##")</span> <img src="~/static/images/sugar.png" />
+        </div>
+    </div>
+    <div style="max-width: 350px; margin: auto" class="row">
+        <hr />
+        <a href="@Url.Action("buytoken", "transaction")">
+            <span class="continue"><i>Continue</i></span>
+        </a>
+    </div>
+    <div style="margin-top: 20%; height: 10px">
+
+    </div>
+</div>
+
+
+
+
+

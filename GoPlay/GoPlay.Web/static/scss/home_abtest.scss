@@ -1,0 +1,441 @@
+@import "partials/color";
+@import "partials/typography";
+@import "partials/buttons";
+
+section.hero-container {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+div.hero-content {
+    background: linear-gradient(-180deg, rgba(0,0,0,0.00) 76%, #000000 100%),
+                url(/static/images/hero_img.jpg) center no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    height: 400px;
+}
+
+div.video-intro {
+    margin: -40px auto 0;
+    text-align: center;
+    > a:hover img {
+        opacity: 0.9;
+    }
+    h2 {
+        margin-top: 18px;
+        padding-bottom: 10px;
+        color: $pri-yellow;
+    }
+
+    p {
+        display: inline;
+        padding: 12px;
+    }
+
+    #goplay-features {
+        margin-bottom: 15px !important;
+
+    }
+}
+
+
+
+.orbit-container .orbit-slides-container li {
+        display: none;
+}
+
+body {
+    .reveal-modal.hero-video-wrap {
+        width: 60%;
+        padding: 0px;
+        background: transparent;
+        border: none;
+        top: 22% !important;
+        position: fixed;
+        max-width: 600px;
+        .hero-vid {
+            margin-bottom: 0;
+        }
+        a.vid-close {
+            position: fixed;
+            top: 36px;
+            right: 40px;
+            width: 39px;
+            height: 39px;
+            display: block;
+            background: url(/static/images/reveal_close.png) no-repeat center;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+section.feature-games .sect-panel {
+    .columns {
+        padding: 0;
+    }
+    .games-slide-contain {
+        overflow: hidden;
+    }
+    #feature-games-slider {
+        margin-bottom: 0px !important;
+        .slick-track {
+            margin-bottom: -14px;
+            .slide-content {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        ul.slick-dots {
+            display: inline;
+            position: absolute;
+            z-index: 999;
+            bottom: -16px;
+            left: 12px;
+            li {
+                display: inline;
+                margin-right: 3px;
+                button {
+                    font-size: 0;
+                    line-height: 0;
+                    display: inline;
+                    width: 20px;
+                    height: 20px;
+                    padding: 5px;
+                    cursor: pointer;
+                    color: transparent;
+                    border: 0;
+                    outline: none;
+                    background: transparent;
+                    &:before {
+                        font-size: 20px;
+                        line-height: 20px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 11px;
+                        height: 11px;
+                        content: '';
+                        display: block;
+                        border-radius: 50%;
+                        background: white;
+                        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.8);
+                    }
+                }
+                &.slick-active button:before {
+                    background: $sub-grey;
+                    border: 2px solid white;
+                }
+            }
+        }
+    }
+    .game-intro {
+        position: relative;
+        height: auto;
+        padding: 10px 16px 10px;
+        ul {
+            list-style-type: none;
+            border-bottom: 1px solid #363636;
+            padding-bottom: 10px;
+        }
+        h3, h6, p {
+            margin-bottom: 2px;
+        }
+        a {
+            display: inline;
+            img {
+                vertical-align: middle;
+                margin: -3px 2px 0;
+                padding: 0;
+                display: inline;
+            }
+        }
+        h3 {
+            font-weight: 600;
+        }
+        h6 {
+            display: inline;
+        }
+        a.plat-icon {
+            display: inline-block;
+            min-width: 17px;
+            min-height: 19px;
+            vertical-align: -2px;
+            &.ios-plat {
+                max-width: 16px;
+                background: url(/static/images/ios_ico.png) center center no-repeat;
+            }
+            &.gplay-plat {
+                background: url(/static/images/android_ico.png) center center no-repeat;
+            }
+            &.pc-plat {
+                background: url(/static/images/pc_ico.png) center center no-repeat;
+            }
+            &.apk-plat {
+                min-width: 22px;
+                background: url(/static/images/apk_ico.png) center center no-repeat;
+            }
+        }
+        p {
+            display: block;
+            display: -webkit-box;
+            max-width: 100%;
+            height: 92px;
+            margin: 12px auto 20px;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        a.nml-button {
+            display: inline-block;
+        }
+    }
+}
+
+section.feature-games .sect-panel #feature-games-slider ul.slick-dots {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section.bottom-cta {
+    margin: 0 auto;
+    text-align: center;
+
+    h3 {
+        margin-bottom: 16px;
+        font-weight: 400;
+    }
+
+    a img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    
+    section.feature-games .sect-panel #feature-games-slider ul.slick-dots {
+        bottom: 300px;
+        li button:before {
+            width: 9px;
+            height: 9px;
+        }
+    }
+
+    section.feature-games .sect-panel .game-intro {
+        padding: 10px 16px 30px;
+        p {
+            height: auto;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+    
+    section.feature-games .sect-panel #feature-games-slider ul.slick-dots {
+        top: 60%;
+    }
+
+}
+
+@media only screen and (max-width: 750px) {
+    section.feature-games .sect-panel #feature-games-slider ul.slick-dots {
+        top: 50%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    section.feature-games .sect-panel #feature-games-slider ul.slick-dots {
+        top: 40%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    section.feature-games .sect-panel #feature-games-slider ul.slick-dots {
+        top: 35%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    section.feature-games .sect-panel #feature-games-slider ul.slick-dots {
+        top: 28%;
+    }
+}
+
+section.coming-soon {
+    .sect-panel {
+        padding: 10px 10px 0px;
+    }
+    .content-wrap {
+
+    }
+    .sect-panel ul {
+        margin: 0;
+        li {
+            display: inline-block;
+            > div {
+                padding: 5px 5px 5px;
+                background: #323338;
+                box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+                h4 {
+                    margin-top: 1px;
+                    font-weight: 600;
+                    margin-bottom: 0px;
+                    text-indent: 0px;
+                }
+                h6 {
+                    margin-bottom: 6px;
+                    margin-top: 4px;
+                    display: inline-block;
+                }
+                a.plat-icon {
+                    display: inline-block;
+                    min-width: 17px;
+                    min-height: 19px;
+                    vertical-align: -2px;
+                    margin: 0 4px;
+                    &.ios-plat {
+                        max-width: 16px;
+                        background: url(/static/images/ios_ico.png) center center no-repeat;
+                    }
+                    &.gplay-plat {
+                        background: url(/static/images/android_ico.png) center center no-repeat;
+                    }
+                    &.pc-plat {
+                        background: url(/static/images/pc_ico.png) center center no-repeat;
+                    }
+                    &.apk-plat {
+                        min-width: 22px;
+                        background: url(/static/images/apk_ico.png) center center no-repeat;
+                    }
+                }
+                .games-short-desc {
+                    display: inline-block;
+                    max-width: 68%;
+                    padding-left: 4px;
+                    vertical-align: top;
+                }
+                .games-thumb-small {
+                    display: inline-block;
+                    margin: 2px;
+                    max-width: 27%;
+                }
+            }
+            .games-thumb {
+                height: auto;
+                width: 100%;
+                overflow: hidden; 
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 640px) {
+
+    div.hero-content {
+        height: 300px;
+        background: linear-gradient(-180deg, rgba(0,0,0,0.00) 76%, #000000 100%),
+                    url(/static/images/hero_img.jpg) center 30px no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+    }
+
+    div#goplay-features {
+        margin: auto 20px 20px !important;
+    }
+    
+    body {
+        .reveal-modal.hero-video-wrap {
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            a.vid-close {
+                left: 0 !important;
+                right: 0 !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                top: 50px !important;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        .reveal-modal.hero-video-wrap {
+            width: 90%;
+            top: 26% !important;
+        }
+    }
+    div.hero-content {
+        height: 260px;
+    }
+    div.video-intro {
+        h2 {
+            font-size: 1.25rem;
+        }
+    }
+    section.hero-container {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    body {
+        .reveal-modal.hero-video-wrap {
+            width: 94%;
+        }
+    }
+    div.hero-content {
+        height: 220px;
+    }
+}
+
+.popuphide{
+    display:none !important;
+}
+
+#popupWindow {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.5);
+    > div {
+        padding: 30px;
+        max-width: 480px;
+        min-height: 260px;
+        margin: 0 auto;
+        background: transparent;
+        border-radius: 2px;
+        top: 10%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        div.sect-panel {
+            padding: 20px;
+        }
+        div.sect-title-bar a {
+            font-size: 1.875rem;
+            color: $pri-grey;
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,155 @@
+﻿@using GoPlay.Models
+@model FriendViewModel
+@{
+    ViewBag.Title = Resources.Resources.Friends;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section lib_stylesheets {
+    <link rel="stylesheet" href="/bower_components/angucomplete-alt/angucomplete-alt.css" />
+}
+
+@section page_stylesheets {
+    <link rel="stylesheet" href="/static/stylesheets/account/user_friends.css?rnd=20150420" />
+}
+
+@Html.Partial("~/Views/Shared/Account/_account_topbar.cshtml", Active_page.Friend)
+
+<section class="search-panel row" ng-controller="SearchCtrl">
+    @Html.AntiForgeryToken()
+    <div class="large-12 columns">
+        <div class="sect-panel no-title">
+            <div class="search-wrap">
+                <input class="search-bar" type="text" name="search" ng-keyup="quickSearch($event)" ng-model="keyword" placeholder="Nickname, username or email..." />
+                <a href="javascript:;" ng-click="buttonSearch()"><img src="/static/images/search_icon.png" alt=""></a>
+            </div>
+
+            <div class="search-result ng-cloak" ng-if="noData">
+                <p>@Resources.Resources.No_results_were_returned</p>
+            </div>
+
+            <div class="search-result ng-cloak" ng-if="count > 0">
+                <h5>{$ count $} @Resources.Resources.Search_Result</h5>
+                <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                    <li ng-repeat="user in users">
+                        <div class="friend-bar" data-uid="{$ user.uid $}">
+                            <a class="friend-avatar" href="javascript:;"><img ng-src="{$ user.avatar $}"></a>
+                            <a class="friend-name" href="javascript:;">
+                                <h5>{$ user.nickname $}</h5>
+                                <p>{$ user.account $}</p>
+                            </a>
+                            <div class="action-section" ng-switch="user.status">
+                                <a class="button nml-button friend-status friended" ng-switch-when="accepted"></a>
+                                <!-- off add friend button if status is reject-->
+                                <a class="button nml-button friend-status friended" ng-switch-when="rejected"></a>
+                                <a class="button nml-button friend-status sentfr" ng-switch-when="pending"></a>
+                                <a class="button nml-button friend-status {$ waiting == true ? 'sentfr' : 'addfr' $}" ng-switch-when="" add-friend-directive data-username="{$ user.account $}"></a>
+                                <a class="button more-button friend-action" data-options="align:left" data-dropdown="user{$user.uid$}" aria-controls="user{$user.uid$}"></a>
+                                <ul id="user{$user.uid$}" class="f-dropdown default-dropdown" data-dropdown-content>
+
+                                    <li chat-button-directive data-username="{$ user.account $}" ng-show="friend.status.length > 0">
+                                        <a class="act-chat" ng-click="chatButtonClicked()" href="javascript:;">{{ _('Chat') }}</a>
+                                    </li>
+                                    <li><a class="act-transfer" href="javascript:;" data-username="{$user.account$}" data-id="{$user.uid$}" data-avatar="{$ user.avatar $}" data-name="{$user.nickname$}">@Resources.Resources.Transfer</a></li>
+                                    <li user-status-directive un-friend-directive data-username="{$ user.account $}" ng-show="friend.status.length > 0"><a class="act-unfr" href="javascript:;">@Resources.Resources.Unfriend</a></li>
+                                </ul>
+                                <div user-status-directive data-username="{$ user.account $}" class="{$ friend.status=='online' ? 'online-status' : '' $}"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <a href="javascript:;" ng-click="buttonSearch()" ng-show="count > 6" class="nml-button">@Resources.Resources.See_More</a>
+            </div>
+        </div>
+    </div>
+</section>
+@Html.Partial("~/Views/Friend/_transfer_panel.cshtml")
+
+@if (Model.pending_friends != null && Model.pending_friends.Any())
+{
+    <section class="request-panel row">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Request</h6>
+                <p> - <span class="request-count">@Model.count</span> @Resources.Resources.Friend_request</p>
+            </div>
+            <div class="sect-panel request-container">
+                <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                    @foreach (var account in Model.pending_friends)
+                    {
+                        <li class="">
+                            <div class="friend-bar">
+                                <a class="friend-avatar" href="javascript:;"><img src="@account.avatar_filename" alt="@account.GetDisplayName()"></a>
+                                <a class="friend-name" href="javascript:;">
+                                    <h5>@account.GetDisplayName()</h5>
+                                    <p>@account.username</p>
+                                </a>
+                                <div class="respond-option">
+                                    <a class="remove-request nml-button" remove-request-friend-directive data-username="@account.username"></a>
+                                    <a class="accept-request g-nml-button" accept-request-directive data-username="@account.username"></a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </section>
+}
+
+<section class="friend-panel row">
+    <div class="large-12 columns">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Resources.Friends</h6>
+            <p> - <span class="friends-count">@(Model.accepted_friends != null ? Model.accepted_friends.Count() : 0)</span> @Resources.Resources.people</p>
+        </div>
+        <div class="sect-panel friends-container">
+            <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                @foreach (var friend in Model.accepted_friends)
+                {
+                    <li button-animation >
+                        <div class="friend-bar" data-uid="@friend.id">
+                            <a class="friend-avatar" href="javascript:;"><img src="@friend.avatar_filename" alt="@friend.GetDisplayName()"></a>
+                            <a class="friend-name" href="javascript:;">
+                                <h5>@friend.GetDisplayName()</h5>
+                                <p>@friend.username</p>
+                            </a>
+                            <div user-status-directive="" data-username="@friend.username" class="{$ friend.status=='online' ? 'online-status' : '' $} status"></div>
+                            <div class="friend-buttons ng-scope" chat-button-directive data-username="@friend.username">
+                                @*<a class="act-chat window" ng-click="chatButtonClicked()" href="javascript:;">
+                                    <img alt="Chat icon" src="/static/images/act_chat.png" />
+                                    <br />
+                                    <span>{{ _('Chat') }}</span>
+                                </a>
+                                <a class="act-chat mobile" href="/chat/chat?friend=@friend.username">
+                                    <img alt="Chat icon" src="/static/images/act_chat.png" />
+                                    <br />
+                                    <span>{{ _('Chat') }}</span>
+                                </a>*@
+                                <a class="act-transfer" href="javascript:;" data-username="@friend.username" data-id="@friend.id" data-avatar="@friend.avatar_filename" data-name="@friend.GetDisplayName()">
+                                    <img alt="Transfer icon" src="/static/images/act_transfer.png" />
+                                    <br />
+                                    <span>@Resources.Resources.Transfer</span>
+                                </a>
+                                <a un-friend-directive data-username="@friend.username" class="act-unfr" href="javascript:;" data-username="@friend.username">
+                                    <img alt="Unfriend icon" src="/static/images/act_unfr.png" />
+                                    <br />
+                                    <span>@Resources.Resources.Unfriend</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+</section>
+
+
+@section page_foot_js {
+    <script src="/static/js/pages/accountProfile.js"></script>
+}

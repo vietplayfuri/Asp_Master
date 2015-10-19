@@ -1,0 +1,123 @@
+﻿.prbar {
+    margin: 5px;
+    /*width: 500px;*/
+    background-color: #fff;
+    overflow: hidden;
+    /* Rounded Border */
+    border: 2px solid #007CEE;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+/* No rounded corners for Opera, because the overflow:hidden dont work with rounded corners */
+doesnotexist:-o-prefocus, .prbar {
+    border-radius: 0px;
+}
+
+.prpos {
+    background-color: #53E6F6;
+    width: 0%;
+    height: 30px;
+    /* CSS3 Progress Bar Transitions */
+    transition: width 2s ease;
+    -moz-transition: width 2s ease;
+    -webkit-transition: width 2s ease;
+    -o-transition: width 2s ease;
+    -ms-transition: width 2s ease;
+    /* CSS3 Stripes */
+    background-image: linear-gradient(135deg,#007CEE 12.3%,#53E6F6 12.3%,#53E6F6 51%, #007CEE 4%, #007CEE 56%,#53E6F6 -8%,#53E6F6 -32%);
+    background-image: -moz-linear-gradient(135deg,#007CEE 12.3%,#53E6F6 12.3%,#53E6F6 51%, #007CEE 4%, #007CEE 56%,#53E6F6 -8%,#53E6F6 -32%);
+    background-image: -ms-linear-gradient(135deg,#007CEE 12.3%,#53E6F6 12.3%,#53E6F6 51%, #007CEE 4%, #007CEE 56%,#53E6F6 -8%,#53E6F6 -32%);
+    background-image: -o-linear-gradient(135deg,#007CEE 12.3%,#53E6F6 12.3%,#53E6F6 51%, #007CEE 4%, #007CEE 56%,#53E6F6 -8%,#53E6F6 -32%);
+    background-image: -webkit-gradient(linear, 100% 100%, 0 0,color-stop(.12, #53E6F6), color-stop(.12, #007CEE),color-stop(.51, #007CEE),color-stop(.04, #53E6F6),color-stop(.56, #53E6F6),color-stop(.-8, #007CEE),color-stop(.-32, #007CEE));
+    background-image: -webkit-linear-gradient(135deg,#007CEE 12.3%,#53E6F6 12.3%,#53E6F6 51%, #007CEE 4%, #007CEE 56%,#53E6F6 -8%,#53E6F6 -32%);
+    background-size: 45px 46px;
+    /* Background stripes animation */
+    /*
+            animation: bganim 3s linear 2s infinite;
+            -moz-animation: bganim 3s linear 2s infinite;
+            -webkit-animation: bganim 3s linear 2s infinite;
+            -o-animation: bganim 3s linear 2s infinite;
+            -ms-animation: bganim 3s linear 2s infinite;
+			*/
+}
+
+.percent {
+    position: relative;
+    top: -23px;
+    left: 45%;
+    color: #1162B1;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.gradient-box {
+    background-image: linear-gradient(#0285F1 0%, #53E6F6 95%);
+    background-image: -ms-linear-gradient(#0285F1 0%, #53E6F6 95%);
+    background-image: -o-linear-gradient(#0285F1 0%, #53E6F6 95%);
+    background-image: -webkit-linear-gradient(#0285F1 0%, #53E6F6 95%);
+    background-image: -moz-linear-gradient(#0285F1 0%, #53E6F6 95%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#0285F1), to(#53E6F6), color-stop(.3,#0285F1));
+    width: 100%;
+    color: white;
+    color: black;
+    height: 23px;
+    opacity: 0.5;
+    position: relative;
+    top: 7px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+@keyframes bganim {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: 40px;
+    }
+}
+
+@-moz-keyframes bganim {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: 40px;
+    }
+}
+
+@-webkit-keyframes bganim {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: 40px;
+    }
+}
+
+@-o-keyframes bganim {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: 40px;
+    }
+}
+
+@-ms-keyframes bganim {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: 40px;
+    }
+}

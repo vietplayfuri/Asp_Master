@@ -1,0 +1,16 @@
+﻿
+{% macro render_admin_selectbox_field(field) %}
+<div class="row">
+    <div class="small-3 columns">
+        <label class="right inline" for="{{ field.label.field_id }}">
+            {{ field.label.text }}
+        </label>
+    </div>
+    <div class="small-9 columns">
+        <div class="switch round small">
+            {{ field(**kwargs)|safe }}
+            {{ field.label }}
+        </div>
+    </div>
+</div>
+{% endmacro %}

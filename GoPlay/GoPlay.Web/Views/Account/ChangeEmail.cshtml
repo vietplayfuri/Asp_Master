@@ -1,0 +1,70 @@
+﻿@model GoPlay.Web.Models.ChangeEmailViewModel
+@using Resources
+@{
+    ViewBag.Title = Resources.Change_your_email;
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+}
+@section lib_stylesheets {
+<link rel="stylesheet" href="/static/stylesheets/account/register.css?rnd=20150420" />
+    }
+<div class="page-container row">
+    <div class="large-12 columns">
+        <a class="top-logo" href="/"><img src="/static/images/logo_img.png" alt=""></a>
+        <div class="forms-container change-email change-password" ng-controller="AccountChangeEmailCtrl">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Change_your_email</h6>
+            </div>
+            <div class="sect-panel">
+                <p class="subheader">
+                    <i>“@Resources.After_this_there_is_no_turning_back”</i>
+                    — Morpheus, The Matrix (1999)
+                </p>
+                <form id="account-change-email" class="forms-set" method="POST"
+                      data-endpoint-url="account/change-email" ng-submit="submitForm()">
+                    @Html.AntiForgeryToken()
+                    <label class="check-label" for="remember_account">@Resources.Your_new_email*</label>
+                    <input name="email" type="text" required placeholder="@Resources.Your_new_email.ToLower()" class="sml-forms user-email" focus="true"
+                           ng-model="form.email"
+                           ng-change="validate()"
+                           ng-blur="removeFirstTimeFlag($event); validate()"
+                           data-first-time-edit="true">
+
+                    <div class="errors-container">
+                        <ul class="errors"></ul>
+                    </div>
+                    <label class="check-label" for="remember_account">@Resources.retype_email*</label>
+                    <input name="confirmEmail" required type="text" placeholder="@Resources.retype_email.ToLower()" class="sml-forms user-email"
+                           ng-model="form.confirmEmail"
+                           ng-change="validate()"
+                           ng-blur="removeFirstTimeFlag($event); validate()"
+                           data-first-time-edit="true">
+                    <div class="errors-container">
+                        <ul class="errors"></ul>
+                    </div>
+                    <label class="check-label" for="remember_account">@Resources.Your_password*</label>
+                    <input name="password" required type="password" placeholder="@Resources.Your_password.ToLower()" class="sml-forms user-email"
+                           ng-model="form.password"
+                           ng-change="validate()"
+                           ng-blur="removeFirstTimeFlag($event); validate()"
+                           data-first-time-edit="true">
+                    <div class="errors-container">
+                        <ul class="errors"></ul>
+                    </div>
+                    <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+                    <input class="g-nml-button" name="submit" type="submit" value="@Resources.Change_your_email">
+                </form>
+            </div>
+            <div class="bottom-link">
+                <p>
+                    @Resources.Changed_your_mind
+                    <a href="account/profile">@Resources.Back_to_Profile_page</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+@section page_foot_js{
+    <script src="/static/js/pages/accountChangeEmail.js?rnd=20150420"></script>
+}
+
+

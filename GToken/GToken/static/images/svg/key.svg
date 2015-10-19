@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="39px" viewBox="0 0 30 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>Key</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-47.000000, -1262.000000)" fill="#2189D9">
+            <g id="Why" sketch:type="MSLayerGroup" transform="translate(42.000000, 1024.000000)">
+                <path d="M17.0360631,248 L17,259 L23,259 L23,238.998746 C23,238.438615 22.5495362,238 21.9938609,238 L18.0749868,238 C17.5146481,238 17.0673817,238.447154 17.0655733,238.998746 L17.0557338,242 L10.9975446,242 C10.4463114,242 10,242.443586 10,242.990778 L10,247.009222 C10,247.549025 10.446616,248 10.9975446,248 L17.0360631,248 L17.0360631,248 Z M11,266.999887 L11,269.000113 C11,270.106711 11.8936095,271 13.0000405,271 L26.9999595,271 C28.1007185,271 29,270.101292 29,269.000113 L29,266.999887 C29,265.893289 28.1063905,265 26.9999595,265 L13.0000405,265 C11.8992815,265 11,265.898708 11,266.999887 Z M13.0000405,259 L26.9999595,259 C31.4182599,259 35,262.577742 35,266.999887 L35,269.000113 C35,273.418329 31.4110973,277 26.9999595,277 L13.0000405,277 C8.58174013,277 5,273.422258 5,269.000113 L5,266.999887 C5,262.581671 8.58890267,259 13.0000405,259 Z" id="Key" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,28 @@
+
+@media only screen and (max-width: 24em) {
+
+section.profile-info,
+section.profile-settings {
+    ul {
+        li {
+            span {
+                width: 68%;
+            }
+        }
+    }
+}
+
+.top-up-opts {
+    ul li {
+        a {
+            max-width: 90px;
+        }
+    }
+}
+
+.exchange-submit,
+.search-board form #transfer-submit {
+    padding: 7px 29px;
+}
+
+}

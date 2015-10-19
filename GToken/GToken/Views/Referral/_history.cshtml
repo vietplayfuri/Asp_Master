@@ -1,0 +1,111 @@
+﻿@model GToken.Web.Models.ReferalsPaging
+@using Platform.Models
+@using Platform.Utility
+
+<div ng-controller="TransactionController as transactionCtrl" class="panel">
+    <h4 class="uppercase">Referal Rewards</h4>
+    <br />
+    <form action="/referral/index" id="queryForm" class="refererQueryForm">
+        <div class="row">
+            <div class="medium-3 column">
+                @Html.DropDownListFor(m => m.model.game_id, Model.model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }), "All games")
+            </div>
+        </div>
+        <div class="row">
+            @Html.HiddenFor(m => m.model.time_zone)
+            <div class="medium-3 column">
+                @Html.TextBoxFor(m => m.model.username, new { @placeholder = "Username" })
+            </div>
+            <div class="medium-3 column">
+                @Html.TextBoxFor(m => m.model.start_date, new { @placeholder = "From", @type = "datetime" })
+            </div>
+            <div class="medium-3 column">
+                @Html.TextBoxFor(m => m.model.end_date, new { @placeholder = "Until", @type = "datetime" })
+            </div>
+            <div class="medium-3 column text-right">
+                <button class="button slide-effect" id="save-button" type="submit">Find</button>
+            </div>
+        </div>
+    </form>
+    <br />
+    <p class="text-right">
+        <strong>Total referal money: @Model.totalMoney </strong>
+    </p>
+    @if (Model.transactions.Count() > 0)
+    {
+        <div class="transaction-table" id="h-list">
+            <div class="row table-header">
+                <div class="columns medium-3 hide-for-small-only">Game</div>
+                <div class="columns medium-3 hide-for-small-only">Downloader</div>
+                <div class="columns medium-2 hide-for-small-only">Time</div>
+                <div class="hide-for-small-only columns small-4 medium-2 text-right column-right">GT Usage</div>
+                <div class="hide-for-small-only columns small-4 medium-2 text-right column-right">Earned $</div>
+            </div>
+            <div class="table-body">
+                @foreach (var tr in Model.transactions)
+                {
+                    <div class="row">
+                        <div class="columns medium-3 small-4">@tr.game_name</div>
+                        <div class="columns medium-9 small-8">
+                            <div class="columns medium-4">
+                                @tr.username
+                            </div>
+                            <div class="columns medium-3">
+                                @(tr.created_at.Date == DateTime.UtcNow.Date ? TimeHelper.localizeDatetime(tr.created_at, "hh:mm tt") : TimeHelper.localizeDatetime(tr.created_at, "dd/MM/yyyy"))
+                            </div>
+                            <div class="amount columns medium-2 text-right column-right">
+                                @tr.gtoken_per_download
+                            </div>
+                            <div class="amount columns medium-2 text-right column-right">
+                                @tr.gtoken_per_download @("USD")
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="table-footer">
+                <div class="pagination-centered">
+                    <ul class="pagination" role="menubar" aria-label="Pagination">
+                        @if (Model.pagination.has_prev)
+                        {
+                            <li>
+                                @{
+                                    var page = Model.pagination.page - 1;
+                                }
+                                <a ng-click="changPaging($event)" class="arrow" data-id="@page">&laquo;</a>
+                            </li>
+                                    }
+                        @foreach (var page in Model.pagination.iter_pages())
+                        {
+                            if (page != 0)
+                            {
+                                if (page != Model.pagination.page)
+                                {
+                                    <li><a ng-click="changPaging($event)" data-id="@page">@page</a></li>
+                                }
+                                else
+                                {
+                                    <li class="current"><a ng-click="changPaging($event)" data-id="@page">@page</a></li>
+                                }
+                            }
+                            else
+                            {
+                                <li><span class="unavailable">&hellip;</span></li>
+                            }
+                        }
+                        @if (Model.pagination.has_next)
+                        {
+                            <li>
+                                @{
+                                    var page = Model.pagination.page + 1;
+                                }
+                                <a class="arrow" ng-click="changPaging($event)" data-id="@page">&raquo;</a>
+                            </li>
+                                    }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+                                    }
+</div>

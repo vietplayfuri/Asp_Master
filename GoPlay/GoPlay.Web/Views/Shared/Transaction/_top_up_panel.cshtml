@@ -1,0 +1,98 @@
+@model GoPlay.Web.Models.TransactionViewModel
+@using GoPlay.Web.Helpers
+@using Platform.Utility
+
+<section class="top-up-panel sect-panel" ng-show="showTopupPanel">
+    <script>
+        var topUpMethod = "@Model.pageParams["topUpMethod"]";
+
+        // Data for pre-filling custom top up amount
+        var customGoPlayTokenQuantity = "@Request.Params["custom-amount"]";
+    </script>
+    <a class="close-panel" href=""
+       ng-click="changeTransactionState($event)"
+       data-pushstate-url="/"></a>
+    <h3>
+        @string.Format(Resources.Resources.Top_Up_Play_Token, "Play Token")
+    </h3>
+
+    <div class="top-up-methods-container">
+        <div class="highlight-selection">
+            <p>@Resources.Resources.Select_your_payment_method</p>
+            <select class="nml-dropdown" ng-change="changeTopupTransactionState()" ng-model="topUpMethodItem" ng-init="topUpMethodItem='paypal'">
+                <option value="paypal">@Resources.Resources.PayPal</option>
+                @*<option value="upoint">@Resources.Resources.UPoint</option>*@
+                <option value="topUpCard">@Resources.Resources.Top_Up_Card</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="top-up-opts-container" ng-if="topUpMethod == 'paypal'" ng-controller="TransactionCtrl">
+        <div class="top-up-opts">
+            <ul>
+                @foreach (var gtokenPackage in Model.basicGtokenPackages)
+                {
+
+                    <li>
+                        @Html.Raw(gtokenPackage.icon_animation_html)
+                        <div class="topup-opt-detail">
+                            <form class="hide gtoken-package-form" action="@Url.Action("paypal", "transaction")" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="name" value="@gtokenPackage.name">
+                                <input type="hidden" name="sku" value="@gtokenPackage.sku">
+                            </form>
+                            <span class="topup-opt-title">@gtokenPackage.name</span>
+                            <h3 class="topup-opt-price">$@String.Format("{0,5:###.00}", gtokenPackage.getPrice(Model.user))<span>&nbsp;/ @Helper.displayDecimal(gtokenPackage.play_token_amount.Value) @("Token")</span></h3>
+                        </div>
+                        <a class="g-nml-button topup-button" id="@gtokenPackage.getNameSlugified()@("-package")" href="" ng-click='topUp($event)'>@Resources.Resources.Top_Up</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div ng-if="topUpMethod == 'topUpCard'">
+        <div class="topup-card">
+            <form id='topup_card' method="post" ng-controller="TransactionCtrl">
+                <p class="form-label">@Resources.Resources.Card_Number</p>
+                <input type="text" placeholder="@Resources.Resources.xxx_xxx_xxx"
+                       ng-model="cardNumber" name="cardNumber" />
+                <p class="form-label">@Resources.Resources.Card_Password</p>
+                <input type="password" placeholder="@Resources.Resources.xxx_xxx_xxx"
+                       ng-model="cardPassword" name="cardPassword" />
+                <div class="errors-container"><ul class="errors"></ul></div>
+                <input class="g-nml-button" type="submit" value="@Resources.Resources.Top_Up" ng-click="submitTopupCardForm()">
+            </form>
+        </div>
+        @{
+            var topupCards = UserHelper.getTopupCards(Model.user.id, "unused");
+        }
+        @if (topupCards != null && topupCards.Count != 0)
+        {
+            <table class="responsive-table card-table">
+                <thead>
+                <th scope="col">@Resources.Resources.Card_Number</th>
+                <th scope="col">@Resources.Resources.password</th>
+                <th scope="col">@Resources.Resources.Play_Token</th>
+                <th scope="col">@Resources.Resources.State</th>
+                <th scope="col">@Resources.Resources.Expiration</th>
+                </thead>
+                <tbody>
+                    @foreach (var card in topupCards)
+                    {
+                        <tr>
+                            <td scope="row" data-title="@Resources.Resources.Card_Number" data-type="right-align">@card.card_number</td>
+                            <td scope="row" data-title="@Resources.Resources.password" data-type="right-align">@card.card_password</td>
+                            <td scope="row" data-title="@Resources.Resources.Play_Token" data-type="right-align">@card.amount</td>
+                            <td scope="row" data-title="@Resources.Resources.State" data-type="right-align">@Resources.Resources.Unused</td>
+                            <td scope="row" data-title="@Resources.Resources.Expiration" data-type="right-align">@card.validity_date.ToString("YYYY-mm-dd")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    @Html.Partial("~/Views/Transaction/_progress_indicator.cshtml")
+</section>

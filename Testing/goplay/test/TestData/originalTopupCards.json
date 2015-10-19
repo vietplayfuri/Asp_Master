@@ -1,0 +1,29 @@
+{
+ "valid_cards": [
+ 	{"card_number":"test-valid1","card_password":"test-valid1","is_used":false},
+ 	{"card_number":"test-valid2","card_password":"test-valid2","is_used":false},
+ 	{"card_number":"test-valid3","card_password":"test-valid3","is_used":false},
+ 	{"card_number":"test-valid4","card_password":"test-valid4","is_used":false},
+ 	{"card_number":"test-valid5","card_password":"test-valid5","is_used":false}
+ 	],
+ "valid_free_cards": [
+	{"card_number":"test-valid-free1","card_password":"test-valid-free1","is_used":false},
+	{"card_number":"test-valid-free2","card_password":"test-valid-free2","is_used":false},
+	{"card_number":"test-valid-free3","card_password":"test-valid-free3","is_used":false},
+	{"card_number":"test-valid-free4","card_password":"test-valid-free4","is_used":false},
+	{"card_number":"test-valid-free5","card_password":"test-valid-free5","is_used":false}
+	],
+ "used_cards": [
+	{"card_number":"test-invalid-used1","card_password":"test-invalid-used1","is_used":false},
+	{"card_number":"test-invalid-used2","card_password":"test-invalid-used2","is_used":false},
+	{"card_number":"test-invalid-used3","card_password":"test-invalid-used3","is_used":false},
+	{"card_number":"test-invalid-used4","card_password":"test-invalid-used4","is_used":false},
+	{"card_number":"test-invalid-used5","card_password":"test-invalid-used5","is_used":false}
+	],
+ "expired_cards": [
+	{"card_number":"test-invalid-expired1","card_password":"test-invalid-expired1","is_used":false},
+	{"card_number":"test-invalid-expired2","card_password":"test-invalid-expired2","is_used":false},
+	{"card_number":"test-invalid-expired3","card_password":"test-invalid-expired3","is_used":false},
+	{"card_number":"test-invalid-expired4","card_password":"test-invalid-expired4","is_used":false},
+	{"card_number":"test-invalid-expired5","card_password":"test-invalid-expired5","is_used":false}]
+}

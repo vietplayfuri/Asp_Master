@@ -1,0 +1,39 @@
+{
+  "name": "foundation",
+  "version": "5.4.2",
+  "main": [
+    "css/foundation.css",
+    "css/foundation.css.map",
+    "js/foundation.js"
+  ],
+  "dependencies": {
+    "jquery": ">= 2.1.0",
+    "modernizr": ">= 2.7.2",
+    "fastclick": ">=0.6.11",
+    "jquery.cookie": "~1.4.0",
+    "jquery-placeholder": "~2.0.7",
+    "foundation": "5.4.1",
+    "angular": "~1.2.23",
+    "angular-route": "~1.2.x",
+    "angucomplete-alt": "~0.0.22",
+    "select2": "3.5.1",
+    "slick.js": "~1.3.11",
+    "animate.css": "~3.2.0",
+    "foundation-datepicker": "~1.3.0",
+    "angular-cookies": "~1.3.13"
+  },
+  "devDependencies": {
+    "jquery.autocomplete": "devbridge/jQuery-Autocomplete#1.2.9",
+    "lodash": "~2.4.1"
+  },
+  "private": true,
+  "homepage": "https://github.com/gtoken/gtoken-python",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

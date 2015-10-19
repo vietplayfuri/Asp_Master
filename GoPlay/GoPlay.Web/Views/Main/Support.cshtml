@@ -1,0 +1,192 @@
+﻿@model GoPlay.Web.Models.SupportViewModel
+@using GoPlay.Models
+@{
+    ViewBag.Title = Resources.Resources.Support;
+}
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+
+}
+
+
+<section class="support-wrapper row" ng-controller="CustomerSupportCtrl">
+    <div class="large-5 columns">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Resources.Need_Immediate_Help</h6>
+        </div>
+        <div class="sect-panel quick-help">
+            <p>
+                @Resources.Resources.Call_our_support_agent<br>
+                <strong>@Resources.Resources.Available_from_Mon_Fri_11am_to_7pm</strong>
+            </p>
+            <ul>
+                <li>
+                    <img src="/static/images/call_icon.png" alt="">
+                    @Resources.Resources.Phone_Call
+                    <span>
+                        <a href="tel:+65 67089334">
+                            +65 67089334
+                        </a>
+                    </span>
+                    <br class="clear-fix" />
+                </li>
+                <li>
+                    <img src="/static/images/skype_icon.png" alt="">
+                    @Resources.Resources.Skype
+                    <span>
+                        <a href="skype:hi.gtoken">
+                            hi.gtoken
+                        </a>
+                    </span>
+                    <br class="clear-fix" />
+                </li>
+            </ul>
+            <h6>@Resources.Resources.Company_Address</h6>
+            <p>@Resources.Resources.Mountbatten_Road_Singapore</p>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+    <div class="large-7 columns">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Resources.Send_Us_A_Message</h6>
+        </div>
+        <div class="sect-panel message-form">
+            <p>
+                @Resources.Resources.We_will_get_back_to_you_shortly
+                <br>
+                <strong>@Resources.Resources.Available_from_Mon_Fri_11am_to_7pm</strong>
+            </p>
+            <form id="customer-support-form" name="csForm"
+                  data-endpoint-url="support" method="post"
+                  ng-submit="submitCsForm()"
+                  ng-init="form.customerName ='@Model.customerName'; form.customerEmail = '@Model.customerEmail'">
+                <p class="form-label">@Resources.Resources.Your_name *</p>
+                <input type="text" name="customerName" placeholder="@Resources.Resources.Your_name.ToLower() *"
+                       data-first-time-edit="true"
+                       ng-model="form.customerName"
+                       ng-blur="removeFirstTimeFlag($event)"
+                       ng-change="validate()">
+                <div class="errors-container">
+                    <ul class="errors"></ul>
+                </div>
+                <p class="form-label">@Resources.Resources.Your_email *</p>
+                <input type="text" name="customerEmail" placeholder="@Resources.Resources.Your_email.ToLower() *"
+                       data-first-time-edit="true"
+                       ng-model="form.customerEmail"
+                       ng-blur="removeFirstTimeFlag($event)"
+                       ng-change="validate()">
+                <div class="errors-container">
+                    <ul class="errors"></ul>
+                </div>
+                <p class="form-label">@Resources.Resources.WHAT_YOUR_ISSUE_ABOUT *</p>
+                <div class="select-platform-container">
+                    <div class="select-platform">
+                        <select class="nml-dropdown"
+                                name="platform"
+                                ng-model="form.platform"
+                                ng-change="validate()"
+                                ng-class="{ 'selected': form.platform != undefined }">
+                            <option value="" disabled selected>@Resources.Resources.select</option>
+                            <option value="game">@Resources.Resources.Games_that_GToken_distributes</option>
+                            <option value="website">@Resources.Resources.GToken_website</option>
+                        </select>
+                    </div>
+                    <div class="errors-container">
+                        <ul class="errors"></ul>
+                    </div>
+                </div>
+                <div class="select-platform-container">
+                    <div class="select-platform" ng-show="form.platform == 'game'">
+                        <p class="form-label">@Resources.Resources.WHICH_GAME_TROUBLES_YOU *</p>
+                        <select class="nml-dropdown"
+                                name="gameID"
+                                data-first-time-edit="true"
+                                ng-blur="removeFirstTimeFlag($event)"
+                                ng-model="form.game.id"
+                                ng-change="validate()"
+                                ng-class="{ 'selected': form.game.id != undefined }">
+                            <option value="" disabled selected>@Resources.Resources.Select_game</option>
+                            @if (Model.listgames != null)
+                            {
+                                foreach (var game in Model.listgames)
+                                {
+                                    <option value="@game.id">@game.name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="errors-container">
+                        <ul class="errors"></ul>
+                    </div>
+                </div>
+                <section class="game-info" ng-show="form.platform == 'game' && form.game.id != undefined">
+                    <input class="short-form odd" type="text" name="gameVersion" placeholder="@Resources.Resources.Game_version"
+                           ng-model="form.game.version"
+                           ng-change="validate()">
+
+                    <input class="short-form" type="text" name="gameDevice" placeholder="@Resources.Resources.Your_device_model"
+                           ng-model="form.game.device"
+                           ng-change="validate()">
+
+                    <div class="select-platform-container short-form odd">
+                        <div class="select-platform">
+                            <select class="nml-dropdown"
+                                    name="gameOSName"
+                                    data-first-time-edit="true"
+                                    ng-blur="removeFirstTimeFlag($event)"
+                                    ng-model="form.game.os.name"
+                                    ng-change="validate()"
+                                    ng-class="{ 'selected': form.game.os.name != undefined }">
+                                <option value="" disabled selected>@Resources.Resources.YOUR_CURRENT_OS *</option>
+                                <option value="android">Android</option>
+                                <option value="ios">iOS</option>
+                            </select>
+                        </div>
+                        <div class="errors-container">
+                            <ul class="errors"></ul>
+                        </div>
+                    </div>
+                    <input class="short-form" type="text" name="gameOSVersion" placeholder="@Resources.Resources.OS_version"
+                           ng-model="form.game.os.version"
+                           ng-change="validate()">
+                </section>
+
+                <input type="text" name="subject" placeholder="@Resources.Resources.subject"
+                       data-first-time-edit="true"
+                       ng-blur="removeFirstTimeFlag($event)"
+                       ng-model="form.subject"
+                       ng-change="validate()">
+                <div class="errors-container">
+                    <ul class="errors"></ul>
+                </div>
+                <p class="form-label">@Resources.Resources.Your_message?</p>
+                <textarea name="message" rows="4" placeholder="@Resources.Resources.Write_your_message_here"
+                          data-first-time-edit="true"
+                          ng-model="form.message"
+                          ng-blur="removeFirstTimeFlag($event)"
+                          ng-change="validate()"></textarea>
+                <div class="errors-container">
+                    <ul class="errors"></ul>
+                </div>
+
+                <input class="g-nml-button" type="submit" name="submit" value="@Resources.Resources.Send_Message"
+                       ng-class="{disabled: !isCsFormValid(), valid: isCsFormValid()}">
+            </form>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="/static/js/pages/customerSupport.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
+    <script type="text/javascript">
+        FreshWidget.init("", { "queryString": "&widgetType=popup", "utf8": "✓", "widgetType": "popup", "buttonType": "text", "buttonText": "Support", "buttonColor": "black", "buttonBg": "#F2C737 ", "alignment": "4", "offset": "235px", "formHeight": "500px", "url": "https://support.gtoken.com" });
+    </script>
+}
+
+
+

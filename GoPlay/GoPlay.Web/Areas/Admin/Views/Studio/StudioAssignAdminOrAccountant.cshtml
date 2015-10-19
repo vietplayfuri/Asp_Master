@@ -1,0 +1,60 @@
+﻿@model GoPlay.Web.Areas.Admin.Models.StudioAssignViewModel
+@{
+    ViewBag.Title = Model.studio.name;
+}
+<h1 class="text-center">Studio Model.studio.name;</h1>
+<section id="assign-admin">
+    <h2 class="text-center">Assign Admin</h2>
+
+    @*{% if errors %}
+        <div class="errors-container">
+            <strong>Errors</strong>
+            <ul class="errors">
+                {% for error in errors %}
+                <li class="error">{{ errors[error][0] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}*@
+
+    <form class="model-form" method="post">
+        @Html.HiddenFor(m => m.studio.id)
+        <div class="row">
+            <div class="small-3 columns">
+                @Html.TextBoxFor(m => m.username)
+            </div>
+            <input class="button small" id="search" name="search" type="submit" value="Search">
+        </div>
+    </form>
+    <table class="model-table" role="grid">
+        <thead>
+            <tr>
+                <th class="id width-10">ID</th>
+                <th>Username</th>
+                <th class="width-15"></th>
+            </tr>
+        </thead>
+        @if (Model.admins != null)
+        {
+            foreach (var item in Model.admins)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>
+                        @item.username
+                    </td>
+                    <td>
+                        <a class="button small secondary" href="/admin/studio/@Model.studio.id/assign/@item.id">Assign</a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</section>
+
+<div class="row">
+    <div class="small-12 columns">
+        <a class="button small secondary" href="@Request.Params[" previous_page"]">Back</a>
+    </div>
+</div>
+

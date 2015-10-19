@@ -1,0 +1,44 @@
+﻿@model GoEat.Web.Models.FeedbackModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+@section page_stylesheets{
+    <link href="~/static/stylesheets/account/contact.css" rel="stylesheet" />
+}
+<div class="contact large-12 medium-12" style="color: black">
+    <div class="row">
+        <div class="large-12 medium-12 columns" style="margin-bottom: 10px;">
+            <form id="send-feedback" class="forms-set ng-pristine ng-invalid ng-invalid-required" method="POST" novalidate="">
+                <h4 class="text-left">GET IN TOUCH</h4>
+                <div class="large-8 medium-9">
+                    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name", maxlength = 50, minlength = 1, @required = "required", id = "txtname" })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+                <div class="large-8 medium-9">
+                    @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", maxlength = 50, minlength = 1, @required = "required", id = "txtemail" })
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+                <div class="large-8 medium-9">
+                    @Html.TextBoxFor(m => m.Phone, new { placeholder = "Phone", maxlength = 20, minlength = 1, id = "txtphone" })
+                    @Html.ValidationMessageFor(m => m.Phone)
+                </div>
+
+                @Html.TextAreaFor(m => m.Message, new { @class = "large-12 medium-12", rows = "17", placeholder = "Message", maxlength = 250, minlength = 1, @required = "required", id = "tamessage" })
+                @Html.ValidationMessageFor(m => m.Message)
+                <input id="submit" name="submit" type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/account/contact.js"></script>
+}

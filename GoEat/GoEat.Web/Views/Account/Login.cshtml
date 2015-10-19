@@ -1,0 +1,88 @@
+﻿@using GoEat.Models
+@using System.Configuration
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = Resources.Resources.Login;
+}
+@model GoEat.Web.Models.LoginViewModel
+@section page_stylesheets{
+    <link rel="stylesheet" href="~/static/stylesheets/account/login.css" />
+}
+@{
+    string currrentURL = HttpContext.Current.Request.Url.AbsoluteUri;
+    string returnURL = ConfigurationManager.AppSettings["RESET_PASSWORD_LINK"] + currrentURL;
+}
+
+<div id="main-page" style="min-height: 100%">
+    <div class=" show-for-medium-up medium-3 large-3 columns picture-left">
+        <img src="~/static/images/image-1.png" />
+    </div>
+    <div class="medium-6 large-6 columns">
+        <div class="small-12 medium-12 large-12">
+            <div class="forms-container login">
+                <h4>LOG IN</h4>
+                <form id="accounts_login" class="forms-set ng-pristine ng-valid" method="POST" action="/account/login" autocomplete="off">
+                    @Html.AntiForgeryToken()
+                    <input style="display:none;" type="text" name="" />
+                    <input style="display:none;" type="password" name="" />
+                    @Html.TextBoxFor(m => m.username, new { @class = "field-with-errors sml-forms ng-isolate-scop", @focus = true, @placeholder = " Username", @autocomplete = "off" })
+                    @Html.PasswordFor(m => m.password, new { @class = "field-with-errors sml-forms ng-isolate-scop", @focus = true, @placeholder = " Password", @autocomplete = "off" })
+                    <div class="errors-container">
+                        <ul class="errors">
+                            <li>
+                                @Html.ValidationMessageFor(model => model.username)
+                            </li>
+                            <li>
+                                @Html.ValidationMessageFor(model => model.password)
+                            </li>
+                            <li>@Html.ValidationMessage("CustomError")</li>
+                        </ul>
+
+                    </div>
+                    <div class="rem-forg clearfix">
+                        <input type="checkbox" class="check-box login" id="remember_account" name="remember_account">
+                        <label class="check-label login" for="remember_account">@Resources.Resources.Remember_me</label>
+                        <a class="forgot-pwd" href="@returnURL"><i>@Resources.Resources.Forgot_Password</i></a>
+                    </div>
+                    <span>&nbsp;&nbsp;</span>
+                    <input id="submit" name="submit" type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="show-for-medium-up medium-3 large-3 columns picture-right">
+        <img src="~/static/images/image-2.png" />
+    </div>
+
+    <div id="partner-parent" class="partner-parent">
+        <div class="partner-div row">
+            <div class="text-center">
+                <h4>OUR PARTNERS</h4>
+            </div>
+
+            <div class="small-12 text-center slogan">
+                SATISFACTION GUARANTEED!
+            </div>
+
+            <div class="rounded-rectangle">
+            </div>
+            <br />
+            <div class="small-12 large-12 medium-12 text-center columns">
+
+                <div class="logo">
+                    <a href="http://www.littlehouseofdreams.com/" target="_blank">
+                        <img src="~/static/images/Litle-house-logo.png" />
+                    </a>
+                </div>
+                <div class="logo">
+                    <a href="http://ghouse.com.sg/" target="_blank">
+                        <img src="~/static/images/ghouse-logo.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

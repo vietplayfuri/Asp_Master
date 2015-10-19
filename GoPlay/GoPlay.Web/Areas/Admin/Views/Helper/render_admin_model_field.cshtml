@@ -1,0 +1,18 @@
+﻿<div class="small-3 columns">
+    <label class="right inline {% if field.errors %}error{% endif %}" for="{{ field.label.field_id }}">
+        {{ field.label.text }} {% if field.flags.required %}*{% endif %}
+    </label>
+</div>
+<div class="small-9 columns">
+    {% if field.errors %}
+    {% set css_class = 'error ' + kwargs.pop('class', '') %}
+    {{ field(class=css_class, **kwargs) }}
+    <small class="error">
+        {% for error in field.errors %}
+        {{ error|e }}&nbsp;
+        {% endfor %}
+    </small>
+    {% else %}
+    {{ field(**kwargs)|safe }}
+    {% endif %}
+</div>

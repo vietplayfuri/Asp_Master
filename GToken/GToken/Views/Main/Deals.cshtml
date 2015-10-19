@@ -1,0 +1,132 @@
+﻿@model GToken.Web.Models.DealsViewModel
+
+@{
+    ViewBag.Title = "Campaigns";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section page_stylesheets{
+    <link href="~/static/stylesheets/deals/progress-bar.css" rel="stylesheet" />
+    <link href="~/static/stylesheets/deals/deals.css" rel="stylesheet" />
+}
+<div class="row deals panel">
+    <div class="column small-12 deal-header">
+        <h4 class="uppercase">Campaigns</h4>
+    </div>
+    <div class="small-12 column">
+        @if (Model.currentCamps != null)
+        {
+            foreach (var camp in Model.currentCamps)
+            {
+                var gameLink = @Model.game_links.FirstOrDefault(cam => cam.game_id == camp.game_id).links;
+                var percent = camp.is_override ? camp.override_value : (float) (Math.Round(camp.gt_usage / camp.quantity, 2) * 100);
+                <div class="row deal-camp">
+                    <div class="medium-3 column">
+                        <img class="game-thumb" src="@Model.image_covers.FirstOrDefault(cam => cam.game_id == camp.game_id).links" />
+                    </div>
+                    <div class="medium-9 small-12 column">
+                        <img class="game-appicon" src="@Model.icon_filenames[camp.game_id]">
+                        <h4 class="uppercase game-title">@camp.title</h4>
+                        <br />
+                        <div>
+                            @(string.Format("Start: {0}", DateTimeExtensions.ShowDateTime(camp.start_date)))
+                        </div>
+                        <div>
+                            @(string.Format("End: {0}", DateTimeExtensions.ShowDateTime(camp.end_date)))
+                        </div>
+                        <br />
+                        <div>
+                            @Html.Raw(camp.description)
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="column medium-2" style="height: 30px">
+                                <label for="right-label" class="left inline">Download</label>
+                            </div>
+                            <div class="column small-12 medium-7">
+                                <div class="prbar">
+                                    <div class="prpos" style="width: @(String.Format("{0}%", percent > 100 ? 100 : percent))">
+                                        <div class="gradient-box"></div><span class="percent">@percent.ToString()@('%')</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column medium-3 ">
+                                <span class="money-title" style="font-size: 12.85px">allocated</span>
+                                <span class="money">@String.Format("{0:C}", camp.quantity * camp.gtoken_per_download)</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="small-text-right">
+                    <a href="@gameLink" target="_blank"> More...</a>
+                </div>
+                <hr />
+            }
+        }
+    </div>
+</div>
+
+<div class="row deals panel">
+    <div class="column small-12 deal-header">
+        <h4 class="uppercase">Coming soon</h4>
+    </div>
+    <div class="small-12 column">
+        @if (Model.inCommingCamp != null)
+        {
+            foreach (var camp in Model.inCommingCamp)
+            {
+                var gameLink = @Model.game_links.FirstOrDefault(cam => cam.game_id == camp.game_id).links;
+                var percent = camp.is_override ? camp.override_value : Math.Round(camp.gt_usage / camp.quantity, 1) * 100;
+                <div class="row deal-camp">
+                    <div class="medium-3 column">
+                        <div class="imagediv">
+                            <img class="game-thumb" src="@Model.image_covers.FirstOrDefault(cam => cam.game_id == camp.game_id).links" />
+                            <div class="outer">
+                                <div class="bg"></div>
+                                <div class="inner">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medium-9 small-12 column">
+                        <img class="game-appicon" src="@Model.icon_filenames[camp.game_id]">
+                        <h4 class="uppercase game-title">@camp.title</h4>
+                        <br />
+                        <div>
+                            @(string.Format("Start: {0}", DateTimeExtensions.ShowDateTime(camp.start_date)))
+                        </div>
+                        <div>
+                            @(string.Format("End: {0}", DateTimeExtensions.ShowDateTime(camp.end_date)))
+                        </div>
+                        <br />
+                        <div>
+                            @Html.Raw(camp.description)
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="column medium-2" style="height: 30px">
+                                <label for="right-label" class="left inline">Download</label>
+                            </div>
+                            <div class="column small-12 medium-7">
+                                <div class="prbar">
+                                    <div class="prpos" style="width: @(String.Format("{0}%", percent > 100 ? 100 : percent))">
+                                        <div class="gradient-box"></div><span class="percent">@percent@('%')</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column medium-3 ">
+                                <span class="money-title" style="font-size: 12.85px">allocated</span>
+                                <span class="money">@String.Format("{0:C}", camp.quantity)</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="small-text-right">
+                    <a href="@gameLink" target="_blank"> More...</a>
+                </div>
+                <hr />
+            }
+        }
+    </div>
+</div>
+

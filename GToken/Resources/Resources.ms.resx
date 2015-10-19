@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Tentang</value>
+  </data>
+  <data name="Awesome_games_supported" xml:space="preserve">
+    <value>MENDUKUNG PERMAINAN-PERMAINAN YANG LUAR BIASA</value>
+  </data>
+  <data name="A_better_way" xml:space="preserve">
+    <value>Sebuah cara yang lebih baik</value>
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value>Clubs</value>
+  </data>
+  <data name="Dedicated_staffs_to_provide_assistance" xml:space="preserve">
+    <value>Para staf yang berdedikasi menyediakan bantuan. Anda memerlukan bantuan teknis atau teman untuk diajak bermain? Kami di sini untuk Anda!</value>
+  </data>
+  <data name="Discover_fun_unique" xml:space="preserve">
+    <value>Temukan permainan-permainan yang menyenangkan, unik, dan inovatif dari para pengembang terkenal dan pendatang!</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Permainan</value>
+  </data>
+  <data name="Introducing_GToken" xml:space="preserve">
+    <value>Memperkenalkan GToken</value>
+  </data>
+  <data name="It_transferable" xml:space="preserve">
+    <value>Dapat ditransfer</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>MASUK</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>Berita</value>
+  </data>
+  <data name="Share_GoPlay_Token_with_your_friends" xml:space="preserve">
+    <value>Share Play Token with your friends and loved ones, and empower them with the freedom to upgrade whichever games they like to play ♥</value>
+  </data>
+  <data name="Signup" xml:space="preserve">
+    <value>Mendaftar</value>
+  </data>
+  <data name="Simply_because" xml:space="preserve">
+    <value>Karena...</value>
+  </data>
+  <data name="Stay_supported" xml:space="preserve">
+    <value>Tetaplah memperoleh dukungan</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>DUKUNGAN</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Syarat-syarat</value>
+  </data>
+  <data name="to_enhance_your_gaming_experience" xml:space="preserve">
+    <value>untuk meningkatkan pengalaman bermain Anda</value>
+  </data>
+  <data name="Why_choose_GToken" xml:space="preserve">
+    <value>Mengapa memilih ?</value>
+  </data>
+  <data name="Get_more_with_GToken" xml:space="preserve">
+    <value>Dapatkan lebih banyak dengan GToken</value>
+  </data>
+  <data name="Get_special_deals_best_price" xml:space="preserve">
+    <value>Get special deals, best price for in-game items and exclusive content only available to our GToken members.</value>
+  </data>
+  <data name="Register_your_account_now" xml:space="preserve">
+    <value>Register your account now to get free Play Token and start playing today!</value>
+  </data>
+  <data name="A_Gateway_to_Play" xml:space="preserve">
+    <value>Gerbang Bermain</value>
+  </data>
+  <data name="Home_page" xml:space="preserve">
+    <value>Halaman depan</value>
+  </data>
+  <data name="We_hope_to_bring_happiness" xml:space="preserve">
+    <value>Semoga kami dapat membawa kegembiraan dan membagikan kebahagiaan kepada Anda</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Available_from_Mon_Fri_11am_to_7pm" xml:space="preserve">
+    <value>Buka dari hari Senin - Jumat, pukul 11 pagi sampai 7 malam.</value>
+  </data>
+  <data name="Call_our_support_agent" xml:space="preserve">
+    <value>Hubungi agen dukungan kami dan dapatkan jawaban Anda dengan segera.</value>
+  </data>
+  <data name="Easy_simple_no_credit_card" xml:space="preserve">
+    <value>Mudah &amp; sederhana, tidak diperlukan kartu kredit</value>
+  </data>
+  <data name="GoPlay_Token_is_a_digital_currency_platform" xml:space="preserve">
+    <value>GoPlay is a digital currency platform for mobile games that delivers greater choices, convenience and simplicity to our customers in all that we do.</value>
+  </data>
+  <data name="GToken_is_a_gateway_to_play" xml:space="preserve">
+    <value>GToken is a gateway to play: when you play, you get happiness. We hope to bring happiness and share the joy with your friends and loved ones when you play with us.</value>
+  </data>
+  <data name="Need_Immediate_Help" xml:space="preserve">
+    <value>Perlu Bantuan Segera ?</value>
+  </data>
+  <data name="Our_customer_support_team" xml:space="preserve">
+    <value>Tim dukungan pelanggan kami dengan senang hati akan menjawab pertanyaan-pertanyaan Anda</value>
+  </data>
+  <data name="Phone_Call" xml:space="preserve">
+    <value>Panggilan Telepon</value>
+  </data>
+  <data name="Send_Us_A_Message" xml:space="preserve">
+    <value>Kirimkan Pesan Kepada Kami</value>
+  </data>
+  <data name="Skype" xml:space="preserve">
+    <value>Skype</value>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>judul</value>
+  </data>
+  <data name="We_provide_our_undivided_attention" xml:space="preserve">
+    <value>Kami mencurahkan perhatian dan dukungan penuh kepada para pengguna kami yang memerlukan bantuan dan perhatian, apakah mengenai masalah teknis, saran tentang bagaimana menyelesaikan tingkat yang sulit, atau bahkan teman bermain saat Anda sedang mencari teman yang dapat Anda ajak untuk bermain.</value>
+  </data>
+  <data name="We_seek_out_popular_and_quality" xml:space="preserve">
+    <value>Kami mencari permainan-permainan yang populer dan berkualitas untuk diperkenalkan kepada para pengguna kami. Kami memberikan penghargaan kepada para pengguna kami yang memperoleh status VIP dengan penghargaan-penghargaan loyalitas, yang dapat digunakan untuk ditukarkan dengan item-item eksklusif dan terbatas pada permainan yang Anda mainkan.</value>
+  </data>
+  <data name="We_will_get_back_to_you_shortly" xml:space="preserve">
+    <value>We will get back to you shortly.</value>
+  </data>
+  <data name="What_On_Your_Mind" xml:space="preserve">
+    <value>Apakah Yang Ada Dalam Pikiran Anda ?</value>
+  </data>
+  <data name="WHAT_YOUR_ISSUE_ABOUT" xml:space="preserve">
+    <value>APAKAH MASALAH YANG ANDA ALAMI ?</value>
+  </data>
+  <data name="WHICH_GAME_TROUBLES_YOU" xml:space="preserve">
+    <value>PERMAINAN MANAKAH YANG MENYULITKAN ANDA ?</value>
+  </data>
+  <data name="Why_choose_GToken1" xml:space="preserve">
+    <value>Mengapa memilih ?</value>
+  </data>
+  <data name="YOUR_CURRENT_OS" xml:space="preserve">
+    <value>SISTEM OPERASI ANDA SAAT INI ?</value>
+  </data>
+  <data name="Your_device_model" xml:space="preserve">
+    <value>model perangkat Anda</value>
+  </data>
+  <data name="Your_email" xml:space="preserve">
+    <value>surel Anda</value>
+  </data>
+  <data name="Your_email1" xml:space="preserve">
+    <value>surel Anda</value>
+  </data>
+  <data name="Your_message" xml:space="preserve">
+    <value>pesan Anda</value>
+  </data>
+  <data name="Your_name" xml:space="preserve">
+    <value>nama Anda</value>
+  </data>
+  <data name="Dont_have_an_account" xml:space="preserve">
+    <value>Tidak memiliki akun?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Forgot_Password" xml:space="preserve">
+    <value>Lupa Kata Sandi ?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Kata Sandi</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>Ingat saya</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Sign_up_get_1_free" xml:space="preserve">
+    <value>Mendaftarlah dan dapatkan 1 gratis</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>nama pengguna</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Forum" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+</root>

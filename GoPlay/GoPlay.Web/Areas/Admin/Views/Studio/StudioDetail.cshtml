@@ -1,0 +1,87 @@
+﻿@model GoPlay.Web.Areas.Admin.Models.StudioDetailViewModel
+@using Platform.Models
+@using GoPlay.Models
+@{
+    ViewBag.Title = "Studio: " + Model.studio.name;
+    string urlStudioIndex = "/admin/studio";
+    string urlStudioEdit = string.Format("/admin/studio/{0}/edit?previous_page={0}", Model.studio.id);
+    List<string> roleName = Html.GetCurrentUser().GetRoles().Select(r => r.RoleName).ToList();
+    bool isHasRoleAdmin = roleName.Contains(GoPlayConstantValues.S_ROLE_ADMIN);
+    bool isHasRoleGameAdmin = roleName.Contains(GoPlayConstantValues.S_ROLE_GAME_ADMIN);
+}
+
+<h1>Studio: @Model.studio.name</h1>
+
+<table class="studio-detail model-detail-table">
+    <tr>
+        <td class="width-20">ID</td>
+        <td id="studio-detail-id">@Model.studio.id</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>@Model.studio.name</td>
+    </tr>
+    <tr>
+        <td>Created at</td>
+        <td>@Model.studio.created_at.ToString(ConstantValues.S_DATETIME_FORMAT) @("UTC")</td>
+    </tr>
+    <tr>
+        <td>Updated at</td>
+        <td>@Model.studio.updated_at.ToString(ConstantValues.S_DATETIME_FORMAT) @("UTC")</td>
+    </tr>
+</table>
+
+<div class="studio-detail-actions model-detail-actions">
+    <a class="button small secondary" href="@urlStudioIndex">Back</a>
+    @if (isHasRoleGameAdmin)
+    {
+        <a class="button small" href="@urlStudioEdit">Edit</a>
+    }
+</div>
+
+<hr />
+
+<h3>Game admins</h3>
+@if (isHasRoleAdmin)
+{
+    <a class="button tiny" href="/admin/studio/@Model.studio.id/assign-game-admin-or-accountant">Assign game admin</a>
+}
+<table class="game-admins-table model-table" role="grid">
+    <thead>
+        <tr>
+            <th class="id width-10">ID</th>
+            <th>Username</th>
+            @if (isHasRoleAdmin)
+            {
+                <th class="width-15">Actions</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.studiosAssignment != null)
+        {            
+            foreach (var item in Model.studiosAssignment)
+            {
+                <tr>
+                    <td>@item.game_admin_id</td>
+                    <td>@item.game_admin_username</td>
+                    @if (isHasRoleAdmin)
+                    {
+                        <td class="model-actions">
+                            <ul class="stack button-group">
+                                <li>
+                                    <form id="unassign-game-admin-@item.game_admin_id"
+                                          action="/admin/studio/@Model.studio.id/unassign-game-admin-or-accountant"
+                                          method="post">
+                                        <input type="hidden" name="game_admin_id" value="@item.game_admin_id" />
+                                        <input type="submit" class="button tiny alert" value="Unassign" />
+                                    </form>
+                                </li>
+                            </ul>
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

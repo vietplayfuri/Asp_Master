@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = Resources.Resources.Clubs;
+}
+
+
+<link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+<link rel="stylesheet" type="text/css" href="/bower_components/slick.js/slick/slick.css" />
+
+<div class="header-title about">
+    <div class="row">
+        <div class="large-12 columns">
+            <h3>GToken Clubs</h3>
+            <h5>Where you share Happiness playing Together</h5>
+        </div>
+    </div>
+</div>
+<div class="about-content static-content">
+    <div class="row">
+        <div class="small-12 small-centered medium-8 medium-centered large-6 large-centered columns">
+            <div class="img-slider" id="club-slide-img">
+                <div><img src="/static/images/club-1.jpg" alt=""></div>
+                <div><img src="/static/images/club-2.jpg" alt=""></div>
+                <div><img src="/static/images/club-3.jpg" alt=""></div>
+            </div>
+            <p class="wow fadeInUp animated" data-wow-delay="0.5s">
+                GToken believes that gaming is about connecting people and having fun, so we've committed ourselves to build lifestyle clubs all over SEA that are free to use for our members and friends, where people can hang out with like-minded people, connect to high-speed internet wifi, enjoy free refreshments while playing games and chilling out in a conducive environment.
+            </p>
+            <div class="wow fadeInUp animated" data-wow-delay="0.5s" id="club-address">
+                <h4>Come hang out with us!</h4>
+                <h5>Singapore:</h5>
+                <a href="https://www.google.com/maps/search/229+Mountbatten+Road,+Mountbatten+Square,+Singapore/1.3073515,103.880827,17z/data=!3m1!4b1" target="_blank">229 Mountbatten Road Mountbatten Square #01-08/09/10 Singapore 398007</a>
+                <h5>Malaysia:</h5>
+                <a href="https://www.google.com/maps/place/Jalan+Kerinchi,+59200+Kuala+Lumpur,+Wilayah+Persekutuan+Kuala+Lumpur,+Malaysia/3.110118,101.6649963,17z/data=!3m1!4b1!4m2!3m1!1s0x31cc4a2a6c27ed39:0xbbf46a9b8991a532" target="_blank">The Horizon, Bangsar South. No 8, Jalan Kerinchi, Level 6 Tower 9 Avenue 5, 59200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia</a>
+                <h5>Thailand:</h5>
+                <p class="last-p">
+                    GToken (Thailand) Co., Ltd.<br>
+                    Tel: +66 2 7044879
+                </p>
+                <a href="http://goo.gl/maps/mGE1N" target="_blank">306/1 Srinakarin Road, Huamark, Bangapi, Bangkok 10240</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="/bower_components/slick.js/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#club-slide-img').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 12000,
+                pauseOnHover: true
+            });
+        });
+    </script>
+}
+

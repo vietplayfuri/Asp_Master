@@ -1,0 +1,64 @@
+﻿@model GoPlay.Web.Models.PaypalPaymentSearchForm
+
+@{
+    ViewBag.Title = "Search payment";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<form id="search-form" class="model-form" method="post"
+      enctype="multipart/form-data">
+    <div class="row">
+        <h1 class="text-left">Paypal payment search</h1>
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="transaction_id">
+                    Transaction ID *
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <input id="transaction_id" name="transaction_id" placeholder="Transaction ID" type="text" value="">
+                @Html.ValidationMessageFor(m => m.transaction_id)
+            </div>
+        </div>
+        <div class="small-9 small-offset-3 columns">
+            <input type="submit" class="button small" value="Search" />
+        </div>
+    </div>
+    @if (!String.IsNullOrEmpty(Model.error))
+    {
+        <div class="row">
+            <div class="errors-container">
+                <div class="error">@Model.error</div>
+            </div>
+        </div>
+    }
+    @if (Model.payment != null)
+    {
+        <div class="row">
+            <h5>Payment details</h5>
+            <table>
+                <tr><td>ID</td><td>@Model.payment.id</td></tr>
+                <tr><td>Created time</td><td>@Model.payment.create_time</td></tr>
+                <tr><td>Updated time</td><td>@Model.payment.update_time</td></tr>
+                <tr><td>State</td><td>@Model.payment.state</td></tr>
+                <tr><td>Intent</td><td>@Model.payment.intent</td></tr>
+                <tr><td>Payer ID</td><td>@Model.payment.payer.payer_info.payer_id</td></tr>
+                <tr><td>Payer email</td><td>@Model.payment.payer.payer_info.email</td></tr>
+                <tr><td>Payer first name</td><td>@Model.payment.payer.payer_info.first_name</td></tr>
+                <tr><td>Payer last name</td><td>@Model.payment.payer.payer_info.last_name</td></tr>
+                <tr><td>Item SKU</td><td>@Model.payment.transactions[0].item_list.items[0].sku</td></tr>
+                <tr><td>Item name</td><td>@Model.payment.transactions[0].item_list.items[0].name</td></tr>
+                <tr><td>Item price</td><td>@Model.payment.transactions[0].item_list.items[0].price @Model.payment.transactions[0].item_list.items[0].currency</td></tr>
+                <tr><td>Total amount</td><td>@Model.payment.transactions[0].amount.total @Model.payment.transactions[0].amount.currency</td></tr>
+            </table>
+        </div>
+    }
+</form>
+
+@section page_foot_js{
+    <script src="/static/js/admin/transaction.js"></script>
+    <script src="~/static/js/admin/validation.js"></script>
+}
+

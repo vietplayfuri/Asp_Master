@@ -1,0 +1,68 @@
+﻿@using Resources;
+@{
+
+    ViewBag.Title = Resources.Clubs;
+}
+
+
+<link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+<link rel="stylesheet" type="text/css" href="/bower_components/slick.js/slick/slick.css" />
+
+<section class="club-wrapper row">
+    <div class="large-12 columns">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.GToken_Clubs</h6>
+            <p> - @Resources.Where_you_share_Happiness_playing_Together</p>
+        </div>
+        <div class="sect-panel separate-panel club-picture">
+            <div class="slide-content">
+                <div><img src="/static/images/club-imgs/club-1.png" alt=""></div>
+                <div><img src="/static/images/club-imgs/club-2.png" alt=""></div>
+                <div><img src="/static/images/club-imgs/club-3.png" alt=""></div>
+                <div><img src="/static/images/club-imgs/club-4.png" alt=""></div>
+                <div><img src="/static/images/club-imgs/club-5.png" alt=""></div>
+            </div>
+        </div>
+        <div class="sect-panel club-intro">
+            <p>@Resources.GToken_believes_that_gaming_is_about_connecting_people</p>
+            <div class="club-address">
+                <h5>@Resources.Come_and_hangout_with_us</h5>
+                <p>
+                    <strong>@Resources.Singapore</strong><br>
+                    <a class="nml-link" href="https://www.google.com/maps/search/229+Mountbatten+Road,+Mountbatten+Square,+Singapore/@("@")1.3073515,103.880827,17z/data=!3m1!4b1"
+                        target="_blank">@Resources.Mountbatten_Road_Singapore</a>
+                </p>
+                <p>
+                    <br><strong>@Resources.Malaysia</strong><br>
+                    <a class="nml-link" href="https://www.google.com/maps/place/Jalan+Kerinchi,+59200+Kuala+Lumpur,+Wilayah+Persekutuan+Kuala+Lumpur,+Malaysia/@("@")3.110118,101.6649963,17z/data=!3m1!4b1!4m2!3m1!1s0x31cc4a2a6c27ed39:0xbbf46a9b8991a532"
+                        target="_blank">
+                        @Resources.The_Horizon_Malaysia<br>
+                        @Resources.Kuala_Lumpur_Malaysia
+                    </a>
+                </p>
+                @*<p> live site was disabled
+                    <br><strong>@Resources.Thailand</strong><br>
+                    @Resources.GToken_Thailand_Co<br>
+                    @Resources.Thailand_Tel<br>
+                    <a class="nml-link" href="/" target="_blank">@Resources.Srinakarin_Road_Thailand</a>
+                </p>*@
+            </div>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+</section>
+@section page_foot_js{
+    <script type="text/javascript" src="/bower_components/slick.js/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slide-content').slick({
+                dots: false,
+                variableWidth: true,
+                prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="previous"></button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="next"></button>'
+            });
+        });
+    </script>
+}
+

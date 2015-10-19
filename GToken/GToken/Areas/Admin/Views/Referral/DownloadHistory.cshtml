@@ -1,0 +1,102 @@
+﻿@using Platform.Models
+@model GToken.Models.DownloadHistoryViewModel
+
+@using Platform.Utility
+
+@{
+    ViewBag.Title = "DownloadHistory";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h1>Download history</h1>
+</div>
+<div class="tabs-content">
+    @if (ViewContext.Controller.HasPermission("access_admin_accountant_page"))
+    {
+        <div class="content active" id="transaction">
+            <form class="model-form" method="post" action="#">
+                <div class="row">
+                    @if (Model.campaigns != null && Model.campaigns.Count > 0)
+                    {
+                        <div class="small-3 columns">
+                            @Html.DropDownListFor(m => m.campaign_id, Model.campaigns.Select(x => new SelectListItem() { Text = x.title, Value = x.id.ToString() }), "All campaigns")
+                        </div>
+                    }
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.game_id, Model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }), "All games")
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="username" name="username" placeholder="Downloader" type="text" value="@Model.username">
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="referrer" name="referrer" placeholder="Referrer nick" type="text" value="@Model.referrer">
+                    </div>
+                    <div class="small-3 columns">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <input id="from_date" name="from_date" placeholder="From" type="datetime" value="@Model.from_date">
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="to_date" name="to_date" placeholder="Until" type="datetime" value="@Model.to_date">
+                    </div>
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                    </div>
+                    <input type="hidden" name="tab" value="user">
+                </div>
+
+                <div class="row">
+                    <input name="query" class="button small" value="Query" type="submit" />
+                    <input name="export" class="button small" value="Export" type="submit" />
+                </div>
+            </form>
+        </div>
+        <div class="table-wrap row">
+            <!--<table class="wide-table">--><table>
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Game</th>
+                        <th>Downloader</th>
+                        <th>Referrer</th>
+                        <th>Earned User</th>
+                        <th>Device ID</th>
+                        <th>GT Usage</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.RecordDownloadHistory != null)
+                    {
+                        var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+                        foreach (var item in ViewBag.RecordDownloadHistory as List<RecordDownloadHistory>)
+                        {
+                            item.created_at = TimeZoneInfo.ConvertTimeFromUtc(item.created_at, est);
+                            <tr>
+                                <td>@item.referral_title</td>
+                                <td>@item.game_name</td>
+                                <td>@item.username</td>
+                                <td>@item.inviter_username</td>
+                                <td>@item.earned_username</td>
+                                <td>@item.device_id</td>
+                                <td>@item.gtoken_per_download</td>
+                                <td>@item.created_at.ToString(ConstantValues.S_DATETIME_FORMAT)</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+@section page_foot_js{
+    <script src="/static/js/admin/transaction.js"></script>
+}
+
+
+
+
+

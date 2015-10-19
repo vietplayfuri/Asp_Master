@@ -1,0 +1,210 @@
+﻿@model GoPlay.Web.Areas.Admin.Models.GameIndexViewModel
+@using GoPlay.Web.Identity;
+@using GoPlay.Web.Areas.Admin.Models
+@using System.Web.Script.Serialization
+@using Platform.Models
+@using GoPlay.Models
+@{
+    ViewBag.Title = "Game: " + Model.game.name;
+    string urlGameIndex = "/admin/game";
+    string urlGameEdit = string.Format("/admin/game/{0}/edit?previous_page={0}", Model.game.id);
+}
+<div class="row" ng-app="gtokenAdminApp">
+    <h1>Game: @Model.game.name</h1>
+
+    <div class="model-detail-actions">
+        <a class="button small secondary" href="@urlGameIndex">Back</a>
+        @if (Html.ViewContext.Controller.HasRole(GoPlayConstantValues.S_ROLE_GAME_ADMIN))
+        {
+            <a class="button small" href="@urlGameEdit">Edit</a>
+        }
+    </div>
+
+    <table class="game-detail model-detail-table">
+        <tr>
+            <td class="width-20">ID</td>
+            <td id="game-detail-id">@Model.game.id</td>
+        </tr>
+        <tr>
+            <td>GUID</td>
+            <td>@Model.game.guid</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Model.game.name</td>
+        </tr>
+        @Html.Partial("_render_l10n_attr", Model.Genre)
+        <tr>
+            <td>Studio</td>
+            <td>@Model.game.studio_name</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>
+                @{
+                    if (Model.game.is_archived)
+                    {
+                        <span class="label warning">Archived</span>
+                    }
+                    if (Model.game.is_active)
+                    {
+                        <span class="label success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="label warning">Inactive</span>
+                    }
+
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Platforms</td>
+            <td>
+                @{
+                    if (Model.Platforms.ContainsKey("apple"))
+                    {
+                        <a href="@Model.Platforms["apple"]"><img src="/static/images/ios-icon.png" alt="" /></a>
+                    }
+                    if (Model.Platforms.ContainsKey("google"))
+                    {
+                        <a href="@Model.Platforms["google"]"><img src="/static/images/gplay-icon.png" alt="" /></a>
+
+                    }
+                    if (Model.Platforms.ContainsKey("apk"))
+                    {
+                        <a href="@Model.Platforms["apk"]"><img src="/static/images/andr-icon.png" alt="" /></a>
+                    }
+                    if (Model.Platforms.ContainsKey("pc"))
+                    {
+                        <a href="@Model.Platforms["pc"]"><img src="/static/images/pc-icon.png" alt="" /></a>
+                    }
+
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Game invite protocol</td>
+            <td>
+                @(!string.IsNullOrEmpty(Model.game.game_invite_protocol) ? Model.game.game_invite_protocol : "None")
+            </td>
+        </tr>
+        @Html.Partial("_render_l10n_attr", Model.Description)
+        @Html.Partial("_render_l10n_attr", Model.Short_description)
+        <tr>
+            <td>Current Version</td>
+            <td>@(!string.IsNullOrEmpty(Model.game.current_version) ? Model.game.current_version : "None")</td>
+        </tr>
+        @Html.Partial("_render_l10n_attr", Model.Current_changelog)
+        <tr>
+            <td>File Size</td>
+            <td>@(!string.IsNullOrEmpty(Model.game.file_size) ? Model.game.file_size : "None")</td>
+        </tr>
+        @Html.Partial("_render_l10n_attr", Model.Content_rating)
+        <tr>
+            <td>Icon</td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.game.icon_filename))
+                {
+                    <img src="@Model.game.icon_filename" alt="" width="64" height="64" />
+                }
+                else
+                {
+                    @("None")
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Thumbnail</td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.game.thumb_filename))
+                {
+                    <img src="@Model.game.thumb_filename" alt="" width="264" height="314" />
+                }
+                else
+                {
+                    @("None")
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Banner</td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.game.banner_filename))
+                {
+                    <img src="@Model.game.banner_filename" alt="" />
+                }
+                else
+                {
+                    @("None")
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Slider Images</td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.game.slider_images))
+                {
+                    var objects = new JavaScriptSerializer().Deserialize<SliderImages>(Model.game.slider_images);
+                    <ol>
+                        @foreach (var item in objects.images)
+                        {
+                            <li>
+                                <p>
+                                    <img src="@item.filename" alt="" width="200" />
+                                </p>
+                            </li>
+                        }
+                    </ol>
+                }
+                else
+                {
+                    @("None")
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Exchange EndPoint</td>
+            <td>@Model.game.endpoint</td>
+        </tr>
+        <tr>
+            <td>GToken Client ID</td>
+            <td>@Model.game.gtoken_client_id</td>
+        </tr>
+        <tr>
+            <td>GToken Client Secret</td>
+            <td>@Model.game.gtoken_client_secret</td>
+        </tr>
+        <tr>
+            <td>Created at</td>
+            <td>@Model.game.created_at.ToString(ConstantValues.S_DATETIME_FORMAT)</td>
+        </tr>
+        <tr>
+            <td>Updated at</td>
+            <td>@Model.game.updated_at.ToString(ConstantValues.S_DATETIME_FORMAT)</td>
+        </tr>
+        @Html.Partial("_render_l10n_attr", Model.Warning)
+        @if (Model.game.released_at.HasValue)
+        {
+            <tr>
+                <td>Released at</td>
+                <td>@Model.game.released_at.Value.ToString(ConstantValues.S_DATETIME_FORMAT)</td>
+            </tr>
+        }
+    </table>
+    <div class="model-detail-actions">
+        <a class="button small secondary" href="@urlGameIndex">Back</a>
+        @if (Html.ViewContext.Controller.HasRole(GoPlayConstantValues.S_ROLE_GAME_ADMIN))
+        {
+            <a class="button small" href="@urlGameEdit">Edit</a>
+        }
+    </div>
+</div>
+
+@section page_foot_js{
+    <script src="/static/js/admin/game.js"></script>
+}
+
+
+
+

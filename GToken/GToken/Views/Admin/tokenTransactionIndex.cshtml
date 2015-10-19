@@ -1,0 +1,123 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Transactions";
+}
+@model GToken.Web.Models.TransactionQueryForm
+@using Platform.Utility;
+
+<div class="row">
+    <h1>Token Transactions</h1>
+
+    <div class="tabs" data-tab data-options="deep_linking:true">
+        @if (ViewContext.Controller.HasPermission("access_admin_accountant_page"))
+        {
+            <div class="active"><a href="#transaction">Transactions</a></div>
+        }
+    </div>
+</div>
+<div class="tabs-content">
+    @if (ViewContext.Controller.HasPermission("access_admin_accountant_page"))
+    {
+        <div class="content active" id="transaction">
+            <form class="model-form" method="post" action="#">
+                <div class="row">
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="gtoken_transaction_id" name="gtoken_transaction_id" placeholder="GToken Transaction ID" type="text" value="@Model.gtoken_transaction_id">
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="username" name="username" placeholder="Nick, username or email" type="text" value="@Model.username">
+                    </div>
+                    @*<div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.status, @Model.statusList.Select(x => new SelectListItem() { Text = Helper.UppercaseFirst(x.ToString()), Value = x.ToString() }), "All")
+                    </div>*@
+                    <div class="small-3 columns">
+                        @Html.DropDownListFor(m => m.partner_identifier, @Model.partners.Select(x => new SelectListItem() { Text = Helper.UppercaseFirst(x.ToString()), Value = x.ToString() }), "All")
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="partner_order_id" name="partner_order_id" placeholder="Partner Order ID" type="text" value="@Model.partner_order_id">
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="startTime" name="startTime" placeholder="Start from" type="datetime" value="@Model.startTime">
+                    </div>
+                    <div class="small-3 columns">
+                        <input id="endTime" name="endTime" placeholder="Until" type="datetime" value="@Model.endTime">
+                    </div>
+                    <input type="hidden" name="tab" value="transaction">
+                </div>
+
+                <div class="row">
+                    <input name="query" class="button small" value="Query" type="submit" />
+                    <input name="export" class="button small" value="Export" type="submit" />
+                </div>
+            </form>
+        </div>
+    <div class="table-wrap">
+        <!--<table class="wide-table">--><table>
+            <thead>
+                <tr>
+                    <th>GToken Transaction ID</th>
+                    <th>Partner</th>
+                    <th>Partner Order ID</th>
+                    <th>Account</th>
+                    <th>Amount</th>
+                    <th>Tax</th>
+                    <th>Service Charge</th>
+                    <th>Final Amount</th>
+                    <th>Token Type</th>
+                    <th>Transaction Type</th>
+                    <th>Description</th>
+                    <th>Country Code</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.transactions != null)
+                {
+                    var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+                    foreach (var tr in ViewBag.transactions)
+                    {
+                        DateTime targetTime = TimeZoneInfo.ConvertTimeFromUtc(tr.created_at, est);
+                        <tr>
+                            <td> @tr.gtoken_transaction_id  </td>
+                            <td> @tr.partner_name  </td>
+                            <td> @tr.partner_order_id  </td>
+                            <td> @tr.customer_username  </td>
+                            <td>@tr.amount</td>
+                            <td>@tr.tax</td>
+                            <td>@tr.service_charge</td>
+                            <td>@tr.amount_after_tax</td>
+                            <td>@tr.token_type</td>
+                            <td>@tr.transaction_type</td>
+                            <td>@tr.description</td>
+                            <td>@tr.country_code</td>
+                            <td>@targetTime</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    }
+</div>
+@*{% macro render_field(field) %}
+    <div class="small-3 columns">
+        {{ field(placeholder=field.label.text) }}
+    </div>
+    {% endmacro %}*@
+
+
+@section page_foot_js{
+    <script src="/static/js/admin/transaction.js"></script>
+}
+
+
+
+
+

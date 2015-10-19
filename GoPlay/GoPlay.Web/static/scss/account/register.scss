@@ -1,0 +1,258 @@
+@import "settings";
+@import "foundation";
+@import "partials/base";
+
+// Register Style
+
+.alert-box {
+    display: none;
+}
+
+body {
+    label:not(.check-label) {
+        display: none;
+    }
+}
+
+#facebook-button {
+    width: 100%;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: white;
+    height: 36px;
+    background: url(/static/images/facebook_login.png) 10px 50% no-repeat, linear-gradient(-180deg, #4A6EBB 0%, #3B5998 100%);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25);
+    border: none;
+    outline: none;
+    display: block;
+    text-align: center;
+    padding: 7px;
+}
+
+
+.top-logo {
+    text-align: center;
+    display: block;
+    margin: 50px auto 40px;
+}
+
+.forms-container {
+    max-width: 380px;
+    margin: 0 auto;
+    .check-box {
+        opacity: 0;
+        float: left;
+        width: 18px;
+    }
+    .check-box + label {
+        clear: none;
+        /* Left padding makes room for image */
+        padding: 5px 0 4px 24px;
+        /* Make look clickable because they are */
+        cursor: pointer;
+        background: url(/static/images/checkbox.png) left center no-repeat;
+    }
+    .check-box:checked + label {
+        background: url(/static/images/checkbox_checked.png) left center no-repeat;
+    }
+    .check-label {
+        margin-top: 4px;
+        margin-bottom: 14px;
+    }
+    form.forms-set {
+        label {
+            color: $pri-grey;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+    }
+}
+
+.sect-title-bar {
+    text-align: center;
+}
+
+.sect-panel {
+    padding: 20px;
+    p.form-label {
+        margin-bottom: 10px;
+    }
+    p.subheader {
+        color: $pri-grey;
+        margin-bottom: 30px;
+    }
+    p.warning {
+        border: 1px solid $pri-yellow;
+        padding: 12px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        &.red {
+            border-color: $pri-red;
+            
+        }
+    }
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    margin-bottom: 20px;
+}
+
+.bottom-link {
+    display: block;
+    text-align: center;
+    margin: 0 auto 60px;
+    br {
+        display: none;
+    }
+    p {
+        color: $sub-grey;
+        a {
+            color: $sub-grey;
+            text-decoration: underline;
+            &:hover {
+                color: $pri-grey;
+            }
+        }
+        a.bottom-signup {
+            &:after {
+                content: ' ';
+                background: url(/static/images/tiny_gtoken.png) center center no-repeat;
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                -o-transform: scale(0.8);
+                -webkit-transform: scale(0.8);
+                border-radius: 10px;
+                vertical-align: -5px;
+                margin-left: 2px;
+            }
+        }
+    }
+}
+
+.break-line {
+    width: 100%;
+    height: 1px;
+    display: block;
+    margin: 10px auto 18px;
+    border-bottom: 1px solid $dark-grey;
+}
+
+.forms-set {
+    input {
+        margin-bottom: 10px;
+    }
+    input[type="submit"] {
+        display: block;
+        margin: 0 auto;
+        cursor: pointer;
+        border: none;
+        padding: 6px 18px 8px;
+    }
+    input.user-referid[disabled],
+    input.user-referid[readonly] {
+        background: lighten(#151515, 3%) !important;
+        border: 1px solid $pri-green;
+        color: $sub-grey;
+    }
+    .errors-container {
+        position: relative;
+        ul.errors {
+            margin: 0 auto;
+            display: none;
+            color: $pri-red;
+            font-size: 0.875rem;
+            list-style-type: none;
+            position: relative;
+            text-align: left;
+        }
+    }
+    .field-with-errors {
+        & + .errors-container {
+            ul.errors {
+                display: block;
+                padding: 0px 0px 10px;
+            }
+        }
+    }
+    .field-valid {
+        &.sml-forms {
+            border: 1px solid $pri-green;
+        }
+    }
+    #submit.disabled {
+        opacity: 0.4;
+        cursor: default;
+        &:hover {
+            background: linear-gradient(-180deg, #5FB657 0%, #549B4E 100%),
+                        radial-gradient(50% 82%, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0.15) 83%);
+        }
+    }
+    #submit.valid {
+        background-color: $pri-green;
+        color: white;
+    }
+}
+
+.rem-forg {
+    width: 100%;
+    margin: 0 auto;
+    .check-box.login + label {
+        padding: 8px 0 6px 20px;
+        font-size: 0.875rem;
+        color: $pri-grey;
+        margin: 0;
+        position: relative;
+        right: 16px;
+        float: left;
+    }
+    .check-box.login:checked + label {
+        background: url(/static/images/checkbox_checked.png) left center no-repeat;
+    }
+    .forgot-pwd {
+        float: right;
+        padding-top: 7px;
+        font-size: 0.875rem;
+        color: $pri-grey;
+    }
+}
+
+// Change password style
+
+#account-change-password {
+    .errors-container + .break-line {
+        margin-top: 7px;
+    }
+}
+
+// Change email style
+
+#account-change-email {
+    margin-top: 30px;
+}
+
+#account-change-password,
+#account-change-email {
+    .break-line {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    } 
+}
+
+.password-group {
+    position: relative;
+    > a.reveal-password {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 36px;
+        width: 36px;
+        background: url(/static/images/reveal_password.png) no-repeat 6px 13px;
+    }
+    > a.active {
+        background: url(/static/images/reveal_password_active.png) no-repeat 6px 13px;
+    }
+}

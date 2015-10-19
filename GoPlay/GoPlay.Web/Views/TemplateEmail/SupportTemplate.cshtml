@@ -1,0 +1,33 @@
+﻿@model GoPlay.Web.Models.SupportViewModel
+
+<h2>New customer support message</h2>
+<p>
+    <strong>From:</strong> @Model.customerName (@Model.customerEmail)
+</p>
+<p>
+    <strong>Platform</strong>: @Model.platform
+</p>
+@if(Model.game!=null)
+{ 
+<h4>Game info:</h4>
+<p>
+    <strong>Name</strong>: @Model.game.name
+</p>
+<p>
+    <strong>Version</strong>: @Model.gameVersion
+</p>
+<p>
+    <strong>Device</strong>: @Model.gameDevice
+</p>
+<p>
+    <strong>OS</strong>: @Model.gameOSName - version: @Model.gameOSVersion
+</p>
+}
+<p>
+    <strong>Subject</strong>: @Model.subject
+</p>
+<p>
+    <strong>Message</strong>:
+    <br />
+    @Model.message
+</p>

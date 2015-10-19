@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = Resources.Resources.About;
+}
+
+@section page_stylesheets{
+    <link href="~/static/stylesheets/account/about.css" rel="stylesheet" />
+    <link href="~/bower_components/slick.js/slick/slick.css" rel="stylesheet" />
+}
+
+<div>
+    <div class="page-container main-page">
+        <div class="small-12 medium-12">
+            <div class="wow fadeIn animated" id="food-slider">
+                
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-2.jpg" alt="">
+                </div>
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-3.jpg" alt="">
+                </div>
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="text-center">
+                <h4>WHO WE ARE</h4>
+            </div>
+            <div class="small-12 text-center slogan">
+                SATISFACTION GUARANTEED!
+            </div>
+            <br />
+            <div class="small-12 text-center">
+                <img src="~/static/images/Rounded-Rectangle.png" />
+            </div>
+            <br />
+
+            <br />
+            <div class="text-center">
+                <img src="~/static/images/about-image.png" />
+                <br />
+            </div>
+            <br />
+            <br />
+            <div class="ghouse-introduce text-center">
+                <p>A platform for food lovers, GDine offers various dining options under one roof.</p>
+
+                <p>
+                    Being part of our lifestyles, food and dining becomes essentially a choice one makes.
+                </p>
+
+                <p>
+                    GDine aims to bring together merchants that value consumers’ loyalty and wants to say a big thank you. GDine value-add consumers with an upfront discount on top of the constant promotional activities merchants are currently offering.
+                </p>
+
+                <p>
+                    With GDine, you will know firsthand of various activities that merchants planned for you.
+                </p>
+                <p>
+                    With GDine, you will always be in the know.
+                </p>
+                <p>
+                    With GDine, you will be rewarded more than you can imagine.
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/bower_components/slick.js/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#food-slider').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 10000
+            });
+        });
+    </script>
+}
+
+
+
+

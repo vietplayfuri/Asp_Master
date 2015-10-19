@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{321BE915-C2F2-423A-8D61-3DBF62052648}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GToken</RootNamespace>
+    <AssemblyName>GToken</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Project-All\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <PublishDatabases>true</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\Project-All\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\..\Project-All\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\..\Project-All\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\..\Project-All\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin">
+      <HintPath>..\packages\Autofac.Owin.3.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Web">
+      <HintPath>..\packages\Autofac.Mvc2.2.4.5.724\lib\NET40\Autofac.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Web.Mvc">
+      <HintPath>..\packages\Autofac.Mvc2.2.4.5.724\lib\NET40\Autofac.Integration.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\..\Project-All\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi.Owin">
+      <HintPath>..\packages\Autofac.WebApi2.Owin.3.2.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\Project-All\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\..\Project-All\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="BCrypt.Net">
+      <HintPath>..\..\Project-All\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\Project-All\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\..\Project-All\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CsQuery">
+      <HintPath>..\..\Project-All\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\Project-All\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\..\Project-All\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Project-All\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MultipartDataMediaFormatter">
+      <HintPath>..\..\Project-All\packages\MultipartDataMediaFormatter.1.1.0.0\lib\net45\MultipartDataMediaFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=3.0.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Npgsql.3.0.3\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\Project-All\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PreMailer.Net">
+      <HintPath>..\..\Project-All\packages\PreMailer.Net.1.4.1\lib\net40\PreMailer.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\..\Project-All\packages\Quartz.2.3.3\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\Project-All\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Project-All\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <HintPath>..\..\Project-All\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="docs\gtoken\conf.py" />
+    <Content Include="docs\gtoken\images\gtoken_architecture.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Data\country\countries-20140629.csv" />
+    <Content Include="Icon.png" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="migrations\2-10-2015.txt" />
+    <Content Include="migrations\27-9-2015.txt" />
+    <Content Include="migrations\21-9-2015.txt" />
+    <Content Include="migrations\30-9-2015.txt" />
+    <Content Include="packages - Copy.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Views\Referral\CampaignList.cshtml" />
+    <Content Include="Areas\Admin\Views\Referral\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Referral\DownloadHistory.cshtml" />
+    <Content Include="Areas\Admin\Views\Referral\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Referral\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\header.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="docs\gtoken\api.rst" />
+    <Content Include="docs\gtoken\architecture.rst" />
+    <Content Include="docs\gtoken\index.rst" />
+    <Content Include="docs\gtoken\introduction.rst" />
+    <Content Include="docs\gtoken\make.bat" />
+    <Content Include="docs\gtoken\Makefile" />
+    <Content Include="docs\gtoken\partner_api.rst" />
+    <Content Include="docs\gtoken\schema.rst" />
+    <Content Include="docs\gtoken\stack.rst" />
+    <Content Include="docs\gtoken\venvici.rst" />
+    <Content Include="migrations\18_sept_2015.txt" />
+    <Content Include="Areas\Admin\Views\Referral\ImportReferral.cshtml" />
+    <Content Include="admin_upload\referral\test.csv" />
+    <Content Include="migrations\VenviciTransaction.txt" />
+    <None Include="Properties\PublishProfiles\gtoken.pubxml" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="static\fonts\source_sans_pro\generator_config.txt" />
+    <Content Include="static\fonts\source_sans_pro\sourcesans.css" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bold-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bold-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bolditalic-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bolditalic-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-italic-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-italic-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-light-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-light-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-lightitalic-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-lightitalic-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-regular-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-regular-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibold-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibold-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibolditalic-demo.html" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibolditalic-webfont.svg" />
+    <Content Include="static\fonts\source_sans_pro\specimen_files\easytabs.js" />
+    <Content Include="static\fonts\source_sans_pro\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="static\fonts\source_sans_pro\specimen_files\specimen_stylesheet.css" />
+    <Content Include="static\fonts\ubuntu\generator_config.txt" />
+    <Content Include="static\fonts\ubuntu\specimen_files\easytabs.js" />
+    <Content Include="static\fonts\ubuntu\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="static\fonts\ubuntu\specimen_files\specimen_stylesheet.css" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bold-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bold-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-medium-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-medium-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu-regular-demo.html" />
+    <Content Include="static\fonts\ubuntu\ubuntu-regular-webfont.svg" />
+    <Content Include="static\fonts\ubuntu\ubuntu.css" />
+    <Content Include="static\js\admin\import-referral.js" />
+    <Content Include="static\js\admin\transaction.js" />
+    <Content Include="static\js\app.js" />
+    <Content Include="static\js\controllers.js" />
+    <Content Include="static\js\controllers\accountNewPass.js" />
+    <Content Include="static\js\controllers\accountRegister.js" />
+    <Content Include="static\js\controllers\editProfile.js" />
+    <Content Include="static\js\controllers\login.js" />
+    <Content Include="static\js\routing.js" />
+    <Content Include="static\js\utils\countriesList.js" />
+    <Content Include="static\js\vendors\angular-page-enter-animate.js" />
+    <Content Include="static\libs\foundation-datetimepicker\foundation-datepicker.css" />
+    <Content Include="static\libs\foundation-datetimepicker\foundation-datetimepicker.js" />
+    <Content Include="static\libs\papaparse.min.js" />
+    <Content Include="static\stylesheets\admin\admin.css" />
+    <Content Include="static\stylesheets\app.css" />
+    <Content Include="static\stylesheets\deals\progress-bar.css" />
+    <Content Include="static\stylesheets\home.css" />
+    <Content Include="static\stylesheets\modules\content.css" />
+    <Content Include="static\stylesheets\modules\error.css" />
+    <Content Include="static\stylesheets\modules\form.css" />
+    <Content Include="static\stylesheets\modules\home.css" />
+    <Content Include="static\stylesheets\modules\profile.css" />
+    <Content Include="static\stylesheets\modules\transaction.css" />
+    <Content Include="static\stylesheets\partials\autocomplete.css" />
+    <Content Include="static\stylesheets\partials\buttons.css" />
+    <Content Include="static\stylesheets\partials\form-elements.css" />
+    <Content Include="static\stylesheets\partials\icons.css" />
+    <Content Include="static\stylesheets\partials\offcanvas.css" />
+    <Content Include="static\stylesheets\partials\panels.css" />
+    <Content Include="static\stylesheets\partials\top-bar.css" />
+    <Content Include="Views\Account\editProfile.cshtml" />
+    <Content Include="Views\Account\EnterNewPassword.cshtml" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="static\scss\admin\admin.scss" />
+    <None Include="Views\Account\_account_info.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\transactionIndex.cshtml" />
+    <Content Include="Views\Admin\UserDetail.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Admin\UserIndex.cshtml" />
+    <Content Include="Views\Main\PartnerDetail.cshtml" />
+    <Content Include="Views\Admin\DirectGTokenTransactionIndex.cshtml" />
+    <Content Include="Views\Admin\tokenTransactionIndex.cshtml" />
+    <Content Include="Views\Referral\Index.cshtml" />
+    <Content Include="Views\Referral\_history.cshtml" />
+    <Content Include="Views\Main\Deals.cshtml" />
+    <None Include="Views\Shared\admin\header.cshtml" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilter\Attributes.cs" />
+    <Compile Include="ActionFilter\RBAC.cs" />
+    <Compile Include="ActionFilter\RBACExtension.cs" />
+    <Compile Include="Api\Filters\CustomFilter.cs" />
+    <Compile Include="Api\NamespaceHttpControllerSelector.cs" />
+    <Compile Include="Api\V1\AccountController.cs" />
+    <Compile Include="Api\V1\FriendController.cs" />
+    <Compile Include="Api\V1\TransactionController.cs" />
+    <Compile Include="Api\V2\AccountController.cs" />
+    <Compile Include="App_Start\ApplicationUserManager.cs" />
+    <Compile Include="App_Start\DependancyInjectionConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReferralController.cs" />
+    <Compile Include="Areas\Admin\Models\ReferralViewModel.cs" />
+    <Compile Include="Const\Common.cs" />
+    <Compile Include="Const\Constants.cs" />
+    <Compile Include="Const\Local.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\ReferralController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Helpers\Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\Extensions\HtmlHelperExtension.cs" />
+    <Compile Include="Helpers\Extensions\IpHelper.cs" />
+    <Compile Include="Helpers\Extensions\Pagination.cs" />
+    <Compile Include="Helpers\Extensions\StringHelper.cs" />
+    <Compile Include="Helpers\GameHelper.cs" />
+    <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Identity\ApplicationUserStore.cs" />
+    <Compile Include="Identity\IdentityExtensions.cs" />
+    <Compile Include="Identity\IdentityModule.cs" />
+    <Compile Include="Identity\JobScheduled.cs" />
+    <Compile Include="MapperProfile\EntityMappingProfile.cs" />
+    <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\ErrorController.cs" />
+    <Compile Include="Models\MainViewModel.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Models\ReferralViewModel.cs" />
+    <Compile Include="Models\TransactionViewModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FriendViewModel.cs" />
+    <Compile Include="Models\GameViewModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
+    <Content Include="config.rb" />
+    <Content Include="Data\geoip_db\GeoLite2-Country.mmdb" />
+    <Content Include="Gemfile" />
+    <Content Include="Gemfile.lock" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Games\Details.cshtml" />
+    <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Main\About.cshtml" />
+    <Content Include="Views\Main\Club.cshtml" />
+    <Content Include="Views\Main\Contact.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Main\News.cshtml" />
+    <Content Include="Views\Main\Support.cshtml" />
+    <Content Include="Views\Main\Terms.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\errors\404.cshtml" />
+    <Content Include="Views\Shared\errors\500.cshtml" />
+    <Content Include="Views\Shared\includes\bottom_call_to_action_register.cshtml" />
+    <Content Include="Views\Shared\includes\favicon_meta.cshtml" />
+    <Content Include="Views\Shared\includes\footer.cshtml" />
+    <Content Include="Views\Shared\includes\header.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_RegisterLayout.cshtml" />
+    <Content Include="Views\Support\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bold-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bold-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bold-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bold-webfont.woff2" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bolditalic-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bolditalic-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bolditalic-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-bolditalic-webfont.woff2" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-italic-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-italic-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-italic-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-italic-webfont.woff2" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-light-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-light-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-light-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-light-webfont.woff2" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-lightitalic-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-lightitalic-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-lightitalic-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-lightitalic-webfont.woff2" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-regular-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-regular-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-regular-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-regular-webfont.woff2" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibold-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibold-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibold-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibold-webfont.woff2" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibolditalic-webfont.eot" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibolditalic-webfont.ttf" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibolditalic-webfont.woff" />
+    <Content Include="static\fonts\source_sans_pro\sourcesanspro-semibolditalic-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bold-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bold-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bold-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-bold-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-medium-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-medium-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-medium-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-medium-webfont.woff2" />
+    <Content Include="static\fonts\ubuntu\ubuntu-regular-webfont.eot" />
+    <Content Include="static\fonts\ubuntu\ubuntu-regular-webfont.ttf" />
+    <Content Include="static\fonts\ubuntu\ubuntu-regular-webfont.woff" />
+    <Content Include="static\fonts\ubuntu\ubuntu-regular-webfont.woff2" />
+    <Content Include="static\scss\app.scss" />
+    <Content Include="static\scss\home.scss" />
+    <Content Include="static\scss\modules\content.scss" />
+    <Content Include="static\scss\modules\error.scss" />
+    <Content Include="static\scss\modules\form.scss" />
+    <Content Include="static\scss\modules\home.scss" />
+    <Content Include="static\scss\modules\profile.scss" />
+    <Content Include="static\scss\modules\transaction.scss" />
+    <Content Include="static\scss\partials\autocomplete.scss" />
+    <Content Include="static\scss\partials\buttons.scss" />
+    <Content Include="static\scss\partials\form-elements.scss" />
+    <Content Include="static\scss\partials\icons.scss" />
+    <Content Include="static\scss\partials\offcanvas.scss" />
+    <Content Include="static\scss\partials\panels.scss" />
+    <Content Include="static\scss\partials\top-bar.scss" />
+    <Content Include="static\scss\_settings.scss" />
+    <Content Include="Views\Main\Clubs.cshtml" />
+    <Content Include="Views\Main\Partners.cshtml" />
+    <Content Include="Views\Transaction\Index.cshtml" />
+    <Content Include="Views\Transaction\_history.cshtml" />
+    <Content Include="Views\Shared\admin\_Layout.cshtml" />
+    <Content Include="Views\TemplateEmail\ResetPasswordTemplate.cshtml" />
+    <Content Include="Views\Transaction\Invoice.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="avatars\" />
+    <Folder Include="static\images\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GoPlay\GoPlay.Core\GoPlay.Core.csproj">
+      <Project>{7ec3e27a-0ac8-4be3-aa27-9710195e114c}</Project>
+      <Name>GoPlay.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GoPlay\GoPlay.Models\GoPlay.Models.csproj">
+      <Project>{0db27e0e-14af-4901-acbe-f1e1f23e3a65}</Project>
+      <Name>GoPlay.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\GToken.Core\Platform.Core.csproj">
+      <Project>{54922c4b-5bfd-4b54-9ae4-7701d95f7fcb}</Project>
+      <Name>Platform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\GToken.Models\Platform.Models.csproj">
+      <Project>{a1738637-605c-4b46-bc5c-b379a09823f7}</Project>
+      <Name>Platform.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\GToken.Utility\Platform.Utility.csproj">
+      <Project>{0da1defb-0e51-4148-92c6-13bf0453636f}</Project>
+      <Name>Platform.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{2b50e417-72b9-45e1-a434-237f0267f018}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4489</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4471/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\..\Project-All\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\..\Project-All\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Tentang</value>
+  </data>
+  <data name="Awesome_games_supported" xml:space="preserve">
+    <value>MENDUKUNG PERMAINAN-PERMAINAN YANG LUAR BIASA</value>
+  </data>
+  <data name="A_better_way" xml:space="preserve">
+    <value>Sebuah cara yang lebih baik</value>
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value>Kelab</value>
+  </data>
+  <data name="Dedicated_staffs_to_provide_assistance" xml:space="preserve">
+    <value>Kakitangan berdedikasi untuk memberikan sokongan. Memerlukan sokongan teknikal atau rakan untuk bermain dengannya? Kami berada di sini untuk anda!</value>
+  </data>
+  <data name="Discover_fun_unique" xml:space="preserve">
+    <value>Temukan permainan-permainan yang menyenangkan, unik, dan inovatif dari para pengembang terkenal dan pendatang!</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Permainan</value>
+  </data>
+  <data name="Introducing_GToken" xml:space="preserve">
+    <value>Memperkenalkan GToken</value>
+  </data>
+  <data name="It_transferable" xml:space="preserve">
+    <value>Ia boleh dipindahkan</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Log masuk</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>Berita</value>
+  </data>
+  <data name="Share_PlayToken_Token_with_your_friends" xml:space="preserve">
+    <value>Share Play Token with your friends and loved ones, and empower them with the freedom to upgrade whichever games they like to play ♥</value>
+  </data>
+  <data name="Signup" xml:space="preserve">
+    <value>Mendaftar</value>
+  </data>
+  <data name="Simply_because" xml:space="preserve">
+    <value>Karena...</value>
+  </data>
+  <data name="Stay_supported" xml:space="preserve">
+    <value>Sokongan berterusan</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>DUKUNGAN</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Syarat-syarat</value>
+  </data>
+  <data name="to_enhance_your_gaming_experience" xml:space="preserve">
+    <value>untuk meningkatkan pengalaman bermain Anda</value>
+  </data>
+  <data name="Why_choose_GToken" xml:space="preserve">
+    <value>Mengapa memilih ?</value>
+  </data>
+  <data name="Get_more_with_GToken" xml:space="preserve">
+    <value>Dapatkan lebih banyak dengan GToken</value>
+  </data>
+  <data name="Get_special_deals_best_price" xml:space="preserve">
+    <value>Get special deals, best price for in-game items and exclusive content only available to our GToken members.</value>
+  </data>
+  <data name="Register_your_account_now" xml:space="preserve">
+    <value>Daftar akaun anda sekarang untuk mendapatkan Play Token percuma dan mula bermain hari ini!</value>
+  </data>
+  <data name="A_Gateway_to_Play" xml:space="preserve">
+    <value>Get Laluan untuk Bermain</value>
+  </data>
+  <data name="Home_page" xml:space="preserve">
+    <value>Halaman depan</value>
+  </data>
+  <data name="We_hope_to_bring_happiness" xml:space="preserve">
+    <value>Kami berharap dapat membawa kegembiraan dan berkongsi keseronokan dengan anda</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Available_from_Mon_Fri_11am_to_7pm" xml:space="preserve">
+    <value>Tersedia dari Isn - Jum, 11pagi hingga 7malam.</value>
+  </data>
+  <data name="Call_our_support_agent" xml:space="preserve">
+    <value>Hubungan ejen sokongan kami dan dapatkan jawapan anda dengan segera.</value>
+  </data>
+  <data name="Easy_simple_no_credit_card" xml:space="preserve">
+    <value>Mudah &amp; sederhana, tidak diperlukan kartu kredit</value>
+  </data>
+  <data name="PlayToken_Token_is_a_digital_currency_platform" xml:space="preserve">
+    <value>PlayToken ialah platform mata wang digital untuk permainan mudah alih yang memberikan pilihan lebih hebat, mudah dan ringkas untuk pelanggan kami dalam semua perkara yang kami lakukan. Kami mencari permainan yang popular dan berkualiti untuk diperkenalkan kepada pengguna kami. Kami memberi ganjaran kepada pengguna kami yang mencapai status VIP dengan ganjaran kesetiaan, yang boleh digunakan untuk menebus item eksklusif dan edisi terhad untuk permainan yang anda mainkan.</value>
+  </data>
+  <data name="GToken_is_a_gateway_to_play" xml:space="preserve">
+    <value>GToken is a gateway to play: when you play, you get happiness. We hope to bring happiness and share the joy with your friends and loved ones when you play with us.</value>
+  </data>
+  <data name="Need_Immediate_Help" xml:space="preserve">
+    <value>Memerlukan Bantuan Segera?</value>
+  </data>
+  <data name="Our_customer_support_team" xml:space="preserve">
+    <value>Tim dukungan pelanggan kami dengan senang hati akan menjawab pertanyaan-pertanyaan Anda</value>
+  </data>
+  <data name="Phone_Call" xml:space="preserve">
+    <value>Panggilan Telefon</value>
+  </data>
+  <data name="Send_Us_A_Message" xml:space="preserve">
+    <value>Hantar Mesej Kepada Kami</value>
+  </data>
+  <data name="Skype" xml:space="preserve">
+    <value>Skype</value>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>Subjek</value>
+  </data>
+  <data name="We_provide_our_undivided_attention" xml:space="preserve">
+    <value>Kami memberikan perhatian dan sokongan tidak berbelah bagi kepada pengguna kami yang memerlukan bantuan dan perhatian, berkenaan isu teknikal, memberi nasihat tentang bagaimana hendak melepasi tahap yang anda terperangkap di dalamnya atau juga teman permainan apabila anda mahu mencari seseorang yang anda boleh bermain dengannya. PlayToken ialah get laluan untuk bermain: apabila anda bermain, anda mendapat kegembiraan. Kami berharap untuk membawa kegembiraan dan  berkongsi keseronokan dengan rakan-rakan anda dan yang tersayang apabila anda bermain bersama-sama kami.</value>
+  </data>
+  <data name="We_will_get_back_to_you_shortly" xml:space="preserve">
+    <value>Kami akan menghubungi anda tidak lama lagi.</value>
+  </data>
+  <data name="What_On_Your_Mind" xml:space="preserve">
+    <value>Apakah Yang Ada Dalam Pikiran Anda ?</value>
+  </data>
+  <data name="WHAT_YOUR_ISSUE_ABOUT" xml:space="preserve">
+    <value>Apakah Isu Yang Anda Hadapi?</value>
+  </data>
+  <data name="WHICH_GAME_TROUBLES_YOU" xml:space="preserve">
+    <value>Permainan Manakah Yang Menyusahkan Anda?</value>
+  </data>
+  <data name="Why_choose_GToken1" xml:space="preserve">
+    <value>Mengapa memilih ?</value>
+  </data>
+  <data name="YOUR_CURRENT_OS" xml:space="preserve">
+    <value>OS semasa anda?</value>
+  </data>
+  <data name="Your_device_model" xml:space="preserve">
+    <value>Model peranti anda</value>
+  </data>
+  <data name="Your_email" xml:space="preserve">
+    <value>E-mel Anda</value>
+  </data>
+  <data name="Your_email1" xml:space="preserve">
+    <value>surel Anda</value>
+  </data>
+  <data name="Your_message" xml:space="preserve">
+    <value>Mesej Anda</value>
+  </data>
+  <data name="Your_name" xml:space="preserve">
+    <value>Nama Anda</value>
+  </data>
+  <data name="Dont_have_an_account" xml:space="preserve">
+    <value>Tidak memiliki akun?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Forgot_Password" xml:space="preserve">
+    <value>Lupa Kata Sandi ?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Kata Laluan</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>Ingat saya</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Sign_up_get_1_free" xml:space="preserve">
+    <value>Mendaftarlah dan dapatkan 1 gratis</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Nama pengguna</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Admin_Panel" xml:space="preserve">
+    <value>Panel Pentadbir</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amaun</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Baki</value>
+  </data>
+  <data name="Basic_Info" xml:space="preserve">
+    <value>Maklumat Asas</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>Menukar</value>
+  </data>
+  <data name="characters_left" xml:space="preserve">
+    <value>{0} baki aksara</value>
+  </data>
+  <data name="Come_and_hangout_with_us" xml:space="preserve">
+    <value>Marilah melepak bersama kami!</value>
+  </data>
+  <data name="Coming_Soon" xml:space="preserve">
+    <value>Akan datang</value>
+  </data>
+  <data name="Coming_soon_encourage" xml:space="preserve">
+    <value>Don't miss any of our exciting new releases</value>
+  </data>
+  <data name="Company_Address" xml:space="preserve">
+    <value>Alamat Syarikat</value>
+  </data>
+  <data name="Content_Rating" xml:space="preserve">
+    <value>Penarafan Kandungan</value>
+  </data>
+  <data name="Current_Version" xml:space="preserve">
+    <value>Versi Semasa</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Penerangan</value>
+  </data>
+  <data name="Discover_new_best_releases" xml:space="preserve">
+    <value>Ketahui keluaran baharu yang terbaik</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Muat Turun</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="Edit_Profile" xml:space="preserve">
+    <value>Edit Profil</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-mel</value>
+  </data>
+  <data name="Exchange" xml:space="preserve">
+    <value>Menukar</value>
+  </data>
+  <data name="Exchange_your_PlayToken_for_in_game" xml:space="preserve">
+    <value>Menukar PlayToken anda untuk item dalam permainan dan seronok bermain</value>
+  </data>
+  <data name="FEATURED_GAMES" xml:space="preserve">
+    <value>Permainan Cetera</value>
+  </data>
+  <data name="Free_Play_Token" xml:space="preserve">
+    <value>Play Token Percuma</value>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Rakan-rakan</value>
+  </data>
+  <data name="Game_About" xml:space="preserve">
+    <value>Permainan Mengenai</value>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="Getting_Started" xml:space="preserve">
+    <value>Bermula</value>
+  </data>
+  <data name="Get_more_PlayToken_and_exchange_in_game" xml:space="preserve">
+    <value>Dapatkan lebih PlayToken dan menukar item dalam permainan untuk kadar lebih baik</value>
+  </data>
+  <data name="Get_more_with_PlayToken" xml:space="preserve">
+    <value>Dapatkan lebih dengan PlayToken</value>
+  </data>
+  <data name="Get_special_deals" xml:space="preserve">
+    <value>Dapatkan tawaran istimewa, harga terbaik untuk item dalam permainan dan kandungan eksklusif hanya tersedia untuk ahli PlayToken kami.</value>
+  </data>
+  <data name="GToken_believes_that_gaming_is_about_connecting_people" xml:space="preserve">
+    <value>Gtoken percaya bahawa permainan adalah tentang menghubungkan orang dan berseronok, oleh itu kami sendiri komited untuk membina kelab gaya hidup di seluruh SEA yang bebas digunakan untuk ahli kami dan rakan-rakan, di mana mereka boleh melepak bersama-sama orang yang sehaluan, bersambung ke wifi internet berkelajuan tinggi, menikmati kesegaran yang bebas ketika bermain permainan dan bersantai dalam persekitaran yang sesuai.</value>
+  </data>
+  <data name="GToken_Clubs" xml:space="preserve">
+    <value>Kelab GToken</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Invois</value>
+  </data>
+  <data name="Join_Date" xml:space="preserve">
+    <value>Tarikh Sertai</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Lokasi</value>
+  </data>
+  <data name="Log_Out" xml:space="preserve">
+    <value>Log Keluar</value>
+  </data>
+  <data name="Malaysia" xml:space="preserve">
+    <value>Malaysia</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="More_detail" xml:space="preserve">
+    <value>Lebih Butiran</value>
+  </data>
+  <data name="people" xml:space="preserve">
+    <value>orang</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>Platform</value>
+  </data>
+  <data name="Play_Token" xml:space="preserve">
+    <value>Play Token</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Referee" xml:space="preserve">
+    <value>Si-dirujuk</value>
+  </data>
+  <data name="Referral_Link" xml:space="preserve">
+    <value>Pautan Rujukan</value>
+  </data>
+  <data name="Release" xml:space="preserve">
+    <value>Terbitan</value>
+  </data>
+  <data name="Release_Date" xml:space="preserve">
+    <value>Tarikh Terbitan</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Simpan</value>
+  </data>
+  <data name="Search_games" xml:space="preserve">
+    <value>Cari permainan...</value>
+  </data>
+  <data name="See_all" xml:space="preserve">
+    <value>Lihat semua</value>
+  </data>
+  <data name="Share_Play_Token" xml:space="preserve">
+    <value>Berkongsi Play Token dengan rakan-rakan anda dan yang tersayang serta memberi kuasa kepada mereka dengan kebebasan untuk menaik taraf mana-mana permainan yang mereka ingin mainkan</value>
+  </data>
+  <data name="show" xml:space="preserve">
+    <value>tunjukkan</value>
+  </data>
+  <data name="Singapore" xml:space="preserve">
+    <value>Singapura</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Saiz</value>
+  </data>
+  <data name="Something_you_might_want_to_do" xml:space="preserve">
+    <value>Sesuatu yang mungkin anda mahu lakukan</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Masa</value>
+  </data>
+  <data name="Top_Up" xml:space="preserve">
+    <value>Tambah nilai</value>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>Transaksi</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transaksi</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Pindahkan</value>
+  </data>
+  <data name="Transfer_PlayToken_to_your_friends" xml:space="preserve">
+    <value>Pindahkan PlayToken kepada rakan-rakan anda dan nikmati keseronokan bersama</value>
+  </data>
+  <data name="Unfriend" xml:space="preserve">
+    <value>Tidak menjadi rakan</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Dikemas Kini</value>
+  </data>
+  <data name="Update_in_Latest_Version" xml:space="preserve">
+    <value>Kemas Kini dalam Versi Terkini</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Selamat datang</value>
+  </data>
+  <data name="Where_you_share_Happiness_playing_Together" xml:space="preserve">
+    <value>Di mana anda berkongsi Kegembiraan bermain Bersama</value>
+  </data>
+  <data name="Why_choose_PlayToken" xml:space="preserve">
+    <value>Kenapa memilih PlayToken</value>
+  </data>
+  <data name="Write_your_short_bio_here" xml:space="preserve">
+    <value>Catatkan biodata ringkas anda di sini...</value>
+  </data>
+  <data name="Your_Country" xml:space="preserve">
+    <value>Negara Anda</value>
+  </data>
+  <data name="Your_Nickname" xml:space="preserve">
+    <value>Nama Samaran Anda</value>
+  </data>
+  <data name="Your_Short_Bio" xml:space="preserve">
+    <value>Biodata Ringkas Anda</value>
+  </data>
+  <data name="Your_wallet_balance" xml:space="preserve">
+    <value>Baki dompet anda</value>
+  </data>
+  <data name="Games_that_GToken_distributes" xml:space="preserve">
+    <value>Permainan yang GToken edarkan</value>
+  </data>
+  <data name="Game_version" xml:space="preserve">
+    <value>Versi permainan</value>
+  </data>
+  <data name="Get_to_know_more_about_us" xml:space="preserve">
+    <value>Ingin mengetahui lebih lanjut mengenai kami</value>
+  </data>
+  <data name="PlayToken_News" xml:space="preserve">
+    <value>Berita PlayToken</value>
+  </data>
+  <data name="GToken_website" xml:space="preserve">
+    <value>Laman web GToken</value>
+  </data>
+  <data name="OS_version" xml:space="preserve">
+    <value>Versi OS</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>Pilih</value>
+  </data>
+  <data name="Select_game" xml:space="preserve">
+    <value>Pilih permainan</value>
+  </data>
+  <data name="Send_Message" xml:space="preserve">
+    <value>Hantar Mesej</value>
+  </data>
+  <data name="Write_your_message_here" xml:space="preserve">
+    <value>Tulis mesej anda di sini…</value>
+  </data>
+  <data name="This_PlayToken_account_is_linked_to_another_Facebook_account" xml:space="preserve">
+    <value>This PlayToken account is linked to another Facebook account.</value>
+  </data>
+  <data name="After_this_there_is_no_turning_back" xml:space="preserve">
+    <value>Selepas ini, tiada boleh berpatah balik.</value>
+  </data>
+  <data name="All_Games" xml:space="preserve">
+    <value>Semua Permainan</value>
+  </data>
+  <data name="All_Genres" xml:space="preserve">
+    <value>Semua Genre</value>
+  </data>
+  <data name="All_Platforms" xml:space="preserve">
+    <value>Semua Platform</value>
+  </data>
+  <data name="Back_to_Profile_page" xml:space="preserve">
+    <value>Kembali ke halaman Profi</value>
+  </data>
+  <data name="Changed_your_mind" xml:space="preserve">
+    <value>Ubah fikir anda?</value>
+  </data>
+  <data name="Change_your_email" xml:space="preserve">
+    <value>Ubah e-mel anda</value>
+  </data>
+  <data name="Change_your_password" xml:space="preserve">
+    <value>Ubah kata laluan anda</value>
+  </data>
+  <data name="Confirm_new_password" xml:space="preserve">
+    <value>Sahkan kata laluan baharu</value>
+  </data>
+  <data name="Games_List" xml:space="preserve">
+    <value>Senarai Permainan</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Utama</value>
+  </data>
+  <data name="Login_PlayToken" xml:space="preserve">
+    <value>Log masuk PlayToken</value>
+  </data>
+  <data name="My_profile" xml:space="preserve">
+    <value>Profil saya</value>
+  </data>
+  <data name="My_Transactions" xml:space="preserve">
+    <value>Transaksi Saya</value>
+  </data>
+  <data name="New_password" xml:space="preserve">
+    <value>Kata laluan baharu</value>
+  </data>
+  <data name="Old_password" xml:space="preserve">
+    <value>Kata laluan lama</value>
+  </data>
+  <data name="retype_email" xml:space="preserve">
+    <value>Taip semula e-mel</value>
+  </data>
+  <data name="There_no_games_found" xml:space="preserve">
+    <value>Tiada permainan ditemu</value>
+  </data>
+  <data name="Your_new_email" xml:space="preserve">
+    <value>E-mel baharu anda</value>
+  </data>
+  <data name="Your_password" xml:space="preserve">
+    <value>Kata laluan anda</value>
+  </data>
+  <data name="Already_a_member" xml:space="preserve">
+    <value>Telah menjadi ahli?</value>
+  </data>
+  <data name="country" xml:space="preserve">
+    <value>Negara</value>
+  </data>
+  <data name="I_agree_to_PlayToken" xml:space="preserve">
+    <value>Saya bersetuju dengan {0} PlayToken</value>
+  </data>
+  <data name="ReferralId_Optional" xml:space="preserve">
+    <value>ID Rujukan (Pilihan)</value>
+  </data>
+  <data name="Terms_of_Service" xml:space="preserve">
+    <value>Terma Perkhidmatan</value>
+  </data>
+  <data name="Issue_Date" xml:space="preserve">
+    <value>Tarikh Isu</value>
+  </data>
+  <data name="Item_Name" xml:space="preserve">
+    <value>Nama Item</value>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>Pembayar</value>
+  </data>
+  <data name="Payment_Mode" xml:space="preserve">
+    <value>Mod Bayaran</value>
+  </data>
+  <data name="Select_your_payment_method" xml:space="preserve">
+    <value>Pilih kaedah bayaran anda</value>
+  </data>
+  <data name="Top_Up_Card" xml:space="preserve">
+    <value>Kad Tambah Nila</value>
+  </data>
+  <data name="Top_Up_Play_Token" xml:space="preserve">
+    <value>Tambah Nilai {0}</value>
+  </data>
+  <data name="Card_Number" xml:space="preserve">
+    <value>Nomor Kartu</value>
+  </data>
+  <data name="Card_Number_Password_combination_does_not_match" xml:space="preserve">
+    <value>Kombinasi Nombor Kad/Kata Laluan tidak sepadan</value>
+  </data>
+  <data name="Card_Password" xml:space="preserve">
+    <value>Kata Laluan Kad</value>
+  </data>
+  <data name="Confirm_email_does_not_match" xml:space="preserve">
+    <value>Sahkan e-mel tidak sepadan</value>
+  </data>
+  <data name="Confirm_password_does_not_match" xml:space="preserve">
+    <value>Sahkan kata laluan tidak sepadan</value>
+  </data>
+  <data name="Exchanged_successfully" xml:space="preserve">
+    <value>Pertukaran berjaya.</value>
+  </data>
+  <data name="For_Play_For_Happiness_For_People" xml:space="preserve">
+    <value>Untuk Bermain Untuk Kegembiraan Untuk Orang</value>
+  </data>
+  <data name="if_you_have_any_questions" xml:space="preserve">
+    <value>jika anda mempunyai sebarang soalan atau kemusykilan. Sila pastikan untuk memajukan e-mel ini juga untuk mempercepat pemprosesan permintaan anda.</value>
+  </data>
+  <data name="Incorrect_password_Please_try_again" xml:space="preserve">
+    <value>Kata laluan tidak betul. Sila cuba lagi.</value>
+  </data>
+  <data name="Invalid_email_address" xml:space="preserve">
+    <value>Alamat e-mel tidak sah</value>
+  </data>
+  <data name="Item_Price" xml:space="preserve">
+    <value>Harga Item</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nama</value>
+  </data>
+  <data name="No_invoice_available_for_you" xml:space="preserve">
+    <value>Tiada invois tersedia untuk anda!</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="Password_must_be_more_than_characters" xml:space="preserve">
+    <value>Kata laluan mesti lebih daripada 3 aksara</value>
+  </data>
+  <data name="Please_kindly_contact" xml:space="preserve">
+    <value>Sila hubungi</value>
+  </data>
+  <data name="Referral_Code_does_not_exist" xml:space="preserve">
+    <value>Kod Rujukan tidak wujud</value>
+  </data>
+  <data name="Thank_You" xml:space="preserve">
+    <value>Terima Kasih!</value>
+  </data>
+  <data name="The_card_has_already_been_used" xml:space="preserve">
+    <value>Kad telah digunakan</value>
+  </data>
+  <data name="The_card_has_already_expired" xml:space="preserve">
+    <value>Kad telah tamat tempoh</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Free_Play_Token" xml:space="preserve">
+    <value>Pertukaran ini akan dikenakan kos sebanyak {0} Play Token Percuma.</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Free_Play_Token_and_Play_Token" xml:space="preserve">
+    <value>Penukaran ini akan dikenakan {0} Token Free Play dan {1} Token Play.</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Play_Token" xml:space="preserve">
+    <value>Pertukaran ini akan dikenakan kos sebanyak {0} Play Token.</value>
+  </data>
+  <data name="This_username_is_already_taken" xml:space="preserve">
+    <value>Nama pengguna ini telah diambil</value>
+  </data>
+  <data name="Total_Play_Token" xml:space="preserve">
+    <value>Jumlah Play Token</value>
+  </data>
+  <data name="Total_Price" xml:space="preserve">
+    <value>Jumlah Harga</value>
+  </data>
+  <data name="Transaction_ID" xml:space="preserve">
+    <value>ID Transaksi</value>
+  </data>
+  <data name="Username_can_only_contain_letters_numbers" xml:space="preserve">
+    <value>Nama pengguna hanya boleh mengandungi huruf, nombor, _, - dan .</value>
+  </data>
+  <data name="Username_is_between_characters" xml:space="preserve">
+    <value>Nama pengguna adalah antara 3-20 aksara</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>Username is required</value>
+  </data>
+  <data name="You_topped_up_Free_Play_Token" xml:space="preserve">
+    <value>Anda telah menambah {0} Play Token Percuma</value>
+  </data>
+  <data name="You_topped_up_Play_Token" xml:space="preserve">
+    <value>Anda telah menambah {0} Play Token</value>
+  </data>
+  <data name="Hang_on_Our_server_is_crunching_your_order" xml:space="preserve">
+    <value>Tunggu sebentar! Pelayan kami sedang memproses pesanan anda!</value>
+  </data>
+  <data name="Input_play_token_number" xml:space="preserve">
+    <value>masukkan nombor Play Token</value>
+  </data>
+  <data name="Transfer_play_token_to" xml:space="preserve">
+    <value>Pindahkan Play Token kepada...</value>
+  </data>
+  <data name="PlayToken_and_You" xml:space="preserve">
+    <value>1. PlayToken dan Anda</value>
+  </data>
+  <data name="User_agreement" xml:space="preserve">
+    <value>Perjanjian Pengguna</value>
+  </data>
+  <data name="User_agreement_description" xml:space="preserve">
+    <value>Perjanjian ini ialah kontrak antara anda dengan PlayToken dan diguna pakai untuk penggunaan Perkhidmatan PlayToken anda. Anda mesti membaca, bersetuju dengannya dan menerima semua terma dan syarat yang terkandung dalam Perjanjian ini. Kami boleh meminda Perjanjian ini pada bila-bila masa dengan menyiarkan versi yang disemak semula pada laman web kami. Versi yang disemak semula akan berkuat kuasa pada masa kami menyiarkannya. Kali terakhir kami mengubah suai Perjanjian ini adalah pada 24 Mac 2015.</value>
+  </data>
+  <data name="Assignment" xml:space="preserve">
+    <value>1.3 Penyerahan Hak.</value>
+  </data>
+  <data name="Assignment_description" xml:space="preserve">
+    <value>Anda tidak boleh memindahkan atau menyerahkan sebarang hak atau tanggungan yang anda miliki di bawah Perjanjian ini tanpa persetujuan bertulis daripada PlayToken terlebih dahulu. PlayToken berhak memindahkan atau menyerahkan hak Perjanjian ini atau sebarang hak atau tanggungan di bawah Perjanjian ini pada bila-bila masa.</value>
+  </data>
+  <data name="Eligibility_and_Verification" xml:space="preserve">
+    <value>2. Kelayakan dan Penentusahan</value>
+  </data>
+  <data name="Eligibility_and_Verification_description" xml:space="preserve">
+    <value>Anda membenarkan PlayToken, secara terus atau melalui pihak ketiga, untuk membuat sebarang pertanyaan yang kami anggap perlu untuk mengesahkan identiti anda. Ini mungkin termasuk meminta maklumat lanjut daripada anda, memerlukan anda untuk mengambil langkah bagi mengesahkan pemilikan alamat e-mel anda dan menentusahkan Maklumat anda terhadap pangkalan data pihak ketiga atau melalui sumber lain.</value>
+  </data>
+  <data name="PlayToken_is_only_a_Payment_Service_Provider" xml:space="preserve">
+    <value>1.1 PlayToken hanya Pembekal Perkhidmatan Bayaran.</value>
+  </data>
+  <data name="PlayToken_is_only_a_Payment_Service_Provider_description" xml:space="preserve">
+    <value>PlayToken membantu anda membuat bayaran kepada dan menerima bayaran dari pihak ketiga. PlayToken ialah kontraktor bebas untuk semua tujuan kecuali PlayToken bertindak sebagai ejen anda hanya yang sehubungan dengan penjagaan Play Token maya anda. PlayToken tidak mempunyai kawalan atau iabiliti terhadap produk atau perkhidmatan yang dibayar dengan Perkhidmatan kami. Kami tidak menjamin identiti mana-mana Pengguna atau memastikan bahawa pembeli atau penjual akan melengkapkan transaksi.</value>
+  </data>
+  <data name="Intellectual_Property" xml:space="preserve">
+    <value>1.2 Harta Intelektual.</value>
+  </data>
+  <data name="Intellectual_Property_description" xml:space="preserve">
+    <value>"PlayToken.com", "PlayToken", dan semua logo, produk dan perkhidmatan berkaitan yang diterangkan dalam laman web kami ialah sama ada tanda dagang atau tanda dagang berdaftar PlayToken. Anda tidak boleh menyalin, meniru atau menggunakannya tanpa persetujuan bertulis daripada PlayToken terlebih dahulu. Selain itu, semua pengepala halaman, grafik tersuai, ikon butang dan skrip adalah tanda perkhidmatan, tanda dagang dan/atau hiasan dagang PlayToken. Anda tidak boleh meminda, mengubah suai atau mengubah logo HTML ini dalam apa jua cara, menggunakannya dengan cara yang mengecil-ngecilkan PlayToken atau Perkhidmatan atau memaparkannya dalam apa jua cara yang menandakan penajaan atau sokongan PlayToken.</value>
+  </data>
+  <data name="Notices_to_You" xml:space="preserve">
+    <value>1.4 Notis untuk Anda.</value>
+  </data>
+  <data name="Notices_to_You_description" xml:space="preserve">
+    <value>Anda bersetuju bahawa PlayToken boleh memberi notis kepada anda dengan menyiarkannya pada laman web kami atau menghantarnya melalui e-mel ke alamat e-mel yang tersenarai dalam Profil PlayToken anda. PlayToken berhak menutup akaun PlayToken anda jika anda menarik balik persetujuan anda untuk menerima komunikasi elektronik.</value>
+  </data>
+  <data name="Privacy_of_Others" xml:space="preserve">
+    <value>1.6 Privasi Orang Lain.</value>
+  </data>
+  <data name="Privacy_of_Others_description" xml:space="preserve">
+    <value>Jika anda menerima maklumat mengenai pengguna PlayToken lain melalui Perkhidmatan, anda mesti memastikan Maklumat tersebut sulit dan hanya menggunakannya untuk Perkhidmatan. Anda tidak boleh mendedahkan atau mengedarkan Maklumat Pengguna PlayToken kepada pihak ketiga atau menggunakan Maklumat tersebut untuk tujuan pemasaran melainkan anda menerima persetujuan yang nyata daripada Pengguna untuk berbuat demikian.</value>
+  </data>
+  <data name="Using_Play_Tokens" xml:space="preserve">
+    <value>3.3. Pembelian menggunakan Play Token.</value>
+  </data>
+  <data name="Your_Privacy" xml:space="preserve">
+    <value>1.5 Privasi Anda.</value>
+  </data>
+  <data name="Your_Privacy_description" xml:space="preserve">
+    <value>Melindungi privasi anda adalah sangat penting bagi PlayToken. Sila semak semula Dasar Privasi kami untuk lebih memahami komitmen kami bagi memelihara privasi anda serta penggunaan dan pendedahan kami terhadap maklumat anda.</value>
+  </data>
+  <data name="Charging_of_Play_Tokens_to_your_PlayToken_account" xml:space="preserve">
+    <value>3.1 Mengecaj Play Token ke akaun PlayToken anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_of_Play_Tokens_to_your_PlayToken_account_description" xml:space="preserve">
+    <value>Pengguna yang mahu mengecaj Play Token mereka ke dalam akaun peribadi atau PlayToken yang dibenarkan dan didaftarkan telah dipatuhi oleh Perjanjian Pengguna. PlayToken tidak akan bertanggungjawab dan/atau melaksanakan pembetulan sekiranya kami menganggap bahawa Play Token dicaj telah secara salah atau dengan kesilapan yang timbul daripada salah guna semasa proses atau amalan mengenakan caj.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_Limits" xml:space="preserve">
+    <value>3.2 Had Mengecaj.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_Limits_description" xml:space="preserve">
+    <value>Kami boleh, mengikut budi bicara kami, mengenakan had amaun Play Token yang anda boleh caj ke dalam akaun PlayToken anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Purchasing_using_Play_Tokens" xml:space="preserve">
+    <value>3.3. Pembelian menggunakan Play Token.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Purchasing_using_Play_Tokens_description" xml:space="preserve">
+    <value>Bayaran atau transaksi kepada pedagang yang menyertai dan bergabung dengan PlayToken akan dilaksanakan sepenuhnya antara pemegang akaun PlayToken bagi akaun PlayToken dengan pedagang yang membuat transaksi. Bayaran dalam bentuk Play Token akan dipotong daripada akaun PlayToken Pengguna yang menyertai ketika dan apabila transaksi berjaya. Rujuk 3.4 sekiranya Transaksi ditolak.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Default_Transaction_Sources" xml:space="preserve">
+    <value>3.4 Sumber Transaksi Lalai.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Default_Transaction_Sources_description" xml:space="preserve">
+    <value>Apabila anda membuat bayaran, Play Token akan dipotong daripada akaun PlayToken berdaftar anda secara terus. Jika Play Token dalam akaun PlayToken anda tidak mencukupi, transaksi akan ditolak.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refused_Transaction" xml:space="preserve">
+    <value>3.5 Transaksi Ditolak.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refused_Transaction_description" xml:space="preserve">
+    <value>Apabila anda melaksanakan transaksi, penerima tidak diperlukan untuk menerimanya. Anda bersetuju bahawa anda tidak akan mempertanggungjawabkan PlayToken terhadap sebarang ganti rugi yang timbul daripada keputusan penerima untuk tidak menerima transaksi yang dibuat melalui Perkhidmatan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchant_Processing_Delay" xml:space="preserve">
+    <value>3.6 Penangguhan Pemprosesan Pedagang.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchant_Processing_Delay_description" xml:space="preserve">
+    <value>Apabila anda menghantar bayaran kepada pedagang tertentu, anda memberikan Kebenaran kepada pedagang tersebut untuk memproses bayaran anda dan melengkapkan transaksi. Bayaran akan dianggap belum selesai sehingga pedagang memproses bayaran anda. Sesetengah pedagang mungkin menangguhkan pemprosesan bayaran anda. Oleh yang demikian, Kebenaran anda akan kekal sah sehingga 30 hari.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken_account_Balances" xml:space="preserve">
+    <value>4. Baki akaun PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Balances" xml:space="preserve">
+    <value>4.1 Baki.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Balances_description" xml:space="preserve">
+    <value>Anda tidak perlu mengekalkan Baki dalam akaun PlayToken anda untuk memiliki akaun PlayToken. Jika terdapat Baki dalam akan PlayToken anda, ia akan tamat tempoh dalam 365 hari yang belum selesai pada tarikh ketika Play Token telah dibeli dan dicaj ke dalam akaun PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refund_Policy" xml:space="preserve">
+    <value>4.2 Dasar Bayaran Balik.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refund_Policy_description" xml:space="preserve">
+    <value>Semua baki yang tidak digunakan tidak boleh dibayar balik atau dikembalikan</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Closing_Your_PlayToken_account" xml:space="preserve">
+    <value>5. Menutup akaun PlayToken Anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="How_to_Close_Your_PlayToken_account" xml:space="preserve">
+    <value>5.1. Cara untuk Menutup akaun PlayToken Anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="How_to_Close_Your_PlayToken_account_description" xml:space="preserve">
+    <value>Selepas pendaftaran untuk akaun PlayToken, Pengguna tidak dibenarkan untuk menutup akaun PlayToken mereka. PlayToken akan menggunakan budi bicara dalam mengekalkan dan menyediakan maklumat akaun PlayToken untuk penyiasatan. Bagaimanapun, pengguna boleh membuat perubahan terhad terhadap butir-butir akaun PlayToken yang tidak bercanggah dengan Dasar Privasi dan Perjanjian Pengguna tertakluk pada kelulusan atas budi bicara PlayToken. "Sekiranya akaun PlayToken ditamatkan berdasarkan keadaan tertentu, Pengguna bagi akaun PlayToken yang ditamatkan akan terus bertanggungjawab terhadap semua tanggungan yang berkaitan dengan akaun PlayToken walaupun selepas ia ditutup.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Dormant_PlayToken_account" xml:space="preserve">
+    <value>5.2 Akaun PlayToken pendam.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Dormant_PlayToken_account_description" xml:space="preserve">
+    <value>PlayToken tidak akan menutup mana-mana akaun PlayToken pendam untuk tempoh yang tidak pasti. Play Token yang tinggal dalam Baki akan tamat dalam masa 365 hari yang belum selesai pada tarikh ketika Play Token telah dibeli dan dicaj ke dalam akaun PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Termination_of_PlayToken_account" xml:space="preserve">
+    <value>5.3. Menamatkan akaun PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Termination_of_PlayToken_account_description" xml:space="preserve">
+    <value>Sekiranya akaun PlayToken ditamatkan selaras dengan klausa 5.1, 6, 7, Play Token yang diberikan kepada pihak yang terlibat, Pengguna atau pihak ketika tidak akan dibayar balik.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities" xml:space="preserve">
+    <value>6. Aktiviti Terbatas.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description" xml:space="preserve">
+    <value>Aktiviti Terbatas. Berkaitan dengan penggunaan anda terhadap laman web kami, akaun PlayToken anda atau Perkhidmatan atau untuk interaksi anda dengan PlayToken, Pengguna atau pihak ketiga, anda tidak akan:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_a" xml:space="preserve">
+    <value>(a) Melanggar Perjanjian ini, Perjanjian Pengguna dan sebarang Perjanjian lain yang telah anda buat dengan PlayToken (termasuk Dasar);</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_b" xml:space="preserve">
+    <value>(b) Melanggar sebarang undang-undang, statut, ordinan atau peraturan (sebagai contoh, mereka yang mentadbir perkhidmatan kewangan, perlindungan pelanggan, persaingan tidak adil, anti diskriminasi atau pengiklanan palsu);</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_c" xml:space="preserve">
+    <value>(c) Melanggar hak cipta, paten, tanda dagang, rahsia dagangan atau hak harta intelektual lain atau hak publisiti atau privasi bagi PlayToken atau mana-mana pihak ketiga;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_d" xml:space="preserve">
+    <value>(d) Bertindak dengan cara yang memfitnah, fitnah bertulis dagangan, ugutan dan gangguan yang menyalahi undang-undang;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_e" xml:space="preserve">
+    <value>(e) Memberikan Maklumat palsu, tidak tepat atau mengelirukan;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_f" xml:space="preserve">
+    <value>(f) Menghantar atau menerima apa yang kami percaya berkemungkinan dana yang berunsur penipuan;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_g" xml:space="preserve">
+    <value>(g) Enggan bekerjasama dalam penyiasatan atau memberikan pengesahan identiti anda atau sebarang maklumat yang anda berikan kepada kami;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_h" xml:space="preserve">
+    <value>(h) Berusaha untuk "double dip" sepanjang berlakunya pertikaian dengan menerima atau percubaan untuk menerima dana dari kedua-dua PlayToken dan Pedagang untuk transaksi yang sama.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_i" xml:space="preserve">
+    <value>(i) Menggunakan proksi tanpa nama;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_j" xml:space="preserve">
+    <value>(j) Mengawal akaun PlayToken yang dikaitkan dengan akaun PlayToken lain yang pernah terlibat dalam mana-mana Aktiviti Terbatas ini.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_k" xml:space="preserve">
+    <value>(k) Menjalankan perniagaan anda atau menggunakan Perkhidmatan dengan cara yang menyebabkan atau akan menyebabkan aduan,</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_l" xml:space="preserve">
+    <value>(l) Menggunakan akaun PlayToken anda atau Perkhidmatan dengan cara yang PlayToken percaya sebagai penyalahgunaan sistem PlayToken atau pelanggaran E-Bayaran dan penyelesaian pengebilan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_m" xml:space="preserve">
+    <value>(m) Mengakses Perkhidmatan dari negara yang tidak termasuk dalam senarai negara yang dibenarkan oleh PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_n" xml:space="preserve">
+    <value>(n) Mendedahkan atau mengedarkan Maklumat Pengguna lain kepada pihak ketiga atau menggunakan Maklumat untuk tujuan pemasaran melainkan anda menerima persetujuan yang nyata daripada Penggunaan untuk berbuat demikian;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_o" xml:space="preserve">
+    <value>(o) Menghantar e-mel tanpa diminta kepada Pengguna atau menggunakan Perkhidmatan untuk mengutip bayaran kerana menghantar atau membantu penghantaran e-mel tanpa diminta kepada pihak ketiga;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_p" xml:space="preserve">
+    <value>(p) Mengambil sebarang tindakan yang menyebabkan beban besar yang tidak munasabah atau tidak seimbang kepada infrastruktur kami;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_q" xml:space="preserve">
+    <value>(q) Memudahkan sebarang virus, Kuda Trojan, cecacing atau rutin pengaturcaraan komputer lain yang boleh merosakkan, memudaratkan, mengganggu, memintas atau mencuri sebarang sistem, data atau Maklumat secara curi-curi;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_r" xml:space="preserve">
+    <value>(r) Menggunakan sebarang robot, lelabah, peranti automatik lain atau proses manual untuk memantau atau menyalin laman web kami tanpa keizinan bertulis kami terlebih dahulu;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_s" xml:space="preserve">
+    <value>(s) Menggunakan sebarang peranti, perisian atau rutin untuk memintas pengepala pengecualian robot kami atau mengganggu atau berusaha untuk mengganggu laman web atau Perkhidmatan kami;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_t" xml:space="preserve">
+    <value>(t) Mengambil sebarang tindakan yang boleh menyebabkan kehilangan sebarang perkhidmatan daripada pembekal perkhidmatan internet kami, pemproses bayaran atau pembekal lain.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers" xml:space="preserve">
+    <value>7. Penafian Liabiliti</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_1" xml:space="preserve">
+    <value>7.1 Bahan yang terkandung dalam Laman Web ini, (termasuk teks, imej, grafik, pautan, fail bunyi, fail animasi, fail video atau item lain dan pengaturannya) disediakan "sebagai seadanya", "sebagai tersedia". PlayToken tidak memberi jaminan terhadap ketepatan, kecukupan dan kesempurnaan Bahan-bahan ini.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_2" xml:space="preserve">
+    <value>7.2 Tiada sebarang jenis waranti, tersirat, tersurat atau statutori, termasuk tetapi tidak terhad kepada waranti bukan pelanggaran hak pihak ketiga, hak milik, kualiti memuaskan, kebolehdagangan, kesesuaian untuk sebarang tujuan tertentu dan kebebasan daripada sebarang virus komputer atau niat jahat yang lain, kod, atur cara atau macro yang merosakkan, diberikan sehubungan dengan maklumat dan bahan yang terkandung di dalam atau berkaitan dengan PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_3" xml:space="preserve">
+    <value>7.3 PlayToken boleh menyertakan penerbitan dengan ketidaktepatan teknikal atau ralat tipografi yang akan dibetulkan sepertimana yang ditemui di atas budi bicara PlayToken. Perubahan secara berkala juga ditambah pada bahan yang terkandung di dalam ini. Pembetulan dan perubahan ini boleh digabungkan ke dalam Laman Web pada tarikh yang kemudian. PlayToken boleh membuat pengubahsuaian, penambahbaikan dan.atau perubahan pada bila-bila masa terhadap Terma dan Syarat serta bahan (nama, imej, gambar, logo dan ikon) yang dipaparkan pada Laman Web atau produk dan perkhidmatan yang dirujuk di dalam, dengan atau tanpa notis. Khidmat nasihat yang diterima melalui Laman Web ini tidak sepatutnya bergantung pada keputusan peribadi, perundangan atau kewangan dan anda sepatutnya menghubungi profesional yang sesuai untuk khidmat nasihat tertentu yang sesuai dengan situasi anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4" xml:space="preserve">
+    <value>7.4 PlayToken tidak akan bertanggungjawab terhadap sebarang ganti rugi, kerugian atau perbelanjaan termasuk, tanpa had, kerugian khusus atau kerugian turutan atau kerugian ekonomi yang timbul daripada atau berkaitan dengan:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_a" xml:space="preserve">
+    <value>(a) sebarang akses, penggunaan, atau penangguhan atau ketidakmampuan untuk mengakses atau menggunakan Perkhidmatan PlayToken, atau bergantung pada Bahan dan/atau sebarang maklumat lain yang terkandung dan berkaitan dengan Perkhidmatan PlayToken;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_b" xml:space="preserve">
+    <value>(b) sebarang kegagalan sistem, pelayan atau sambungan, ralat, ketinggalan, gangguan, kelewatan transmisi atau kegagalan komputer;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_c" xml:space="preserve">
+    <value>(c) sebarang penggunaan atau akses kepada nama-mana laman web lain yang berkaitan dengan PlayToken.com ini;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_d" xml:space="preserve">
+    <value>(d) sebarang perkhidmatan, produk, maklumat, tarikh, perisian atau bahan lain yang diperoleh daripada PlayToken.com ini atau daripada mana-mana laman web yang berkaitan dengan Laman Web ini.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take" xml:space="preserve">
+    <value>8. Liabiliti Anda - Tindakan Kami Boleh Ambil.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1" xml:space="preserve">
+    <value>8.1 Tindakan oleh PlayToken. Jika anda terlibat dalam sebarang Aktiviti Terbatas, kami boleh mengambil pelbagai tindakan untuk melindungi PlayToken, Pengguna, pihak ketiga atau anda daripada Tuntutan, yuran, denda, penalti dan sebarang liabiliti lain. Tindakan yang boleh kami ambil termasuk tetapi tidak terhad pada yang berikut:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_a" xml:space="preserve">
+    <value>(a) Kami boleh menutup, menggantung atau mengehadkan akses anda kepada akaun PlayToken anda atau Perkhidmatan (seperti mengehadkan akses kepada mana-mana Play Token anda dan keupayaan anda untuk Mengecaj Play Token, membuat pembelian atau mengalih keluar maklumat peribadi);</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_b" xml:space="preserve">
+    <value>(b) Kami boleh mengemas kini maklumat tidak tepat yang anda berikan kami;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_c" xml:space="preserve">
+    <value>(c) Kami boleh menolak untuk memberikan Perkhidmatan kami kepada anda pada masa hadapan;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_d" xml:space="preserve">
+    <value>(d) Kami boleh mengambil tindakan undang-undang terhadap anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_2" xml:space="preserve">
+    <value>8.2 PlayToken, mengikut budi bicaranya, berhak menamatkan Perjanjian ini, akses kepada laman webnya atau akses kepada Perkhidmatan atas apa jua sebab.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_3" xml:space="preserve">
+    <value>8.3 Penutupan akaun PlayToken, Penamatan Perkhidmatan atau Akses akaun PlayToken Terhad. Jika kami menutup akaun PlayToken anda atau menamatkan penggunaan anda terhadap Perkhidmatan atas apa jua sebab, kami akan memberikan anda notis bagi tindakan kami. Jika kami mengehadkan akses kepada akaun PlayToken anda, kami akan memberikan anda notis bagi tindakan kami dan peluang untuk meminta pemulihan akses jika sesuai.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_and_Unauthorized_Transactions" xml:space="preserve">
+    <value>9. Ralat dan Transaksi Tidak Dibenarkan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.1. Mengenal Pasti Ralat dan/atau Transaksi Tidak Dibenarkan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>Anda boleh memeriksa sejarah transaksi anda pada bila-bila masa dengan melog masuk akaun PlayToken anda pada laman web PlayToken dan mengklik tab "Sejarah". Amatlah penting jika anda segera memaklumkan PlayToken sekiranya anda mempunyai sebab untuk mempercayai bahawa mana-mana aktiviti berikut telah berlaku:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_a" xml:space="preserve">
+    <value>(a) Terdapat transaksi tidak dibenarkan daripada akaun PlayToken anda;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_b" xml:space="preserve">
+    <value>(b) Terdapat akses tidak dibenarkan kepada akaun PlayToken anda;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_c" xml:space="preserve">
+    <value>(c) Kata laluan anda untuk akaun PlayToken anda telah terdedah;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_d" xml:space="preserve">
+    <value>(d) Seseorang telah memindahkan atau mungkin memindahkan wang menggunakan akaun PlayToken anda tanpa keizinan anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.2. Memaklumkan PlayToken mengenai Ralat dan/atau Transaksi Tidak Dibenarkan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>Untuk memaklumkan kami sekiranya anda percaya bahawa terdapat atau akan berlaku ralat atau transaksi tidak dibenarkan terhadap akaun PlayToken anda, hubungi kami melalui sokongan pelanggan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.3. Menyemak Laporan mengenai Ralat dan/atau Transaksi Tidak Dibenarkan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_1" xml:space="preserve">
+    <value>Kami akan memaklumkan anda mengenai hasil penyiasatan kami dalam masa 2 Hari Perniagaan selepas kami menerima notis anda. Jika kami telah membuat kesilapan, kami akan membetulkannya dengan segera. Bagaimanapun, jika kami memerlukan lebih banyak masa, kami mungkin mengambil masa sehingga 7 Hari untuk menyiasat aduan atau soalan anda.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_2" xml:space="preserve">
+    <value>Di penghujung penyiasatan, kami akan memaklumkan anda mengenai hasil dalam masa 2 Hari Perniagaan. Jika kami menentukan bahawa tiada kesilapan, kami akan menghantar kepada anda penjelasan bertulis.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_for_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.4. Liabiliti untuk Transaksi Tidak Dibenarkan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_for_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>Pembayaran balik Play Token atau Wang disebabkan oleh Akses Akaun PlayToken Yang Tidak Betul berkaitan dengan akaun PlayToken anda (Penggodaman, menjejaskan keselamatan, menjejaskan maklumat peribadi) tidak akan dilayan. Pemegang akaun PlayToken akan bertanggungjawab sepenuhnya terhadap perlindungan keselamatan akaun PlayToken individu.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>9.5 Ralat.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_1" xml:space="preserve">
+    <value>Jika kami mendapat tahu tentang ralat pemprosesan, kami akan membetulkan ralat tersebut. Jika ralat menyebabkan Play Token tidak dipotong untuk bayaran perkhidmatan atau barangan, PlayToken akan memotong amaun tersebut sewajarnya. Jika ralat menyebabkan Play Token ditolak tetapi tiada barangan atau perkhidmatan diterima, PlayToken akan menyiasat dan memaklumkan Pedagang dan Pengguna sewajarnya.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2" xml:space="preserve">
+    <value>Jika ralat menyebabkan kami tidak melengkapkan transaksi pada masanya atau dengan amaun yang betul, betulkan situasi dengan segera, melainkan:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_a" xml:space="preserve">
+    <value>(a) Bukan kerana kegagalan kami, anda tidak mempunyai cukup Play Token yang tersedia untuk melengkapkan transaksi,</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_b" xml:space="preserve">
+    <value>(b) Sistem kami tidak berfungsi dengan betul dan anda mengetahui tentang kerosakan ketika anda memulakan transaksi, atau</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_c" xml:space="preserve">
+    <value>(c) Keadaan di luar kawalan kami (seperti kebakaran atau banjir atau kehilangan sambungan Internet) menghalang transaksi, meskipun kami mengambil langkah yang munasabah.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Disputes_with_PlayToken" xml:space="preserve">
+    <value>10. Pertikaian dengan PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_PlayToken_First" xml:space="preserve">
+    <value>10.1 Hubungi PlayToken Terlebih Dahulu.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_PlayToken_First_description" xml:space="preserve">
+    <value>Jika pertikaian timbul antara anda dengan PlayToken, akan dengan senang hati membantu dan menujukan kebimbangan anda untuk menyelesaikan masalah anda. Pertikaian seperti ini merangkumi Perkhidmatan PlayToken sahaja, tidak berkaitan dengan Perkhidmatan Pedagang. Pertikaian antara anda dan PlayToken berkenaan Perkhidmatan kami boleh dilaporkan kepada Perkhidmatan Pelanggan dalam talian.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_the_Merchant" xml:space="preserve">
+    <value>10.2 Hubungi Pedagang.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_the_Merchant_description" xml:space="preserve">
+    <value>Jika pertikaian muncul antara anda dengan Pedagang berkenaan barangan dan perkhidmatan mereka, sila hubungi Pedagang secara terus untuk mendapatkan khidmat nasihat. Sekiranya pertikaian melibatkan Perkhidmatan PlayToken, kami akan membantu dalam menyelesaikan pertikaian antara Pengguna dengan Pedagang dengan segera.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Waiver" xml:space="preserve">
+    <value>10.3 Tiada Penepian.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Waiver_description" xml:space="preserve">
+    <value>Kegagalan kami untuk bertindak sehubungan dengan pelanggaran oleh anda atau orang lain tidak mengetepikan hak kami untuk bertindak sehubungan dengan pelanggaran susulan atau pelanggaran yang serupa.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Limitations_of_Liability" xml:space="preserve">
+    <value>10.4. Had Liabiliti.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Limitations_of_Liability_description" xml:space="preserve">
+    <value>KAMI, SYARIKAT INDUK, PEKERJA ATAU PEMBEKAL KAMI TIDAK AKAN BERTANGGUNGJAWAB TERHADAP KEHILANGAN KEUNTUNGAN ATAU SEBARANG GANTI RUGI KHAS, SAMPINGAN ATAU TURUTAN YANG TIMBUL DARIPADA ATAU BERKAITAN DENGAN LAMAN WEB KAMI, PERKHIDMATAN KAMI ATAU PERJANJIAN INI. BAGAIMANAPUN YANG TIMBUL, TERMASUK KECUAIAN LIABILITI KAMI DAN LIABILITI SYARIKAT INDUK, PEKERJA DAN PEMBEKAL KAMI, KEPADA ANDA ATAU MANA-MANA PIHAK KETIGA DALAM APA JUA KEADAAN ADALAH TERHAD KEPADA AMAUN SEBENAR GANTU RUGI LANGSUNG.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty" xml:space="preserve">
+    <value>10.5 Tiada Waranti.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_1" xml:space="preserve">
+    <value>PlayToken, SYARIKAT INDUK, PEKERJA DAN PEMBEKAL KAMI MEMBERIKAN PERKHIDMATAN KAMI "SEPERTI SEADANYA" DAN TANPA SEBARANG WARANTI ATAU SYARAT, NYATA, TERSIRAT ATAU STATUTORI, PlayToken, SYARIKAT INDUK, PEKERJA DAN PEMBEKAL KAMI SECARA KHUSUS MENAFIKAN SEBARANG WARANTI TERSIRAT MENGENAI HAK MILIK, KEBOLEHDAGANGAN, KESESUAIAN UNTUK TUJUAN TERTENTU DAN KETIADAAN PELANGGARAN.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_2" xml:space="preserve">
+    <value>PlayToken tidak mempunyai sebarang kawalan terhadap produk atau perkhidmatan yang dibayar dengan Perkhidmatan kami dan PlayToken tidak dapat memastikan bahawa pembeli atau penjual yang berurusan dengan anda sebenarnya akan melengkapkan transaksi.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_3" xml:space="preserve">
+    <value>PlayToken tidak menjamin akses berterusan, tanpa gangguan atau selamat kepada Perkhidmatan kami dan operasi bagi laman kami boleh diganggu oleh pelbagai faktor di luar kawalan kami.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_4" xml:space="preserve">
+    <value>PlayToken akan melakukan usaha yang munasabah untuk memastikan bahawa permintaan dan transaksi yang melibatkan penggunaan Kad Gores Fizikal (Physical Scratch Card) PlayToken dan mekanisme transaksi Pedagang (E-bayaran) yang melibatkan PlayToken diproses dalam cara yang tepat pada masanya tetapi PlayToken tidak memberi sebarang kenyataan atau waranti berkenaan amaun masa yang diperlukan untuk melengkapkan pemprosesan kerana Perkhidmatan kami bergantung pada banyak faktor di luar kawalan kami, seperti kesukaran teknikal yang dialami oleh Pembekal Internet PlayToken, Pembekal Internet Pengguna serta penglibatan pihak ketiga dalam talian lain di dalam kefungsian internet. Sesetengah negara tidak membenarkan penafian waranti yang tersirat, oleh itu penafian yang dinyatakan di atas tidak terpakai untuk anda. Perenggan ini memberikan anda hak perundangan tertentu dan anda juga boleh mempunyai hak perundangan lain yang berbeza mengikut negara.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Indemnification" xml:space="preserve">
+    <value>10.7 Pembayaran Ganti Rugi.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Indemnification_description" xml:space="preserve">
+    <value>Anda bersetuju untuk mempertahankan, membayar ganti rugi dan tidak mensabitkan PlayToken, syarikat induk, pegawai, pengarah dan pekerjanya daripada sebarang tuntutan dan permintaan (termasuk yuran guaman) yang dibuat atau ditanggung oleh mana-mana pihak ketiga disebabkan oleh atau timbul daripada pelanggaran anda terhadap Perjanjian ini dan/atau penggunaan Perkhidmatan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Complete_Agreement" xml:space="preserve">
+    <value>10.8. Perjanjian Lengkap.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Complete_Agreement_description" xml:space="preserve">
+    <value>Perjanjian ini menetapkan seluruh pemahaman antara anda dan PlayToken sehubungan dengan Perkhidmatan. Bahagian 1, 7, 10 dan 14 serta mana-mana terma lain yang secara semula jadinya sepatutnya kekal, akan dapat bertahan selepas penamatan Perjanjian ini. Jika sebarang peruntukan Perjanjian ini dianggap tidak sah atau tidak boleh dikuat kuasa, peruntukan tersebut hendaklah digugurkan dan peruntukan yang selebihnya hendaklah dikuatkuasakan.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition" xml:space="preserve">
+    <value>11. Definisi</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description" xml:space="preserve">
+    <value>Dengan merujuk Perjanjian Pengguna:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken" xml:space="preserve">
+    <value>PlayToken:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayToken" xml:space="preserve">
+    <value>• Syarikat, GToken Pte Ltd menyediakan penyelesaian E-bayaran menggunakan Kad Gores Fizikal (Physical Scratch Cards) sebagai alternatif kepada penggunaan Kad Kredit atau Kad Debit yang konvensional.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Play_Tokens" xml:space="preserve">
+    <value>Play Token:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayTokens" xml:space="preserve">
+    <value>• Play Token ialah kredit maya yang digunakan untuk transaksi antara Pengguna akaun PlayToken dengan Pedagang bagi pembelian dalam talian. Play Token dikendalikan sepenuhnya dan secara eksklusif oleh GToken Ltd.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken_account" xml:space="preserve">
+    <value>Akaun PlayToken:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayToken_account" xml:space="preserve">
+    <value>• Pengguna yang mahu menggunakan PlayToken untuk membuat pembelian dalam talian dengan pedagang berkaitan mesti mendaftar akaun PlayToken. Play Token yang dicaj ke dalam akaun PlayToken boleh digunakan untuk membuat bayaran dalam talian. Akaun PlayToken boleh dianggap sebagai akaun dalam talian elektronik.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchants" xml:space="preserve">
+    <value>Pedagang</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_Merchants" xml:space="preserve">
+    <value>• Rakan Kongsi dan Pedagang berkaitan boleh menggunakan PlayToken bagi penggunaan kemudahan bayaran dalam talian kami untuk meningkatkan dan mempromosikan produk dan perkhidmatan mereka.</value>
+    <comment>Term</comment>
+  </data>
+</root>

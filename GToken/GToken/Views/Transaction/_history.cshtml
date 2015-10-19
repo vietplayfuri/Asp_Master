@@ -1,0 +1,109 @@
+﻿@model GToken.Web.Models.TransactionsPaging
+@using Platform.Models
+@using Platform.Utility
+
+<div ng-controller="TransactionController as transactionCtrl" class="panel">
+    <h4 class="uppercase">@Resources.Resources.Transaction_History</h4>
+    <p class="text-right">
+        @if (@Model.count == 0)
+        {
+            <strong>@Model.count Transaction </strong>
+        }
+        else
+        {
+            <strong>@Model.count Transactions </strong>
+        }
+    </p>
+    @if (Model.transactions.Count() > 0)
+    {
+        <div class="transaction-table" id="h-list">
+            <div class="row table-header">
+                <div class="columns medium-1 hide-for-small-only partner-title"></div>
+                <div class="columns medium-3 hide-for-small-only">Time</div>
+                <div class="desc columns medium-5">Description</div>
+                <div class="hide-for-small-only columns small-4 medium-3 text-right column-right">Amount</div>
+            </div>
+            <div class="table-body">
+                @foreach (var tr in Model.transactions)
+                {
+                    if (tr.token_type != "gtoken") //1-10-2015, Brandon asked: hide all gtoken transaction
+                    {
+                        <div class="row">
+                            <a href="@Url.Action("invoice", "transaction", new { order_id = @tr.gtoken_transaction_id })" target="_blank">
+                                <div class="columns medium-1 small-2 partner-logo"><img src="/static/images/partners/@tr.partner_name-logo-small.png" /></div>
+                                <div class="columns medium-11 small-10">
+                                    <div class="columns medium-3">
+                                        @(tr.created_at.Date == DateTime.UtcNow.Date ? TimeHelper.localizeDatetime(tr.created_at, "hh:mm tt") : TimeHelper.localizeDatetime(tr.created_at, "dd/MM/yyyy"))
+                                    </div>
+                                    <div class="columns medium-6">@(tr.status == "pending" ? "Pending" : string.Empty) @tr.description</div>
+                                    <div class="amount columns medium-3 text-right column-right">
+                                        @if (tr.transaction_type == null)
+                                        {
+                                            @String.Format("{0:0.## }", tr.original_final_amount_after_tax) @tr.original_currency
+                                        }
+                                        else
+                                        {
+                                            if (tr.amount_after_tax > 0)
+                                            {
+                                                @String.Format("{0:0.## }", tr.amount_after_tax)
+                                            }
+                                            else
+                                            {
+                                                @String.Format("{0:0.## }", -1 * tr.amount_after_tax)
+                                            }
+                                            if (tr.is_cash)
+                                            {
+                                                @tr.token_type
+                                            }
+                                            else
+                                            {
+                                                @("Token")
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="table-footer">
+                <div class="pagination-centered">
+                    <ul class="pagination" role="menubar" aria-label="Pagination">
+                        @if (Model.pagination.has_prev)
+                        {
+                            <li>
+                                <a class="arrow" href="@Url.Action("index", "transaction", new { page = Model.pagination.page - 1 })">&laquo;</a>
+                            </li>
+                        }
+                        @foreach (var page in Model.pagination.iter_pages())
+                        {
+                            if (page != 0)
+                            {
+                                if (page != Model.pagination.page)
+                                {
+                                    <li><a href="@Url.Action("index", "transaction", new { page = page })">@page</a></li>
+                                }
+                                else
+                                {
+                                    <li class="current"><a href="">@page</a></li>
+                                }
+                            }
+                            else
+                            {
+                                <li><span class="unavailable">&hellip;</span></li>
+                            }
+                        }
+                        @if (Model.pagination.has_next)
+                        {
+                            <li>
+                                <a class="arrow" href="@Url.Action("index", "transaction", new { page = Model.pagination.page + 1 })">&raquo;</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,304 @@
+@import "partials/color";
+@import "partials/buttons";
+@import "partials/typography ";
+
+// Games Page Style ******************************************** //
+
+.games-container {
+    @include grey-bg;
+    padding: 70px 0 90px 0;
+}
+
+.page-title {
+    h2 {
+        @include upper-font(700, 3rem, $pri-yellow);
+        line-height: 36px;
+    }
+    h5 {
+        font-weight: 300;
+        color: $sub-darkblue;
+    }
+}
+
+.games-content {
+    padding-top: 28px;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    ul li {
+        padding-left:0;
+        padding-right:0;
+    }
+}
+
+.game-wrap {
+    padding: 0 16px;
+    > a img.game-thumb {
+        width: 100%;
+        max-width: auto;
+        height: 100%;
+        max-height: auto;
+        background: $sub-lightblue;
+        display: block;
+        -moz-box-shadow:    0px 0px 5px 0px rgba(0,0,0,0.36);
+        box-shadow:         0px 0px 5px 0px rgba(0,0,0,0.36);
+        margin: 0 auto;
+    }
+}
+
+ul.game-brief {
+    display: block;
+    padding-top: 12px;
+    margin: 0 auto;
+    list-style-type: none;
+    li {
+        display: block;
+        padding-bottom: 12px;
+        &:first-child {
+            border-bottom: 1px solid $pri-lightgrey;
+        }
+        span.game-title {
+            width: auto;
+        }
+        span.game-title > a {
+            display: block;
+            h4 {
+                font-size: 1.375rem;
+                color: $sub-darkblue;
+                font-weight: 600;
+                line-height: 28px;
+                margin-bottom: 4px;
+            }
+            p {
+                color: $sub-darkblue;
+                font-weight: 300;
+                padding: 0;
+                font-size: 1.125rem;
+                margin-bottom: 0 !important;
+                line-height: 20px;
+            }
+            &.plat-icon {
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                position: relative;
+                top: 3px;
+            }
+            &.ios-plat {
+                background: url(/static/images/ios-icon.png) no-repeat 50% 40%;
+            }
+            &.gplay-plat {
+                background: url(/static/images/gplay-icon.png) no-repeat 50% 54%;
+            }
+            &.pc-plat {
+                background: url(/static/images/pc-icon.png) no-repeat 50% 40%;
+            }
+            &.apk-plat {
+                background: url(/static/images/andr-icon.png) no-repeat 50% 54%;
+            }
+        }
+        span.game-title a.g-genre {
+            display: inline-block;
+            padding-right: 6px;
+            border-right: 1px solid $pri-lightgrey;
+            margin-right: 3px;
+        }
+        /*
+        span.platform {
+            padding-top: 8px;
+            float: right;
+            a {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                border: 2px solid $sub-grey;
+                &:hover {
+                    opacity: 0.7;
+                }
+                &:first-child {
+                    position: relative;
+                    right: 2px;
+                }
+            }
+            .ios-plat {
+                background: url(/static/images/ios-icon.png) no-repeat 50% 40%;
+            }
+            .andr-plat {
+                background: url(/static/images/andr-icon.png) no-repeat 50% 54%;
+            }
+        }
+        */
+        p {
+            font-size: 1rem;
+            color: $pri-grey;
+            padding-top: 10px;
+        }
+        .clear-fix {
+            clear: both;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+    }
+}
+
+.bottom-cta {
+    @include diamond-bg;
+    .cta-content {
+        padding: 46px 0 56px;
+        h4,
+        a {
+            display: inline-block;
+        }
+        br {
+            display: none;
+        }
+        h4 {
+            color: white;
+            font-weight: 300;
+        }
+        a {
+            @include big-primary-btn($pri-green);
+            color: $pri-green;
+            font-size: 1.25rem;
+            padding:11px 18px 13px;
+            margin-left: 56px;
+            margin-top: 10px;
+            -webkit-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            -moz-transition: all 0.25s ease;
+            &:hover {
+                background: $pri-green;
+                color: white;
+            }
+            img {
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+.cta-content {
+    text-align: center;
+}
+
+@-moz-document url-prefix() {
+
+
+}
+
+
+//Style for viewport max-width 1120px - 70em
+
+@media only screen and (max-width: 70em) {
+
+
+}
+
+// Style for viewport max-width 1024px // Standard Tablet
+
+@media only screen and (max-width: 64em) {
+
+    .game-wrap {
+        padding: 0 16px 20px;
+        > a img.game-thumb {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+
+}
+
+// Style for 960px width
+
+@media only screen and (max-width: 30em) {
+
+
+}
+
+// Style for viewport max-width 896px - 56em // Tablet & Phablet
+
+@media only screen and (max-width: 56em) {
+
+    ul.game-brief {
+        li {
+            span.game-title > a {
+                h4 {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+    .bottom-cta {
+        .cta-content {
+            h4 {
+                font-size: 1.25rem;
+            }
+            a {
+                margin-left: 16px;
+            }
+        }
+    }
+
+}
+
+// Style for viewport max-width 768px
+
+@media only screen and (max-width: 48em) {
+    
+    .bottom-cta {
+        .cta-content {
+            br {
+                display: block;
+            }
+            a {
+                margin-left: 0px;
+            }
+        }
+    }
+
+}
+
+// Style for viewport max-width 640px
+
+@media only screen and (max-width: 40em) {
+
+    .game-wrap {
+        > a img.game-thumb {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+}
+
+// Style for 480px width
+
+@media only screen and (max-width: 30em) {
+
+
+}
+
+// Style for 400px width
+
+@media only screen and (max-width: 25em) {
+
+
+}
+
+// Style for Smartphone
+
+@media only screen and (max-width: 22.5em) {
+
+
+}
+
+@media only screen and (max-width: 20em) {
+
+
+
+}
+
+
+

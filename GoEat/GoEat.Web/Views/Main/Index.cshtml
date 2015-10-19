@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = Resources.Resources.Home_page;
+}
+@model GoEat.Web.Models.LoginViewModel
+
+@section page_stylesheets{
+    <link href="~/static/stylesheets/account/home.css" rel="stylesheet" />
+    <link href="~/bower_components/slick.js/slick/slick.css" rel="stylesheet" />
+}
+
+
+<div id="main-page">
+    <div class="page-container main-page">
+        <div class="small-12 medium-12">
+            <div class="wow fadeIn animated" id="food-slider">
+                
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-2.jpg" alt="">
+                </div>
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-3.jpg" alt="">
+                </div>
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="small-12 columns text-center ">
+                <h4 style="text-transform: uppercase">
+                    The One Stop Food Social Platform
+                </h4>
+                <p style="color: #e74c3c; text-transform: uppercase">With constant rewards 365 days a year for members to enjoy.</p>
+                <p style="font-weight: 300;
+  font-size: 1.05em;">
+                    No more waiting for promotions from your favorite merchants. No more waiting for seasonal discounts from credit cards.
+                    <br />
+                    GDine transforms your waiting time into action!
+                    <br />
+                    Be a member and get immediate rewards with participating merchants now!
+                    <br />
+                </p>
+
+            </div>
+        </div>
+        <br />
+        @if (!Request.IsAuthenticated)
+        {
+            <div class="row small-12 text-center" style="margin-bottom: 40px; margin-top: 30px">
+                <div class="step">
+                    <a href="@Url.Action("register", "account")">
+                        <img src="~/static/images/step-1.png" />
+                    </a>
+                </div>
+                <div class="step">
+                    <img src="~/static/images/step-2.png" />
+                </div>
+            </div>
+        }
+        <br />
+        <br />
+    </div>
+</div>
+
+<div id="partner-parent" class="partner-parent">
+    <div class="partner-div row">
+        <div class="text-center">
+            <h4>OUR PARTNERS</h4>
+        </div>
+
+        <div class="small-12 text-center slogan">
+            SATISFACTION GUARANTEED!
+        </div>
+        <div class="rounded-rectangle">
+        </div>
+        <br />
+        <div class="small-12 large-12 medium-12 text-center columns">
+
+            <div class="logo">
+                <a href="http://www.littlehouseofdreams.com/" target="_blank">
+                    <img src="~/static/images/Litle-house-logo.png" />
+                </a>
+            </div>
+            <div class="logo">
+                <a href="http://ghouse.com.sg/" target="_blank">
+                    <img src="~/static/images/ghouse-logo.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+@section scripts{
+    <script src="~/bower_components/slick.js/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#food-slider').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 10000
+            });
+        });
+    </script>
+}

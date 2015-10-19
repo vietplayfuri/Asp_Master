@@ -1,0 +1,389 @@
+@import "account_main";
+// User Friends Page Content Style ******************************************** //
+
+
+.transfer-form {
+    position: relative;
+}
+
+.errors-container {
+    ul.errors {
+        list-style-type: none;
+        margin-left: 0;
+        color: $pri-red;
+    }
+}
+
+.angucomplete-holder {
+    margin-bottom: -6px;
+}
+.angucomplete-dropdown {
+    border: 2px solid $sub-grey;
+    margin: 5px auto 3px;
+    text-align: left;
+    width: 376px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    height: 220px;
+    overflow-y: scroll;
+    .angucomplete-searching {
+        color: $pri-grey;
+        font-size: $sml-upper;
+        font-weight: bold;
+    }
+    .angucomplete-selected-row,
+    .angucomplete-row:hover {
+        background-color: $pri-blue;
+    }
+    .angucomplete-selected-row {
+        overflow: ellipsis;
+    }
+    .angucomplete-image-holder {
+        padding-top: 3px;
+        border: none;
+        img {
+            border-radius: 3px;
+            border: none;
+        }
+    }
+    .angucomplete-image {
+        height: 40px;
+        width: 40px;
+    }
+    .angucomplete-title,
+    .angucomplete-description {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .angucomplete-description {
+        margin-top: -4px;
+        color: $pri-grey;
+    }
+}
+
+.search-board {
+    @include white-panel;
+    width: 100%;
+    padding: 20px 20px 26px;
+    color: $pri-grey;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    h4 {
+        font-weight: 300;
+        margin-bottom: 30px;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    form {
+        input[type="text"],
+        input[type="number"] {
+            @include sml-forms;
+            padding: 6px 8px; 
+            display: block;
+            margin: 0 auto;
+            width: 376px;
+            margin-top: 14px;
+            text-indent: 6px;
+            font-size: 0.875rem;
+            &:focus {
+                background-color: $sub-lightgrey;
+            }
+            &::-webkit-input-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+            &::-moz-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+            &:-moz-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+            &:-ms-input-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+        }
+        input[type="number"] {
+            margin-top: 0px;
+        }
+        #receiver-input_value {
+            background:url(/static/images/search-icon.png) no-repeat 96% 46%;
+            &:focus {
+                background-color: $sub-lightgrey;
+            }
+        }
+        #transfer-submit {
+            @include upper-font(400, 0.875rem, $pri-yellow);
+            @include sml-secondary-btn($pri-yellow);
+            margin: 0 auto;
+            background: none;
+            margin-top: 14px;
+            cursor: pointer;
+            height: 34px;
+            padding: 7px 18px;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -ms-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+            &:hover {
+                background: $pri-yellow;
+                color: white;
+            }
+        }
+        #transfer-submit.disabled {
+            opacity: 0.4;
+            cursor: default;
+
+            &:hover {
+                background-color: white;
+                color: $pri-yellow;
+            }
+        }
+        #transfer-submit.valid {
+            background-color: $pri-yellow;
+            color: white;
+        }
+        .transfer-confirm {
+            .confirm-amount {
+                margin-bottom: 0.5rem;
+            }
+            .receiver-name {
+                .r-avatar {
+                    height: 36px;
+                    width: 36px;
+                }
+                .r-name {
+                    font-weight: 600;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .break-line {
+        width: 368px;
+        height: 1px;
+        display: block;
+        margin: 24px auto 24px;
+        border-bottom: 1px solid $sub-grey;
+    }
+}
+
+.show-friends {
+    h5 {
+        color: $pri-grey;
+    }
+    .frie-filter {
+        padding: 0;
+        margin-top: 18px;
+        margin-bottom: 14px;
+        background: none;
+        border: none;
+        .frie-num,
+        .frie-show-filter {
+            margin-top: 0;
+            a {
+                color: $pri-lightgrey;
+            }
+            a.active {
+                color: $sub-darkblue
+            }
+        }
+    }
+}
+
+.friends-row {
+    padding: 0 0.6rem;
+    .friend-panel:nth-child(odd) {
+        margin-right: 2.3%;
+    }
+    .friend-panel {
+        @include white-panel;
+        padding: 20px;
+        display: inline-block;
+        margin-bottom: 20px;
+        overflow: hidden;
+        width: 48.85%;
+        text-overflow: ellipsis;
+        img {
+            width: 64px;
+            height: 64px;
+            vertical-align: top;
+        }
+        ul {
+            margin: 0;
+            list-style-type: none;
+            vertical-align: middle;
+            display: inline-block;
+            padding-left: 6px;
+            padding-top: 8px;
+            max-width: 70%;
+            min-width: 62%;
+            width: auto;
+            .friend-name {
+                font-size: 1.125rem;
+                line-height: 22px;
+                font-weight: 600;
+                color: $pri-grey;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .friend-username {
+                font-size: 1rem;
+                color: $pri-lightgrey;
+                font-weight: 300;
+            }
+        }
+        .friend-chat {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(/static/images/chat-icon.png) no-repeat center;
+            float: right;
+            margin-top: 20px;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+        .clear-fix {
+            clear: both;
+        }
+    }
+}
+
+@-moz-document url-prefix() {
+
+    .search-board {
+        form {
+            input[type="text"],
+            input[type="number"] {
+                @include sml-forms;
+                padding: 5px 0px 5px !important;
+                text-indent: 14px;
+                &::-webkit-input-placeholder {
+                    line-height: 20px;
+                }
+                &::-moz-placeholder {
+                    line-height: 20px;
+                }
+                &:-moz-placeholder {
+                    line-height: 20px;
+                }
+                &:-ms-input-placeholder {
+                    line-height: 20px;
+                }
+            }
+            input[type="submit"] {
+                padding: 5px 18px 5px;
+            }
+        }
+    }
+
+}
+
+
+// Style for viewport max-width 640px
+
+@media #{$small-only} {
+
+    .friends-row {
+        .friend-panel {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .angucomplete-dropdown {
+        width: 90%;
+    }
+
+    .search-board {
+        form {
+            input[type="text"],
+            input[type="number"] {
+                width: 90%;
+            }
+            #receiver-input_value {
+                background: none;
+            }
+        }
+        .break-line {
+            width: 88%;
+        }
+    }
+
+}
+
+// Style for 480px width
+
+@media only screen and (max-width: 30em) {
+
+    .friends-row {
+        .friend-panel {
+            padding: 16px;
+            img {
+                width: 48px;
+                height: 48px;
+            }
+            ul {
+                padding-top: 2px;
+                .friend-name {
+                    font-size: 1rem;
+                }
+                .friend-username {
+                    font-size: 0.875rem;
+                }
+            }
+            .friend-chat {
+                margin-top: 14px;
+            }
+        }
+    }
+
+    .show-friends {
+        .frie-filter {
+            .frie-num,
+            .frie-show-filter {
+                width: 100%;
+                display: block;
+                margin-bottom: 14px;
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+// Style for Smartphone
+
+@media only screen and (max-width: 22.5em) {
+
+    .search-board {
+        form {
+            #receiver-input_value {
+                background: none;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 20em) {
+
+
+}
+
+
+
+
+
+
+

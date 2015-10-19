@@ -1,0 +1,13 @@
+﻿CREATE TABLE import_referral_history
+(
+  id serial NOT NULL,
+  created_at timestamp without time zone NOT NULL DEFAULT now(),
+  game_id integer NOT NULL,
+  file_name varchar NOT NULL,
+  file_path varchar NOT NULL,
+  importer_username varchar,
+  CONSTRAINT "import_referral_history primary key" PRIMARY KEY (id)
+);
+
+ALTER TABLE record_download_history alter COLUMN device_id DROP NOT NULL;
+ALTER TABLE import_referral_history add COLUMN referral_campaign_id integer NOT NULL;

@@ -1,0 +1,51 @@
+﻿@model List<Platform.Models.Studio>
+@using GoPlay.Models
+@using Platform.Models
+@{
+    ViewBag.Title = "Studios";
+    List<string> roleName = Html.GetCurrentUser().GetRoles().Select(r => r.RoleName).ToList();
+    bool isHasRoleAdmin = roleName.Contains(GoPlayConstantValues.S_ROLE_ADMIN);
+    bool isHasRoleGameAdmin = roleName.Contains(GoPlayConstantValues.S_ROLE_GAME_ADMIN);
+}
+<div class="row">
+    <h1>Studios</h1>
+    @if (isHasRoleAdmin)
+    {
+        <a class="button" href="/admin/studio/add">Add Studio</a>
+    }
+    <table class="studios-table model-table" role="grid">
+        <thead>
+            <tr>
+                <th class="id width-5">ID</th>
+                <th class="">Name</th>
+                <th class="width-10">Updated At</th>
+                <th class="width-10">Created At</th>
+                <th class="width-15">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var studio in Model)
+                {
+                    <tr id="studio-row-@studio.id">
+                        <td>@studio.id</td>
+                        <td>@studio.name</td>
+                        <td>@studio.updated_at.ToString(ConstantValues.S_DATETIME_FORMAT) @("UTC")</td>
+                        <td>@studio.created_at.ToString(ConstantValues.S_DATETIME_FORMAT) @("UTC")</td>
+                        <td class="model-actions">
+                            <ul class="stack button-group">
+                                <li><a class="button small" href="/admin/studio/@studio.id">View</a></li>
+                                @if (isHasRoleGameAdmin)
+                                {
+                                    <li><a class="button small" href="/admin/studio/@studio.id/edit">Edit</a></li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

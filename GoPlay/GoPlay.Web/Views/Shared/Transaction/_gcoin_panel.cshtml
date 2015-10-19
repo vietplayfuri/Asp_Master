@@ -1,0 +1,104 @@
+@model GoPlay.Web.Models.TransactionViewModel
+@using Resources
+<script>
+    var form = @Html.Raw(Json.Encode(Model.gCoinConvert));
+</script>
+<section class="gcoin-panel sect-panel" ng-show="showGcoinPanel">
+<a class="close-panel" href=""
+   ng-click="changeTransactionState($event)"
+   data-pushstate-url="/"></a>
+@if (Model.user.gcoin > 0)
+{
+    <h3>@Resources.Convert_G_Coin</h3>
+
+    <section class="convert-action">
+        <div class="range-slider">
+            <input id="gcoin" max="@Model.user.gcoin" min="1" name="gcoin" ng-model="gcoinSelect" step="1" type="range" value="1" class="ng-valid ng-dirty ng-valid-parse ng-touched">
+        </div>
+        <h5><span ng-bind="gcoinSelect"></span><img src="/static/images/tiny_gcoin.png"> = <span ng-bind="gcoinSelect"></span> USD</h5>
+        <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+        <form id="convertPaypal" class="ng-pristine ng-valid">
+            <p>@Resources.We_only_accept_transaction_through_PayPal</p>
+            <input type="text" value="" required="required" placeholder="@Resources.Input_Paypal_Email*"
+                   ng-model="paypalEmail"
+                   name="paypalEmail" id="paypalEmail">
+
+            <span class="text-notice">
+                *@Resources.Please_acknowledge_the_money
+            </span>
+            <div class="errors-container"><ul class="errors"></ul></div>
+            <a class="g-nml-button" id="submit-convert-gcoin" ng-click="checkPassword()">
+                @Resources.Convert
+            </a>
+        </form>
+        @Html.Partial("~/Views/Shared/Transaction/_gcoin_convert_final_step.cshtml")
+    </section>
+    @Html.Partial("~/Views/Shared/Transaction/_progress_indicator.cshtml")
+}
+else
+{
+    <p>@Resources.You_dont_have_any_gcoin_to_convert_to_money</p>
+}
+</section>
+
+
+
+
+
+@*<section class="gcoin-panel sect-panel" ng-show="showGcoinPanel">
+    <a class="close-panel" href="" ng-click="changeTransactionState($event)" data-pushstate-url="/"></a>
+
+
+    <h3>Convert G-Coin</h3>
+
+    <section class="convert-action">
+        <div class="range-slider">
+            <input id="gcoin" max="6968.900" min="1" name="gcoin" ng-model="gcoinSelect" step="1" type="range" value="1" class="ng-valid ng-dirty ng-valid-parse ng-touched">
+        </div>
+        <h5><span ng-bind="gcoinSelect" class="ng-binding">1</span><img src="/static/images/tiny_gcoin.png"> = <span ng-bind="gcoinSelect" class="ng-binding">1</span> USD</h5>
+        <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+        <form id="convertPaypal" class="ng-pristine ng-valid">
+            <p>We only accept transaction through PayPal at the moment</p>
+            <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1434540205.42##530f5ac2c47a9e88fe4bb446abd5970bacd66c60"></div>
+            <input id="paypalEmail" name="paypalEmail" ng-model="paypalEmail" placeholder="Input Paypal Email *" type="text" value="" class="ng-pristine ng-untouched ng-valid">
+
+            <span class="text-notice">
+                *Please acknowledge the money will be transferred directly to your PayPal account.
+            </span>
+            <div class="errors-container"><ul class="errors"></ul></div>
+            <a class="g-nml-button" id="submit-convert-gcoin" ng-click="checkPassword()">
+                Convert
+            </a>
+        </form>
+
+        <div class="panel-popup hide">
+            <form class="ng-pristine ng-valid">
+                <p>Please input your GoPlay password to convert</p>
+
+                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1434540205.42##530f5ac2c47a9e88fe4bb446abd5970bacd66c60"></div>
+                <input id="password" name="password" ng-model="password" placeholder="INPUT PASSWORD" type="password" value="" class="ng-pristine ng-untouched ng-valid">
+
+                <input id="submit" name="submit" ng-click="submitConvert()" type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="panel-filter hide">
+        </div>
+
+    </section>
+
+    <div class="progress-indict hide">
+        <img class="loading-icon" src="/static/images/loading_icon.png" alt="">
+        <p>Hang on! Our server is crunching your order!</p>
+    </div>
+    <div class="notification-panel hide">
+        <img src="/static/images/check_icon.png">
+        <p id="messageArea"></p>
+        <a class="close-notification nml-button" href="">Close</a>
+    </div>
+    <div class="panel-filter hide">
+    </div>
+
+
+
+
+</section>*@

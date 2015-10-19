@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "ByToken";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GoEat.Web.Models.BuyTokenViewModel
+@section page_stylesheets{
+    <link href="~/static/stylesheets/transaction/buytoken.css" rel="stylesheet" />
+}
+<script>
+    var topUpMethod = "paypal";
+
+    // Data for pre-filling custom top up amount
+    var customGoPlayTokenQuantity = "";
+</script>
+
+<div id="profile-image">
+    <img src="~/static/images/img-profile.jpg" />
+</div>
+<br />
+<div class="profile ng-scope" ng-controller="TransactionCtrl" ng-init="init()">
+    <div class="row">
+        <h4>BUY SUGAR TOKEN</h4>
+        <div class="rounded">
+            <img src="~/static/images/Rounded-Rectangle.png" />
+        </div>
+        <br />
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="small-12 medium-12 large-6 columns balance">
+            <h5 style="border-bottom: 2px solid #d7d7d7; text-align: left">BALANCE</h5>
+            <span>Your wallet balance:</span>
+            <div class="small-12 balance-info">
+                <span class="star sugar-star">Sugar Token:</span>
+                <span class="token-number">@Model.TotalToken </span>
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-6 columns">
+            <h5 style="border-bottom: 2px solid #d7d7d7;">SUGAR TOKEN</h5>
+            <div class="small-12">
+                <div class="select-payment">
+                    <span>Select your payment method:</span>
+                    <select class="nml-dropdown ng-pristine ng-untouched ng-valid" ng-change="changeTopupTransactionState()" ng-model="topUpMethodItem" ng-init="topUpMethodItem='paypal'">
+                        <option value="paypal">PayPal</option>
+                        <option value="paypal">Visa / Master</option>
+                    </select>
+                </div>
+                <div class="top-up-opts-container ng-scope" ng-if="topUpMethod == 'paypal'" ng-controller="TransactionCtrl">
+                    <div class="top-up-opts">
+                        <ul>
+                            <li>
+                                <div class="topup-opt-img package1"><div class="outer-c"> <div class="inner-c"></div><div ng-click="topUp($event)" class="n-s"></div></div></div>
+                                <div class="topup-opt-detail">
+                                    <form class="hide gtoken-package-form ng-pristine ng-valid" action="/transaction/paypal" method="post">
+                                        <input type="hidden" name="csrf_token" value="1431148386.1##4d3a9b732b77925fca416fae210ff92b700471b1">
+                                        <input type="hidden" name="name" value="New Recruit">
+                                        <input type="hidden" name="sku" value="4b09f28d-c252-6329-1c28-65774770e1c4">
+                                    </form>
+                                    <span class="topup-opt-title">50 Sugar Token</span>
+                                    <h3 class="topup-opt-price">$50.00<span></span></h3>
+                                </div>
+                                <a class="g-nml-button topup-button" id="new-recruit-package" href="" ng-click="topUp($event)">Top Up</a>
+                            </li>
+
+                            <li>
+                                <div class="topup-opt-img package2"><div class="outer-c"><div class="inner-c"></div><div class="s-v"></div><div class="s-s1"></div><div class="s-s2" ng-click="topUp($event)"></div></div></div>
+                                <div class="topup-opt-detail">
+                                    <form class="hide gtoken-package-form ng-pristine ng-valid" action="/transaction/paypal" method="post">
+                                        <input type="hidden" name="csrf_token" value="1431148386.1##4d3a9b732b77925fca416fae210ff92b700471b1">
+                                        <input type="hidden" name="name" value="Skilled One">
+                                        <input type="hidden" name="sku" value="74c558df-eb34-f507-3a7c-559e4d5a89ef">
+                                    </form>
+                                    <span class="topup-opt-title">100 Sugar Token</span>
+                                    <h3 class="topup-opt-price">$100.00<span></span></h3>
+                                </div>
+                                <a class="g-nml-button topup-button" id="skilled-one-package" href="" ng-click="topUp($event)">Top Up</a>
+                            </li>
+
+                            <li>
+                                <div class="topup-opt-img package3"><div class="outer-c"><div class="inner-c"></div><div class="k-stl"></div><div class="k-stm"></div><div class="k-str"></div><div class="k-s"></div><div class="k-s1"></div><div ng-click="topUp($event)" class="k-s2"></div></div></div>
+                                <div class="topup-opt-detail">
+                                    <form class="hide gtoken-package-form ng-pristine ng-valid" action="/transaction/paypal" method="post">
+                                        <input type="hidden" name="csrf_token" value="1431148386.1##4d3a9b732b77925fca416fae210ff92b700471b1">
+                                        <input type="hidden" name="name" value="King Club">
+                                        <input type="hidden" name="sku" value="b48deafb-a0bc-9fac-5a64-6eb12b43c197">
+                                    </form>
+                                    <span class="topup-opt-title">200 Sugar Token</span>
+                                    <h3 class="topup-opt-price">$200.00<span></span></h3>
+                                </div>
+                                <a class="g-nml-button topup-button" id="king-club-package" href="" ng-click="topUp($event)">Top Up</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 columns">
+            <div class="back-btn">
+                <a target="_self" href="@Url.Action("profile", "account")">
+                    <img src="~/static/images/back-btn.png" />
+                </a>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+

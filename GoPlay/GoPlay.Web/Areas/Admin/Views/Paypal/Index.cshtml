@@ -1,0 +1,71 @@
+﻿@model GoPlay.Models.paypal_preapproval
+@{
+    ViewBag.Title = "Paypal Preapproval Admin";
+}
+
+
+
+<form id="admin-paypal-submit-form" class="model-form" method="post"
+      enctype="multipart/form-data">
+
+    <div class="row">
+        <h1>Paypal Payment</h1>
+        @if (ViewContext.Controller.HasRole("accountant"))
+        {
+            <div>
+                <a class="button" href="@Url.Action("gcoinTransactionIndex", "paypal", new { Area = "admin" })">Process pending GCoin transaction</a>
+            </div>
+            <div>
+                <a class="button" href="@Url.Action("GetSearchPaypalTransaction", "paypal", new { area = "admin" })">Search Paypal payment</a>
+            </div>
+        }
+        @if (ViewContext.Controller.HasRole("admin"))
+        {
+            <a class="button" href="@Url.Action("GetPaypalPreapprovalSubmit", "paypal", new { area = "admin" })">Get Preapproval</a>
+        }
+        @if (Model != null)
+        {
+            <div>
+                <strong>Sender email</strong>: @Model.sender_email
+            </div>
+            <div>
+                <strong>Preapproval key</strong>: @Model.preapproval_key
+            </div>
+            <div>
+                <strong>Created at</strong>: @Model.created_at
+            </div>
+            <div>
+                <strong>Starting date</strong>: @Model.starting_date
+            </div>
+            <div>
+                <strong>Ending date</strong>: @Model.ending_date
+            </div>
+            <div>
+                <strong>Max amount per payment</strong>: @Model.max_amount_per_payment
+            </div>
+            <div>
+                <strong>Max number of payment</strong>: @Model.max_number_of_payments (Used: @Model.current_number_of_payments)
+            </div>
+            <div>
+                <strong>Max total amount of all payments</strong>: @Model.max_total_amount_of_all_payments (Used: @Model.current_total_amount_of_all_payments)
+            </div>
+
+            if (ViewContext.Controller.HasRole("admin"))
+            {
+                <div ng-controller="PaypalCtrl">
+                    <a class="button" href="javascript:cancelkey();">Cancel Preapproval</a>
+                </div>
+            }
+
+        }
+    </div>
+
+    @*{% if error %}
+        <div class="errors-container">
+            <div class="error">{{ error }}</div>
+        </div>
+        {% endif %}*@
+</form>
+@section page_foot_js{
+    <script src="~/static/js/admin/paypal.js"></script>
+}

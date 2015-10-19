@@ -1,0 +1,36 @@
+﻿@model GoPlay.Web.Areas.Admin.Models.LocaleInfo
+@using Platform.Utility
+   
+@{
+    var ng_show_bind = "show_l10n_" + System.Text.RegularExpressions.Regex.Replace(Model.Text.ToLower(), "[^0-9a-zA-Z]+", "");
+    var Locale = Model.Locale.OrderBy(x => x.Key);
+}
+    <tbody class="l10n-fields-scope" ng-init="@ng_show_bind = false">
+        @foreach (var item in Locale)
+        {
+            <tr @(item.Key != "en" ? "ng-show="+ng_show_bind : string.Empty)>
+                <td>
+                    @(Model.Text+"(" + CultureHelper._languges[item.Key]+")")
+                    @if (item.Key == "en")
+                    {
+                        <br />
+                        @("(")
+                        <a href="" class="toggle-button"
+                           ng-click="@ng_show_bind = true"
+                           ng-show="!@ng_show_bind">
+                            Show localized content
+                        </a>
+                        <a href="" class="toggle-button"
+                           ng-click="@ng_show_bind = false"
+                           ng-show="@ng_show_bind">
+                            Hide localized content
+                        </a>
+                        @(")")
+                    }
+                </td>
+                <td>
+                    @Html.Raw(item.Value)
+                </td>
+            </tr>
+        }
+    </tbody>

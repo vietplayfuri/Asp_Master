@@ -1,0 +1,278 @@
+@import "settings";
+@import "foundation";
+@import "partials/base";
+@import "account_main_user";
+
+.alert-box {
+    display: none;
+}
+
+section.account-topbar.cover-pic {
+    position: relative;
+    margin-top: 0px;
+    height: 400px;
+    background: linear-gradient(-180deg, rgba(0,0,0,0.00) 38%, rgba(0,0,0,0.00) 71%, #000000 100%), 
+                url(/static/images/cover.jpg) no-repeat center center / cover transparent;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+div.user-account,
+div.account-content,
+div.account-nav-bar {
+    width: 100%;
+}
+
+div.user-account {
+    margin-top: 280px;
+}
+
+div.account-content {
+    background: rgba(0,0,0,0.5);
+    height: 60px;
+    position: relative;
+    padding: 0 12px;
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+    a.user-avatar,
+    a.user-name {
+        display: inline-block;
+    }
+    a.user-avatar {
+        position: relative;
+        top: -34px;
+        z-index: 60;
+        img {
+            height: 140px;
+            width: 140px;
+            box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+            border-radius: 2px;
+        }
+    }
+    a.user-name {
+        vertical-align: top;
+        margin: 15px 0px 0px 10px;
+        text-shadow: 0px 1px 3px rgba(0,0,0,0.50);
+        h2,h6 {
+            display: inline;
+        }
+    }
+    ul.account-action {
+        width: auto;
+        float: right;
+        display: inline-block;
+        list-style-type: none;
+        vertical-align: top;
+        > li {
+            display: inline-block;
+        }
+        > li:first-child {
+            margin-right: 8px;
+        }
+        a.addfriend {
+            vertical-align: 22px;
+        }
+        a.more-button {
+            margin-top: 22px;
+        }
+        ul.f-dropdown.drop-left {
+            margin-left: 30px;
+            &:after {
+                top: -14px;
+                right: 8px;
+            }
+            &:before {
+                top: -12px;
+                right: 9px;
+            }
+        }
+    }
+}
+
+div.account-nav-bar {
+    position: relative;
+    height: 60px;
+    z-index: 10;
+    background-image: linear-gradient(0deg, #41444F 0%, #2E3337 100%);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.50), 
+                inset 0px -1px 3px 0px rgba(0,0,0,0.50), 
+                inset 0px 2px 2px 0px #4E5155;
+    display: block;
+    ul {
+        list-style-type: none;
+        padding-left: 165px;
+        height: 100%;
+        li {
+            border-right: 1px solid black;
+            height: 100%;
+            display: inline-block;
+            a {
+                height: 100%;
+                font-size: 1.125rem;
+                color: $pri-grey;
+                vertical-align: middle;
+                display: inline-block;
+                padding: 16px 12px 0px;
+                &:hover {
+                    color: white;
+                    background-image: linear-gradient(-179deg, rgba(102,105,116,0.5), rgba(80,92,97,0.7));
+                    box-shadow: inset 0px -1px 3px 0px rgba(0,0,0,0.50), inset 0px 2px 2px 0px #4E5155;
+                }
+            }
+            a.acc-nav-link-active {
+                color: $pri-yellow;
+                background-image: linear-gradient(-179deg, #666974 0%, #525A61 100%);
+                box-shadow: inset 0px -1px 3px 0px rgba(0,0,0,0.50), inset 0px 2px 2px 0px #4E5155;
+            }
+        }
+        li:not(:first-child) {
+            margin-left: -3px;
+        }
+        li:first-child {
+            border-left: 1px solid black;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 640px) {
+
+    div.user-account {
+        margin-top: 244px;
+    }
+
+    div.account-content {
+        height: 94px;
+        a.user-name {
+            margin-top: 18px;
+            margin-bottom: 1px;
+            margin-left: 5px;
+            h2 {
+                display: block;
+                margin-bottom: 0;
+            }
+        }
+        a.user-avatar {
+            top: 12px;
+            img {
+                height: 70px;
+                width: 70px;
+            }
+        }
+        ul.account-action {
+            float: none;
+            height: 56px;
+            position: relative;
+            top: 44px;
+            right: 178px;
+        }
+    }
+
+    div.account-nav-bar {
+        ul {
+            padding-left: 0;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 520px) {
+
+    div.account-content {
+        a.user-name {
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 420px) {
+
+    div.user-account {
+        margin-top: 176px;
+    }
+
+    div.account-content {
+        height: 170px;
+        text-align: center;
+        a.user-name {
+            margin-top: 24px;
+            display: block;
+            h2 {
+                display: block;
+                margin-bottom: 0;
+                font-size: 1.125rem;
+                line-height: 14px;
+            }
+        }
+        a.user-avatar {
+            top: 12px;
+            img {
+                height: 96px;
+                width: 96px;
+            }
+        }
+        ul.account-action {
+            top: 0px;
+            right: 0px;
+            display: block;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            a.more-button {
+                margin-top: 20px;
+            }
+            a.addfriend {
+                vertical-align: 24px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    div.account-nav-bar {
+        height: 54px;
+        ul li a {
+            font-size: 1rem;
+        }
+    }
+
+}
+
+// @media only screen and (max-width: 380px) {
+
+//     div.user-account {
+//         margin-top: 264px;
+//     }
+
+//     div.account-content {
+//         height: 74px;
+//         a.user-avatar {
+//             top: 12px;
+//             img {
+//                 height: 48px;
+//                 width: 48px;
+//             }
+//         }
+//         a.user-name {
+//             margin-top: 12px;
+//             h2 {
+//                 font-size: 1.125rem;
+//                 line-height: 14px;
+//                 font-weight: 600;
+//             }
+//         }
+//     }
+
+// }

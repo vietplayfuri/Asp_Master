@@ -1,0 +1,222 @@
+@import "partials/color";
+@import "partials/typography";
+@import "partials/buttons";
+@import "partials/forms";
+
+section.club-wrapper,
+section.support-wrapper,
+section.terms-wrapper,
+section.about-wrapper,
+section.news-wrapper {
+    margin-top: 80px;
+}
+
+section.club-wrapper,
+section.about-wrapper {
+    div.sect-panel.club-picture {
+        padding: 8px 10px 16px;
+        .slide-content {
+            margin-bottom: 0px !important;
+            height: 180px;
+            div img {
+                box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+            }
+            .slick-slide {
+                margin: 5px;
+            }
+            .slick-prev,
+            .slick-next {
+                width: 30px;
+                height: 64px;
+                background: $panel-grey;
+                top: 30%;
+                position: absolute;
+                padding: 0px;
+                &:before {
+                    display: none;
+                }
+            }
+            .slick-next {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                right: -40px;
+                background: url(/static/images/next_icon.png) center center no-repeat, $panel-grey;
+            }
+            .slick-prev {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                left: -40px;
+                background: url(/static/images/prev_icon.png) center center no-repeat, $panel-grey;
+            }
+        }
+    }
+    div.sect-panel.club-intro,
+    div.sect-panel.about-intro {
+        padding: 20px 12px;
+        div.club-address,
+        div.why-goplay,
+        div.invite-signup {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid $dark-grey;
+        }
+    }
+
+    div.hero-img {
+        img {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+    }
+
+    div.sect-panel.about-intro {
+        > p {
+            max-width: 900px;
+            width: auto;
+            margin: 0 auto;
+        }
+        div.big-title {
+            text-align: center;
+            margin: 10px auto 30px;
+            h1 {
+                color: $pri-yellow;
+                margin-bottom: 0;
+                font-weight: 300;
+            }
+        }
+        div.why-goplay {
+            div.big-title {
+                margin: 20px auto 30px;
+            }
+            ul {
+                margin-top: 50px;
+                margin-bottom: 30px;
+                text-align: center;
+                h4 {
+                    color: $pri-yellow;
+                    margin-top: 26px;
+                }
+                p {
+                    max-width: 260px;
+                    width: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+        div.invite-signup {
+            text-align: center;
+            h4 {
+                margin: 40px auto 10px;
+            }
+            a {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    section.club-wrapper div.sect-panel.club-picture {
+        .slide-content .slick-prev,
+        .slide-content .slick-next {
+            display: none !important;
+        }
+    }
+}
+
+section.support-wrapper {
+    div.sect-panel {
+        padding: 20px 12px;
+    }
+    div.quick-help + div.sect-end-bar {
+        margin-bottom: 20px;
+    }
+}
+
+div.quick-help {
+    ul {
+        list-style-type: none;
+        margin-top: 20px;
+        li {
+            &:not(:last-child) {
+                border-bottom: 1px solid $dark-grey;
+            }
+            color: $pri-grey;
+            font-size: 0.875rem;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            img {
+                margin-right: 5px;
+            }
+            span {
+                float: right;
+            }
+            br.clear-fix {
+                clear: both;
+            }
+        }
+    }
+    h6 {
+        color: $sub-grey;
+    }
+}
+
+div.message-form {
+    form {
+        margin-top: 20px;
+        p.form-label {
+            margin-bottom: 10px;
+        }
+        select.nml-dropdown {
+            background: url(/static/images/dropdown_icon.png) 98% center no-repeat,
+                linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+            &:hover {
+                background: url(/static/images/dropdown_icon.png) 98% center no-repeat,
+                            linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+            }
+            &:active  {
+                background: url(/static/images/dropdown_icon.png) 98% center no-repeat,
+                            linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+            }
+        }
+        section.game-info {
+            margin: 0 auto;
+            .short-form {
+                width: 49%;
+                display: inline-block;
+                &.odd {
+                    float: left;
+                }
+                float: right;
+            }
+        }
+        input.g-nml-button {
+            float: right;
+        }
+        div.errors-container {
+            margin: -8px auto 10px;
+            ul {
+                list-style-type: none;
+                li {
+                    color: $pri-red;
+                    font-size: 0.875rem;
+                }
+            }
+        }
+    }
+}
+
+div.terms-content {
+    padding: 20px 12px;
+}
+
+div.news-content {
+    padding: 20px;
+    text-align: center;
+    img {
+        border-radius: 5px;
+    }
+    h4 {
+        margin-top: 10px;
+    }
+}

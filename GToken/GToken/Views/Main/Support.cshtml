@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = Resources.Resources.Support;
+}
+
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+}
+
+<section class="main-section">
+    <div class="content row">
+        <div class="columns medium-10 large-8 medium-centered">
+            <div class="panel">
+
+                <h3>URGENT SUPPORT </h3>
+                <p>Speak to one of our customer representatives to get your answer immediately. Available from Monday - Friday, 11a.m to 7p.m.</p>
+                <p class="icon-phone">
+                    @*+65 67089334*@
+                    <a href="tel:+65 67089334">+65 67089334</a>
+                </p>
+                <p class="icon-skype">
+                    @*hi.gtoken*@
+                    <a href="skype:hi.gtoken?chat">hi.gtoken</a>
+                </p>
+                <p class="icon-address">
+                    @*229 Mountbatten Road Mountbatten Square #01-08/09/10 Singapore 398007*@
+                    <a href="https://www.google.com/maps/place/Gtoken+Singapore/@("@")1.307572,103.881319,17z/data=!3m1!4b1!4m2!3m1!1s0x31da18478a72dc83:0xb7e2f93919d39c6b" target="_blank">229 Mountbatten Road Mountbatten Square #01-08/09/10 Singapore 398007</a>
+                </p>
+                <br>
+                <hr>
+                <!-- FRESH WIDGET CODE -->
+                <script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
+                <style type="text/css" media="screen, projection">
+                    <link rel="stylesheet" href="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css" / >
+                </style>
+                <iframe class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://support.gtoken.com/widgets/feedback_widget/new?&widgetType=embedded&screenshot=no" scrolling="no" height="500px" width="100%" frameborder="0"></iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
+

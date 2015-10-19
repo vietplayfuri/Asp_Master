@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Top Up Cards";
+}
+@model GoPlay.Web.Areas.Admin.Models.CardQueryForm
+@using Platform.Utility
+@using System.Configuration
+
+@section page_stylesheets{
+
+    <link href="~/static/js/libs/foundation-datetimepicker/example/stylesheets/foundation-datepicker.css" rel="stylesheet" />
+}
+
+<div class="row">
+    <h1>Top Up Cards</h1>
+
+    <form class="model-form" method="POST">
+        <div class="row">
+            <div class="small-3 columns">
+
+                <input id="cardNumber" name="cardNumber" placeholder="Card Number or Password" type="text" value="@Model.cardNumber">
+            </div>
+
+
+            <div class="small-3 columns">
+
+                <input id="username" name="username" placeholder="Nick, username or email" type="text" value="@Model.username">
+            </div>
+
+
+            <div class="small-3 columns">
+
+                @Html.DropDownListFor(m => m.status, Model.statusList.Select(x => new SelectListItem() { Text = Helper.UppercaseFirst(x), Value = x }), "All")
+            </div>
+
+            <div class="small-3 columns">
+
+                Is Free
+                @Html.CheckBoxFor(m => m.isFree, new { @placeholder = "Is Free" })
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="small-3 columns">
+
+                <input id="usageStartTime" name="usageStartTime" placeholder="Used from" type="datetime" value="@Model.usageStartTime">
+            </div>
+
+
+            <div class="small-3 columns">
+
+                <input id="usageEndTime" name="usageEndTime" placeholder="Until" type="datetime" value="@Model.usageEndTime">
+            </div>
+
+
+            <div class="small-3 columns">
+                @Html.DropDownListFor(m => m.timeZone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+            </div>
+
+            <div class="small-6 columns"></div>
+        </div>
+        <div class="row">
+            <input class="button small" id="query" name="query" type="submit" value="Query">
+            <input class="button small" id="export" name="export" type="submit" value="Export">
+        </div>
+    </form>
+</div>
+
+<div class="table-wrap">
+    <table class="wide-table">
+        <thead>
+            <tr>
+                <th>Card Number</th>
+                <th>Card Password</th>
+                <th>Value</th>
+                <th>State</th>
+                <th>Account</th>
+                <th>Is Free</th>
+                <th>Is BV</th>
+                <th>Validity Time</th>
+                <th>Used Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.cards != null)
+            {
+                var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+                foreach (var card in Model.cards)
+                {
+                    DateTime validity_date = TimeZoneInfo.ConvertTimeFromUtc(card.validity_date, est);
+                    var used = card.used_at.HasValue ? "Used" : "Unused";
+                    var used_at = card.used_at.HasValue ? TimeZoneInfo.ConvertTimeFromUtc(card.used_at.Value, est).ToString(ConfigurationManager.AppSettings["DATETIMEFORMAT"]) : String.Empty;
+                    <tr>
+                        <td>@card.card_number</td>
+                        <td>@card.card_password</td>
+                        <td>@card.amount</td>
+                        <td>@used</td>
+                        <td>
+                            @if (card.customer_account_id.HasValue)
+                            {
+                                <a href="@Url.Action("UserDetail", "user", new { Area = "admin", id = card.customer_account_id })">
+                                    @card.username
+                                </a>
+                            }
+                        </td>
+                        <td>@card.is_free</td>
+                        <td>@card.is_bv</td>
+                        <td>@card.validity_date.ToString(ConfigurationManager.AppSettings["DATETIMEFORMAT"])</td>
+                        <td>@used_at</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*{% macro render_field(field) %}
+    <div class="small-3 columns">
+        {% if field.type == "BooleanField" %}
+        {{ field.label.text }}
+        {% endif %}
+        {{ field(placeholder=field.label.text) }}
+    </div>
+    {% endmacro %}*@
+
+@section page_foot_js
+{
+    <script src="~/static/js/libs/foundation-datetimepicker/example/js/foundation-datetimepicker.js"></script>
+    <script src="/static/js/admin/topup_card.js"></script>
+}

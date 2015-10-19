@@ -1,0 +1,42 @@
+﻿CREATE TABLE referral_campaign
+(
+  id serial NOT NULL,
+  game_id integer NOT NULL,
+  start_date timestamp without time zone NOT NULL DEFAULT now(),
+  end_date timestamp without time zone NOT NULL DEFAULT now(),
+  quantity integer,
+  created_at timestamp without time zone NOT NULL DEFAULT now(),
+  status smallint NOT NULL DEFAULT 1,
+  gtoken_per_download integer NOT NULL DEFAULT 1, -- gtoken to use per download
+  game_name character varying(50),
+  title character varying NOT NULL,
+  description character varying,
+  CONSTRAINT "primary key" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+
+CREATE TABLE record_download_history
+(
+  id serial NOT NULL,
+  game_id integer NOT NULL,
+  user_id integer NOT NULL,
+  device_id character varying(100) NOT NULL,
+  referral_campaign_id integer NOT NULL,
+  created_at timestamp without time zone NOT NULL DEFAULT now(),
+  CONSTRAINT record_download_history_pkey PRIMARY KEY (id),
+  CONSTRAINT record_download_history_game_id_referral_campaign_id_device_key UNIQUE (game_id, referral_campaign_id, device_id)
+)
+WITH (
+  OIDS=FALSE
+);
+
+-- Index: device_id_idx
+
+-- DROP INDEX device_id_idx;
+
+CREATE INDEX device_id_idx
+  ON record_download_history
+  USING btree
+  (device_id COLLATE pg_catalog."default");

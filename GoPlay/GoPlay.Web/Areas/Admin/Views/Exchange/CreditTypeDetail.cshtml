@@ -1,0 +1,15 @@
+﻿@using GoPlay.Web.Areas.Admin.Models
+@model AdminEditExchangeModel
+@{
+    ViewBag.Title = "CreditType: " + Model.name;
+    string urlExchangeIndex = "/admin/exchange";
+    string urlExchangeCreditTypeEdit = string.Format("/admin/exchange/creditType/{0}/edit?previous_page={1}", Model.id, Model.id);
+}
+
+@Html.Partial("_entity_detail_table", Model)
+
+<div class="model-detail-actions">
+    <a class="button small secondary" href="@urlExchangeIndex">Back</a>
+    <a class="button small" href="@urlExchangeCreditTypeEdit">Edit</a>
+</div>
+

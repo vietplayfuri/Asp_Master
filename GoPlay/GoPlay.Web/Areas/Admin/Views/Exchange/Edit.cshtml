@@ -1,0 +1,162 @@
+﻿@using GoPlay.Web.Areas.Admin.Models
+@model AdminEditExchangeModel
+@{
+    string title = string.Format("Edit {0}: {1}", Model.is_package
+        ? "Package"
+        : "CreditType",
+        !string.IsNullOrEmpty(Model.name) ? Model.name : "None");
+    ViewBag.Title = title;
+    string urlBack = !string.IsNullOrEmpty(Model.previous_page) ? string.Format("/admin/exchange/package/{0}", Model.id) : "/admin/exchange/";
+}
+<div>
+
+    <h1 class="text-center">@title</h1>
+    <form enctype="multipart/form-data" method="post" class="model-form" id="admin-exchange-entity-edit-form">
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="string_identifier" class="right inline ">
+                    String Identifier *
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <input type="text" value="@Model.string_identifier" placeholder="String Identifier" name="string_identifier" id="string_identifier">
+                @Html.ValidationMessageFor(m => m.string_identifier)
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="name" class="right inline ">
+                    Name *
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <input type="text" value="@Model.name" placeholder="Name" name="name" id="name">
+                @Html.ValidationMessageFor(m => m.name)
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="icon" class="right inline ">
+                    Icon
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <input type="file" placeholder="Icon" name="icon" id="icon">
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="is_archived" class="right inline ">
+                    Is Archived
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <div class="switch round small">
+                    <input type="checkbox" name="is_archived" id="is_archived" @(!string.IsNullOrEmpty(Model.is_archived) ? "checked" : string.Empty)>
+                    <label for="is_archived">Is Archived</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="is_active" class="right inline ">
+                    Is Active
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <div class="switch round small">
+                    <input type="checkbox" name="is_active" id="is_active" @(!string.IsNullOrEmpty(Model.is_active) ? "checked" : string.Empty)>
+                    <label for="is_active">Is Active</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="game_id" class="right inline ">
+                    Game *
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.DropDownList("game_id", new SelectList(Model.games, "id", "name", Model.game_id))
+            </div>
+        </div>
+        @if (!Model.is_package)
+        {
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="exchange_rate" class="right inline ">
+                        Exchange Rate *
+                    </label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="number" value="@Model.exchange_rate" step="1" placeholder="Exchange Rate" name="exchange_rate" id="exchange_rate">
+                    @Html.ValidationMessageFor(m => m.exchange_rate)
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="free_exchange_rate" class="right inline ">
+                        Free Exchange Rate *
+                    </label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="number" value="@Model.free_exchange_rate" step="1" placeholder="Free Exchange Rate" name="free_exchange_rate" id="free_exchange_rate">
+                    @Html.ValidationMessageFor(m => m.free_exchange_rate)
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="play_token_value" class="right inline ">
+                        Play Token Value *
+                    </label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="number" value="@Model.play_token_value" step="any"
+                           placeholder="Play Token Value"
+                           name="play_token_value" id="play_token_value">
+                    @Html.ValidationMessageFor(m => m.play_token_value)
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="free_play_token_value" class="right inline ">
+                        Free Play Token Value *
+                    </label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="number" value="@Model.free_play_token_value"
+                           step="any" placeholder="Free Play Token Value"
+                           name="free_play_token_value" id="free_play_token_value">
+                    @Html.ValidationMessageFor(m => m.free_play_token_value)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-3 columns">
+                    <label class="right inline " for="limited_time_offer">
+                        Limited Time Offer
+                    </label>
+                </div>
+                <div class="small-9 columns">
+                    <input id="limited_time_offer" name="limited_time_offer"
+                           placeholder="Limited Time Offer" step="1" type="number" value="@Model.limited_time_offer">
+                    @Html.ValidationMessageFor(m => m.limited_time_offer)
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="small-9 small-offset-3 columns">
+                <a href="@urlBack" class="button small secondary">Back</a>
+                <input type="submit" value="Update Entity" name="submit" id="submit" class="button small">
+            </div>
+        </div>
+    </form>
+</div>
+
+@section page_foot_js{
+    <script src="~/static/js/admin/validation.js"></script>
+}

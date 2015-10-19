@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Transaction;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using GToken.Web.Models
+@model GToken.Web.Models.ReferalsPaging
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/libs/foundation-datetimepicker/foundation-datepicker.css" />
+}
+
+<section class="main-section">
+    <div class="row">
+        @Html.Partial("~/Views/Account/_account_info.cshtml")
+        <div class="large-8 columns">
+            @Html.Partial("~/Views/Referral/_history.cshtml", @Model)
+        </div>
+    </div>
+</section>
+

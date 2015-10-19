@@ -1,0 +1,136 @@
+﻿@using Resources
+@using GoPlay.Models
+@{
+    ViewBag.Title = Resources.My_profile;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section lib_stylesheets {
+    <link rel="stylesheet" href="/bower_components/angucomplete-alt/angucomplete-alt.css" />
+    <link rel="stylesheet" href="/static/stylesheets/account/user_profile.css?rnd=20150420" />
+}
+
+@Html.Partial("~/Views/Shared/Account/_account_topbar.cshtml", Active_page.Profile)
+
+<section class="user-profile row">
+    @Html.Partial("~/Views/Shared/Account/_account_info.cshtml")
+    <div class="large-8 columns main-content">
+
+        <section class="welcome-board">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Getting_Started</h6>
+            </div>
+            <div class="sect-panel">
+                <p>@Resources.Welcome <strong>@Html.GetCurrentUser().display_name</strong>! @Resources.Something_you_might_want_to_do:</p>
+                <ul class="recommend-action">
+                    <li>
+                        <a class="topup board-button" href="@Url.Action("topup", "transaction")">
+                            <div>
+                                <h5>@Resources.Top_Up</h5>
+                                <p>@Resources.Get_more_PlayToken_and_exchange_in_game</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="exchange board-button" href="/transaction/exchange?panelName=exchange">
+                            <div>
+                                <h5>@Resources.Exchange</h5>
+                                <p>@Resources.Exchange_your_PlayToken_for_in_game</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="transfer board-button" href="/friend">
+                            <div>
+                                <h5>@Resources.Transfer</h5>
+                                <p>@Resources.Transfer_PlayToken_to_your_friends</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </section>
+
+        <section class="games-board">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Games</h6>
+            </div>
+            <div class="sect-panel">
+                <p>@Resources.You_have_played_games.Replace("{number}", "2"):</p>
+                <ul class="game-list">
+                    <li class="dim-content">
+                        <div class="slide-content">
+                            <div class="game-title">
+                                <img class="game-icon" scr="">
+                                <div class="game-info">
+                                    <a class="game-name" href=""><h4>Gamename</h4></a>
+                                    <a class="game-gerne" href="">Puzzle</a>
+                                    <p class="last-play">Last play 5 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="game-achievement">
+                                <div class="achievement">
+                                    <ul class="ach-list">
+                                        <li>23<span>Level</span></li>
+                                        <li>1423<span>Highscore</span></li>
+                                        <li>45<span>Win</span></li>
+                                        <li>76<span>Lost</span></li>
+                                        <li>23<span>Level</span></li>
+                                        <li>1423<span>Highscore</span></li>
+                                        <li>45<span>Win</span></li>
+                                        <li>76<span>Lost</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dim-content">
+                        <div class="slide-content">
+                            <div class="game-title">
+                                <img class="game-icon" scr="">
+                                <div class="game-info">
+                                    <a class="game-name" href=""><h4>Gamename</h4></a>
+                                    <a class="game-gerne" href="">Puzzle</a>
+                                    <p class="last-play">Last play 5 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="game-achievement">
+                                <div class="achievement">
+                                    <ul class="ach-list">
+                                        <li>23<span>Level</span></li>
+                                        <li>1423<span>Highscore</span></li>
+                                        <li>45<span>Win</span></li>
+                                        <li>76<span>Lost</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </section>
+
+    </div>
+</section>
+@section page_foot_js{
+    <script type="text/javascript" src="/bower_components/slick.js/slick/slick.min.js"></script>
+    <script src="/static/js/pages/accountProfile.js?rnd=28092015"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slide-content').slick({
+                dots: false,
+                slidesToShow: 1,
+                autoplay: false,
+                infinite: false,
+                swipe: true,
+                prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="previous"></button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="next"></button>'
+            });
+        });
+    </script>
+}
+

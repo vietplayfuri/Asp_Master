@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html ng-app="gtokenApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    @Html.Partial("~/Views/Shared/includes/favicon_meta.cshtml")
+    <title>GToken Admin - @ViewBag.Title</title>
+
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic'
+          rel='stylesheet' type='text/css'>
+
+    @RenderSection("page_stylesheets", false)
+    <link rel="stylesheet" href="/static/stylesheets/admin/admin.css" />
+    <link rel="stylesheet" href="/static/libs/foundation-datetimepicker/foundation-datepicker.css" />
+
+    @RenderSection("head_js_lib", false)
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    @RenderSection("page_head_js", false)
+</head>
+<body>
+    @*{% block flashed_messages %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div data-alert class="alert-box {{ category }}" tabindex="0" aria-live="assertive" role="dialogalert">
+            <div class="row">{{ message }}</div>
+            <a href="#" class="close">&times;</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% endblock %}*@
+
+    @Html.Partial("~/Areas/Admin/Views/Shared/header.cshtml")
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @RenderSection("foot_js_lib", false)
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/foundation/js/foundation.min.js"></script>
+    <script src="/bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+    <script src="/static/libs/foundation-datetimepicker/foundation-datetimepicker.js"></script>
+    <script src="/bower_components/angucomplete-alt/angucomplete-alt.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="/static/js/vendors/angular-page-enter-animate.js"></script>
+    <script src="/static/js/app.js"></script>
+    @RenderSection("page_foot_js", false)
+</body>
+</html>

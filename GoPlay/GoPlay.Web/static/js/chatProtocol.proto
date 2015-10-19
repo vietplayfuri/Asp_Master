@@ -1,0 +1,131 @@
+package gtoken;
+
+option optimize_for = SPEED;
+
+option java_package = "com.gtoken.chat.proto";
+option java_outer_classname = "ChatProtocol";
+
+enum Command {
+    DEFAULT = 0;
+    PING = 1;
+    PONG = 2;
+    USER_ONLINE = 3;
+    USER_OFFLINE = 4;
+    CHAT = 5;
+    CHAT_GROUP = 6;
+    FRIENDS = 7;
+    LOGIN = 8;
+    LOGIN_SUCCESS = 9;
+    LOGIN_FAIL = 10;
+    LOGOUT = 11;
+    USER_EXIST = 12;
+    USER_NOT_EXIST = 13;
+    HISTORY = 14;
+    TYPING = 15;
+    CHAT_STATUS = 16;
+    SPAM_CHAT = 17;
+    NOTIFICATION = 18;
+    NEW_FRIENDS = 19;
+}
+
+enum ChatStatus {
+    READ = 1;
+    UNREAD = 2;
+    SENDING = 3;
+    DELIVERED = 4;
+}
+
+enum ChatType {
+    TEXT = 1;
+    GAME = 2;
+}
+
+enum NotificationAction {
+    COUNT = 1;
+    RESET_COUNT = 2;
+    DATA = 3;
+    DECREASE_COUNT = 4;
+}
+
+message MessageSendProto {
+    required Command command = 1 [default = DEFAULT];
+    required string user = 2 [default = ""];
+    required string token = 3 [default = ""];
+    optional string friend = 4 [default = ""];
+    optional string data = 5 [default = ""];
+    optional ChatType type = 6 [default = TEXT];
+    optional GameProto game = 7;
+    //using get paging by command: notification, history,...
+    optional string fromId = 8 [default = ""];
+    //using load more
+    optional uint32 current = 9 [default = 0];
+    optional NotificationAction notifyAction = 10 [default = DATA];
+}
+
+message MessageReceiveProto {
+    required Command command = 1 [default = DEFAULT];
+    required string user = 2 [default = ""];
+    //chat
+    optional ChatProto chat = 3;
+    optional ChatType type = 4 [default = TEXT];
+    //friendlist
+    repeated UserStatusProto friendlist = 5;
+    //history
+    repeated HistoryProto history = 6;
+    optional GameProto game = 7;
+    optional NotificationChatProto chatNotification = 8;
+}
+
+message ChatProto {
+    required string sender = 1 [default = ""];
+    required string receiver = 2 [default = ""];
+    optional string message = 3 [default = ""];
+    optional ChatStatus status = 4 [default = UNREAD];
+    //indicate position of message to update (text, status)
+    optional uint64 timestamp = 5 [default = 0];
+    optional string key = 6 [default = ""];
+}
+
+message UserStatusProto {
+    required string user = 1 [default = ""];
+    required UserStatus status = 2 [default = OFFLINE];
+    
+    enum UserStatus {
+        ONLINE = 1;
+        OFFLINE = 2;
+    }
+}
+
+message HistoryProto {
+    optional ChatProto chat = 1;
+    optional ChatType type = 2 [default = TEXT];
+    optional GameProto game = 3;
+}
+
+message GameProto {
+    required string sender = 1 [default = ""];
+    required string receiver = 2 [default = ""];
+    optional ChatStatus status = 3 [default = UNREAD];
+    optional uint64 timestamp = 4 [default = 0];
+    optional string key = 5 [default = ""];
+    optional string id = 6 [default = ""];
+    optional string title = 7 [default = ""];
+    optional string thumb = 8 [default = ""];
+    optional string link = 9 [default = ""];
+}
+
+message NotificationChatProto {
+    required uint64 count = 1 [default = 0];
+    repeated NotificationChatDetailProto chats = 2;
+    required NotificationAction notifyAction = 3;
+}
+
+message NotificationChatDetailProto {
+    repeated string users = 1;
+    required ChatType type = 2 [default = TEXT];
+    optional ChatProto chat = 3;
+    optional GameProto game = 4;
+    optional uint32 count = 5 [default = 0];
+    optional uint64 timestamp = 6 [default = 0];
+    optional uint64 id = 7 [default = 0];
+}

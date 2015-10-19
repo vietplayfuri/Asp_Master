@@ -1,0 +1,107 @@
+﻿@model GToken.Web.Models.InvoiceModel
+@using Platform.Models
+@using Platform.Utility
+@using System.Configuration
+@using Resources
+@{
+    ViewBag.Title = Resources.Electronic_receipt;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main-section">
+    <div class="row">
+        <div class="columns large-8 large-offset-2">
+            <div class="panel">
+                <div class="row">
+                    <div class="columns medium-10 medium-offset-1">
+                        @if(Model.transaction!=null || Model.token_transaction!=null)
+                        {
+                            var formatNumber =ConstantCommon.MONEY_FORMAT;
+                            if(Model.transaction!=null)
+                            {
+                                <h4>@Resources.Invoice</h4>
+                            }
+                            else
+                            {
+                                <h4>@Resources.Receipt</h4>
+                            }
+                        <p>@Resources.Electronic_receipt<br />@Resources.Thank_you</p>
+                        <hr class="small">
+
+                        <div class="row">
+                            <div class="columns medium-10 medium-offset-1">
+                                <dl>
+                                    <div class="row">
+                                        <dt class="columns medium-4 small-6">@Resources.Date</dt>
+                                        <dd class="columns medium-8 small-6"> @(Model.transaction == null ? Model.token_transaction.created_at.ToString(ConstantCommon.BABEL_DATETIME_READABLE_FORMAT) : Model.transaction.created_at.ToString(ConstantCommon.BABEL_DATETIME_READABLE_FORMAT))</dd>
+                                        <dt class="columns medium-4 small-6">@Resources.Transaction_ID</dt>
+                                        <dd class="columns medium-8 small-6">@(Model.transaction == null 
+                                            ? !string.IsNullOrEmpty(Model.token_transaction.partner_order_id) 
+                                                ? Model.token_transaction.partner_order_id : Model.token_transaction.gtoken_transaction_id
+                                            : Model.transaction.partner_order_id)</dd>
+                                        <dt class="columns medium-4 small-6">@Resources.Partner</dt>
+                                        <dd class="columns medium-8 small-6">@Model.partnerName</dd>
+                                        <dt class="columns medium-4 small-6">@Resources.Description</dt>
+                                        <dd class="columns medium-8 small-6">@(Model.transaction == null ? Model.token_transaction.description : Model.transaction.description)</dd>
+                                        @if(Model.transaction!=null)
+                                        { 
+                                        <dt class="columns medium-4 small-6">@Resources.Subtotal</dt>
+                                        <dd class="columns medium-8 small-6"> @(Model.transaction.original_price.HasValue?Model.transaction.original_price.Value.ToString(formatNumber):string.Empty) @Model.transaction.original_currency</dd>
+                                        <dt class="columns medium-4 small-6">@Resources.Discount</dt>
+                                            var temp_value ="";
+                                            if (Model.transaction.original_price.HasValue && Model.transaction.discount_percentage.HasValue)
+                                            {
+                                                temp_value = (Model.transaction.original_price.Value * Model.transaction.discount_percentage.Value).ToString(formatNumber);
+                                            }
+                                        <dd class="columns medium-8 small-6">@temp_value @Model.transaction.original_currency</dd>
+                                            if (Model.transaction.original_tax != null && Model.transaction.original_tax >0)
+                                            {
+                                                <dt class="columns medium-4 small-6">@Resources.GST</dt>
+                                                <dd class="columns medium-8 small-6">@Model.transaction.original_tax.ToString(formatNumber) @Model.transaction.original_currency</dd>
+                                            }
+                                            if (Model.transaction.original_service_charge != null && Model.transaction.original_service_charge>0)
+                                             { 
+                                                <dt class="columns medium-4 small-6">@Resources.Service_Charge</dt>
+                                                <dd class="columns medium-8 small-6">@Model.transaction.original_service_charge.ToString(formatNumber) @Model.transaction.original_currency</dd>
+                                             }
+                                        <dt class="columns medium-4 small-6 strong">@Resources.Total</dt>
+                                        <dd class="columns medium-8 small-6 strong">@Model.transaction.original_final_amount_after_tax.ToString(formatNumber) @Model.transaction.original_currency</dd>
+                                        }
+                                        else
+                                        {
+                                            if (Model.token_transaction.is_cash)
+                                            {
+                                                if (Model.token_transaction.tax != null && Model.token_transaction.tax>0)
+                                                {
+                                                    <dt class="columns medium-4 small-6">@Resources.GST</dt>
+                                                    <dd class="columns medium-8 small-6">@Model.token_transaction.tax.ToString(formatNumber) @Model.token_transaction.token_type</dd>
+                                                }
+                                                if (Model.token_transaction.service_charge != null && Model.token_transaction.service_charge>0)
+                                                {
+                                                    <dt class="columns medium-4 small-6">@Resources.Service_Charge</dt>
+                                                    <dd class="columns medium-8 small-6">@Model.token_transaction.service_charge.ToString(formatNumber) @Model.token_transaction.token_type</dd>
+                                                }
+                                            }
+                                            <dt class="columns medium-4 small-6">@Resources.Amount</dt>
+                                            <dd class="columns medium-8 small-6">@Model.token_transaction.amount_after_tax.ToString(formatNumber) @Model.token_transaction.token_type</dd>
+                                        }
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                        }
+                        else
+                        {
+                            <span> @Resources.No_receipt_available_for_you </span>
+                        }
+                        @{
+                            var email = ConfigurationManager.AppSettings["CUSTOMER_SUPPORT_EMAIL_SENDER"];
+                        }
+                        <p>@Resources.Please_kindly_contact_part1 <a href='mailto:@email'>@email</a> @Resources.Please_kindly_contact_part2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

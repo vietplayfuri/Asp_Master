@@ -1,0 +1,62 @@
+@model GoPlay.Web.Models.TransactionViewModel
+@using Platform.Utility
+@using GoPlay.Web.Helpers
+@using System.Configuration
+@using GoPlay.Web.Helpers
+@{
+    var dateFormat = ConfigurationManager.AppSettings["BABEL_DATETIME_READABLE_FORMAT"];
+}
+
+<section class="transaction-history">
+    <div class="sect-title-bar">
+        <h6 class="sect-title" ng-if="transactionList.length">{$ transactionList.length $}/{$ totalTransaction $} Transaction{$ totalTransaction > 1 ? 's' : '' $}</h6>
+    </div>
+    <div class="sect-panel">
+        <div class="legends">
+
+            <p class="right">* @Resources.Resources.Free_Play_Token</p>
+        </div>
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th class="trans-cell type" scope="col"></th>
+                    <th class="trans-cell time" scope="col">Time</th>
+                    <th class="trans-cell desc" scope="col">Description</th>
+                    <th class="trans-cell invc" scope="col">Invoice</th>
+                    <th class="trans-cell amnt" scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tr in transactionList">
+                    <th class="trans-cell type" scope="row">
+                        <img src="{$ tr.icon $}" alt="">
+                        <span>{$ tr.source $}</span>
+                        <p>Transaction</p>
+                    </th>
+                    <td class="trans-cell time" scope="row" data-title="Time" data-type="right-align">
+                        {$ tr.localized_created_at $}
+                    </td>
+                    <td class="trans-cell desc" scope="row" data-title="Description" data-type="right-align">
+                        {$ tr.description $}
+                    </td>
+                    <td class="trans-cell invc" scope="row" data-title="Invoice" data-type="right-align">
+                        <a ng-if="payment_method" href="{$ tr.url $}" target="_blank">
+                            Invoice
+                        </a>
+                    </td>
+                    <td class="trans-cell amnt {$ tr.amount >= 0 ? 'plus' : 'subtr' $}"
+                        scope="row" data-title="Amount" data-type="right-align">
+                        {$ tr.amount $}
+                        <span ng-if="tr.class_name === 'FreeCoinTransaction'">*</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="center">
+            <p>{$ transactionList.length $}/{$ totalTransaction $} Transaction{$ totalTransaction > 1 ? 's' : '' $}</p>
+            <a ng-show="totalTransaction > transactionList.length" class="nml-button button small" ng-click="loadMoreTransaction($event)">See more</a>
+        </div>
+    </div>
+    <div class="sect-end-bar">
+    </div>
+</section>

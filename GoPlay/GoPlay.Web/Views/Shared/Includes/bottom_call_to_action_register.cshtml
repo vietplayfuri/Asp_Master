@@ -1,0 +1,14 @@
+@if (@Request.IsAuthenticated)
+{
+    <div class="bottom-cta">
+        <div class="row">
+            <div class="large-12 columns cta-content">
+                <h4>@Resources.Resources.Register_your_account_now</h4><br>
+                <a class="register-btn" href="@Url.Action("Register", "Account")">
+                    @Resources.Resources.Signup 1
+                    <img src="/static/images/tiny-gtoken.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+}

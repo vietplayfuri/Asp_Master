@@ -1,0 +1,30 @@
+@using Platform.Models;
+
+<script>
+    //var profile = {{ user.toJSONString() | safe }};
+    var nicknameMaxLength = "@ConstantCommon.NICKNAME_MAX_LENGTH.ToString()";
+    var bioMaxLength = "@ConstantCommon.BIO_MAX_LENGTH.ToString()";
+</script>
+
+<div class="large-4 columns thin-padding">
+    <div ng-controller="ProfileController as profileCtrl" class="panel profile-card">
+        <img alt="Inky" src="@Html.GetCurrentUser().avatar_filename">
+        <div class="profile-info text-center">
+            <h4 class="subheader">@Html.GetCurrentUser().nickname</h4>
+            <p><span class="location">@Html.GetCurrentUser().country_name</span></p>
+            <p><a href="@Url.Action("edit-profile", "account")"> @Resources.Resources.Edit_your_profile</a></p>
+            <p><a href="@Url.Action("index", "referral")">View referal rewards</a></p>
+            <p class="text-left margin-top">
+                <strong>Refer a friend:</strong>
+                <br>
+            </p>
+            <div class="form-group-has-button">
+                <input type="text" value="@Url.Action("register", "account", new { referralID = @Html.GetCurrentUser().UserName }, Request.Url.Scheme)">
+                <button data-clipboard-text="@Url.Action("register", "account", new { referralID = @Html.GetCurrentUser().UserName }, Request.Url.Scheme)" id="copy-button" ng-click="copyToClipboard($event)"><span class="normal-text">Copy</span><span class="active-text">Copied</span></button>
+            </div>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+

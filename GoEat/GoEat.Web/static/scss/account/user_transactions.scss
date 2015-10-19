@@ -1,0 +1,1860 @@
+@import "account_main";
+
+// User Transactions Page Content Style ******************************************** //
+
+.section-content-wrap {
+    ul {
+        list-style-type: none;
+    }
+}
+
+.show-balance, .transaction-history {
+        h4 {
+        font-weight: 600;
+        color: $sub-darkblue;
+    }
+}
+
+.show-gtoken {
+    width: 100%;
+    padding: 20px 0px;
+    border: 2px solid $pri-yellow;
+    margin-bottom: 20px;
+    ul {
+        text-align: center;
+        margin: 0;
+    }
+    li {
+        span {
+            color: $pri-grey;
+        }
+    }
+    li:not(:last-child) {
+        border-right: 2px solid $pri-yellow;
+    }
+}
+
+.show-gtoken ul li {
+    display: inline-block;
+    text-align: center;
+    padding: 0 0;
+    //width: 49%;
+    h1 {
+        display: inline-block;
+        font-weight: 600;
+        color: $pri-yellow;
+        padding: 0;
+        line-height: 42px;
+    }
+    span {
+        display: block;
+        margin: 4px 0px 0px 0px;
+    }
+}
+
+.welcome-board,
+.top-up-panel,
+.exchange-panel,
+.transfer-panel,
+.gcoin-panel {
+    @include white-panel;
+    width: 100%;
+    text-align: center;
+    color: $pri-grey;
+}
+
+.welcome-board {
+    padding: 9px 0px 10px;
+    margin-bottom: 24px;
+    .user-todo-list {
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        li {
+            display: inline;
+            border-right: 2px solid $sub-grey;
+            padding-bottom: 0;
+            a {
+                display: inline-block;
+                color: $pri-grey;
+            }
+        }
+        li:last-child {
+            border-right: none;
+        }
+    }
+}
+
+.transfer-td,
+.exchange-td,
+.topup-td,
+.gcoin-td {
+    -webkit-transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    &:hover {
+        opacity: 0.75;
+        &:before {
+            transform: translateY(-5px);
+            -webkit-transform: translateY(-5px);
+        }
+    }
+    &:before {
+        transition: 0.2s linears;
+        -webkit-transition: 0.2s linear;
+        display: block;
+        margin-bottom: 2px;
+        vertical-align: middle;
+        height: 60px;
+    }
+}
+
+.transfer-td {
+    &:before {
+        content: url(/static/images/transfer-gtoken.png);
+    }
+}
+
+.exchange-td {
+    &:before {
+        content: url(/static/images/exchange-item.png);
+        padding-top: 8px;
+    }
+}
+
+.topup-td {
+    &:before {
+        content: url(/static/images/topup-gtoken.png);
+        padding-top: 5px;
+    }
+}
+
+.gcoin-td {
+    &:before {
+        content: url(/static/images/gcoin-convert.png);
+        padding-right: 10px;
+    }
+}
+
+.break-line {
+    height: 1px;
+    display: block;
+    border-bottom: 1px solid $sub-grey;
+}
+
+.top-up-panel,
+.exchange-panel,
+.transfer-panel,
+.gcoin-panel {
+    padding: 70px 30px;
+    margin-bottom: 30px;
+    position: relative;
+    .close-panel {
+        text-align: left;
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        &:after {
+            content:url(/static/images/close-button.png);
+            display:block;
+        }
+        &:hover {
+            &:after {
+                opacity: 0.6;
+            }
+        }
+    }
+}
+
+.top-up-panel,
+.gcoin-panel {
+    h4 {
+        font-weight: 300;
+        line-height: 32px;
+    }
+    ul.top-up-methods {
+        border-radius: 3px;
+        margin: 0 auto;
+        margin-left: 5px;
+        li {
+            display: inline;
+            a {
+                @include sml-primary-btn($pri-blue);
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                margin-left: -5px;
+                transition: all 0.25s ease;
+                -moz-transition: all 0.25s ease;
+                padding: 7px 11px;
+            }
+            a:hover, a.active {
+                color: white;
+                background: $pri-blue;
+            }
+        }
+        li:first-child a {
+            -webkit-border-top-left-radius: 3px;
+            -webkit-border-bottom-left-radius: 3px;
+            -moz-border-radius-topleft: 3px;
+            -moz-border-radius-bottomleft: 3px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-right: none;
+        }
+        li:nth-child(2) a {
+            border-right: none;
+        }
+        li:last-child a {
+            -webkit-border-top-right-radius: 3px;
+            -webkit-border-bottom-right-radius: 3px;
+            -moz-border-radius-topright: 3px;
+            -moz-border-radius-bottomright: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border-right: 2px solid #199be3;
+        }
+    }
+}
+
+.top-up-opts-container {
+    .check-gtoken {
+        max-width: 160px;
+        margin: 20px auto 0px;
+        font-size: 1rem;
+        color: $pri-grey;
+        position: relative;
+        left: -15px;   
+    }
+    .check-box {
+        opacity: 0;
+        position: relative;
+        top: -2px;
+        left: 5px;
+        width: 18px;
+        z-index: 999;
+        cursor: pointer;
+    }
+    .check-box + label {
+        clear: none;
+        /* Left padding makes room for image */
+        padding: 5px 0 4px 20px;
+        /* Make look clickable because they are */
+        cursor: pointer;
+        background: url(/static/images/checkbox.png) left center no-repeat;
+    }
+    .check-box:checked + label {
+        background: url(/static/images/checkbox-checked.png) left center no-repeat;
+    }
+    .check-label {
+        margin-top: 4px;
+        margin-bottom: 14px;
+    }
+}
+
+.top-up-opts {
+    margin: 30px 0 40px;
+    ul {
+        margin: 0;
+    }
+    ul li {
+        display: inline-block;
+        width: 26%;
+        span {
+            display: block;
+        }
+        .topup-opt-price {
+            margin-top: 22px;
+            line-height: 10px;
+            color: $pri-grey;
+            span {
+                font-size: 1.25rem;
+                display: inline;
+            }
+        }
+        .topup-opt-title {
+            @include subheader($pri-grey, 600, 1.125rem);
+        }
+        a {
+            @include sml-secondary-btn($pri-yellow);
+            display: block;
+            color: $pri-yellow;
+            max-width: 110px;
+            margin: 0 auto;
+            margin-top: 10px;
+            transition: all 0.25s ease;
+            -moz-transition: all 0.25s ease;
+            text-align: center;
+            &:hover {
+                background: $pri-yellow;
+                color: white;
+            }
+        }
+        img {
+            cursor: pointer;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    // TopUp Icons Animation
+
+    .topup-opt-img {
+        position: relative;
+        display: block;
+        height: 116px;
+        width: 116px;
+        margin: 0 auto;
+        .outer-c {
+            width: 100%;
+            height: 100%;
+            border-radius: 100px;
+            border: 2px solid;
+            position: relative;
+        }
+        .inner-c {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            border: 2px dashed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        div {
+            -webkit-transition: all 300ms;  
+            transition: all 300ms;
+            -moz-transition: all 300ms;
+        }
+        &:hover {
+            .inner-c {
+                transform: rotate(-15deg);
+                -webkit-transform: rotate(-15deg);
+            }
+        }
+    }
+
+    .topup-opt-img.newbie {
+        .outer-c,
+        .inner-c {
+            border-color: $pri-lightgrey;
+        }
+        .n-s {
+            cursor: pointer;
+            width: 73px;
+            height: 73px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            background: url(/static/images/topup-newbie/sword.png) center center no-repeat;
+        }
+        &:hover {
+            .n-s {
+                transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+            }
+        }
+    }
+
+    .topup-opt-img.skill {
+        .outer-c,
+        .inner-c {
+            border-color: $pri-green;
+        }
+        .s-v {
+            width: 88px;
+            height: 24px;
+            position: absolute;
+            top: -8px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: url(/static/images/topup-skilled/value.png) center center no-repeat;
+        }
+        .s-s1,
+        .s-s2 {
+            width: 56px;
+            height: 56px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            cursor: pointer;
+        }
+        .s-s1 {
+            background: url(/static/images/topup-skilled/sword.png) center center no-repeat;
+        }
+        .s-s2 {
+            background: url(/static/images/topup-skilled/sword2.png) center center no-repeat;
+        }
+        &:hover {
+            .s-s1 {
+                transform: translateX(-3px) rotate(5deg);
+                -webkit-transform: translateX(-3px) rotate(5deg);
+            }
+            .s-s2 {
+                transform: translateX(3px) rotate(-5deg);
+                -webkit-transform: translateX(3px) rotate(-5deg);
+            }
+        }
+    }
+
+    .topup-opt-img.king {
+        .outer-c,
+        .inner-c {
+            border-color: $pri-yellow;
+        }
+        .k-stl,
+        .k-stm,
+        .k-str {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+        }
+        .k-stl {
+            top: 48px;
+            left: 38px; //15
+            background: url(/static/images/topup-gold/star-l.png) center center no-repeat;
+        }
+        .k-stm {
+            left: 0;
+            right: 0;
+            top: 36px; //14
+            margin: 0 auto;
+            background: url(/static/images/topup-gold/star-m.png) center center no-repeat;
+        }
+        .k-str {
+            top: 48px;
+            right: 38px;
+            background: url(/static/images/topup-gold/star-r.png) center center no-repeat;
+        }
+        .k-s {
+            width: 46px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: url(/static/images/topup-gold/shield.png) center center no-repeat;
+        }
+        .k-s1,
+        .k-s2 {
+            width: 56px;
+            height: 56px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            cursor: pointer;
+        }
+        .k-s1 {
+            background: url(/static/images/topup-gold/sword.png) center center no-repeat;
+        }
+        .k-s2 {
+            background: url(/static/images/topup-gold/sword2.png) center center no-repeat;
+        }
+        &:hover {
+            .k-stl {
+                transform: translateX(-23px);
+                -webkit-transform: translateX(-23px);
+            }
+            .k-str {
+                transform: translateX(23px);
+                -webkit-transform: translateX(23px);
+            }
+            .k-stm {
+                transform: translateY(-22px);
+                -webkit-transform: translateY(-22px);
+            }
+            .k-s1 {
+                transform: translateX(-3px) rotate(5deg);
+                -webkit-transform: translateX(-3px) rotate(5deg);
+            }
+            .k-s2 {
+                transform: translateX(3px) rotate(-5deg);
+                -webkit-transform: translateX(3px) rotate(-5deg);
+            }
+        }
+    }
+    .topup-opt-img.conquer {
+        margin-top: 30px;
+        .topup-opt-price {
+            line-height: 20px;
+        } 
+        .outer-c,
+        .inner-c {
+            border-color: #F48116;
+        }
+        .c-s,
+        .c-a1,
+        .c-a2 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .c-s {
+            width: 24px;
+            height: 78px;
+            background: url(/static/images/topup-conquer/sword.png) center center no-repeat;
+        }
+        .c-a1,
+        .c-a2 {
+            width: 60px;
+            height: 58px;
+        }
+        .c-a1 {
+            background: url(/static/images/topup-conquer/arrow_1.png) center center no-repeat;
+        }
+        .c-a2 {
+            background: url(/static/images/topup-conquer/arrow_2.png) center center no-repeat;
+        }
+        .c-c {
+            width: 56px;
+            height: 44px;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 28px;
+            margin: auto;
+            background: url(/static/images/topup-conquer/crown.png) center center no-repeat;
+            cursor: pointer;
+        }
+        &:hover {
+            .c-s {
+                transform: translateY(-4px);
+                -webkit-transform: translateY(-4px);
+            }
+            .c-a1 {
+                transform: translateY(2px) rotate(5deg);
+                -webkit-transform: translateY(2px) rotate(5deg);
+            }
+            .c-a2 {
+                transform: translateY(2px) rotate(-5deg);
+                -webkit-transform: translateY(2px) rotate(-5deg);
+            }
+            .c-c {
+                transform: translateY(3px) scale(0.9);
+                -webkit-transform: translateY(3px) scale(0.9);
+            }
+        }
+    } 
+}
+.panel-confirm-popup,
+.topup-specific,
+.topup-card,
+.upoint,
+.gcoin-panel,
+.panel-popup {
+    span.text-notice {
+        color: $pri-lightgrey;
+        font-size: 0.875rem;
+    }
+    form {
+        span.text-notice > span {
+            display: inline;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
+            @include sml-forms;
+            display: block;
+            margin: 0 auto;
+            width: 225px;
+            margin-top: 14px;
+            text-indent: 6px;
+            font-size: 0.875rem;
+            &:focus {
+                background-color: $sub-lightgrey;
+            }
+            &::-webkit-input-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+            &::-moz-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+            &:-moz-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+            &:-ms-input-placeholder {
+                @include upper-font(400, 0.875rem, $pri-lightgrey);
+                line-height: 16px;
+            }
+        }
+        input[type="submit"] {
+            @include upper-font(400, 0.875rem, $pri-yellow);
+            @include sml-secondary-btn($pri-yellow);
+            background: none;
+            margin-top: 14px;
+            cursor: pointer;
+            height: 34px;
+            transition: all 0.25s ease;
+            -moz-transition: all 0.25s ease;
+            &:hover {
+                background: $pri-yellow;
+                color: white;
+            }
+        }
+    }
+}
+
+@-moz-document url-prefix() {
+
+    .topup-specific,
+    .topup-card,
+    .upoint {
+        form {
+            input[type="text"] {
+                @include sml-forms;
+                padding: 5px 0px 5px !important;
+                text-indent: 14px;
+                &::-webkit-input-placeholder {
+                    line-height: 20px;
+                }
+                &::-moz-placeholder {
+                    line-height: 20px;
+                }
+                &:-moz-placeholder {
+                    line-height: 20px;
+                }
+                &:-ms-input-placeholder {
+                    line-height: 20px;
+                }
+            }
+            input[type="submit"] {
+                padding: 5px 18px 5px;
+            }
+        }
+    }
+}
+
+.topup-specific {
+    margin-top: 30px;
+    p {
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    form {
+        margin-bottom: 8px;
+        span {
+            display: block;
+            margin-top: 4px;
+        }
+        ul.errors {
+            margin: 0;
+            color: $pri-red;
+        }
+    }
+    a#submit-custom-gtoken-form {
+        @include sml-secondary-btn($pri-yellow);
+        display: block;
+        color: $pri-yellow;
+        width: 90px;
+        margin: 0 auto;
+        margin-top: 10px;
+        transition: all 0.25s ease;
+        -moz-transition: all 0.25s ease;
+        &.disabled {
+            cursor: default;
+            opacity: 0.4;
+            &:hover {
+                background-color: white;
+                color: $pri-yellow;
+            }
+        }
+        &.valid {
+            background-color: $pri-yellow;
+            color: white;
+        }
+    }
+}
+
+.topup-card {
+    width: 376px;
+    margin: 30px auto;
+    padding: 26px;
+    border-radius: 5px;
+    background: url(/static/images/gtoken-watermark.png) no-repeat 20px 20px;
+    -moz-box-shadow:    0px 0px 4px 0px rgba(0,0,0,0.35);
+    box-shadow:         0px 0px 4px 0px rgba(0,0,0,0.35);
+    h5 {
+        font-weight: 300;
+        margin-bottom: 24px;
+        color: $pri-grey;
+    }
+}
+
+
+.transaction-history {
+    .trans-filter {
+        color: $pri-grey;
+        padding: 0;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        background: none;
+        border: none;
+        .trans-num,
+        .trans-show-filter,
+        .trans-note {
+            color: $pri-grey;
+        }
+        .trans-note {
+            font-size: 1.125rem;
+            font-style: italic;
+        }
+    }
+}
+
+// Upoint style
+
+.upoint {
+    p {
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    span.text-notice {
+        margin: 2px auto 0px;
+        display: block;
+    }
+    span.text-notice.warning {
+        margin: 2px auto 14px;
+        display: block;
+        max-width: 400px;
+        color: $pri-red;
+        line-height: 18px;
+    }
+    .break-line {
+        width: 214px;
+        height: 1px;
+        display: block;
+        margin: 14px auto 30px;
+        border-bottom: 1px solid $sub-grey;
+        clear: both;
+        position: relative;
+        top: 12px;
+    }
+    .choose-top-up-opt {
+        .top-up-opt-voucher #have-upoint-voucher {
+            @include sml-primary-btn($pri-yellow);
+            display: block;
+            margin: 0 auto;
+            width: 110px;
+            padding: 4px 18px 4px 18px;
+            color: $pri-yellow;
+            border-radius: 28px;
+            transition: all 0.25s ease;
+            -moz-transition: all 0.25s ease;
+            &:hover {
+                background-color: $pri-yellow;
+                color: white;
+            }
+        }
+        .top-up-opt-voucher {
+            table {
+                max-width: 380px;
+                margin: 0 auto 20px;
+                .idr-gtoken {
+                    border-left: 2px solid $sub-grey;
+                    text-align: center;
+                }
+            }
+        }
+        .upoint-support {
+            border-top: 1px solid $sub-grey;
+            padding-top: 16px;
+            display: block;
+            margin: 30px auto 0;
+            max-width: 460px;
+            h6 {
+                margin-bottom: 4px;
+                color: $pri-grey;
+            }
+            img {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .top-up-by-package > p,
+    .upoint-voucher-opts > p {
+        margin-bottom: 16px;
+    }
+
+    .chosen-package {
+        width: 246px;
+        margin: 50px auto 0;
+        .break-line {
+            width: 244px;
+        }
+        a {
+            float: right;
+            margin-left: 10px;
+            margin-top: 6px;
+            img {
+                opacity: 0.6;
+            }
+            &:hover img {
+                opacity: 1;
+            }
+        }
+        p,
+        h4 {
+            display: inline;
+        }
+        p {
+            text-align: left;
+            float: left;
+            i {
+                font-style: normal;
+                font-weight: 400;
+            }
+        }
+        h4 {
+            text-align: right;
+            float: right;
+        }
+        .package-price {
+            font-size: 1.25rem;
+        }
+    }
+    .upoint-method {
+        margin-left: 0;
+        margin-bottom: 0;
+        li {
+            width: 246px;
+            margin: 0 auto 20px;
+            position: relative;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            a.upoint-package {
+                color: $pri-grey;
+                position: relative;
+                text-align: left;
+                border-radius: 5px;
+                border: 2px solid $sub-grey;
+                height: 150px;
+                display: block;
+                width: 100%;
+                margin: 0 auto;
+                background-size: 20%;
+                transition: 300ms ease;
+                -moz-transition: 300ms ease;
+                span {
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    padding: 8px;
+                    width: 100%;
+                    border-top: 2px solid $sub-grey;
+                    text-align: center;
+                    background: $sub-lightgrey;
+                }
+                &:hover {
+                    //padding-left: 76px;
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+            a.close-package {
+                position: absolute;
+                top: 4px;
+                right: 10px; 
+            }
+            a.telkomsel {
+                background: url(/static/images/upoint-telkomsel.png) no-repeat 14px 12px;
+                background-size: 85%;
+                &:hover {
+                    background-size: 80%;
+                }
+            }
+            a.speedy {
+                background: url(/static/images/upoint-speedy.png) no-repeat 14px 12px;
+                background-size: 80%;
+                &:hover {
+                    background-size: 75%;
+                }
+            }
+            a.spinfun {
+                background: url(/static/images/upoint-spinfun.png) no-repeat 14px 20px;
+                background-size: 84%;
+                &:hover {
+                    background-size: 79%;
+                }
+            }
+        }
+    }
+    form {
+        input[type="text"] {
+            width: 246px;
+        }
+        input[type="submit"] {
+            margin-top: 0;
+        }
+        .break-line {
+            width: 246px;
+        }
+        .upoint-confirm {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// Exchange Panel
+
+.exchange-panel {
+    h4 {
+        font-weight: 300;
+        margin-bottom: 26px;
+    } 
+    .break-line {
+        width: 246px;
+        margin: 18px auto 24px;
+    }
+}
+
+// Exchange select box
+
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+    border: 2px dashed $sub-grey;
+    outline: none;
+    padding: 12px;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+}
+
+.select2-exchange-option {
+    margin-top: 14px;
+}
+
+.select2-container.select2-drop-above .select2-choice {
+    border-bottom-color: #aaa;
+    background-image: none !important;
+}
+
+.select2-drop.select2-drop-above {
+    margin-top: 0;
+    border-top: none !important;
+}
+
+.select2-drop.select2-drop-above.select2-drop-active {
+    border-top: none !important;
+}
+
+.select2-drop.select2-drop-above .select2-search input {
+    margin-top: 0 !important;
+}
+
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+    border: none;;
+    border-top-color: transparent;
+    background-image: none !important;
+}
+
+.select2-gamewrap .select2-choice,
+.select2-gamewrap.select2-drop-above .select2-choice {
+    width: 256px;
+    height: 92px;
+    background: none !important;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 10px !important;
+    border: 2px dashed $sub-grey !important;
+    line-height: 32px;
+    &:hover {
+        background: $sub-lightgrey;
+    }
+    &:focus,
+    &:active {
+        box-shadow: none;
+    }
+    #select2-chosen-1 {
+        margin-right: 0;
+        font-family: 'Ubuntu';
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        color: $pri-lightgrey;
+        padding-top: 16px;
+        .select-row {
+            text-align: left;
+            position: relative;
+            top: -16px;
+            img {
+                width: 64px;
+                //border-radius: 16px;
+                display: inline-block;
+            }
+            .select-title-container {
+                vertical-align: middle;
+                display: inline-block;
+                margin-left: 8px;
+                margin-bottom: 8px;
+                width: 65% !important;
+                .select-title,
+                .select-description {
+                    font-family: 'Source Sans Pro';
+                    display: block;
+                    font-size: 1rem;
+                    color: $sub-darkblue;
+                    text-transform: none;
+                    height: 26px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .select-title {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .select2-arrow {
+        display: none;
+    }
+}
+
+.select2-gamewrap-drop.select2-drop-above {
+    margin-top: -10px !important;
+}
+
+.select2-gamewrap-drop,
+.select2-gamewrap-drop.select2-drop-above {
+    margin-top: 10px;
+    border: none;
+    -moz-box-shadow:    0px 0px 4px 0px rgba(0,0,0,0.30);
+    box-shadow:         0px 0px 4px 0px rgba(0,0,0,0.30);
+    .select2-results {
+        margin: 0;
+        padding: 0;
+        max-height: 256px;
+        li {
+            border-bottom: 1px solid $sub-grey;
+            padding: 6px 0 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        li > div > div {
+            img {
+                width: 64px;
+                display: inline-block;
+                //border-radius: 16px;
+            }
+            .select-title-container {
+                vertical-align: middle;
+                display: inline-block;
+                margin-left: 8px;
+                width: 65%;
+                .select-title,
+                .select-description {
+                    display: block;
+                    font-size: 1rem;
+                    line-height: 22px;
+                    color: $sub-darkblue;
+                }
+                .select-title {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+li.select2-highlighted {
+    background: lighten($pri-blue, 40%) !important;
+    color: $sub-darkblue !important;
+}
+
+.select2-gamewrap .select2-choice .select2-chosen {
+    .select-row {
+        .select-title-container {
+            width: 146px;
+        }
+    }
+}
+
+
+.select2-exchange-option.select2-drop-above > .select2-choice.select2-default,
+.select2-exchange-option > .select2-choice.select2-default {
+    .select2-chosen {
+        padding-top: 16px;
+        margin-right: 0;
+        font-family: 'Ubuntu';
+        font-size: 0.875rem;
+        text-transform: uppercase;
+    }
+}
+
+.select2-exchange-option.select2-drop-above .select2-choice,
+.select2-exchange-option .select2-choice {
+    .select2-chosen {
+        margin-right: 0;
+        padding-top: 16px;
+        .select-row {
+            text-align: left;
+            position: relative;
+            top: -16px;
+            img {
+                width: 64px;
+                display: inline-block;
+            }
+            .select-title-container {
+                vertical-align: middle;
+                display: inline-block;
+                margin-left: 8px;
+                margin-bottom: 8px;
+                width: 65% !important;
+                .select-title,
+                .select-description {
+                    font-family: 'Source Sans Pro';
+                    display: block;
+                    font-size: 1rem;
+                    color: $sub-darkblue;
+                    text-transform: none;
+                    height: 26px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .select-title {
+                    font-weight: 600;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}
+
+.exchange-option-drop.select2-drop-above,
+.exchange-option-drop {
+    .select2-results li.select2-result ul.select2-result-sub li.select2-result-selectable div.select2-result-label {
+        display: table;
+        padding-left: 16px;
+        .select-row {
+            display: table-row;
+            .select-game-icon,
+            .select-title-container {
+                display: table-cell;
+                .select-title {
+                    line-height: 22px;
+                }
+            }
+            .select-game-icon {
+                vertical-align: top;
+            }
+            .select-title-container {
+                vertical-align: middle;
+                padding-left: 8px;
+            }
+        }
+    }
+}
+
+.exchange-option-drop {
+    .select2-results {
+        margin: 0;
+        padding: 0;
+        font-family: 'Source Sans Pro';
+        color: $sub-darkblue;
+        li .select2-result-label {
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        li .select2-result-sub {
+            li:hover {
+                .select2-result-label {
+                    color: $sub-darkblue;
+                }
+            }
+            li .select2-result-label {
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.exchange-credit-input {
+    input[type="text"] {
+        @include sml-forms;
+        display: block;
+        margin: 0 auto;
+        width: 246px;
+        margin-top: 14px;
+        text-indent: 6px;
+        font-size: 0.875rem;
+         &::-webkit-input-placeholder {
+            @include upper-font(400, 0.875rem, $pri-lightgrey);
+            line-height: 16px;
+        }
+        &::-moz-placeholder {
+            @include upper-font(400, 0.875rem, $pri-lightgrey);
+            line-height: 16px;
+        }
+        &:-moz-placeholder {
+            @include upper-font(400, 0.875rem, $pri-lightgrey);
+            line-height: 16px;
+        }
+        &:-ms-input-placeholder {
+            @include upper-font(400, 0.875rem, $pri-lightgrey);
+            line-height: 16px;
+        }
+    }
+}
+
+@-moz-document url-prefix() {
+    
+    .select2-exchange-option.select2-drop-above > .select2-choice.select2-default,
+    .select2-exchange-option > .select2-choice.select2-default {
+        #select2-chosen-2.select2-chosen {
+            color: lighten($pri-lightgrey, 12%) !important;
+        }
+    }
+
+    .select2-exchange-option.select2-drop-above .select2-choice,
+    .select2-exchange-option .select2-choice,
+    .select2-gamewrap .select2-choice #select2-chosen-1,
+    .select2-gamewrap.select2-drop-above .select2-choice #select2-chosen-1 {
+        color: lighten($pri-lightgrey, 12%) !important;
+    }
+    .exchange-credit-input  {
+        input[type="text"] {
+            @include sml-forms;
+            padding: 5px 0px 5px !important;
+            text-indent: 14px;
+            &::-webkit-input-placeholder {
+                line-height: 20px;
+            }
+            &::-moz-placeholder {
+                line-height: 20px;
+            }
+            &:-moz-placeholder {
+                line-height: 20px;
+            }
+            &:-ms-input-placeholder {
+                line-height: 20px;
+            }
+        }
+    }
+
+}
+
+.exchange-confirm {
+    margin: 14px auto 0;
+    width: 256px;
+    .errors {
+        color: $pri-red;
+        font-weight: 600;
+        margin-left: 0;
+    }
+}
+
+.exchange-submit {
+    @include sml-primary-btn($pri-yellow);
+    border-radius: 20px;
+    color: $pri-yellow;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    &:visited {
+        color: $pri-yellow;
+    }
+    &:hover {
+        background: $pri-yellow;
+        color: white;
+    }
+    &.disabled {
+        opacity: 0.4;
+        cursor: default;
+
+        &:hover {
+            background-color: white;
+            color: $pri-yellow;
+        }
+    }
+    &.valid {
+        background-color: $pri-yellow;
+        color: white;
+    }
+}
+
+// Gcoin Panel
+
+.gcoin-panel {
+    .break-line {
+        max-width: 280px;
+        width: 100%;
+        margin: 18px auto 24px;
+    }
+    h5 {
+        margin: 16px auto 0px;
+        font-weight: 600;
+        color: $pri-grey;
+        img {
+            vertical-align: -3px;
+            width: 20px;
+            margin-left: 1px;
+        }
+    }
+    .convert-action {
+        margin-top: 30px;
+    }
+    .text-notice {
+        max-width: 280px;
+        display: block;
+        margin: 0 auto;
+    }
+    .convert-action > form {
+        > p {
+            max-width: 320px;
+            margin: 0 auto 18px;
+        }
+        margin: 28px auto 0;
+        span.text-notice {
+            margin-top: 4px;
+        }
+        a#submit-convert-gcoin {
+            @include sml-secondary-btn($pri-yellow);
+            display: block;
+            color: $pri-yellow;
+            width: 106px;
+            margin: 10px auto 0;
+            transition: all 0.25s ease;
+            -moz-transition: all 0.25s ease;
+            &:hover {
+                background-color: $pri-yellow;
+                color: white;
+            }
+        }
+    }
+    .range-slider {
+        height: auto;
+        border: none;
+        margin: 0 auto;
+        background: none;
+        max-width: 280px;
+        min-width: 210px;
+        width: 100%;
+        .clear-float {
+            clear: both;
+        }
+        span {
+            display: inline-block;
+            padding: 4px 10px;
+            background: $sub-grey;
+            border-radius: 3px;
+        }
+        span.range-input {
+            float: left;
+            margin-left: 3px;
+        }
+        span.range-output {
+            float: right;
+            margin-right: -2px;
+        }
+    }
+}
+
+// *****---Responsive table---*****
+// Breakpoints
+$bp-maggie: 15em; 
+$bp-lisa: 30em; // 480px
+$bp-48: 48em; // 768px
+$bp-marge: 40em; // 640px
+$bp-homer: 60em; //960px
+
+.responsive-table.card-table {
+    th,
+    td,
+    tbody {
+        text-align: center !important;
+    }
+    thead th:first-of-type {
+        text-align: center !important;
+    }
+}
+
+.responsive-table {
+    width: 100%;
+    margin-bottom: 16px;
+    border-bottom: none;
+    margin-top: 16px;
+    position: relative;
+    thead {
+        th {
+          text-align: center;
+          color: white;
+          &:first-of-type {
+                text-align: left; 
+            }
+        }
+    }
+  
+    // Set these items to display: block for narrow viewports
+    tbody,
+    tr,
+    th,
+    td {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        white-space: normal;
+        border-bottom: 2px solid $sub-grey;
+        line-height: 24px;
+        overflow: visible !important;
+        font-size: 1rem !important;
+        word-break: normal !important;
+        hyphens: none !important;
+        -moz-hyphens: none;
+    }
+    th.trans-cell.type {
+        width: 12%;
+    }
+    th.trans-cell.time {
+        width: 16%;
+    }
+    th.trans-cell.desc {
+        width: 52%;
+    }
+    th.trans-cell.invc {
+        width: 8%;
+    }
+    th.trans-cell.amnt {
+        width: 14%;
+    }
+
+    .trans-cell.type,
+    .trans-cell.invc,
+    .trans-cell.amnt {
+        text-align: center;
+    }
+
+    .trans-cell.desc,
+    .trans-cell.time {
+        text-align: left;
+    }
+
+    .trans-cell.amnt.plus {
+        color: $pri-green;
+    }
+
+    .trans-cell.amnt.subtr {
+        color: $pri-red;
+    }
+
+    .trans-cell.desc {
+        padding-left: 8px !important;
+    }
+  
+    th,
+    td {
+        padding: .5em;
+        vertical-align: middle;
+    }
+
+    tbody {
+        tr {
+            margin-bottom: 1em;
+            &:last-of-type {
+                margin-bottom: 0; 
+            }
+        }
+    
+        th[scope="row"] {
+            span {
+                display: none;
+            }
+            p {
+                display: none;
+                margin-bottom: 0;
+                font-size: 1rem !important;
+            }
+            img {
+                vertical-align: -6px;
+            }
+        }
+    
+        td {
+            text-align: right;
+        }
+    
+        td[data-type="right-align"] {
+            text-align: right; 
+        }
+    
+        td[data-title]:before {
+            content: attr(data-title);
+            float: left;
+            font-size: 1rem;
+            color: $pri-grey;
+            font-weight: 600;
+            display: none;
+        } 
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .responsive-table.card-table {
+        td,
+        th {
+            text-align: right !important;
+        }
+    }
+
+    .responsive-table {
+        border-bottom: 2px solid $sub-grey;
+        td,
+        th,
+        .trans-cell.type,
+        .trans-cell.invc,
+        .trans-cell.time,
+        .trans-cell.desc {
+            border-bottom: none !important;
+        }
+        th.trans-cell.type, 
+        th.trans-cell.time,
+        th.trans-cell.desc,
+        th.trans-cell.invc,
+        th.trans-cell.amnt {
+            width: auto;
+        }
+        .trans-cell.invc,
+        .trans-cell.time {
+            height: 36px;
+        }
+        thead {
+            position: absolute;
+            clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px; 
+            width: 1px; 
+            overflow: hidden;
+        }
+        tr,
+        th,
+        td {
+            display: table-row;
+            overflow: visible !important;
+            padding: 6px 16px !important;
+            width: auto;
+            &:first-child {
+                padding: 16px 16px 6px !important;
+            }
+            &:last-child {
+                padding: 6px 16px 16px !important;
+            }
+        }
+        tbody {
+            display: table-row-group;
+            tr {
+                display: table-row;
+                th,td {
+                    display: block !important;
+                    text-align: right;
+                }
+                th.trans-cell.type,
+                td.trans-cell.time,
+                td.trans-cell.desc,
+                td.trans-cell.invc,
+                td.trans-cell.amnt {
+                    display: block !important;
+                    text-align: right;
+                    margin-left: 32%;
+                }
+            }
+            tr:nth-child(even) {
+                background: #f9f9f9;
+                td,
+                th {
+                    background: #f9f9f9;
+                }
+            }
+            th[scope="row"] {
+                background-color: transparent;
+                span {
+                    display: inline;
+                    text-align: left;
+                    font-weight: 400;
+                }
+                p {
+                    display: inline;
+                    text-align: left !important;
+                    float: left;
+                    font-weight: 600;
+                    position: absolute;
+                    left: 14px;
+                }
+            }
+            td {
+                text-align: center;
+            }
+            td[data-title]:before {
+                display: inline;
+                text-align: left;
+                position: absolute;
+                left: 14px;
+            }
+            td.trans-cell.desc[data-title]:before {
+                margin-right: 8px;
+            }
+        }
+    }
+
+}
+
+//Style for viewport max-width 1120px - 70em
+
+@media only screen and (max-width: 70em) {
+
+    .top-up-opts {
+        ul li {
+            width: 29%;
+        }
+    }
+
+}
+
+// Style for viewport max-width 1024px // Standard Tablet
+
+@media #{$medium-only} {
+
+    .top-up-opts {
+        ul li {
+            width: 27%;
+        }
+    }
+
+}
+
+// Style for viewport max-width 640px
+
+@media #{$small-only} {
+
+    .show-gtoken ul li h1 {
+        font-size: 3rem;
+    }
+
+    .welcome-board {
+        .user-todo-list {
+            li {
+                border-right: none;
+                display: inline;
+                a {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .show-gtoken {
+        ul {
+            li h1 {
+                font-size: 3rem;
+                margin-bottom: 0;
+            }
+            li:nth-child(2) {
+                border-right: none;
+            }
+            li:last-child {
+                width: 100%;
+                border-top: 2px solid $pri-yellow;
+                margin-top: 20px;
+                padding-top: 16px;
+            }
+        }
+    }
+
+    .top-up-panel {
+        padding: 60px 16px;
+    }
+
+    .top-up-opts {
+        ul li {
+            margin:0 6px;
+            width: 29%;
+            img {
+                max-width: 80%;
+                height: auto;
+            }
+            .topup-opt-price {
+                font-size: 1.225rem;
+                span {
+                    font-size: 1.125rem;
+                }
+            }
+            .topup-opt-title {
+                @include subheader($pri-grey, 600, 1rem);
+            }
+        }
+    }
+
+    .topup-card {
+        width: 86%;
+    }    
+
+}
+
+// Style for 480px width
+
+@media only screen and (max-width: 30em) {
+
+    .show-gtoken ul li {
+        padding: 0 14px;
+    }
+
+}
+
+// Style for 400px width
+
+@media only screen and (max-width: 25em) {
+
+    .top-up-opts {
+        ul li {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 36px;
+            img {
+                display: inline-block;
+                margin-right: 14px;
+                margin-left: -22px;
+                width: 100px;
+                vertical-align: top;
+            }
+            .topup-opt-detail {
+                display: inline-block;
+                text-align: left;
+                h4 {
+                    font-size: 1.5rem;
+                    margin-top: 10px;
+                    line-height: 12px;
+                }
+                h4 span {
+                    font-size: 1.25rem;
+                }
+                .topup-opt-title {
+                    font-size: 1.125rem;
+                }
+                a {
+                    margin: 6px 0px 0px;
+                }
+            }
+        }
+        ul li:last-child {
+            margin-bottom: 0;
+            img {
+                margin-left: -12px;
+            }
+        }
+        ul li:nth-child(2) {
+            img {
+                margin-left: -16px;
+            }
+            .topup-opt-detail h4 {
+                margin-top: 12px;
+            }
+        }
+    }
+    .exchange-confirm  {
+        width: 100%;
+    }
+
+    .upoint {
+        .top-up-opts ul li .topup-opt-detail {
+            h4 {
+                font-size: 1.25rem;
+            }
+            h4 span {
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+}
+
+// Style for Smartphone
+
+@media only screen and (max-width: 22.5em) {
+
+    .recent-activity {
+        .activity-event {
+            margin-bottom: 0;
+        }
+        .activity {
+            padding: 16px 12px;
+        }
+    }
+
+    .show-gtoken ul li {
+        padding: 0 12px;
+        h1 {
+            font-size: 2.25rem;
+        }
+    }
+
+    .select2-gamewrap .select2-choice,
+    .select2-gamewrap.select2-drop-above .select2-choice {
+        width: 232px;
+    }
+    .exchange-panel section {
+        .exchange-credit-input {
+            #exchange-amount-input {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 20em) {
+
+    .topup-card {
+        padding: 20px;
+        form {
+            input[type="text"] {
+                @include sml-forms;
+                width: 100%;
+            }
+        }
+    }
+
+    .topup-specific {
+        .text-notice i {
+            font-style: normal;
+            &:before {
+                content:" ";
+                display: block;
+            }
+        }
+    }
+
+    .gcoin-td {
+        &:before {
+            padding-right: 4px;
+        }
+    }
+
+}
+
+

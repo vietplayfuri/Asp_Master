@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "QRScan";
+}
+<style>
+    #outdiv video {
+        width: 320px;
+        height: 240px;
+    }
+</style>
+
+<h2>QRScan</h2>
+
+<div id="mainbody">
+    <table class="tsel">
+        <tbody>
+            <tr>
+                <td><input class="selector" id="webcamimg" type="button" onclick="setwebcam()" align="left" style="opacity: 1;" value="Show camera" /></td>
+                <td><img class="selector" id="qrimg" src="cam.png" onclick="setimg()" align="right" style="opacity: 0.2;"></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div id="outdiv"><video id="v" autoplay=""></video></div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div id="result">- scanning -</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<canvas id="qr-canvas" width="800" height="600" style="width: 800px; height: 600px;"></canvas>
+
+
+<script src="~/Scripts/qr/llqrcode.js"></script>
+<script src="~/Scripts/qr/webqr.js"></script>
+<script type="text/javascript">load();</script>

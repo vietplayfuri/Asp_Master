@@ -1,0 +1,280 @@
+@import "account_main";
+
+div.sect-panel {
+    padding: 20px 12px;
+}
+
+div.basic-info {
+    div.sect-panel {
+        padding: 0;
+    }
+    div.user-basic {
+        padding: 20px 12px;
+    }
+    margin-bottom: 20px;
+    p.user-intro {
+        border-bottom: 1px solid $dark-grey;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    ul.info-list,
+    ul.account-setting {
+        list-style-type: none;
+        li {
+            color: $sub-grey;
+            font-size: 0.875rem;
+            padding-bottom: 10px;
+            span {
+                color: $pri-grey;
+                font-size: 0.875rem;
+                float: right;
+                img {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 1px;
+                    margin-right: 4px;
+                }
+                a.referee-name {
+                    color: $pri-grey;
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+        li.referral-link {
+            input {
+                margin-bottom: 2px;
+                margin-top: 6px;
+            }
+        }
+        li.edit-email {
+            span {
+                width: 60%;
+                display: inline-block;
+                > span {
+                    text-align: right;
+                    width: auto;
+                    max-width: 100%;
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    font-weight: normal;
+                    border-bottom: none;
+                }
+            }
+            a {
+                float: right;
+            }
+            br {
+                clear: both;
+            }
+        }
+    }
+    ul.account-setting {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid $dark-grey;
+    }
+}
+
+div.edit-profile-info {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    form.edit-form {
+        padding: 20px 12px;
+    }
+    p.form-label {
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    div.chars-left {
+        color: $sub-grey;
+        font-size: 0.75rem;
+        display: inline;
+    }
+    div.buttons-wrap {
+        text-align: right;
+            a.nml-button {
+            vertical-align: 1px;
+            margin-right: 6px;
+        }
+    }
+    div.sect-end-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+    }
+    .errors-container {
+        position: relative;
+        ul.errors {
+            margin: -5px auto 5px;
+            color: $pri-red;
+            font-size: 0.875rem;
+            list-style-type: none;
+            position: relative;
+            text-align: left;
+        }
+    }
+    .field-with-errors {
+        & + .errors-container {
+            ul.errors {
+                display: block;
+                padding: 0px 0px 10px;
+            }
+        }
+    }
+}
+
+section.welcome-board {
+    ul.recommend-action {
+        list-style-type: none;
+        margin-top: 16px;
+        li:not(:last-child) {
+            padding-bottom: 16px;
+        }
+        a.topup {
+            background: url(/static/images/topup_icon.png) 12px center no-repeat,
+                        linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+            &:hover {
+                background: url(/static/images/topup_icon.png) 12px center no-repeat,
+                            linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+            }
+        }
+        a.exchange {
+            background: url(/static/images/exchange_icon.png) 12px center no-repeat,
+                        linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+            &:hover {
+                background: url(/static/images/exchange_icon.png) 12px center no-repeat,
+                            linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+            }
+        }
+        a.transfer {
+            background: url(/static/images/transfer_icon.png) 12px center no-repeat,
+                        linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+            &:hover {
+                background: url(/static/images/transfer_icon.png) 12px center no-repeat,
+                            linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+            }
+        }
+    }
+}
+
+section.games-board {
+    display: none;
+    div.sect-panel > p {
+        margin-bottom: 10px;
+    }
+    ul.game-list {
+        list-style-type: none;
+        li {
+            padding: 10px;
+            height: 86px;
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+            img.game-icon {
+                width: 64px;
+                height: 64px;
+                border-radius: 10px;
+                display: inline-block;
+                vertical-align: 0px;
+                margin-right: 4px;
+            }
+            div.game-info {
+                position: relative;
+                top: -6px;
+                display: inline-block;
+                h4 {
+                    margin-bottom: -5px;
+                    margin-top: 0;
+                }
+                a.game-gerne,
+                p.last-play {
+                    color: $sub-grey;
+                }
+                a.game-gerne {
+                    font-size: 0.875rem;
+                }
+                p.last-play {
+                    font-size: 0.75rem;
+                    margin-top: 2px;
+                    font-style: italic;
+                }
+            }
+            div.game-achievement,
+            div.game-title {
+                cursor: all-scroll;
+            }
+            div.game-achievement .achievement {
+                margin-top: 6px;
+                margin-left: 40px;
+                overflow-x: scroll;
+                white-space: nowrap;
+                ul.ach-list {
+                    margin-left: 0; 
+                    list-style-type: none;
+                    li {
+                        display: inline-block;
+                        color: $pri-grey;
+                        font-size: 1.125rem;
+                        text-align: center;
+                        padding-bottom: 0;
+                        margin-bottom: 0;
+                        height: 50px;
+                        padding: 0px 20px;
+                        &:not(:last-child) {
+                            border-right: 1px solid $panel-grey;
+                        }
+                        span {
+                            color: $sub-grey;
+                            font-size: 0.875rem;
+                            display: block;
+                            margin-top: 4px;
+                        }
+                    }
+                }
+            }
+        }
+        div.slide-content {
+            .slick-prev.slick-disabled,
+            .slick-next.slick-disabled {
+                display: none !important;
+            }
+            .slick-next,
+            .slick-prev {
+                width: 30px;
+                height: 64px;
+                position: absolute;
+                padding: 20px !important;
+                top: 0%;
+            }
+            .slick-next {
+                right: 10px !important;
+                background: url(/static/images/next_icon.png) center center no-repeat;
+            }
+            .slick-prev {
+                left: 10px !important;
+                background: url(/static/images/prev_icon.png) center center no-repeat;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

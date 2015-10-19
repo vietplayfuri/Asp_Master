@@ -1,0 +1,22 @@
+﻿@using GoPlay.Web.ActionFilter;
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <p>
+        Welcome
+        <strong>@Html.GetCurrentUser().UserName</strong>
+        to GoPlay Admin panel!
+    </p>
+</div>
+@if(ViewContext.Controller.HasPermission("view_active_user_report"))
+{
+    <div class="row">
+        <a href="/admin/report">DAU/MAU report</a>
+    </div>
+    <div class="row">
+        <a href="/admin/report-active-user">Active users report</a>
+    </div>
+}

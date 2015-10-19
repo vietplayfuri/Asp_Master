@@ -1,0 +1,27 @@
+<!--{% block title %}{{ _('Something is wrong!') }}{% endblock %}-->
+@section page_stylesheets{
+<link rel="stylesheet" href="/static/stylesheets/error_page.css" />
+}
+
+<!--{% block flashed_messages %}{% endblock %}-->
+
+<div class="row">
+    <div class="large-12 columns container">
+        <a href="{{ url_for("main.index") }}"><img src="/static/images/logo-center.png" alt=""></a>
+        <div>
+            <p>
+                <strong>{{ _('Error') }} #500</strong>
+                <br>{{ _('The system just got into an accident') }}
+            </p>
+            <img src="/static/images/error-500.png" alt="">
+        </div>
+        <p>
+            {{ _("Oops! We're sorry that the system encountered an internal error.") }}
+            <br class="break-line">
+            {% autoescape false %}
+            {{ gettext('Why not go back to our %(home_page)s instead?',
+                         home_page="<a href='%s'>%s</a>" % (url_for("main.index"), _('Home page'))) }}
+            {% endautoescape %}
+        </p>
+    </div>
+</div>

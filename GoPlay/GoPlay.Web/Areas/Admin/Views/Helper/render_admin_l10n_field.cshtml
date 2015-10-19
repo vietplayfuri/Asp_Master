@@ -1,0 +1,49 @@
+﻿@model GoPlay.Web.Areas.Admin.Models.LocaleInfo
+@{
+    var ng_show_bind = "show_l10n_" + System.Text.RegularExpressions.Regex.Replace(Model.Text.ToLower(), "[^0-9a-zA-Z]+", "") + "_l10n";
+    int index = 0;
+
+}
+
+<section class="l10n-fields-scope" ng-init="@ng_show_bind = false">
+    <input type="hidden" name="@(Model.Name +".Name")" value="@Model.Name"/>
+    <input type="hidden" name="@(Model.Name +".Text")" value="@Model.Text" />
+    @foreach (var item in Model.Locale)
+    {
+        
+        var id = Model.Text.ToLower().Replace(" ", "_") + "-" + index++;
+        var value = CultureHelper._languges[item.Key];
+        var des = Model.Text + " (" + value + ")";
+        var css_class = item.Key == "en" && Model.Errors != null ? "error" : string.Empty;
+        var name = @Model.Name + ".Locale[" + item.Key + "]";
+        <div class="row" @(item.Key != "en" ? "ng-show=" + ng_show_bind : string.Empty)>
+            <div class="small-3 columns">
+                <label class="right inline @(Model.Errors!=null?"error":string.Empty)" for="@id">
+                    @des
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <input class="@css_class" id="@id" name="@name" placeholder="@des" type="text" value="@item.Value">
+
+                @if (!string.IsNullOrEmpty(css_class))
+                {
+                    <small class="error">
+                        @foreach (var err in Model.Errors)
+                        {
+                            <i>@err.ToString() &nbsp;</i>
+                        }
+                    </small>
+                }
+                @if (item.Key == "en")
+                {
+                    <a href="" class="toggle-button" ng-click="@ng_show_bind = true" ng-show="!@ng_show_bind">
+                        Show localized content for @Model.Text
+                    </a>
+                    <a href="" class="toggle-button ng-hide" ng-click="@ng_show_bind = false" ng-show="@ng_show_bind">
+                        Hide localized content for @Model.Text
+                    </a>
+                }
+            </div>
+        </div>
+    }
+</section>

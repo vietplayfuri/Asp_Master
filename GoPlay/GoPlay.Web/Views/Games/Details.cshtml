@@ -1,0 +1,447 @@
+﻿@model GoPlay.Web.Models.DetailGameViewModel
+@using Platform.Utility
+@using GoPlay.Web.Helpers
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+
+@{
+    ViewBag.Title = @Model.game.name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string formatDT = System.Configuration.ConfigurationManager.AppSettings["BABEL_DATE_READABLE_FORMAT"];
+}
+
+@section page_stylesheets {
+    <link rel="stylesheet" href="/static/stylesheets/games/games_detail.css?rnd=20150420" />
+    <link rel="stylesheet" type="text/css" href="/bower_components/slick.js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/bower_components/magnific-popup/dist/magnific-popup.css" />
+    <link rel="stylesheet" type="text/css" href="/bower_components/photoswipe/dist/photoswipe.css" />
+    <link rel="stylesheet" type="text/css" href="/bower_components/photoswipe/dist/default-skin/default-skin.css" />
+}
+
+@section open_graph_meta_tags{
+    <meta property="og:image"
+          content="@Request.Url.Scheme@GameHelper.getThumbFilename(Model.game)" />
+    <meta property="og:site_name" content="GToken" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="@Model.game.short_description.GetValueFromJsonString("en")" />
+}
+@{
+    var downloadLink = GameHelper.getDownloadLinksForCurrentUser(Model.game, Html.GetCurrentUser(), Request.GetClientIp());
+}
+
+<section class="game-detail-wrap">
+
+    <div class="game-detail-bg">
+        <img src="@Model.game.banner_filename" alt="">
+    </div>
+    <div class="bg-filter">
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="sect-panel game-intro-wrap">
+
+                <div class="large-9 columns game-intro">
+                    <img class="game-thumb" src="@Model.game.thumb_filename">
+                    @if (GameHelper.isComingSoon(Model.game, Html.GetCurrentUser(), Request.GetClientIp()))
+                    {
+                        <span class="coming-soon">@Resources.Resources.Coming_Soon</span>
+                    }
+                    <div class="game-name-des">
+                        <div>
+                            <img class="game-appicon" src="@Model.game.icon_filename">
+                            <div class="name-wrap">
+                                <a><h1>@Model.game.name</h1></a>
+                                <h4>@Model.game.studio_name</h4>
+                            </div>
+                        </div>
+                        <p>
+                            @Html.Raw(GameHelper.getLocalized(Model.game, "short_description"))
+                        </p>
+                        <div class="bottom-info">
+                            <a href="@Url.Action("support", "main")" class="nml-link">@Resources.Resources.Support</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="large-3 columns game-sub-info">
+                    @{
+                        var genre = GameHelper.getLocalized(Model.game, "genre");
+                    }
+                    <ul class="sub-info-list @(!string.IsNullOrEmpty(GameHelper.getLocalized(Model.game, "warning")) ? "warning" : string.Empty)">
+                        @if (genre.Count() != 0)
+                        {
+                            <li>
+                                @Resources.Resources.Genre @(":") <span>
+                                    <a class="nml-link"
+                                       onclick="ga('send', 'event' , 'link' , 'click' , 'genre-click');"
+                                       href="@(string.Format("/game/#all-keyword/{0}/default/default/1", genre))">
+                                        @genre
+                                    </a>
+                                </span>
+                            </li>
+                        }
+                        <li class="show-platforms">
+                            @Resources.Resources.Platform:
+                            <span>
+                                @if (Request.IsAuthenticated)
+                                {
+                                    if (downloadLink["apple"] != null)
+                                    {
+                                        <a class="plat-icon ios-plat" href="@downloadLink["apple"]" target="_blank"></a>
+                                    }
+                                    if (downloadLink["google"] != null)
+                                    {
+                                        <a class="plat-icon gplay-plat" href="@downloadLink["google"]" target="_blank"></a>
+                                    }
+                                    if (downloadLink["pc"] != null)
+                                    {
+                                        <a class="plat-icon pc-plat" href="@downloadLink["pc"]" target="_blank"></a>
+                                    }
+                                    if (downloadLink["apk"] != null)
+                                    {
+                                        <a class="plat-icon apk-plat" href="@downloadLink["apk"]" target="_blank"></a>
+                                    }
+                                }
+                                else
+                                {
+                                    if (downloadLink["apple"] != null)
+                                    {
+                                        <a class="plat-icon ios-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })"></a>
+                                    }
+                                    if (downloadLink["google"] != null)
+                                    {
+                                        <a class="plat-icon gplay-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })"></a>
+                                    }
+                                    if (downloadLink["pc"] != null)
+                                    {
+                                        <a class="plat-icon pc-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })"></a>
+                                    }
+                                    if (downloadLink["apk"] != null)
+                                    {
+                                        <a class="plat-icon apk-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })"></a>
+                                    }
+                                }
+                            </span>
+                        </li>
+                        @if (GameHelper.isComingSoon(Model.game, Html.GetCurrentUser(), Request.GetClientIp()))
+                        {
+                            if (Model.game.released_at.HasValue)
+                            {
+                                <li>@Resources.Resources.Release_Date @(" : ")<span>@Model.game.released_at.Value</span></li>
+                            }
+                        }
+                        else
+                        {
+                            <li>@Resources.Resources.Updated @(":") <span>@Model.game.updated_at.ToString(formatDT)</span></li>
+                            <li>@Resources.Resources.Size @(":")<span>@Model.game.file_size</span><br class="clear-fix" /></li>
+                            <li>@Resources.Resources.Current_Version @(":")<span>@Model.game.current_version</span></li>
+                        }
+                        @if (GameHelper.getLocalized(Model.game, "content_rating").Count() != 0)
+                        {
+                            <li>@Resources.Resources.Content_Rating @(":")<span>@GameHelper.getLocalized(Model.game, "content_rating")</span></li>
+                        }
+                        @if (GameHelper.getLocalized(Model.game, "warning").Count() != 0)
+                        {
+                            <li class="warning">
+                                <span class="has-warning tip-left" data-tooltip aria-haspopup="true" class="has-tip" title="@GameHelper.getLocalized(Model.game, "warning")">Warning</span>
+                            </li>
+                            <li class="warning-mobile">
+                                <p>
+                                    @GameHelper.getLocalized(Model.game, "warning")
+                                </p>
+                            </li>
+                        }
+                    </ul>
+                    @if (!GameHelper.isComingSoon(Model.game, Html.GetCurrentUser(), Request.GetClientIp()))
+                    {
+                        <div class="download-game">
+                            <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false" class="g-nml-button">@Resources.Resources.Download</a>
+                            <ul id="drop2" data-dropdown-content class="f-dropdown language-dropdown default-dropdown" aria-hidden="true" tabindex="-1">
+
+                                @if (Request.IsAuthenticated)
+                                {
+                                    if (downloadLink["apple"] != null)
+                                    {
+                                        <li><a class="plat-icon ios-plat" href="@downloadLink["apple"]" target="_blank">iOS</a></li>
+                                    }
+                                    if (downloadLink["google"] != null)
+                                    {
+                                        <li><a class="plat-icon gplay-plat" href="@downloadLink["google"]" target="_blank">Android</a></li>
+                                    }
+                                    if (downloadLink["pc"] != null)
+                                    {
+                                        <li><a class="plat-icon pc-plat" href="@downloadLink["pc"]" target="_blank">PC</a></li>
+                                    }
+                                    if (downloadLink["apk"] != null)
+                                    {
+                                        <li><a class="plat-icon apk-plat" href="@downloadLink["apk"]" target="_blank">SDK</a></li>
+                                    }
+                                }
+                                else
+                                {
+                                    if (downloadLink["apple"] != null)
+                                    {
+                                        <li><a class="plat-icon ios-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })">iOS</a></li>
+                                    }
+                                    if (downloadLink["google"] != null)
+                                    {
+                                        <li><a class="plat-icon gplay-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })">Android</a></li>
+                                    }
+                                    if (downloadLink["pc"] != null)
+                                    {
+                                        <li><a class="plat-icon pc-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })">PC</a></li>
+                                    }
+                                    if (downloadLink["apk"] != null)
+                                    {
+                                        <li><a class="plat-icon apk-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(Model.game) })">SDK</a></li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+@{
+    var images = JsonConvert.DeserializeObject<GoPlay.Web.Models.GameImages>(Model.game.slider_images);
+
+}
+@if (images != null && images.images.Count > 0)
+{
+    <section class="game-media-wrap">
+        <!-- Root element of PhotoSwipe. Must have class pswp. -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+            <!-- Background of PhotoSwipe.
+            It's a separate element as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
+                <!-- Container that holds slides.
+                    PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                    Don't modify these 3 pswp__item elements, data is added later on. -->
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                <div class="pswp__ui pswp__ui--hidden">
+                    <div class="pswp__top-bar">
+                        <!--  Controls are self-explanatory. Order can be changed. -->
+                        <div class="pswp__counter"></div>
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                        <!-- element will get class pswp__preloader--active when preloader is running -->
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div>
+                    </div>
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="sect-title-bar">
+                    <h6 class="sect-title">@Resources.Resources.Media</h6>
+
+                    <p>- @Model.slider_len @Resources.Resources.Screenshots</p>
+                </div>
+                <div class="sect-panel game-media-content">
+                    <div class="slide-content zoom-gallery">
+                        @{
+    var counter = 0;
+    var youtubeLinks = JsonHelper.DeserializeObject<List<GoPlay.Web.Models.YoutubeLink>>(Model.game.youtube_links);
+    if (youtubeLinks != null && youtubeLinks.Any())
+    {
+        foreach (var videoLink in youtubeLinks)
+        {
+            <a href="@videoLink.embedded_player" video="true" image-index="@counter">
+                <i class="video-icon"></i>
+                <img alt="video game thumbnail" src="@videoLink.thumbnail" />
+            </a>
+            counter++;
+        }
+        counter = youtubeLinks.Count;
+    }
+
+    foreach (var image in images.images)
+    {
+        <
+        <a href="@image.filename" image-index="@counter">
+            <img src="@image.filename" alt="" />
+        </a>
+        counter++;
+    }
+                        }
+                    </div>
+                </div>
+                <div class="sect-end-bar">
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<section class="game-about-wrap">
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Game_About</h6>
+            </div>
+            <div class="sect-panel game-about-content">
+                <dl class="accordion" data-accordion>
+                    <dd class="accordion-navigation">
+                        <a class="game-about {$ active? 'active': '' $}" ng-click="active = !active;activeUpdate=false" href="#panel1b">@Resources.Resources.Description</a>
+                        <div id="panel1b" class="content active">
+                            @Html.Raw(GameHelper.getLocalized(Model.game, "description"))
+                        </div>
+                    </dd>
+                    @if (GameHelper.getLocalized(Model.game, "current_changelog").Count() > 0)
+                    {
+                        <dd class="accordion-navigation">
+                            <a class="game-update {$ activeUpdate? '': 'active' $}" ng-click="activeUpdate = !activeUpdate;active=true" href="#panel2b">@Resources.Resources.Update_in_Latest_Version</a>
+                            <div id="panel2b" class="content">
+                                @Html.Raw(GameHelper.getLocalized(Model.game, "current_changelog"))
+                            </div>
+                        </dd>
+                    }
+                </dl>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="recommend-wrap row">
+    <div class="large-12 columns">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Resources.Recommended_Games</h6>
+            <p>- @Resources.Resources.Games_you_might_want_to_play_too</p>
+        </div>
+        <div class="sect-panel">
+            <div class="content-wrap">
+                <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                    @foreach (var game in Model.games)
+                    {
+                        <li>
+                            <div>
+                                <div class="games-thumb">
+                                    <a href="@GameHelper.GenerateLinkGame(game)"><img src="@game.banner_filename"></a>
+                                </div>
+                                <a href="@GameHelper.GenerateLinkGame(game)"><h5>@game.name</h5></a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+</section>
+
+
+@section page_foot_js{
+    <script type="text/javascript" src="/bower_components/slick.js/slick/slick.min.js"></script>
+    <script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="/bower_components/photoswipe/dist/photoswipe.js"></script>
+    <script src="/bower_components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+    <script src="//www.youtube.com/player_api"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var images = $('.slide-content img');
+            images.each(function (index, img) {
+                $(this).height(260);
+            });
+            $('.slide-content').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: false,
+                variableWidth: true,
+                prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="previous"></button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="next"></button>'
+            });
+
+            var openPhotoSwipe = function (imageIndex) {
+                var pswpElement = document.querySelectorAll('.pswp')[0];
+                var items = [];
+                $('.zoom-gallery a').each(function (index, a) {
+                    // check if there is an image in the list
+                    // because slick library generate some redundant images for sliding
+                    var isExist = items.filter(function (i) {
+                        return $(a).attr('image-index') === i.imageIndex;
+                    }).pop();
+                    // do not add to the list if added
+                    if (isExist) return;
+                    // we display image different from display video
+                    // they distingush by video attribute
+                    if (!$(a).attr('video')) {
+                        items.push({
+                            src: a.href,
+                            w: $(a).width() / 6 * 10,
+                            h: $(a).height() / 6 * 10,
+                            imageIndex: $(a).attr('image-index')
+                        });
+                    } else {
+                        var width = $(window).width();
+                        width = width <= 550 ? width : 550;
+                        var height = $(window).height();
+                        var marginTop = (height - 300) / 2;
+                        items.push({
+                            html: '<div style="text-align:center;margin-top:' + marginTop + 'px;margin-bottom:' + marginTop + '"><iframe frameborder="0" id="video-id-" height="300" width="' + width + '" src="' + a.href + '?rel=0?enablejsapi=1"></iframe></div>',
+                            w: $(a).width() / 6 * 10,
+                            h: $(a).height() / 6 * 10,
+                            imageIndex: $(a).attr('image-index')
+                        });
+                    }
+                });
+                // sort the items array using imageIndex field
+                items.sort(function (x, y) {
+                    return x.imageIndex > y.imageIndex;
+                });
+                // define options (if needed)
+                var options = {
+                    history: false,
+                    focus: true,
+                    showAnimationDuration: 200,
+                    hideAnimationDuration: 200
+                };
+                // init the gallery
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+                gallery.init();
+                gallery.goTo(imageIndex);
+                var iframe = $(gallery.currItem.container).find('iframe');
+                if (iframe.length) iframe[0].src += "&autoplay=1";
+                gallery.listen('close', function () {
+                    $(gallery.container).find('iframe').remove();
+                });
+            };
+
+            $('.zoom-gallery a').click(function (e) {
+                e.preventDefault();
+                openPhotoSwipe(parseInt($(this).attr('image-index')));
+            });
+
+        });
+    </script>
+}

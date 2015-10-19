@@ -1,0 +1,322 @@
+a.nml-button,
+a.b-nml-button,
+a.g-nml-button,
+select.nml-dropdown,
+input.g-nml-button {
+    font-size: 14px;
+    padding: 6px 18px;
+    height: 36px;
+    display: inline-block;
+}
+
+a.board-button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px 12px;
+    div {
+        display: inline-block;
+        padding-left: 78px;
+    }
+    h5 {
+        margin-bottom: 4px;
+        font-weight: 600;
+    }
+}
+
+a.nml-button,
+a.more-button,
+a.board-button {
+    background-image: linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25), inset 0px 1px 0px 0px #5C5E61;
+    border-radius: 4px;
+    color: #B7B7B7;
+    &:hover {
+        background-image: linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+    }
+    &:active {
+        background-image: linear-gradient(0deg, #41444F 0%, #2E3337 100%);
+    }
+}
+
+a.b-nml-button {
+    background: radial-gradient(70% 80%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.12) 80%),
+                linear-gradient(-180deg, #518DB8 50%, #467A9F 100%);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25), inset 0px 1px 0px 0px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    color: #1A3545;
+    padding-top: 8px;
+    &:hover {
+        background: radial-gradient(90% 100%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.12) 100%),
+                    linear-gradient(-180deg, #518DB8 50%, #467A9F 100%);
+    }
+}
+
+a.g-nml-button,
+input.g-nml-button {
+    background: linear-gradient(-180deg, #5FB657 0%, #4E9147 100%),
+                radial-gradient(50% 82%, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0.15) 83%);
+    border-radius: 4px;
+    color: #1D451A;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(-180deg, #6AC962 0%, #549B4E 100%),
+                    radial-gradient(50% 82%, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.15) 83%);
+    }
+}
+
+a.g-nml-button {
+    padding-top: 7px;
+}
+
+input.g-nml-button {
+    padding-top: 5px;
+}
+
+a.more-button {
+    position: relative;
+    z-index: 90;
+    border-radius: 2px;
+    width: 30px;
+    height: 16px;
+    display: inline-block;
+    background: url(/static/images/more_button.png) center center no-repeat,
+                linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+    padding: 0 !important;
+    &:hover {
+        background: url(/static/images/more_button.png) center center no-repeat,
+                    linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+    }
+    &:after {
+        display: none !important;
+    }
+    &:focus,
+    &:active  {
+        background: url(/static/images/more_button.png) center center no-repeat,
+                    linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+    }
+}
+
+select.nml-dropdown {
+    border: none;
+    color: #B7B7B7;
+    padding: 4px 0px 8px 16px;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25), inset 0px 1px 0px 0px #5C5E61;
+    border-radius: 4px;
+    background: url(/static/images/dropdown_icon.png) 80% center no-repeat,
+                linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+    &:hover {
+        background: url(/static/images/dropdown_icon.png) 80% center no-repeat,
+                    linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+    }
+    &:active  {
+        background: url(/static/images/dropdown_icon.png) 80% center no-repeat,
+                    linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+    }
+}
+
+.f-dropdown li:hover, 
+.f-dropdown li:focus {
+    background: none !important;
+}
+
+.f-dropdown {
+    margin-top: 28px !important;
+    a {
+        line-height: 26px !important;
+    }
+}
+
+.f-dropdown:after,
+.f-dropdown:before {
+    border-color: transparent transparent #363636 transparent !important;
+}
+
+ul.f-dropdown.drop-left {
+    margin-left: 30px;
+    z-index: 100;
+    &:after {
+        top: -14px;
+        right: 8px;
+    }
+    &:before {
+        top: -12px;
+        right: 9px;
+    }
+}
+
+.default-dropdown {
+    background: $panel-grey !important;
+    border: 1px solid $dark-grey !important;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+    li {
+        height: 40px;
+        background: none;
+        a {
+            text-indent: 20px;
+            height: 40px;
+            line-height: 40px;
+            background: none;
+            color: $pri-grey;
+            &:hover {
+                color: white;
+            }
+        }
+        a.act-chat {
+            background: url(/static/images/act_chat.png) 6px center no-repeat;
+        }
+        a.act-transfer {
+            background: url(/static/images/act_transfer.png) 4px center no-repeat;
+        }
+        a.act-unfr {
+            background: url(/static/images/act_unfr.png) 4px center no-repeat;
+        }
+    }
+    li:not(:last-child) {
+        border-bottom: 1px solid $dark-grey;
+    }
+}
+
+input.search-bar {
+    margin-bottom: 0;
+    background: #151515 !important;
+    &:focus {
+        background: lighten(#151515, 3%) !important;
+        box-shadow: inset 0px 1px 2px 0px #000000 !important;
+        border-color: none;
+    }
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea {
+    background: #151515;
+    box-shadow: inset 0px 1px 2px 0px #000000;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    border: none;
+    color: #b7b7b7;
+    font-size: 0.875rem;
+    text-indent: 4px;
+    &::-webkit-input-placeholder {
+        color: #676767 !important;
+        font-style: italic;
+    }
+    &::-moz-placeholder {
+        color: #676767 !important;
+        font-style: italic;
+    }
+    &:-moz-placeholder {
+        color: #676767 !important;
+        font-style: italic;
+    }
+    &:-ms-input-placeholder {
+        color: #676767 !important;
+        font-style: italic;
+    }
+    &:focus {
+        background: lighten(#151515, 3%);
+        box-shadow: inset 0px 1px 2px 0px #000000 !important;
+        border-color: none;
+    }
+}
+
+
+// input[type="range"] {
+//     /*removes default webkit styles*/
+//     -webkit-appearance: none;
+    
+//     /*fix for FF unable to apply focus style bug */
+//     border: 1px solid white;
+    
+//     /*required for proper track sizing in FF*/
+//     max-width: 280px;
+//     min-width: 210px;
+//     width: 100%;
+// }
+// input[type="range"]::-webkit-slider-runnable-track {
+//     max-width: 280px;
+//     min-width: 210px;
+//     width: 100%;
+//     height: 5px;
+//     background: #dedede;
+//     border: none;
+//     border-radius: 3px;
+// }
+// input[type="range"]::-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//     border: none;
+//     height: 16px;
+//     width: 16px;
+//     border-radius: 50%;
+//     background: #199BE3;
+//     margin-top: -5px;
+// }
+// input[type="range"]:focus {
+//     outline: none;
+// }
+// input[type="range"]:focus::-webkit-slider-runnable-track {
+//     background: #ccc;
+// }
+
+// input[type="range"]::-moz-range-track {
+//     max-width: 280px;
+//     min-width: 210px;
+//     width: 100%;
+//     height: 5px;
+//     background: #dedede;
+//     border: none;
+//     border-radius: 3px;
+// }
+// input[type="range"]::-moz-range-thumb {
+//     border: none;
+//     height: 16px;
+//     width: 16px;
+//     border-radius: 50%;
+//     background: #199BE3;
+// }
+
+// /*hide the outline behind the border*/
+// input[type="range"]:-moz-focusring{
+//     outline: 1px solid white;
+//     outline-offset: -1px;
+// }
+
+// input[type="range"]::-ms-track {
+//     max-width: 280px;
+//     min-width: 210px;
+//     width: 100%;
+//     height: 5px;
+    
+//     /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+//     background: transparent;
+    
+//     /*leave room for the larger thumb to overflow with a transparent border */
+//     border-color: transparent;
+//     border-width: 6px 0;
+
+//     /*remove default tick marks*/
+//     color: transparent;
+// }
+// input[type="range"]::-ms-fill-lower {
+//     background: #777;
+//     border-radius: 10px;
+// }
+// input[type="range"]::-ms-fill-upper {
+//     background: #dedede;
+//     border-radius: 10px;
+// }
+// input[type="range"]::-ms-thumb {
+//     border: none;
+//     height: 16px;
+//     width: 16px;
+//     border-radius: 50%;
+//     background: #199BE3;
+// }
+// input[type="range"]:focus::-ms-fill-lower {
+//     background: #888;
+// }
+// input[type="range"]:focus::-ms-fill-upper {
+//     background: #ccc;
+// }

@@ -1,0 +1,27 @@
+﻿@using GoPlay.Web.Helpers
+
+@helper FlashMessage(System.Web.Mvc.TempDataDictionary tempData)
+{
+    @*<div class="flash-messages">*@
+    foreach (FlashLevel level in (FlashLevel[])Enum.GetValues(typeof(FlashLevel)))
+    {
+        string type = level.ToString().ToLower();
+        string key = "flash-" + type;
+
+        if (tempData.ContainsKey(key))
+        {
+            IList<string> messages = (IList<string>)tempData[key];
+
+            foreach (string message in messages)
+            {
+                <div data-alert class="alert-box radius @type" tabindex="0" aria-live="assertive" role="dialogalert">
+                    @Html.Raw(message)
+                    <a href="#" class="close">&times;</a>
+                </div>
+            }
+        }
+    }
+    @*</div>*@
+}
+
+@FlashMessage(TempData)

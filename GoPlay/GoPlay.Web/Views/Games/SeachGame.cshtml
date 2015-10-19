@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Games;
+}
+@model GoPlay.Web.Models.SearchGamesViewModel
+@using Platform.Utility
+@using GoPlay.Web.Helpers
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/games/games_main.css?rnd=20150420" />
+}
+
+<script>
+    var keyword = "@Model.keywork";
+    var genre = "@Model.genre";
+    var platform = "@Model.platform";
+    var release = "@Model.release";
+</script>
+<div ng-controller="GameCtrl" class="game-search" ng-init="init()">
+    <section class="sort-wrapper row">
+        <div class="large-12 columns">
+            <div class="search-wrap">
+                <angucomplete-alt id="game-input" placeholder="@Resources.Resources.Search_games" type="text"
+                                  pause="400" selected-object="game"
+                                  remote-url="/game/find-game?"
+                                  title-field="name" description-field="studio" image-field="icon_filename"
+                                  minlength="3" name="id" params-field="params" initial-value="@Model.keywork"
+                                  remote-url-request-formatter="gameSearchFormat" ng-keyup="fullSearch($event)"></angucomplete-alt>
+
+                <a href="" ng-click="searchGames()">
+                    <img src="/static/images/search_icon.png" alt="">
+                </a>
+            </div>
+            <select class="nml-dropdown" ng-model="genre" ng-change="searchGames()">
+                <option value="default" selected disabled="disabled">@Resources.Resources.Genre</option>
+                <option value="all">@Resources.Resources.All_Genres</option>
+                @foreach (var genre in Model.genres)
+                {
+                    <option value="@genre">@genre</option>
+                }
+            </select>
+            <select class="nml-dropdown" id="platform-select" ng-model="platform" ng-change="searchGames()">
+                <option value="default" disabled="disabled">@Resources.Resources.Platform</option>
+                <option value="all">@Resources.Resources.All_Platforms</option>
+                <option value="ios">iOS</option>
+                <option value="android">Android</option>
+                <option value="apk">APK</option>
+                <option value="pc">PC</option>
+            </select>
+            <select class="nml-dropdown" id="release-select" ng-model="release" ng-change="searchGames()">
+                <option value="default" disabled="disabled">@Resources.Resources.Release</option>
+                <option value="all">@Resources.Resources.All_Games</option>
+                <option value="coming">@Resources.Resources.Coming_Soon</option>
+            </select>
+            <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+        </div>
+    </section>
+
+    <section class="games-wrapper row" id="all-game">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Search_Result</h6>
+            </div>
+            <div class="sect-panel games-show-panel">
+                @if (Model.games.Count == 0)
+                {
+                    <p class="result-text">@Resources.Resources.There_no_games_found</p>
+                }
+                else
+                {
+                    var keywork = "";
+                    if (Model.keywork.Count() != 0)
+                    {
+                        keywork = Resources.Resources._for + Model.keywork;
+                    }
+                    <h5 class="result-text">@Model.count @(" results") @keywork</h5>
+                    <ul class="games-list small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                        @foreach (var game in Model.games)
+                        {
+                            var downloadLink = GameHelper.getDownloadLinksForCurrentUser(game, Html.GetCurrentUser(), Request.GetClientIp());
+                            <li>
+                                <div class="game-wrap">
+                                    <div class="game-image">
+                                        <a href="@GameHelper.GenerateLinkGame(game)">
+                                            <img src="@game.banner_filename" alt="">
+                                            @if (GameHelper.isComingSoon(game, Html.GetCurrentUser(), Request.GetClientIp()))
+                                            {
+                                                <span class="coming-soon">@Resources.Resources.Coming_Soon</span>
+                                            }
+                                        </a>
+                                    </div>
+                                    <div class="game-detail-wrap">
+                                        <a href="@GameHelper.GenerateLinkGame(game)">
+                                            <h5>@game.name</h5>
+                                        </a>
+                                        <div class="gerne-platform">
+                                            <a class="nml-link" onclick="ga('send', 'event' , 'link' , 'click' , 'genre-click');" href="@Url.Action("search","game", new { keyword="all-keyword", genre=GameHelper.getLocalized(game, "genre"), platform="default", release="default" })">@GameHelper.getLocalized(game, "genre")</a>
+                                            <div class="show-platforms">
+                                                @if (Request.IsAuthenticated)
+                                                {
+                                                    if (downloadLink["apple"] != null)
+                                                    {
+                                                        <a class="plat-icon ios-plat" href="@downloadLink["apple"]" target="_blank"></a>
+                                                    }
+                                                    if (downloadLink["google"] != null)
+                                                    {
+                                                        <a class="plat-icon gplay-plat" href="@downloadLink["google"]" target="_blank"></a>
+                                                    }
+                                                    if (downloadLink["pc"] != null)
+                                                    {
+                                                        <a class="plat-icon pc-plat" href="@downloadLink["pc"]" target="_blank"></a>
+                                                    }
+                                                    if (downloadLink["apk"] != null)
+                                                    {
+                                                        <a class="plat-icon apk-plat" href="@downloadLink["apk"]" target="_blank"></a>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (downloadLink["apple"] != null)
+                                                    {
+                                                        <a class="plat-icon ios-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                    }
+                                                    if (downloadLink["google"] != null)
+                                                    {
+                                                        <a class="plat-icon gplay-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                    }
+                                                    if (downloadLink["pc"] != null)
+                                                    {
+                                                        <a class="plat-icon pc-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                    }
+                                                    if (downloadLink["apk"] != null)
+                                                    {
+                                                        <a class="plat-icon apk-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+
+                    <div class="pagination-centered">
+                        <ul class="pagination" role="menubar" aria-label="Pagination">
+                            @if (Model.pagination.has_prev)
+                            {
+                                <li>
+                                    <a class="arrow" href="@Url.Current(new { page = Model.pagination.page - 1 })">&laquo;</a>
+                                </li>
+                            }
+                            @foreach (var page in Model.pagination.iter_pages())
+                            {
+                                if (page != 0)
+                                {
+                                    if (page != Model.pagination.page)
+                                    {
+                                        <li><a href="@Url.Current(new { page = page })">@page</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="current"><a href="">@page</a></li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li><span class="unavailable">&hellip;</span></li>
+                                }
+                            }
+                            @if (Model.pagination.has_next)
+                            {
+                                <li>
+                                    <a class="arrow" href="@Url.Action("index", "game", new { page = Model.pagination.page + 1 })">&raquo;</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- {% include 'includes/bottom_call_to_action_register.html' %}-->
+@section foot_js_lib {
+
+    <script type="text/javascript" src="/bower_components/slick.js/slick/slick.min.js"></script>
+}
+
+@section page_foot_js{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#feature-games-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                autoplay: false,
+                autoplaySpeed: 10000,
+                arrows: false,
+                pauseOnHover: true
+            });
+        });
+
+    </script>
+}

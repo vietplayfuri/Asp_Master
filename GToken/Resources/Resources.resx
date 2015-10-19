@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Awesome_games_supported" xml:space="preserve">
+    <value>AWESOME GAMES SUPPORTED</value>
+  </data>
+  <data name="A_better_way" xml:space="preserve">
+    <value>A better way</value>
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value>Clubs</value>
+  </data>
+  <data name="Dedicated_staffs_to_provide_assistance" xml:space="preserve">
+    <value>Dedicated staffs to provide assistance. Need technical support or a friend to play with? We are here for you!</value>
+  </data>
+  <data name="Discover_fun_unique" xml:space="preserve">
+    <value>Discover fun, unique and innovative games from up-and-coming developers!</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="Introducing_GToken" xml:space="preserve">
+    <value>Introducing GToken</value>
+  </data>
+  <data name="It_transferable" xml:space="preserve">
+    <value>It’s transferable</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>News</value>
+    <comment>Header</comment>
+  </data>
+  <data name="Share_GoPlay_Token_with_your_friends" xml:space="preserve">
+    <value>Share GoPlay Token with your friends and loved ones, and empower them with the freedom to upgrade whichever games they like to play ♥</value>
+  </data>
+  <data name="Signup" xml:space="preserve">
+    <value>Signup</value>
+  </data>
+  <data name="Simply_because" xml:space="preserve">
+    <value>Simply because...</value>
+  </data>
+  <data name="Stay_supported" xml:space="preserve">
+    <value>Stay supported</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Terms</value>
+  </data>
+  <data name="to_enhance_your_gaming_experience" xml:space="preserve">
+    <value>to enhance your gaming experience</value>
+  </data>
+  <data name="Why_choose_GToken" xml:space="preserve">
+    <value>Why choose GToken ?</value>
+  </data>
+  <data name="Get_more_with_GToken" xml:space="preserve">
+    <value>Get more with GToken</value>
+  </data>
+  <data name="Get_special_deals_best_price" xml:space="preserve">
+    <value>Get special deals, best price for in-game items and exclusive content only available to our GToken members.</value>
+  </data>
+  <data name="Register_your_account_now" xml:space="preserve">
+    <value>Register your account now to get free Play Token and start playing today!</value>
+  </data>
+  <data name="A_Gateway_to_Play" xml:space="preserve">
+    <value>A Gateway to Play</value>
+  </data>
+  <data name="Home_page" xml:space="preserve">
+    <value>Home page</value>
+  </data>
+  <data name="We_hope_to_bring_happiness" xml:space="preserve">
+    <value>We hope to bring happiness and share the joy with you</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+    <comment>Register page</comment>
+  </data>
+  <data name="Available_from_Mon_Fri_11am_to_7pm" xml:space="preserve">
+    <value>Available from Mon - Fri, 11am to 7pm.</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Call_our_support_agent" xml:space="preserve">
+    <value>Call our support agent and get your answer immediately.</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Easy_simple_no_credit_card" xml:space="preserve">
+    <value>Easy &amp; simple, no credit card needed</value>
+  </data>
+  <data name="Games_that_GToken_distributes" xml:space="preserve">
+    <value>Games that GToken distributes</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Game_version" xml:space="preserve">
+    <value>game version</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="GoPlay_Token_is_a_digital_currency_platform" xml:space="preserve">
+    <value>GoPlay is a digital currency platform for mobile games that delivers greater choices, convenience and simplicity to our customers in all that we do.</value>
+  </data>
+  <data name="GToken_is_a_gateway_to_play" xml:space="preserve">
+    <value>GToken is a gateway to play: when you play, you get happiness. We hope to bring happiness and share the joy with your friends and loved ones when you play with us.</value>
+  </data>
+  <data name="GToken_website" xml:space="preserve">
+    <value>GToken website</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Need_Immediate_Help" xml:space="preserve">
+    <value>Need Immediate Help ?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="OS_version" xml:space="preserve">
+    <value>OS version</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Our_customer_support_team" xml:space="preserve">
+    <value>Our customer support team are happy to answer your questions</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Phone_Call" xml:space="preserve">
+    <value>Phone Call</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Send_Us_A_Message" xml:space="preserve">
+    <value>Send Us A Message</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Send_your_message" xml:space="preserve">
+    <value>send your message</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Skype" xml:space="preserve">
+    <value>Skype</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>Subject</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="We_provide_our_undivided_attention" xml:space="preserve">
+    <value>We provide our undivided attention and support to our users who requires help and attention, be it regarding a technical issue, advice on how to clear a stage you are stuck with, or even a gaming companion when you wish to find someone you can play with.</value>
+  </data>
+  <data name="We_seek_out_popular_and_quality" xml:space="preserve">
+    <value>We seek out popular and quality games to introduce to our users. We reward our users who achieve VIP status with loyalty rewards, which can be used to redeem exclusive and limited edition items for the games you play.</value>
+  </data>
+  <data name="We_will_get_back_to_you_shortly" xml:space="preserve">
+    <value>We will get back to you shortly.</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="What_On_Your_Mind" xml:space="preserve">
+    <value>What's On Your Mind</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="WHAT_YOUR_ISSUE_ABOUT" xml:space="preserve">
+    <value>WHAT'S YOUR ISSUE ABOUT ?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="WHICH_GAME_TROUBLES_YOU" xml:space="preserve">
+    <value>WHICH GAME TROUBLES YOU ?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="YOUR_CURRENT_OS" xml:space="preserve">
+    <value>YOUR CURRENT OS ?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_device_model" xml:space="preserve">
+    <value>your device model</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_email" xml:space="preserve">
+    <value>Your email</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_message" xml:space="preserve">
+    <value>your message</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_name" xml:space="preserve">
+    <value>Your name</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Already_a_member" xml:space="preserve">
+    <value>Already a member?</value>
+  </data>
+  <data name="Dont_have_an_account" xml:space="preserve">
+    <value>Don't have an account?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="Forgot_Password" xml:space="preserve">
+    <value>Forgot it?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="I_agree_to_GToken" xml:space="preserve">
+    <value>I agree to GToken's</value>
+  </data>
+  <data name="Login_and_having_fun" xml:space="preserve">
+    <value>Login and having fun!</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>password</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>Remember me</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="retype_email" xml:space="preserve">
+    <value>retype email</value>
+  </data>
+  <data name="Sign_up_get_1_free" xml:space="preserve">
+    <value>Sign up &amp; get 1 free</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Sign_up_get_a_free" xml:space="preserve">
+    <value>Sign up &amp; get a free</value>
+  </data>
+  <data name="Terms_of_Service" xml:space="preserve">
+    <value>Terms of Service</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>username</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Friends</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Log_Out" xml:space="preserve">
+    <value>Log Out</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>Transaction</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Username_and_or_password_are_not_correct" xml:space="preserve">
+    <value>*Username and/or password are not correct</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Coming_Soon" xml:space="preserve">
+    <value>Coming Soon</value>
+    <comment>Game page</comment>
+  </data>
+  <data name="Content_Rating" xml:space="preserve">
+    <value>Content Rating</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Current_Version" xml:space="preserve">
+    <value>Current Version</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Genre</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>Introduction</value>
+    <comment>Game deatal page</comment>
+  </data>
+  <data name="Other_Recommendations" xml:space="preserve">
+    <value>Other Recommendations</value>
+    <comment>Game deatail page</comment>
+  </data>
+  <data name="Release_Date" xml:space="preserve">
+    <value>Release Date</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="See_Less" xml:space="preserve">
+    <value>See Less</value>
+    <comment>Game deatal page</comment>
+  </data>
+  <data name="See_More" xml:space="preserve">
+    <value>See More</value>
+    <comment>Game deatal page</comment>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Updated</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="My_Account" xml:space="preserve">
+    <value>My Account</value>
+  </data>
+  <data name="Partners" xml:space="preserve">
+    <value>Partners</value>
+  </data>
+  <data name="Signup_now" xml:space="preserve">
+    <value>Signup now</value>
+  </data>
+  <data name="Email_address" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="Referal_ID" xml:space="preserve">
+    <value>Referal ID</value>
+  </data>
+  <data name="Retype_password" xml:space="preserve">
+    <value>Retype password</value>
+  </data>
+  <data name="Already_a_user" xml:space="preserve">
+    <value>Already a user?</value>
+  </data>
+  <data name="Login_now" xml:space="preserve">
+    <value>Login now</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Edit_your_profile" xml:space="preserve">
+    <value>Edit your profile</value>
+  </data>
+  <data name="Transaction_History" xml:space="preserve">
+    <value>Transaction History</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Date_of_birth" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Edit_Profile" xml:space="preserve">
+    <value>Edit Profile</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="My_profile" xml:space="preserve">
+    <value>My profile</value>
+  </data>
+  <data name="Nah_dont_change_password" xml:space="preserve">
+    <value>Nah, don't change password</value>
+  </data>
+  <data name="Nick_name" xml:space="preserve">
+    <value>Nick name</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="Upload_new_photo" xml:space="preserve">
+    <value>Upload new photo</value>
+  </data>
+  <data name="Enter_new_password" xml:space="preserve">
+    <value>Enter new password</value>
+    <comment>EnterNewPassword Page</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+    <comment>Reset your password page</comment>
+  </data>
+  <data name="Not_a_user" xml:space="preserve">
+    <value>Not a user?</value>
+    <comment>Reset your password page</comment>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>Reset your password</value>
+    <comment>Reset your password page</comment>
+  </data>
+  <data name="Sign_up_here" xml:space="preserve">
+    <value>Sign up here</value>
+    <comment>Reset your password page</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Discount</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Electronic_receipt" xml:space="preserve">
+    <value>This is an electronic receipt.</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="GST" xml:space="preserve">
+    <value>GST</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Invoice</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="No_receipt_available_for_you" xml:space="preserve">
+    <value>No receipt available for you!</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Partner" xml:space="preserve">
+    <value>Partner</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Please_kindly_contact_part1" xml:space="preserve">
+    <value>Please kindly contact</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Please_kindly_contact_part2" xml:space="preserve">
+    <value>if you have any questions or concerns. Please be sure to forward this invoice as well to expedite processing of your request.</value>
+  </data>
+  <data name="Receipt" xml:space="preserve">
+    <value>Receipt</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Service_Charge" xml:space="preserve">
+    <value>Service Charge</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Subtotal" xml:space="preserve">
+    <value>Subtotal</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Thank_you" xml:space="preserve">
+    <value>Thank you for your business!</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Transaction_ID" xml:space="preserve">
+    <value>Transaction ID</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>404 Page</comment>
+  </data>
+  <data name="How_about_going_back_to" xml:space="preserve">
+    <value>How about going back to</value>
+    <comment>404 Page</comment>
+  </data>
+  <data name="Page_not_found" xml:space="preserve">
+    <value>Page not found!</value>
+    <comment>404 Page</comment>
+  </data>
+  <data name="Please_try_again_later" xml:space="preserve">
+    <value>Please try again later.</value>
+    <comment>500 Page</comment>
+  </data>
+  <data name="Really_sorry_system_problem" xml:space="preserve">
+    <value>Really sorry, our system is down due to a problem.</value>
+    <comment>500 Page</comment>
+  </data>
+  <data name="Something_is_wrong" xml:space="preserve">
+    <value>Something is wrong!</value>
+    <comment>500 Page</comment>
+  </data>
+  <data name="Sorry_not_found" xml:space="preserve">
+    <value>Sorry, the page you are looking for is not found</value>
+    <comment>404 Page</comment>
+  </data>
+  <data name="_for" xml:space="preserve">
+    <value>for</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="About_page_Alongside_the_vision" xml:space="preserve">
+    <value>Alongside the vision to serve the community, GToken opens up its first-ever F&amp;B venture on Dempsey Hill. G House Restaurant offers a comprehensive and savoury menu for all to enjoy. G House Restaurant serves a delectable All-Day Breakfast, a savoury Asian Fusion and a range of healthy selections under Eat Clean. Such a variety encourages people of all, regardless whether a family, a group of friends or a couple to enjoy a meal in an environment rich with history</value>
+  </data>
+  <data name="About_page_A_lifestyle_platform" xml:space="preserve">
+    <value>A lifestyle platform, GToken caters to various aspects of one’s life. Ranging from play to relaxation, GToken provides members with choices that one cannot resist.</value>
+  </data>
+  <data name="About_page_Dine_GDine" xml:space="preserve">
+    <value>Dine - GDine.co</value>
+  </data>
+  <data name="About_page_Food_is_a_necessity" xml:space="preserve">
+    <value>Food is a necessity in life that everyone enjoys. GDine.co offers various dining options under one roof. Being part of our lifestyles, food and dining becomes essentially a choice one makes. GDine.co brings merchants that values consumers’ loyalty and wants to share more value constantly. Members enjoys exclusive discounts from participating merchants 365 days, a year. Spend lesser, enjoy more!</value>
+  </data>
+  <data name="About_page_Games_GoPlay" xml:space="preserve">
+    <value>Games - GoPlay.la</value>
+  </data>
+  <data name="About_page_GoPlay_provides" xml:space="preserve">
+    <value>GoPlay.la provides gamers and members the chance to play and reach out to high quality games which are admist the millions of applications on mobile stores. GoPlay.la provides a 24/7 online customer service support, where technical issues and game stuck will be assisted. GoPlay.la provides a safe and friendly community in reality and not just virtually; with a GToken Clubhouse in Singapore and Malaysia, it is readily available for gamers to gather, build relationships and play! GoPlay.la provides game developers and studios an alternative and non-exclusive tool to generate revenue across our global network. This way, developers and studios will be able to reach out to players from around the World through GToken members, saving time and money.It is important that everyone reach a balance of work and play. GToken visions that games are a part of a bonding tool, having the ability to breakthrough emotional walls and barriers.</value>
+  </data>
+  <data name="About_page_It_is_important" xml:space="preserve">
+    <value>It is important that everyone reach a balance of work and play. GToken visions that games are a part of a bonding tool, having the ability to breakthrough emotional walls and barriers.</value>
+  </data>
+  <data name="Alongside_the_vision_to_serve_the_community" xml:space="preserve">
+    <value>Alongside the vision to serve the community, GToken opens up its first-ever F&amp;B venture on Dempsey Hill. G House Restaurant offers a comprehensive and savoury menu for all to enjoy. G House Restaurant serves a delectable All-Day Breakfast, a savoury Asian Fusion and a range of healthy selections under Eat Clean. Such a variety encourages people of all, regardless whether a family, a group of friends or a couple to enjoy a meal in an environment rich with history</value>
+    <comment>About</comment>
+  </data>
+  <data name="A_lifestyle_platform" xml:space="preserve">
+    <value>A lifestyle platform, GToken caters to various aspects of one’s life. Ranging from play to relaxation, GToken provides members with choices that one cannot resist.</value>
+    <comment>About</comment>
+  </data>
+  <data name="Dine_GDine_co" xml:space="preserve">
+    <value>Dine - GDine.co</value>
+    <comment>About</comment>
+  </data>
+  <data name="Food_is_a_necessity" xml:space="preserve">
+    <value>Food is a necessity in life that everyone enjoys. GDine.co offers various dining options under one roof. Being part of our lifestyles, food and dining becomes essentially a choice one makes. GDine.co brings merchants that values consumers’ loyalty and wants to share more value constantly. Members enjoys exclusive discounts from participating merchants 365 days, a year. Spend lesser, enjoy more!</value>
+    <comment>About</comment>
+  </data>
+  <data name="Games_GoPlay_la" xml:space="preserve">
+    <value>Games - GoPlay.la</value>
+    <comment>About</comment>
+  </data>
+  <data name="GoPlay_provides_gamers" xml:space="preserve">
+    <value>GoPlay.la provides gamers and members the chance to play and reach out to high quality games which are admist the millions of applications on mobile stores. GoPlay.la provides a 24/7 online customer service support, where technical issues and game stuck will be assisted. GoPlay.la provides a safe and friendly community in reality and not just virtually; with a GToken Clubhouse in Singapore and Malaysia, it is readily available for gamers to gather, build relationships and play! GoPlay.la provides game developers and studios an alternative and non-exclusive tool to generate revenue across our global network. This way, developers and studios will be able to reach out to players from around the World through GToken members, saving time and money.It is important that everyone reach a balance of work and play. GToken visions that games are a part of a bonding tool, having the ability to breakthrough emotional walls and barriers.</value>
+    <comment>About</comment>
+  </data>
+  <data name="It_is_important_that_everyone_reach" xml:space="preserve">
+    <value>It is important that everyone reach a balance of work and play. GToken visions that games are a part of a bonding tool, having the ability to breakthrough emotional walls and barriers.</value>
+    <comment>About</comment>
+  </data>
+  <data name="Get_Great_Discounts" xml:space="preserve">
+    <value>Get Great Discounts</value>
+  </data>
+  <data name="Get_Great_Discounts_description" xml:space="preserve">
+    <value>GToken members enjoy discounts from merchants on our various platforms. This way, members stand to spend less yet get more. Members are also able to transfer tokens to friends and family as gifts!</value>
+  </data>
+  <data name="GToken_Clubhouses" xml:space="preserve">
+    <value>GToken Clubhouses</value>
+  </data>
+  <data name="GToken_Clubhouses_description" xml:space="preserve">
+    <value>GToken encourages community building and relationship bonding. Clubhouses are situated around Asia for members to gather, connect and have fun together!</value>
+  </data>
+  <data name="One_Login_To_All" xml:space="preserve">
+    <value>One Login To All</value>
+    <comment>Home Page</comment>
+  </data>
+  <data name="One_Login_To_All_description" xml:space="preserve">
+    <value>Saving time and gaining convenience, members of GToken only require 1 unique userid and 1 password to access all accounts on our platform.</value>
+  </data>
+  <data name="Forum" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="Admin_panel" xml:space="preserve">
+    <value>Admin Panel</value>
+    <comment>Header</comment>
+  </data>
+</root>

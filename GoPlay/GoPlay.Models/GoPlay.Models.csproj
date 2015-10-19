@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoPlay.Models</RootNamespace>
+    <AssemblyName>GoPlay.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\GoPlayConstantValues.cs" />
+    <Compile Include="Models\active_gamer_scheme.cs" />
+    <Compile Include="Models\admin_account.cs" />
+    <Compile Include="Models\APILoginModel.cs" />
+    <Compile Include="Models\APIUpointModel.cs" />
+    <Compile Include="Models\api_log.cs" />
+    <Compile Include="Models\auth_action.cs" />
+    <Compile Include="Models\auth_role.cs" />
+    <Compile Include="Models\coin_transaction.cs" />
+    <Compile Include="Models\credit_balance.cs" />
+    <Compile Include="Models\credit_transaction.cs" />
+    <Compile Include="Models\credit_type.cs" />
+    <Compile Include="Models\customer_account.cs" />
+    <Compile Include="Models\customer_login_oauth.cs" />
+    <Compile Include="Models\customer_login_password.cs" />
+    <Compile Include="Models\external_exchange.cs" />
+    <Compile Include="Models\free_coin_transaction.cs" />
+    <Compile Include="Models\friend.cs" />
+    <Compile Include="Models\game.cs" />
+    <Compile Include="Models\game_access_token.cs" />
+    <Compile Include="Models\game_notification.cs" />
+    <Compile Include="Models\gcoin_transaction.cs" />
+    <Compile Include="Models\GTokenTransaction.cs" />
+    <Compile Include="Models\gtoken_package.cs" />
+    <Compile Include="Models\oauth_bearer_token.cs" />
+    <Compile Include="Models\oauth_grant_token.cs" />
+    <Compile Include="Models\package.cs" />
+    <Compile Include="Models\partner_account.cs" />
+    <Compile Include="Models\paypal_preapproval.cs" />
+    <Compile Include="Models\promotion.cs" />
+    <Compile Include="Models\promotion_game.cs" />
+    <Compile Include="Models\schemup_tables.cs" />
+    <Compile Include="Models\studio.cs" />
+    <Compile Include="Models\topup_card.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\user_notification.cs" />
+    <Compile Include="Models\venvici_transaction.cs" />
+    <Compile Include="Models\verification_token.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\GToken.Models\Platform.Models.csproj">
+      <Project>{a1738637-605c-4b46-bc5c-b379a09823f7}</Project>
+      <Name>Platform.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\GToken.Utility\Platform.Utility.csproj">
+      <Project>{0da1defb-0e51-4148-92c6-13bf0453636f}</Project>
+      <Name>Platform.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{ebbede43-00f3-421c-98d6-269d5eefc569}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

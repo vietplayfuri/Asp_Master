@@ -1,0 +1,51 @@
+
+@import "partials/color";
+@import "partials/typography";
+
+body {
+    ul {
+        margin-left: 0;
+    }
+
+    max-width: 100%;
+    margin: auto;
+}
+
+.main-container {
+    height: 68.750em;
+}
+
+.row {
+    max-width: 1024px;
+}
+
+h4 {
+    color: $pri-white;
+}
+
+.no-flick {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.partner-parent {
+    background-color: #d7d7d7;
+}
+
+.slogan {
+    font-family: $font-josefin-slab;
+    font-weight: 600;
+    font-size: 1.844em;
+    color: #a5a5a5;
+    letter-spacing: 5px;
+}
+
+// Style for viewport max-width 896px - 56em // Tablet & Phablet
+
+@media only screen and (max-width: 56em) {
+}
+
+// Style for viewport max-width 768px
+
+@media only screen and (max-width: 48em) {
+}

@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoPlay.Web", "GoPlay.Web\GoPlay.Web.csproj", "{D616FC5E-1433-4AEB-8EF4-A5EDC6B02332}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65} = {0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65}
+		{BA46F574-23BB-4045-9D94-400E453ED663} = {BA46F574-23BB-4045-9D94-400E453ED663}
+		{7EC3E27A-0AC8-4BE3-AA27-9710195E114C} = {7EC3E27A-0AC8-4BE3-AA27-9710195E114C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoPlay.Tests", "GoPlay.Tests\GoPlay.Tests.csproj", "{26F282D8-29F0-4F16-8642-3F57D700A94D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{2B50E417-72B9-45E1-A434-237F0267F018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Core", "..\Shared\GToken.Core\Platform.Core.csproj", "{54922C4B-5BFD-4B54-9AE4-7701D95F7FCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Dal", "..\Shared\GToken.Dal\Platform.Dal.csproj", "{E4074E09-C70F-4D8F-BD3F-E5CDC5761A2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Utility", "..\Shared\GToken.Utility\Platform.Utility.csproj", "{0DA1DEFB-0E51-4148-92C6-13BF0453636F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GToken Common", "GToken Common", "{881EF2E1-D862-407E-A654-5A829F967981}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Models", "..\Shared\GToken.Models\Platform.Models.csproj", "{A1738637-605C-4B46-BC5C-B379A09823F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoPlay.Models", "GoPlay.Models\GoPlay.Models.csproj", "{0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoPlay.Core", "GoPlay.Core\GoPlay.Core.csproj", "{7EC3E27A-0AC8-4BE3-AA27-9710195E114C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoPlay.Dal", "GoPlay.Dal\GoPlay.Dal.csproj", "{BA46F574-23BB-4045-9D94-400E453ED663}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D616FC5E-1433-4AEB-8EF4-A5EDC6B02332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D616FC5E-1433-4AEB-8EF4-A5EDC6B02332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D616FC5E-1433-4AEB-8EF4-A5EDC6B02332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D616FC5E-1433-4AEB-8EF4-A5EDC6B02332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F282D8-29F0-4F16-8642-3F57D700A94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F282D8-29F0-4F16-8642-3F57D700A94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F282D8-29F0-4F16-8642-3F57D700A94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F282D8-29F0-4F16-8642-3F57D700A94D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B50E417-72B9-45E1-A434-237F0267F018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B50E417-72B9-45E1-A434-237F0267F018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B50E417-72B9-45E1-A434-237F0267F018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B50E417-72B9-45E1-A434-237F0267F018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54922C4B-5BFD-4B54-9AE4-7701D95F7FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54922C4B-5BFD-4B54-9AE4-7701D95F7FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54922C4B-5BFD-4B54-9AE4-7701D95F7FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54922C4B-5BFD-4B54-9AE4-7701D95F7FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4074E09-C70F-4D8F-BD3F-E5CDC5761A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4074E09-C70F-4D8F-BD3F-E5CDC5761A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4074E09-C70F-4D8F-BD3F-E5CDC5761A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4074E09-C70F-4D8F-BD3F-E5CDC5761A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA1DEFB-0E51-4148-92C6-13BF0453636F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA1DEFB-0E51-4148-92C6-13BF0453636F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA1DEFB-0E51-4148-92C6-13BF0453636F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA1DEFB-0E51-4148-92C6-13BF0453636F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1738637-605C-4B46-BC5C-B379A09823F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1738637-605C-4B46-BC5C-B379A09823F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1738637-605C-4B46-BC5C-B379A09823F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1738637-605C-4B46-BC5C-B379A09823F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB27E0E-14AF-4901-ACBE-F1E1F23E3A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC3E27A-0AC8-4BE3-AA27-9710195E114C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC3E27A-0AC8-4BE3-AA27-9710195E114C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC3E27A-0AC8-4BE3-AA27-9710195E114C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC3E27A-0AC8-4BE3-AA27-9710195E114C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA46F574-23BB-4045-9D94-400E453ED663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA46F574-23BB-4045-9D94-400E453ED663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA46F574-23BB-4045-9D94-400E453ED663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA46F574-23BB-4045-9D94-400E453ED663}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54922C4B-5BFD-4B54-9AE4-7701D95F7FCB} = {881EF2E1-D862-407E-A654-5A829F967981}
+		{E4074E09-C70F-4D8F-BD3F-E5CDC5761A2E} = {881EF2E1-D862-407E-A654-5A829F967981}
+		{0DA1DEFB-0E51-4148-92C6-13BF0453636F} = {881EF2E1-D862-407E-A654-5A829F967981}
+		{A1738637-605C-4B46-BC5C-B379A09823F7} = {881EF2E1-D862-407E-A654-5A829F967981}
+	EndGlobalSection
+EndGlobal

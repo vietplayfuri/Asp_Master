@@ -1,0 +1,372 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Games;
+    string genreName = string.Empty;
+}
+@using GoPlay.Web.Helpers;
+@using GoPlay.Web.Helpers.Extensions;
+@model GoPlay.Web.Models.GamesViewModel
+@using Platform.Utility
+
+@section page_stylesheets {
+
+    <link rel="stylesheet" href="/static/stylesheets/games/games_main.css?rnd=20150420" />
+}
+
+<div ng-controller="GameCtrl" ng-init="FirstLoadUI()">
+    @if (Model.featuredGames.Count > 0)
+    {
+        <section class="feature-games row">
+            <div class="large-12 columns">
+                <div class="sect-title-bar">
+                    <h6 class="sect-title">@Resources.Resources.FEATURED_GAMES</h6>
+                    <p> - @Resources.Resources.Discover_new_best_releases</p>
+                </div>
+                <div class="sect-panel">
+                    <div id="feature-games-slider">
+                        @foreach (var game in Model.featuredGames)
+                        {
+                            var downloadLink = GameHelper.getDownloadLinksForCurrentUser(game, Html.GetCurrentUser(), Request.GetClientIp());
+
+                            <div class="slide-content">
+                                <div class="large-8 columns">
+                                    <div id="featuregames-slider" class="games-slider">
+                                        <div class="games-slide-contain">
+                                            <a href="@GameHelper.GenerateLinkGame(game)">
+                                                <img src="@game.banner_filename">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="game-intro large-4 columns">
+                                    <ul>
+                                        <li><h3>@game.name</h3></li>
+                                        <li>
+                                            <h6>@Resources.Resources.Genre:</h6>
+                                            @{
+                            genreName = @GameHelper.getLocalized(game, "genre");
+                                            }
+                                            <a class="nml-link" ng-data="@genreName"
+                                               ng-click="genreClick($event)"
+                                               onclick="ga('send', 'event', 'link', 'click', 'genre-click');">@genreName</a>
+                                        </li>
+                                        <li>
+                                            <h6>@Resources.Resources.Platform:</h6>
+                                            @if (Request.IsAuthenticated)
+                                            {
+                                                if (downloadLink["apple"] != null)
+                                                {
+                                                    <a class="plat-icon ios-plat" href="@downloadLink["apple"]" target="_blank"></a>
+                                                }
+                                                if (downloadLink["google"] != null)
+                                                {
+                                                    <a class="plat-icon gplay-plat" href="@downloadLink["google"]" target="_blank"></a>
+                                                }
+                                                if (downloadLink["pc"] != null)
+                                                {
+                                                    <a class="plat-icon pc-plat" href="@downloadLink["pc"]" target="_blank"></a>
+                                                }
+                                                if (downloadLink["apk"] != null)
+                                                {
+                                                    <a class="plat-icon apk-plat" href="@downloadLink["apk"]" target="_blank"></a>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (downloadLink["apple"] != null)
+                                                {
+                                                    <a class="plat-icon ios-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                                if (downloadLink["google"] != null)
+                                                {
+                                                    <a class="plat-icon gplay-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                                if (downloadLink["pc"] != null)
+                                                {
+                                                    <a class="plat-icon pc-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                                if (downloadLink["apk"] != null)
+                                                {
+                                                    <a class="plat-icon apk-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                            }
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        @GameHelper.getLocalized(game, "short_description")
+                                    </p>
+                                    <a class="nml-button" href="@GameHelper.GenerateLinkGame(game)">@Resources.Resources.More_detail></a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="sect-end-bar">
+                </div>
+            </div>
+        </section>
+    }
+
+
+    <section class="sort-wrapper row">
+        <div class="large-12 columns">
+            <div class="search-wrap">
+                <angucomplete-alt id="game-input" placeholder="@Resources.Resources.Search_games" type="text"
+                                  pause="400" selected-object="game"
+                                  remote-url="/game/find-game?"
+                                  title-field="name" description-field="studio" image-field="icon_filename"
+                                  minlength="3" name="id" params-field="params"
+                                  remote-url-request-formatter="gameSearchFormat" ng-keyup="fullSearch($event)"></angucomplete-alt>
+
+                <a href="" ng-click="searchGames_UI_change()">
+                    <img src="/static/images/search_icon.png" alt="">
+                </a>
+            </div>
+            <select class="nml-dropdown" ng-model="genre" ng-change="searchGames_UI_change()" >
+                <option value="default" disabled="disabled">@Resources.Resources.Genre</option>
+                <option value="all">@Resources.Resources.All_Genres</option>
+                <option ng-repeat="genre in allGenres" ng-selected="{$ genre == selectedGenre $}" value="{$ genre $}">{$ genre $}</option>
+            </select>
+            <select class="nml-dropdown" id="platform-select" ng-model="platform" ng-change="searchGames_UI_change()">
+                <option value="default" disabled="disabled">@Resources.Resources.Platform</option>
+                <option value="all">@Resources.Resources.All_Platforms</option>
+                <option value="ios">iOS</option>
+                <option value="android">Android</option>
+                <option value="apk">APK</option>
+                <option value="pc">PC</option>
+            </select>
+            <select class="nml-dropdown" id="release-select" ng-model="release" ng-change="searchGames_UI_change()">
+                <option value="default" disabled="disabled">@Resources.Resources.Release</option>
+                <option value="all">@Resources.Resources.All_Games</option>
+                <option value="coming">@Resources.Resources.Coming_Soon</option>
+            </select>
+            <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+        </div>
+    </section>
+
+    <section ng-show="!isSearch" class="games-wrapper row" id="all-game">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Popular_games</h6>
+            </div>
+            <div class="sect-panel games-show-panel">
+                @if (Model.popularGames == null && !Model.popularGames.Any())
+                {
+                    <p>@Resources.Resources.There_no_games_found</p>
+                }
+                <ul class="games-list small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                    @foreach (var game in Model.popularGames)
+                    {
+
+                        var downloadLink = GameHelper.getDownloadLinksForCurrentUser(game, Html.GetCurrentUser(), Request.GetClientIp());
+
+                        <li>
+                            <div class="game-wrap">
+                                <div class="game-image">
+                                    <a href="@GameHelper.GenerateLinkGame(game)">
+                                        <img src="@game.banner_filename" alt="">
+                                        @if (GameHelper.isComingSoon(game, Html.GetCurrentUser(), Request.GetClientIp()))
+                                        {
+                                            <span class="coming-soon">Coming Soon</span>
+                                        }
+                                    </a>
+                                </div>
+                                <div class="game-detail-wrap">
+                                    <a href="@GameHelper.GenerateLinkGame(game)">
+                                        <h5>@game.name</h5>
+                                    </a>
+                                    <div class="gerne-platform">
+                                        @{
+                        genreName = @GameHelper.getLocalized(game, "genre");
+                                        }
+                                        <a class="nml-link"
+                                           ng-data="@genreName" ng-click="genreClick($event)"
+                                           onclick="ga('send', 'event', 'link', 'click', 'genre-click');">@genreName</a>
+                                        <div class="show-platforms">
+                                            @if (Request.IsAuthenticated)
+                                            {
+                                                if (downloadLink["apple"] != null)
+                                                {
+                                                    <a class="plat-icon ios-plat" href="@downloadLink["apple"]" target="_blank"></a>
+                                                }
+                                                if (downloadLink["google"] != null)
+                                                {
+                                                    <a class="plat-icon gplay-plat" href="@downloadLink["google"]" target="_blank"></a>
+                                                }
+                                                if (downloadLink["pc"] != null)
+                                                {
+                                                    <a class="plat-icon pc-plat" href="@downloadLink["pc"]" target="_blank"></a>
+                                                }
+                                                if (downloadLink["apk"] != null)
+                                                {
+                                                    <a class="plat-icon apk-plat" href="@downloadLink["apk"]" target="_blank"></a>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (downloadLink["apple"] != null)
+                                                {
+                                                    <a class="plat-icon ios-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                                if (downloadLink["google"] != null)
+                                                {
+                                                    <a class="plat-icon gplay-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                                if (downloadLink["pc"] != null)
+                                                {
+                                                    <a class="plat-icon pc-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                                if (downloadLink["apk"] != null)
+                                                {
+                                                    <a class="plat-icon apk-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Games_List</h6>
+            </div>
+            <div class="sect-panel games-show-panel">
+                <p ng-if="allGamesList <= 0" class="result-text">@Resources.Resources.There_no_games_found</p>
+                <ul class="games-list small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                    <li ng-repeat="game in allGamesList">
+                        <div class="game-wrap">
+                            <div class="game-image">
+                                <a href="{$ '/game/detail/' + game.detail_name $}">
+                                    <img src="{$ game.banner_filename $}" alt="">
+                                    <span ng-if="game.isComingSoon" class="coming-soon">Coming Soon</span>
+                                </a>
+                            </div>
+                            <div class="game-detail-wrap">
+                                <a href="{$ '/game/detail/' + game.detail_name $}">
+                                    <h5>{$ game.name $}</h5>
+                                </a>
+                                <div class="gerne-platform">
+                                    <a class="nml-link" ng-data="{$ game.genre $}"
+                                       ng-click="genreClick($event)"
+                                       onclick="ga('send', 'event', 'link', 'click', 'genre-click');">{$ game.genre $}</a>
+                                    <div class="show-platforms">
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            <a ng-repeat="(platform, link) in game.platforms" class="plat-icon {$platform$}-plat" href="{$link$}" target="_self"></a>
+                                        }
+                                        else
+                                        {
+                                            <a ng-repeat="(platform, link) in game.platforms" class="plat-icon {$platform$}-plat" href="/account/login?next={$link$}" target="_self"></a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="pagination-centered">
+                    <ul class="pagination" role="menubar" aria-label="Pagination">
+                        <li ng-if="pageNumber > 1"><a class="arrow" ng-click="movetoPage($event, pageNumber - 1)">&laquo;</a></li>
+                        <li ng-repeat="page in pages" class="{$ pageNumber == page? 'current': '' $}"><a ng-click="movetoPage($event, page)">{$ page $}</a></li>
+                        <li ng-if="pageNumber < pages.length"><a class="arrow" ng-click="movetoPage($event, pageNumber + 1)">&raquo;</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </section>
+
+
+    <section ng-show="isSearch" class="games-wrapper row" id="all-game">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Search_Result</h6>
+            </div>
+            <div class="sect-panel games-show-panel">
+                <p ng-if="totalItems <= 0" class="result-text">@Resources.Resources.There_no_games_found</p>
+                <h5 ng-if="gameList.length" class="result-text">{$ totalItems $} results {$ keyword? 'for' + keyword : ''  $}</h5>
+                <ul class="games-list small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                    <li ng-repeat="game in gameList">
+                        <div class="game-wrap">
+                            <div class="game-image">
+                                <a href="{$ '/game/detail/' + game.detail_name $}">
+                                    <img src="{$ game.banner_filename $}" alt="">
+                                    <span ng-if="game.isComingSoon" class="coming-soon">Coming Soon</span>
+                                </a>
+                            </div>
+                            <div class="game-detail-wrap">
+                                <a href="{$ '/game/detail/' + game.detail_name $}">
+                                    <h5>{$ game.name $}</h5>
+                                </a>
+                                <div class="gerne-platform">
+                                    <a class="nml-link" ng-data="{$ game.genre $}"
+                                       ng-click="genreClick($event)"
+                                       onclick="ga('send', 'event', 'link', 'click', 'genre-click');">{$ game.genre $}</a>
+                                    <div class="show-platforms">
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            <a ng-repeat="(platform, link) in game.platforms" class="plat-icon {$platform$}-plat" href="{$link$}" target="_self"></a>
+                                        }
+                                        else
+                                        {
+                                            <a ng-repeat="(platform, link) in game.platforms" class="plat-icon {$platform$}-plat" href="/account/login?next={$link$}" target="_self"></a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="pagination-centered" ng-if="totalGames.length > 1">
+                    <ul class="pagination" role="menubar" aria-label="Pagination">
+                        <li ng-if="pageIndex > 1"><a class="arrow" ng-click="gotoPage($event, pageIndex - 1)">&laquo;</a></li>
+                        <li ng-repeat="page in totalGames" class="{$ pageIndex == page? 'current': '' $}"><a ng-click="gotoPage($event, page)">{$ page $}</a></li>
+                        <!-- <li><span class="unavailable">&hellip;</span></li> -->
+                        <li ng-if="pageIndex < totalGames.length"><a class="arrow" ng-click="gotoPage($event, pageIndex + 1)">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- {% include 'includes/bottom_call_to_action_register.html' %}-->
+@section foot_js_lib {
+    <script type="text/javascript" src="/bower_components/slick.js/slick/slick.min.js"></script>
+}
+
+@section page_foot_js{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#feature-games-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                autoplay: false,
+                autoplaySpeed: 10000,
+                arrows: false,
+                pauseOnHover: true
+            });
+            /*$('#game-input_value').keyup(
+              function () {
+                alert($('#test1').find('div:contains("Endgods")').parent().html());
+              }
+            );*/
+        });
+
+    </script>
+}
+

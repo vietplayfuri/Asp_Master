@@ -1,0 +1,45 @@
+@import "main";
+@import "partials/color";
+
+.header {
+    position: relative;
+    z-index: 100;
+    background: url(/static/images/header_highlight.png) center bottom no-repeat,
+                url(/static/images/topbar_texture.png) center repeat, 
+                linear-gradient(-180deg, #2F313A 0%, #1E1F23 100%);
+    box-shadow: 0px 1px 0px 0px rgba(40,43,48,0.90),
+                0px 3px 8px 0px rgba(0,0,0,0.76);
+    padding: 20px 0px;
+}
+
+.invoice-wrapper {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+div.sect-panel {
+    padding: 20px 12px;
+    h3 {
+        margin-bottom: 1px;
+        i {
+            color: $pri-yellow;
+        }
+    }
+}
+
+div.payer {
+    margin-top: 20px;
+}
+
+table {
+    border: 1px solid $sub-grey;
+    font-size: 0.875rem;
+}
+
+@media only screen and (max-width: 40em) {
+    table {
+        tr td {
+            font-size: 0.875rem !important;
+        }
+    }
+}

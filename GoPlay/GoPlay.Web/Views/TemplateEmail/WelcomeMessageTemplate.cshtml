@@ -1,0 +1,201 @@
+﻿@model GoPlay.Web.Models.WelcomeMessageTemplate
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PlayToken - Welcome!</title>
+
+    <style media="screen" type="text/css">
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            margin: 0;
+            padding: 0;
+            font-family: Ubuntu, Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            position: relative;
+            z-index: 100;
+            background-color: #24252A;
+            box-shadow: 0px 1px 0px 0px rgba(40,43,48,0.9),0px 3px 8px 0px rgba(0,0,0,0.76);
+            padding: 20px 0px;
+        }
+
+        .row {
+            margin: 0 auto;
+            padding: 0;
+            max-width: 768px;
+            width: 100%;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .columns {
+            position: relative;
+            float: left;
+            padding: 0 16px;
+        }
+
+        .row .before,
+        .row .after {
+            content: '';
+            display: table;
+        }
+
+        .row .after {
+            clear: both;
+            width: 100%;
+        }
+
+        .sect-title-bar,
+        .sect-end-bar {
+            position: relative;
+            background-image: linear-gradient(0deg, #41444F 0%, #2E3337 100%);
+            box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.50), inset 0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px 2px 6px 0px #4E5155;
+            display: block;
+        }
+
+        .sect-title-bar {
+            height: 46px;
+            padding: 12px 12px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        h6.sect-title {
+            color: #F2C737;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
+
+        .sect-end-bar {
+            height: 10px;
+        }
+
+        .sect-panel {
+            position: relative;
+            background: #17181B;
+            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50), inset 0px 1px 0px 0px #3C3C3C, inset 0px 2px 6px 0px rgba(0,0,0,0.50);
+            display: block;
+            padding: 20px 12px;
+        }
+
+        .content-container {
+            padding: 24px 0 70px;
+        }
+
+            .content-container h3 {
+                color: #b7b7b7;
+                font-size: 18px;
+                margin: 0;
+                font-weight: 500;
+            }
+
+                .content-container h3 i {
+                    color: #F4C916;
+                    font-style: normal;
+                    font-weight: 600;
+                }
+
+            .content-container h4 {
+                color: #b7b7b7;
+                font-size: 18px;
+                margin: 16px 0;
+                font-weight: 500;
+            }
+
+            .content-container p {
+                font-size: 14px;
+                color: #b7b7b7;
+                margin: 0;
+            }
+
+                .content-container p a {
+                    color: #518DB8;
+                    text-decoration: none;
+                }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(-180deg, #5FB657 0%, #4E9147 100%), radial-gradient(50% 82%, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0.15) 83%);
+            border-radius: 4px;
+            color: #1D451A !important;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 12px 22px 0px;
+            height: 30px;
+            margin: 24px 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="row">
+            <div class="before">
+            </div>
+            <div class="large-12 columns">
+                <a href="@Model.main_index">
+                    <img src="@Model.logoImg_src" alt="">
+                </a>
+            </div>
+            <div class="after">
+            </div>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="row">
+            <div class="before">
+            </div>
+            <div class="large-12 columns content">
+                <div class="sect-title-bar">
+                    <h6 class="sect-title">Thank you for signing up!</h6>
+                </div>
+                <div class="sect-panel">
+                    <h3>Dear <i>@Model.username</i>,</h3><br>
+                    <p>
+                        On behalf of PlayToken, I would like to welcome and thank you for signing up with us. To get started, we give you <strong style="color:#F2C737;">1 Free Play Token</strong> that can be redeemed in all our incredible games.<br>
+
+                        @*It is removed by new logic*@
+                        @*If you have a referral ID, you will receive <strong style="color:#F2C737;">10% discount</strong> of any in-game purchases.<br>*@
+                        <br>
+
+                        What are you waiting for?<br>
+                        <a class="button" href="@Model.login_link">Get Started Now</a><br>
+
+                        What we offer:<br>
+                        - <a href="@Model.lastestGame_link">All latest games</a> with thousands of users<br>
+                        - Become exclusive VIP PlayToken Club member<br>
+                        - 24/7 support from our friendly customer representatives<br>
+                        - Follow all our social activities from <a href="@Model.facebook_link">Facebook</a> and <a href="@Model.twitter_link">Twitter</a><br><br>
+
+                        Happy Gaming!<br><br>
+                    </p>
+                    <img src="@Model.KennethImg_src" alt="Kenneth" width="280" style="border-radius:5px; margin-bottom: 20px;" />
+                    <p>
+                        <strong>Kenneth Mark Yong</strong><br>
+                        Chief Executive Officer<br>
+                        <a href="@Model.home_link">@Model.home_link</a><br>
+                        For Play - For Happiness - For People<br>
+                    </p>
+                </div>
+                <div class="sect-end-bar">
+                </div>
+            </div>
+            <div class="after">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

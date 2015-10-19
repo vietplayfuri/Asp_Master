@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="49px" height="59px" viewBox="0 0 49 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>Discount</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-270.000000, -836.000000)">
+            <g id="How" sketch:type="MSLayerGroup" transform="translate(122.000000, 750.000000)">
+                <g id="Discount" transform="translate(148.000000, 87.112000)">
+                    <g id="Rectangle-9-+-Oval-7-+--%" transform="translate(28.500000, 29.000000) rotate(-315.000000) translate(-28.500000, -29.000000) translate(15.000000, 3.000000)">
+                        <path d="M-2.84217094e-14,14.0032421 C-2.84217094e-14,13.4491668 0.32039436,12.6914721 0.725818634,12.3010635 L12.0552635,1.39122772 C12.8531694,0.622873868 14.1511331,0.627017021 14.9447365,1.39122772 L26.2741814,12.3010635 C26.6750399,12.6870755 27,13.4379883 27,14.0032421 L27,50.9967579 C27,51.5508332 26.5538914,52 26.0070346,52 L0.992965445,52 C0.444565773,52 -2.84217094e-14,51.5620117 -2.84217094e-14,50.9967579 L-2.84217094e-14,14.0032421 Z" id="Rectangle-9" stroke="#666666" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                        <circle id="Oval-7" stroke="#666666" stroke-width="2" sketch:type="MSShapeGroup" cx="13.5" cy="18.5" r="5.5"></circle>
+                        <text id="-%" sketch:type="MSTextLayer" font-family="Lato" font-size="16" font-weight="686" fill="#666666">
+                            <tspan x="4" y="43.5857864">-%</tspan>
+                        </text>
+                    </g>
+                    <path d="M39.8698437,10.6477767 C39.4445321,7.10656934 37.3830774,3.81288726 34.0252372,1.95160603 C28.4702872,-1.12755301 21.4709589,0.879472077 18.3917999,6.43442203 C15.3126409,11.989372 17.3196659,18.9887003 22.8746159,22.0678593 C24.638398,23.0455397 26.5477966,23.5104512 28.4310891,23.5118345" id="Oval-8" stroke="#666666" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,51 @@
+@{
+    bool isUser = Request.Url.LocalPath.Contains("/admin/user");
+    bool isTransaction = Request.Url.LocalPath.Contains("/admin/transaction");
+    bool isDashboard = Request.Url.LocalPath.EndsWith("/admin");
+    bool isTokenTransaction = Request.Url.LocalPath.Contains("/admin/token-transaction");
+    bool isDirectTokenTransaction = Request.Url.LocalPath.Contains("/admin/direct-token-transaction");
+    bool isReferrer = Request.Url.LocalPath.ToLower().Contains("/admin/referral");
+}
+<div class="contain-to-grid">
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="@Url.Action("index", "admin")">GToken Admin</a></h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Left Nav Section -->
+            <ul class="left">
+                <li class="">
+                    <a href="@Url.Action("index", "admin")">Dashboard</a>
+                </li>
+                @if (ViewContext.Controller.HasPermission("access_admin_accountant_page"))
+                {
+                    <li class="@(isTransaction ? "active" : string.Empty)">
+                        <a href="@Url.Action("transaction", "admin",new { Area = "" })">Transactions</a>
+                    </li>
+                    <li class="@(isTokenTransaction ? "active" : string.Empty)">
+                        <a href="@Url.Action("tokenTransactionIndex", "admin",new { Area = "" })"> Token Transactions</a>
+                    </li>
+                    <li class="@(isDirectTokenTransaction ? "active" : string.Empty)">
+                        <a href="@Url.Action("directGTokenTransactionIndex", "admin",new { Area = "" })"> Direction GToken Transactions</a>
+                    </li>
+                    <li class="@(isUser ? "active" : string.Empty)">
+                        <a href="@Url.Action("userIndex", "admin", new { Area = "" })">Users</a>
+                    </li>
+                    <li class="@(isReferrer ? "active" : string.Empty)">
+                        <a href="@Url.Action( "Index", "Referral", new { Area = "Admin" })">Referral System</a>
+                    </li>
+                }
+            </ul>
+
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="@Url.Action("index", "main", new { Area = "" })">GToken website</a></li>
+            </ul>
+        </section>
+    </nav>
+</div>

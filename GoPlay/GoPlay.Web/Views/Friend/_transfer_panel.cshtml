@@ -1,0 +1,78 @@
+﻿@using Platform.Utility
+@using Platform.Models
+<section class="transfer-panel row hide">
+    <div class="medium-4 large-4 columns user-balance">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Resources.Balance</h6>
+        </div>
+        <div class="sect-panel">
+            <p>@Resources.Resources.Your_wallet_balance:</p>
+            <div class="gtoken-wallet dim-content">
+                <ul>
+                    <li>
+                        @Resources.Resources.Play_Token
+                        <span class="gtoken-number">@Helper.displayDecimal(Html.GetCurrentUser().play_token)</span>
+                    </li>
+                    <li>
+                        @Resources.Resources.Free_Play_Token
+                        <span class="free-gtoken">@Helper.displayDecimal(Html.GetCurrentUser().free_play_token)</span>
+                        <span data-tooltip aria-haspopup="true" role="tooltip" class="has-tip icon-tip" title="Free Play Token explaination">?</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+
+    <div class="medium-8 large-8 columns transfer-wrap">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Resources.Transfer</h6>
+        </div>
+        <div class="sect-panel transfer-panel">
+            <h4>
+                @Resources.Resources.Transfer_play_token_to
+            </h4>
+
+            <div class="transfer-form-container">
+                <form class="transfer-form" method="post" ng-controller="TransferCtrl">
+                    <input type="hidden" id="receiverIdHiddenInput">
+                    <div class="receiver-wrap dim-content">
+                        <a class="close-panel" href="" ng-click="showTransferPanel=false">×</a>
+                        <img id="friendavatar">
+                        <div class="receiver-name">
+                            <span id="friendname"></span>
+                            <span id="friendusername"></span>
+                        </div>
+                    </div>
+
+                    <div class="break-line"><span>&nbsp;&nbsp;</span></div>
+
+                    <input id="play-token-amount-input" placeholder="@Resources.Resources.Input_play_token_number" type="number" name="playTokenAmount"
+                           ng-model="playTokenAmount"
+                           step="0.01"
+                           ng-change="checkFormData()" />
+                    <div class="errors-container"><ul class="errors"></ul></div>
+
+                    <div class="transfer-confirm" ng-if="receiver != null">
+                        <p class="confirm-amount">
+                            @*{% autoescape false %}
+                                        {{ gettext('Transfer %(number)s %(play_token)s to',
+                                number="<strong class='gtoken_number' ng-bind='transferFormValid() ? playTokenAmount : 0'></strong>",
+                                play_token="<strong>Play Token</strong>") }}
+                                        {% endautoescape %}*@
+                        </p>
+                    </div>
+                    <a id="transfer-submit"
+                       class="g-nml-button"
+                       ng-click="submitTransferForm()" ng-class="{disabled: !transferFormValid(), valid: transferFormValid()}">
+                        @Resources.Resources.Transfer
+                    </a>
+                </form>
+            </div>
+        </div>
+        <div class="sect-end-bar">
+        </div>
+        @Html.Partial("~/Views/transaction/_progress_indicator.cshtml")
+    </div>
+</section>

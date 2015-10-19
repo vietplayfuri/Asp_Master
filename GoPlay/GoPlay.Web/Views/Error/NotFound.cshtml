@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+    ViewBag.Title = Resources.Resources.Page_not_found + "!";
+}
+@section lib_stylesheets {
+    <link rel="stylesheet" href="~/static/stylesheets/error_page.css?rnd=20150420" />
+}
+
+<div class="wrapper">
+    <div class="row">
+        <div class="large-12 columns container">
+            <a href="@Url.Action("index", "main")"><img src="/static/images/logo_img.png" alt=""></a>
+            <div class="sect-title-bar" style="margin-left:auto;margin-right:auto">
+                <h6 class="sect-title">@Resources.Resources.Page_not_found</h6>
+            </div>
+            <div class="sect-panel error4" style="margin-bottom:0 !important;margin-left:auto;margin-right:auto">
+                <div>
+                    <h1>4</h1>
+                    <img class="loading-icon" src="/static/images/loading_icon.png" alt="">
+                    <h1>4</h1>
+                </div>
+                <p>
+                    @Resources.Resources.It_take_forever
+                </p>
+            </div>
+            <div class="sect-end-bar" style="margin-left:auto;margin-right:auto">
+            </div>
+            <p>
+                @Resources.Resources.The_page_that_youre_looking_for_cannot_be_found
+                <br class="break-line">
+                @Html.Raw(string.Format(Resources.Resources.Why_not_explore_our_games_instead, "<a href='/game'>Games</a>"))
+            </p>
+        </div>
+    </div>
+</div>

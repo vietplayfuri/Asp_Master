@@ -1,0 +1,119 @@
+@import "settings";
+@import "partials/autocomplete.scss";
+@import "compass/css3/user-interface";
+
+input[type="text"], 
+input[type="password"], 
+input[type="date"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="month"], 
+input[type="week"], 
+input[type="email"], 
+input[type="number"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="time"], 
+input[type="url"], 
+input[type="color"], 
+textarea {
+    border-radius: 2px;
+    margin-bottom: 30px;
+    box-shadow: none;
+    min-height: 40px;
+    padding: 10px;
+    color: $secondary-color;
+    @include input-placeholder {
+        text-transform: uppercase;
+    }
+    &:hover {
+        border-color: #999999;
+    }
+}
+
+select {
+    margin-bottom: 30px;
+    color: $secondary-color;
+    cursor: pointer;
+    border-radius: 2px;
+    background: url(../images/arrow-down.png) right center no-repeat $vapor;
+}
+
+input[type=checkbox] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &+label {
+        padding-left: 29px;
+        margin-left: 0;
+        background: url(../images/checkbox.png) 0 0 no-repeat;
+    }
+
+    &:checked+label {
+        background-image: url(../images/checkbox-checked.png);
+    }
+}
+
+label {
+    input[type="text"], 
+    input[type="password"], 
+    input[type="date"], 
+    input[type="datetime"], 
+    input[type="datetime-local"], 
+    input[type="month"], 
+    input[type="week"], 
+    input[type="email"], 
+    input[type="number"], 
+    input[type="search"], 
+    input[type="tel"], 
+    input[type="time"], 
+    input[type="url"], 
+    input[type="color"], 
+    textarea {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    select {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+.form-group-has-button {
+    position: relative;
+
+    input {
+        padding-right: 80px;
+    }
+    button, .button {
+        color: $anchor-color;
+        text-transform: none;
+        border: solid 1px $anchor-color;
+        background: none;
+        font-size: 12px;
+        padding: 5px 5px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 6px;
+        margin-right: 6px;
+        min-width: 50px;
+        max-width: 30%;
+        height: 27px;
+        .active-text {
+            display: none;
+        }
+
+        &.active {
+            background: $anchor-color;
+            color: $white;
+            .active-text {
+                display: block;
+            }
+            .normal-text {
+                display: none;
+            }
+        }
+    }
+}

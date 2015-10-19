@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UpdateStats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nGoldDelta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nIngredientValue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateStatsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStatsV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nGoldDelta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nIngredientValue" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nHellKey" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStatsV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateStatsV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRanking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sGTokenId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRankingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetRankingResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGoldForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sGTokenId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nGoldAmount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGoldForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateGoldForUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sync">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sJSyncInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SyncResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sJSyncInfoV2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SyncV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHellLevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nStar" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHellLevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateHellLevelResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nLevel" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nStar" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateLevelResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sSocialId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nDefaultSocialPlatform" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetrieveUserIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserIdAndLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sSocialId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sGTokenId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nDefaultSocialPlatform" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserIdAndLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateUserIdAndLinkResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGTokenRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="End" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGTokenRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGTokenRecordsResult" type="tns:ArrayOfGTokenRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGTokenRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GTokenRecord" nillable="true" type="tns:GTokenRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GTokenRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GTokenId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gold" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfGTokenRecord" nillable="true" type="tns:ArrayOfGTokenRecord" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateStatsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateStats" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsV2SoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateStatsV2" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsV2SoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStatsV2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRanking" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRankingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGoldForUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGoldForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncSoapIn">
+    <wsdl:part name="parameters" element="tns:Sync" />
+  </wsdl:message>
+  <wsdl:message name="SyncSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncV2SoapIn">
+    <wsdl:part name="parameters" element="tns:SyncV2" />
+  </wsdl:message>
+  <wsdl:message name="SyncV2SoapOut">
+    <wsdl:part name="parameters" element="tns:SyncV2Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHellLevelSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHellLevel" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHellLevelSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHellLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLevelSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLevel" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLevelSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveUserId" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserIdAndLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUserIdAndLink" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserIdAndLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserIdAndLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGTokenRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGTokenRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetGTokenRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGTokenRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsHttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nGoldDelta" type="s:string" />
+    <wsdl:part name="nIngredientValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsV2HttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nGoldDelta" type="s:string" />
+    <wsdl:part name="nIngredientValue" type="s:string" />
+    <wsdl:part name="nHellKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsV2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingHttpGetIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpGetIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+    <wsdl:part name="nGoldAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SyncHttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="sJSyncInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncV2HttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="sJSyncInfoV2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncV2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHellLevelHttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+    <wsdl:part name="nStar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHellLevelHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLevelHttpGetIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+    <wsdl:part name="nStar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLevelHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUserIdHttpGetIn">
+    <wsdl:part name="sSocialId" type="s:string" />
+    <wsdl:part name="nDefaultSocialPlatform" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUserIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserIdAndLinkHttpGetIn">
+    <wsdl:part name="sSocialId" type="s:string" />
+    <wsdl:part name="sGTokenId" type="s:string" />
+    <wsdl:part name="nDefaultSocialPlatform" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserIdAndLinkHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetGTokenRecordsHttpGetIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGTokenRecordsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfGTokenRecord" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsHttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nGoldDelta" type="s:string" />
+    <wsdl:part name="nIngredientValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsV2HttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nGoldDelta" type="s:string" />
+    <wsdl:part name="nIngredientValue" type="s:string" />
+    <wsdl:part name="nHellKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatsV2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingHttpPostIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRankingHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpPostIn">
+    <wsdl:part name="sGTokenId" type="s:string" />
+    <wsdl:part name="nGoldAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGoldForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SyncHttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="sJSyncInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncV2HttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="sJSyncInfoV2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SyncV2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHellLevelHttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+    <wsdl:part name="nStar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHellLevelHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLevelHttpPostIn">
+    <wsdl:part name="nUserId" type="s:string" />
+    <wsdl:part name="nLevel" type="s:string" />
+    <wsdl:part name="nStar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLevelHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUserIdHttpPostIn">
+    <wsdl:part name="sSocialId" type="s:string" />
+    <wsdl:part name="nDefaultSocialPlatform" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUserIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserIdAndLinkHttpPostIn">
+    <wsdl:part name="sSocialId" type="s:string" />
+    <wsdl:part name="sGTokenId" type="s:string" />
+    <wsdl:part name="nDefaultSocialPlatform" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserIdAndLinkHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetGTokenRecordsHttpPostIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGTokenRecordsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfGTokenRecord" />
+  </wsdl:message>
+  <wsdl:portType name="SuzyServiceSoap">
+    <wsdl:operation name="UpdateStats">
+      <wsdl:input message="tns:UpdateStatsSoapIn" />
+      <wsdl:output message="tns:UpdateStatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsV2">
+      <wsdl:input message="tns:UpdateStatsV2SoapIn" />
+      <wsdl:output message="tns:UpdateStatsV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRanking">
+      <wsdl:input message="tns:GetRankingSoapIn" />
+      <wsdl:output message="tns:GetRankingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <wsdl:input message="tns:UpdateGoldForUserSoapIn" />
+      <wsdl:output message="tns:UpdateGoldForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sync">
+      <wsdl:input message="tns:SyncSoapIn" />
+      <wsdl:output message="tns:SyncSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncV2">
+      <wsdl:input message="tns:SyncV2SoapIn" />
+      <wsdl:output message="tns:SyncV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHellLevel">
+      <wsdl:input message="tns:UpdateHellLevelSoapIn" />
+      <wsdl:output message="tns:UpdateHellLevelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLevel">
+      <wsdl:input message="tns:UpdateLevelSoapIn" />
+      <wsdl:output message="tns:UpdateLevelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserId">
+      <wsdl:input message="tns:RetrieveUserIdSoapIn" />
+      <wsdl:output message="tns:RetrieveUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserIdAndLink">
+      <wsdl:input message="tns:CreateUserIdAndLinkSoapIn" />
+      <wsdl:output message="tns:CreateUserIdAndLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGTokenRecords">
+      <wsdl:input message="tns:GetGTokenRecordsSoapIn" />
+      <wsdl:output message="tns:GetGTokenRecordsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SuzyServiceHttpGet">
+    <wsdl:operation name="UpdateStats">
+      <wsdl:input message="tns:UpdateStatsHttpGetIn" />
+      <wsdl:output message="tns:UpdateStatsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsV2">
+      <wsdl:input message="tns:UpdateStatsV2HttpGetIn" />
+      <wsdl:output message="tns:UpdateStatsV2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRanking">
+      <wsdl:input message="tns:GetRankingHttpGetIn" />
+      <wsdl:output message="tns:GetRankingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <wsdl:input message="tns:UpdateGoldForUserHttpGetIn" />
+      <wsdl:output message="tns:UpdateGoldForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sync">
+      <wsdl:input message="tns:SyncHttpGetIn" />
+      <wsdl:output message="tns:SyncHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncV2">
+      <wsdl:input message="tns:SyncV2HttpGetIn" />
+      <wsdl:output message="tns:SyncV2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHellLevel">
+      <wsdl:input message="tns:UpdateHellLevelHttpGetIn" />
+      <wsdl:output message="tns:UpdateHellLevelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLevel">
+      <wsdl:input message="tns:UpdateLevelHttpGetIn" />
+      <wsdl:output message="tns:UpdateLevelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserId">
+      <wsdl:input message="tns:RetrieveUserIdHttpGetIn" />
+      <wsdl:output message="tns:RetrieveUserIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserIdAndLink">
+      <wsdl:input message="tns:CreateUserIdAndLinkHttpGetIn" />
+      <wsdl:output message="tns:CreateUserIdAndLinkHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGTokenRecords">
+      <wsdl:input message="tns:GetGTokenRecordsHttpGetIn" />
+      <wsdl:output message="tns:GetGTokenRecordsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SuzyServiceHttpPost">
+    <wsdl:operation name="UpdateStats">
+      <wsdl:input message="tns:UpdateStatsHttpPostIn" />
+      <wsdl:output message="tns:UpdateStatsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsV2">
+      <wsdl:input message="tns:UpdateStatsV2HttpPostIn" />
+      <wsdl:output message="tns:UpdateStatsV2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRanking">
+      <wsdl:input message="tns:GetRankingHttpPostIn" />
+      <wsdl:output message="tns:GetRankingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <wsdl:input message="tns:UpdateGoldForUserHttpPostIn" />
+      <wsdl:output message="tns:UpdateGoldForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sync">
+      <wsdl:input message="tns:SyncHttpPostIn" />
+      <wsdl:output message="tns:SyncHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncV2">
+      <wsdl:input message="tns:SyncV2HttpPostIn" />
+      <wsdl:output message="tns:SyncV2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHellLevel">
+      <wsdl:input message="tns:UpdateHellLevelHttpPostIn" />
+      <wsdl:output message="tns:UpdateHellLevelHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLevel">
+      <wsdl:input message="tns:UpdateLevelHttpPostIn" />
+      <wsdl:output message="tns:UpdateLevelHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserId">
+      <wsdl:input message="tns:RetrieveUserIdHttpPostIn" />
+      <wsdl:output message="tns:RetrieveUserIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserIdAndLink">
+      <wsdl:input message="tns:CreateUserIdAndLinkHttpPostIn" />
+      <wsdl:output message="tns:CreateUserIdAndLinkHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGTokenRecords">
+      <wsdl:input message="tns:GetGTokenRecordsHttpPostIn" />
+      <wsdl:output message="tns:GetGTokenRecordsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SuzyServiceSoap" type="tns:SuzyServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateStats">
+      <soap:operation soapAction="http://tempuri.org/UpdateStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsV2">
+      <soap:operation soapAction="http://tempuri.org/UpdateStatsV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRanking">
+      <soap:operation soapAction="http://tempuri.org/GetRanking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <soap:operation soapAction="http://tempuri.org/UpdateGoldForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sync">
+      <soap:operation soapAction="http://tempuri.org/Sync" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncV2">
+      <soap:operation soapAction="http://tempuri.org/SyncV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHellLevel">
+      <soap:operation soapAction="http://tempuri.org/UpdateHellLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLevel">
+      <soap:operation soapAction="http://tempuri.org/UpdateLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserId">
+      <soap:operation soapAction="http://tempuri.org/RetrieveUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserIdAndLink">
+      <soap:operation soapAction="http://tempuri.org/CreateUserIdAndLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGTokenRecords">
+      <soap:operation soapAction="http://tempuri.org/GetGTokenRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SuzyServiceSoap12" type="tns:SuzyServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateStats">
+      <soap12:operation soapAction="http://tempuri.org/UpdateStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsV2">
+      <soap12:operation soapAction="http://tempuri.org/UpdateStatsV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRanking">
+      <soap12:operation soapAction="http://tempuri.org/GetRanking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <soap12:operation soapAction="http://tempuri.org/UpdateGoldForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sync">
+      <soap12:operation soapAction="http://tempuri.org/Sync" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncV2">
+      <soap12:operation soapAction="http://tempuri.org/SyncV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHellLevel">
+      <soap12:operation soapAction="http://tempuri.org/UpdateHellLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLevel">
+      <soap12:operation soapAction="http://tempuri.org/UpdateLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserId">
+      <soap12:operation soapAction="http://tempuri.org/RetrieveUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserIdAndLink">
+      <soap12:operation soapAction="http://tempuri.org/CreateUserIdAndLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGTokenRecords">
+      <soap12:operation soapAction="http://tempuri.org/GetGTokenRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SuzyServiceHttpGet" type="tns:SuzyServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="UpdateStats">
+      <http:operation location="/UpdateStats" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsV2">
+      <http:operation location="/UpdateStatsV2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRanking">
+      <http:operation location="/GetRanking" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <http:operation location="/UpdateGoldForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sync">
+      <http:operation location="/Sync" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncV2">
+      <http:operation location="/SyncV2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHellLevel">
+      <http:operation location="/UpdateHellLevel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLevel">
+      <http:operation location="/UpdateLevel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserId">
+      <http:operation location="/RetrieveUserId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserIdAndLink">
+      <http:operation location="/CreateUserIdAndLink" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGTokenRecords">
+      <http:operation location="/GetGTokenRecords" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SuzyServiceHttpPost" type="tns:SuzyServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="UpdateStats">
+      <http:operation location="/UpdateStats" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatsV2">
+      <http:operation location="/UpdateStatsV2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRanking">
+      <http:operation location="/GetRanking" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGoldForUser">
+      <http:operation location="/UpdateGoldForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sync">
+      <http:operation location="/Sync" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncV2">
+      <http:operation location="/SyncV2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHellLevel">
+      <http:operation location="/UpdateHellLevel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLevel">
+      <http:operation location="/UpdateLevel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserId">
+      <http:operation location="/RetrieveUserId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserIdAndLink">
+      <http:operation location="/CreateUserIdAndLink" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGTokenRecords">
+      <http:operation location="/GetGTokenRecords" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SuzyService">
+    <wsdl:port name="SuzyServiceSoap" binding="tns:SuzyServiceSoap">
+      <soap:address location="http://playfurygameserver1easia.cloudapp.net/SuzyService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SuzyServiceSoap12" binding="tns:SuzyServiceSoap12">
+      <soap12:address location="http://playfurygameserver1easia.cloudapp.net/SuzyService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SuzyServiceHttpGet" binding="tns:SuzyServiceHttpGet">
+      <http:address location="http://playfurygameserver1easia.cloudapp.net/SuzyService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SuzyServiceHttpPost" binding="tns:SuzyServiceHttpPost">
+      <http:address location="http://playfurygameserver1easia.cloudapp.net/SuzyService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

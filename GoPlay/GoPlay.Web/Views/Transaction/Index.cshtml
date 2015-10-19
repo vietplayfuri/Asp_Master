@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.My_Transactions;
+}
+@using GoPlay.Models
+@using Platform.Utility
+@model GoPlay.Web.Models.TransactionViewModel
+@{
+    var currentUser = @Html.GetCurrentUser();
+
+}
+@*{% set active_page = "transaction_index" %}
+
+    {% block base_href %}{{ url_for("transaction.index") }}{% endblock %}*@
+
+@section lib_stylesheets{
+    <link rel="stylesheet" href="/bower_components/select2/select2.css" />
+    <link rel="stylesheet" href="/bower_components/angucomplete-alt/angucomplete-alt.css" />
+}
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/account/user_transactions.css?rnd=20150420" />
+}
+
+<!-- {{ active_page }} -->
+<script>
+    var showTopupPanel = "@Model.pageParams["showTopupPanel"]";
+    var showExchangePanel = "@Model.pageParams["showExchangePanel"]";
+    var showGcoinPanel = "@Model.pageParams["showGcoinPanel"]";
+</script>
+
+@Html.Partial("~/Views/Shared/Account/_account_topbar.cshtml", Active_page.Transaction)
+
+<section class="user-profile row" ng-controller="TransactionCtrl"
+         ng-init="init()">
+    <div class="large-4 columns user-balance">
+        <div class="sect-title-bar">
+            <h6 class="sect-title">@Resources.Resources.Balance</h6>
+        </div>
+        <div class="sect-panel">
+            <p>@Resources.Resources.Your_wallet_balance:</p>
+            <div class="gtoken-wallet dim-content">
+                <ul>
+                    <li>
+                        Play Token
+                        <span class="gtoken-number">@Helper.displayDecimal(currentUser.play_token)</span>
+                    </li>
+                    <li>
+                        @Resources.Resources.Free_Play_Token
+                        <span class="free-gtoken">@Helper.displayDecimal(currentUser.free_play_token)</span>
+                        <!-- <span data-tooltip aria-haspopup="true" role="tooltip" class="has-tip icon-tip" title="Free Play Token explaination">?</span> -->
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="gcoin-wallet dim-content">
+              <ul>
+                <li>{{ _('GCoin') }}
+                  <span class="gcoin-number">7</span>
+                  <span data-tooltip aria-haspopup="true" role="tooltip" class="has-tip icon-tip" title="GCoin explaination">?</span>
+                </li>
+              </ul>
+            </div> -->
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+
+    <div class="large-8 columns main-content">
+
+        <section class="action-board">
+            <ul class="small-block-grid-2 large-block-grid-2">
+                <li><a class="nml-button topup" id="show-topup-panel-link" ng-click="changeTransactionState($event)" data-pushstate-url="transaction/topup/">@Resources.Resources.Top_Up</a></li>
+                <li><a class="nml-button exchange" id="show-exchange-panel-link" ng-click="changeTransactionState($event)" data-pushstate-url="transaction/exchange/">@Resources.Resources.Exchange</a></li>
+                <!-- <li><a class="nml-button convert" id="show-gcoin-panel-link" ng-click="changeTransactionState($event)" data-pushstate-url="/gcoin/">@Resources.Resources.Convert</a></li> -->
+            </ul>
+        </section>
+        @Html.Partial("~/Views/Shared/Transaction/_top_up_panel.cshtml", Model)
+        @Html.Partial("~/Views/Shared/Transaction/_exchange_panel.cshtml", Model)
+        @Html.Partial("~/Views/Shared/Transaction/_gcoin_panel.cshtml", Model)
+
+
+        @Html.Partial("~/Views/Shared/Transaction/_history.cshtml", Model)
+    </div>
+</section>
+
+
+@section foot_js_lib {
+    <script src="/bower_components/select2/select2.js"></script>
+    <script src="/bower_components/slimScroll/jquery.slimscroll.min.js"></script>
+}
+
+@section page_foot_js{
+    <script src="/static/js/pages/transactions.js?rnd=20150420"></script>
+    <script src="/static/js/pages/accountProfile.js?rnd=20150420"></script>
+}
+

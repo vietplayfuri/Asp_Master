@@ -1,0 +1,108 @@
+﻿@using GoPlay.Models
+@model SearchFriendViewModel
+@{
+    ViewBag.Title = Resources.Resources.Friends;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section lib_stylesheets {
+    <link rel="stylesheet" href="/bower_components/angucomplete-alt/angucomplete-alt.css" />
+}
+
+@section page_stylesheets {
+    <link rel="stylesheet" href="/static/stylesheets/account/user_friends.css?rnd=20150420" />
+}
+
+@Html.Partial("~/Views/Shared/Account/_account_topbar.cshtml", Active_page.Friend)
+@Html.Partial("~/Views/Friend/_transfer_panel.cshtml")
+
+<section class="search-panel row" ng-controller="SearchCtrl">
+    <div class="large-12 columns">
+        <div class="sect-panel no-title">
+            <div class="search-wrap">
+                <input class="search-bar" id="search-user" type="text" name="search" ng-keyup="fullSearch()" ng-model="keyword" ng-init="keyword='@Model.term'" placeholder="Nickname, username or email..." />
+                <a href="javascript:;" ng-click="buttonSearch()"><img src="/static/images/search_icon.png" alt=""></a>
+            </div>
+            <div class="search-result">
+                @if (Model.total_count > 0)
+                {
+                    <h5>@Model.total_count @Resources.Resources.Search_Result</h5>
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                        @foreach (var friend in Model.friends)
+                        {
+                            <li>
+                                <div class="friend-bar">
+                                    <a class="friend-avatar" href="/account/profile?userId=@friend.id"><img src="@friend.avatar_filename" alt="@friend.nickname"></a>
+                                    <a class="friend-name" href="/account/profile?userId=@friend.id">
+                                        <h5>@friend.nickname</h5>
+                                        <p>@friend.username</p>
+                                    </a>
+                                    <div class="action-section" ng-switch="'@friend.status'">
+                                        <a class="button nml-button friend-status friended" ng-switch-when="accepted"></a>
+                                        <!-- off add friend button if status is reject-->
+                                        <a class="button nml-button friend-status friended" ng-switch-when="rejected"></a>
+                                        <a class="button nml-button friend-status sentfr" ng-switch-when="pending"></a>
+                                        <a class="button nml-button friend-status {$ waiting == true ? 'sentfr' : 'addfr' $}" ng-switch-when="" add-friend-directive data-username="@friend.username"></a>
+                                        <a class="button more-button friend-action" data-options="align:left" data-dropdown="user@(friend.id)" aria-controls="user@(friend.id)"></a>
+                                        <ul id="user@(friend.id)" class="f-dropdown default-dropdown" data-dropdown-content>
+                                            <!--li chat-button-directive data-username="{{ user.account }}" ng-show="user.status.length > 0"><a class="act-chat" ng-click="chatButtonClicked()" href="javascript:;">Chat</a></li-->
+                                            <li><a class="act-transfer" href="javascript:;" data-username="@(friend.username)" data-id="@(friend.id)" data-avatar="@(friend.avatar_filename)" data-name="@(friend.nickname)">@Resources.Resources.Transfer</a></li>
+                                            <li user-status-directive un-friend-directive data-username="@(friend.username)" ng-show="friend.status.length > 0"><a class="act-unfr" href="javascript:;">@Resources.Resources.Unfriend</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--div user-status-directive data-username="{{user.account}}" class="{$ friend.status=='online' ? 'online-status' : '' $}"></div-->
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>@Resources.Resources.No_results_were_returned</p>
+                }
+            </div>
+            @if (Model.pagination.pages > 1)
+            {
+                <div class="pagination-centered">
+                    <ul class="pagination" role="menubar" aria-label="Pagination">
+                        @if (Model.pagination.has_prev)
+                        {
+                            <li><a class="arrow" href="/friend/search?term=@(Model.term)&page=@(Model.pagination.page - 1)">&laquo;</a></li>
+                        }
+
+                        @foreach (var pageNumber in Model.pagination.iter_pages())
+                        {
+                            if (pageNumber != 0)
+                            {
+                                if (pageNumber != Model.pagination.page)
+                                {
+                                    <li><a href="/friend/search?term=@(Model.term)&page=@(pageNumber)">@pageNumber</a></li>
+                                }
+                                else
+                                {
+                                    <li class="current"><a href="/friend/search?term=@(Model.term)&page=@(pageNumber)">@pageNumber</a></li>
+                                }
+                            }
+                            else
+                            {
+                                <li><span class="unavailable">&hellip;</span></li>
+                            }
+                        }
+
+                        @if (Model.pagination.has_next)
+                        {
+                            <li><a class="arrow" href="/friend/search?term=@(Model.term)&page=@(Model.pagination.page + 1)">&raquo;</a></li>
+                        }
+                    </ul>
+                </div>
+            }
+
+        </div>
+        <div class="sect-end-bar">
+        </div>
+    </div>
+</section>
+
+@section page_foot_js {
+    <script src="/static/js/pages/accountProfile.js"></script>
+}

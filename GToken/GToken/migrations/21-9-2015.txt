@@ -1,0 +1,11 @@
+
+--------------ALTER TABLE referral_campaign 
+
+ALTER TABLE referral_campaign ADD COLUMN is_override boolean;
+ALTER TABLE referral_campaign ADD COLUMN override_value integer;
+ALTER TABLE referral_campaign ADD COLUMN is_display_only boolean;
+ALTER TABLE referral_campaign ADD COLUMN order_number integer;
+
+--update referral_campaign set order_number = id; --- need to run this query to update order_number for old data
+
+------------------------------------------------

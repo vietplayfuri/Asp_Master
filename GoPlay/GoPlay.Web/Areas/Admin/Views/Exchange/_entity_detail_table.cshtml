@@ -1,0 +1,101 @@
+﻿@using Platform.Utility
+@using Platform.Models
+@using GoPlay.Web.Areas.Admin.Models
+@model AdminEditExchangeModel
+@{
+    string title = string.Format("{0}: {1}", Model.is_package
+        ? "Package"
+        : "CreditType",
+        Model.name);
+    ViewBag.Title = title;
+}
+
+<h1>@title</h1>
+
+<table class="exchange-entity-detail model-detail-table">
+    <tr>
+        <td class="width-20">ID</td>
+        <td id="exchange-entity-detail-id">@Model.id</td>
+    </tr>
+    <tr>
+        <td>String Identifier</td>
+        <td>@Model.string_identifier</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>@Model.name</td>
+    </tr>
+    <tr>
+        <td>Game</td>
+        <td>@Model.game_name</td>
+    </tr>
+    @if (!Model.is_package)
+    {
+        <tr>
+            <td>Exchange Rate</td>
+            <td>@Model.exchange_rate (per Play Token)</td>
+        </tr>
+        <tr>
+            <td>Free Exchange Rate</td>
+            <td>@Model.free_exchange_rate (per Play Token)</td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td>Play Token Value</td>
+            <td>@Helper.displayDecimal(Model.play_token_value) Play Token</td>
+        </tr>
+        <tr>
+            <td>Free Play Token Value</td>
+            <td>@Helper.displayDecimal(Model.free_play_token_value) Free Play Token</td>
+        </tr>
+    }
+    <tr>
+        <td>Icon</td>
+        <td>
+            @if (!string.IsNullOrEmpty(Model.icon_filename))
+            {
+                <img src="@Model.icon_filename" alt="" width="64" height="64" />
+            }
+            else
+            {
+                @("None")
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Is archived</td>
+        <td>
+            @if (!string.IsNullOrEmpty(Model.is_archived) && Model.is_archived == "on")
+            {
+                @("Yes")
+            }
+            else
+            {
+                @("No")
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Is active</td>
+        <td>
+            @if (!string.IsNullOrEmpty(Model.is_active) && Model.is_active == "on")
+            {
+                @("Yes")
+            }
+            else
+            {
+                @("No")
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Created at</td>
+        <td>@Model.created_at.ToString(ConstantValues.S_DATETIME_FORMAT) UTC</td>
+    </tr>
+    <tr>
+        <td>Updated at</td>
+        <td>@Model.updated_at.ToString(ConstantValues.S_DATETIME_FORMAT) UTC</td>
+    </tr>
+</table>

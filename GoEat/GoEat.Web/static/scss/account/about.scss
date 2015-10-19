@@ -1,0 +1,95 @@
+﻿@import "settings";
+@import "foundation";
+@import "partials/base";
+
+h4 {
+    color: #606060;
+    font-size: 3.838em;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-family: $font-josefin-slab;
+}
+
+.main-container {
+    height: 100%;
+}
+
+.main-content {
+    background: none;
+    width: 100%;
+    height: 100%;
+}
+
+.main-page {
+    overflow: hidden;
+}
+
+#food-slider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: url('/static/images/half_circle_up_white.png') repeat-x;
+    height: 10px;
+}
+
+.circle-1, .circle-2, .circle-3 {
+    padding: 15px;
+
+    img {
+        max-width: 300px;
+    }
+}
+
+.food-slide {
+    height: 100%;
+}
+
+#food-slider {
+    max-width: 1920px;
+    margin: auto;
+}
+
+.ghouse-introduce {
+    color: #7a7a7a;
+    padding: 10px;
+
+    p {
+        font-weight: 300;
+        font-size: 1.05em;
+    }
+}
+
+.main-page {
+    position: relative;
+}
+
+.main-page::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: url('/static/images/login_03.png') repeat-x;
+    height: 10px;
+}
+
+@media screen and (max-width: 56em ) {
+    h4 {
+        font-size: 2.848em;
+    }
+
+    #restaurant-icon {
+        top: 5vh;
+    }
+
+    .circle-1, .circle-2, .circle-3 {
+        text-align: center;
+
+        img {
+            width: 60%;
+        }
+    }
+}

@@ -1,0 +1,168 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model GToken.Models.EditReferralViewModel
+
+@using GToken.Web.Helpers.Extensions
+@{
+    var statusList = new List<dynamic>();
+    statusList.Add(new { id = 1, name = "Active" });
+    statusList.Add(new { id = 2, name = "Running" });
+    statusList.Add(new { id = 3, name = "Finished" });
+    statusList.Add(new { id = 4, name = "Inactive_Force_Stop" });
+}
+
+<div class="row">
+    <h2>Edit campaign</h2>
+</div>
+<div class="row">
+    <form action="@Url.Action("Edit", "Referral", new { Area="Admin"})" method="post">
+        <div class="row">
+            <div class="small-8 columns">
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Game</label>
+                    </div>
+                    <div class="small-9 columns">
+                        @Html.HiddenFor(m => m.id)
+                        @Html.DropDownListFor(m => m.game_id, Model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }))
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Title</label>
+                    </div>
+                    <div class="small-9 columns">
+                        @Html.TextBoxFor(m => m.title, new { @placeholder = "Title" })
+                        @Html.SmallValidationMessageFor(m => m.title)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Start Date</label>
+                    </div>
+                    <div class="small-9 columns">
+                        @if (Model.start_date.HasValue)
+                        {
+                            <input name="start_date" type="datetime" id="start_date" placeholder="From Date" value="@Model.start_date.Value.ToString("yyyy-MM-dd HH:mm")">
+                        }
+                        else
+                        {
+                            <input name="start_date" type="datetime" id="start_date" placeholder="From Date" value="@Model.start_date">
+                        }
+                        @Html.SmallValidationMessageFor(m => m.start_date)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">End Date</label>
+                    </div>
+                    <div class="small-9 columns">
+                        @if (Model.end_date.HasValue)
+                        {
+                            <input id="end_date" name="end_date" placeholder="To Date" type="datetime" value="@Model.end_date.Value.ToString("yyyy-MM-dd HH:mm")">
+                        }
+                        else
+                        {
+                            <input id="end_date" name="end_date" placeholder="To Date" type="datetime" value="@Model.end_date">
+                        }
+                        @Html.SmallValidationMessageFor(m => m.end_date)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Allocated Quantity</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <input name="quantity" type="text" id="quantity" placeholder="Quantity" value="@Model.quantity">
+                        @Html.SmallValidationMessageFor(m => m.quantity)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right">GToken to use per download</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <input name="gtoken_per_download" type="text" id="gtoken_per_download" placeholder="" value="@Model.gtoken_per_download">
+                        @Html.SmallValidationMessageFor(m => m.gtoken_per_download)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Status</label>
+                    </div>
+                    <div class="small-9 columns">
+                        @Html.DropDownListFor(m => m.status, statusList.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }))
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Description</label>
+                    </div>
+                    <div class="small-9 columns">
+                        @Html.TextAreaFor(m => m.description, new { @placeholder = "Description" })
+                        @Html.SmallValidationMessageFor(m => m.description)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Override</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <div class="switch round small">
+                            <input type="checkbox" name="is_override" id="is_override" @((!string.IsNullOrEmpty(Model.is_override) && Model.is_override == "on") ? "checked" : string.Empty)>
+                            <label for="is_override">Is Override</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Override value</label>
+                    </div>
+                    <div class="small-9 columns">
+                        @Html.TextBoxFor(m => m.override_value, new { @placeholder = "Override value" })
+                        @Html.SmallValidationMessageFor(m => m.override_value)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Display only</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <div class="switch round small">
+                            <input type="checkbox" name="is_display_only" id="is_display_only" @((!string.IsNullOrEmpty(Model.is_display_only) && Model.is_display_only == "on") ? "checked" : string.Empty)>
+                            <label for="is_display_only">Is Display</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="small-3 columns">
+
+                    </div>
+                    <div class="small-9 columns">
+                        @if (ViewBag.Error != null)
+                        {
+                            <small class="error">@ViewBag.Error</small>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit">Update</button>
+                    <a href="@Url.Action("CampaignList", "Referral", new { Area="Admin"})" class="button">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section page_foot_js{
+    <script src="/static/js/admin/transaction.js"></script>
+}

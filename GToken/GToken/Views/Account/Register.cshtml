@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Register;
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+}
+@model GToken.Web.Models.RegisterViewModel
+
+@section header{
+    <div class="row">
+        <div class="medium-6 medium-offset-3 columns">
+            <h1 class="top-logo"><a href="/" title="GToken @Resources.Resources.Home_page"><img src="/static/images/header_logo.png" alt="GToken"></a></h1>
+        </div>
+    </div>
+}
+
+<script>
+    var countryCode = "@Model.countryCode";
+    var referralID = "@Model.referralID";
+</script>
+<!--   signup-section -->
+<div class="row" ng-controller="AccountRegisterCtrl" ng-init="init()">
+    <div class="large-6 large-offset-3 medium-8 medium-offset-2 columns">
+        <div class="panel large">
+            <!--           signup-form-->
+            <form id="accounts_signup" name="accountsRegisterForm" method="POST" class="row" novalidate data-endpoint-url="@Url.Action("register", "account")" novalidate ng-submit="submitForm()">
+                @Html.AntiForgeryToken()
+                <div class="columns medium-12">
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <h3 class="form-header ">@Resources.Resources.Signup</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <input class="ng-pristine ng-untouched ng-valid-username-exist ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength" data-first-time-edit="true" focus="true" id="username" maxlength="20" minlength="3" name="username" ng-blur="removeFirstTimeFlag($event)" ng-model="formData.username" ng-pattern="/^[0-9a-zA-Z_.]+$/" placeholder="@Resources.Resources.username" required="required" type="text" username_exist="" value="">
+                            <small class="label info" ng-if="!accountsRegisterForm.username.$touched && !accountsRegisterForm.$submitted">Username hint</small>
+
+                            <div ng-if="accountsRegisterForm.$submitted || accountsRegisterForm.username.$touched">
+                                <small class="label alert" ng-if="accountsRegisterForm.username.$error.required">* This field is required</small>
+                                <small class="label alert" ng-if="!accountsRegisterForm.username.$error.minlength && accountsRegisterForm.username.$error.pattern"> Username cannot contain special characters</small>
+                                <small class="label alert" ng-if="accountsRegisterForm.username.$error.minlength">Username must be more than 3 characters</small>
+                                <small class="label alert" ng-if="accountsRegisterForm.username.$error.maxlength">Username must be less than 20 characters</small>
+                                <small class="label alert" ng-if="accountsRegisterForm.username.$error.usernameExist">This username is already exist</small>
+                                <small class="label success" ng-if="accountsRegisterForm.username.$valid">What a name!</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <input class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" data-first-time-edit="true" id="password" maxlength="20" minlength="3" name="password" ng-blur="removeFirstTimeFlag($event)" ng-model="formData.password" placeholder="@Resources.Resources.password" required="required" type="password" value="">
+                            <small class="label info" ng-if="!accountsRegisterForm.password.$touched && !accountsRegisterForm.$submitted">We won't tell anyone</small>
+
+                            <div ng-if="accountsRegisterForm.$submitted || accountsRegisterForm.password.$touched">
+                                <small class="label alert" ng-if="accountsRegisterForm.password.$error.required">* This field is required</small>
+                                <small class="label alert" ng-if=" accountsRegisterForm.password.$error.minlength">Password must be more than 3 characters</small>
+                                <small class="label alert" ng-if=" accountsRegisterForm.password.$error.maxlength">Password must be less than 20 characters</small>
+                                <small class="label success" ng-if="accountsRegisterForm.password.$valid">Good password!</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <input class="ng-pristine ng-untouched ng-isolate-scope ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-valid-compare-to" compare_to="formData.password" data-first-time-edit="true" id="confirmPassword" maxlength="20" minlength="3" name="confirmPassword" ng-blur="removeFirstTimeFlag($event)" ng-model="formData.confirmPassword" placeholder="@Resources.Resources.Retype_password" required="required" type="password" value="">
+                            <small class="label info" ng-if="!accountsRegisterForm.confirmPassword.$touched && !accountsRegisterForm.$submitted">Must be exact above</small>
+
+                            <div ng-if="accountsRegisterForm.$submitted || accountsRegisterForm.confirmPassword.$touched">
+                                <small class="label alert" ng-if="accountsRegisterForm.confirmPassword.$error.required">* This field is required</small>
+                                <small class="label alert" ng-if="!accountsRegisterForm.confirmPassword.$error.required && accountsRegisterForm.confirmPassword.$error.compareTo">Must be exact above</small>
+
+                                <small class="label success" ng-if="accountsRegisterForm.confirmPassword.$valid">Good password!</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <input class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern" data-first-time-edit="true" id="email" name="email" ng-blur="removeFirstTimeFlag($event)" ng-model="formData.email" ng-pattern="/^[a-zA-Z]+[a-zA-Z0-9._]+@("@")[a-zA-Z_]+?((\.[a-zA-Z]{2,3})|(\.[a-zA-Z]{2,3}\.[a-zA-Z]{2,3}))$/" placeholder="@Resources.Resources.Email_address" required="required" type="text" value="">
+                            <small class="label info" ng-if="!accountsRegisterForm.email.$touched && !accountsRegisterForm.$submitted">To get the best support from us</small>
+
+                            <div ng-if="accountsRegisterForm.$submitted || accountsRegisterForm.email.$touched">
+                                <small class="label alert" ng-if="accountsRegisterForm.email.$error.required">*This field is required</small>
+                                <small class="label alert" ng-if=" accountsRegisterForm.email.$error.pattern">Must be an email address</small>
+
+                                <small class="label success" ng-if="accountsRegisterForm.email.$valid">Email success!</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <angucomplete-alt id="country-select" name="countryCode" type="text"
+                                              placeholder="@Resources.Resources.Select" selected-object="userCountry"
+                                              local-data="countriesList" search-fields="name,alpha-2" title-field="name"
+                                              minlength="1" initial-value="{$ countryName $}"
+                                              ng-model="user.location"
+                                              input-class="sml-forms user-country-code"
+                                              text-no-results="Cannot find this country">
+                                <small class="label info" ng-if="!accountsRegisterForm.location.$touched && !accountsRegisterForm.$submitted">Make sure you are on Earth</small>
+
+                                <div ng-if="accountsRegisterForm.$submitted || accountsRegisterForm.location.$touched">
+                                    <small class="label alert" ng-if="accountsRegisterForm.location.$error.required">* This field is required</small>
+
+                                    <small class="label success" ng-if="accountsRegisterForm.location.$valid">Location success!</small>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="columns medium-12">
+                            <input class="ng-pristine ng-untouched ng-valid ng-valid-referral-id-not-exist" data-first-time-edit="true" id="referralID" name="referralID" ng_blur="removeFirstTimeFlag($event)" ng_model="formData.referralID" placeholder="@Resources.Resources.Referal_ID" referral_id_not_exist="" type="text" value="">
+                            <small class="label info" ng-if="!accountsRegisterForm.password.$touched && !accountsRegisterForm.$submitted">@Resources.Resources.Optional</small>
+
+                            <div ng-if="accountsRegisterForm.$submitted || accountsRegisterForm.referralID.$touched">
+                                <small class="label alert" ng-if="accountsRegisterForm.referralID.$error.referralIdNotExist">Referal ID isn't exist</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <button class="button large" type="submit">@Resources.Resources.Signup</button>
+                    </div>
+                    <p class="text-center"><small>By signing up, you agree to our <a href="@Url.Action("terms", "main")">@Resources.Resources.Terms_of_Service</a>.</small></p>
+                </div>
+            </form>
+            <!--            signup-form-->
+        </div>
+        <p class="text-center">@Resources.Resources.Already_a_user <a href="@Url.Action("login", "account")">@Resources.Resources.Login_now</a></p>
+    </div>
+</div>
+<!--/signup-section-->
+@section foot_js {
+    <script src="/static/js/utils/countriesList.js?rnd=28092015"></script>
+    <script src="/static/js/controllers/accountRegister.js"></script>
+}

@@ -1,0 +1,311 @@
+﻿@model GoPlay.Web.Areas.Admin.Models.GameAdminViewModel
+@{
+    ViewBag.Title = "Add Game";
+    var IsValid = ViewData.ModelState.IsValid;
+    var action = Model.action == "edit" ? "/admin/game/" + Model.game_id + "/edit" : "/admin/game/add";
+    var headTitle = Model.action == "edit" ? "Edit Game:" + Model.name : "Add Game";
+    var actionValue = Model.action == "edit" ? "Update Game" : "Add Game";
+
+    string urlBack = !string.IsNullOrEmpty(Model.previous_page) ? string.Format("/admin/game/{0}", Model.game_id) : "/admin/game/";
+}
+<link href="~/static/js/libs/foundation-datetimepicker/example/stylesheets/foundation-datepicker.css" rel="stylesheet" />
+<section ng-app="gtokenAdminApp">
+    <style>
+        .removeSpace {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    </style>
+    <h1 class="text-center">@headTitle</h1>
+    <form id="admin-games-add-form" class="model-form ng-pristine ng-valid" method="post" enctype="multipart/form-data" action="@action">
+        <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1435138916.19##41b89e4b864683e5c9987266271bc8a8d59cb17d"></div>
+        @Html.HiddenFor(m => m.HasRoleAdmin)
+        @Html.HiddenFor(m => m.game_id)
+        @Html.HiddenFor(m => m.action)
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="name">
+                    Name *
+                </label>
+            </div>
+            <div class="small-9 columns">
+
+                @Html.TextBoxFor(m => m.name, new { @placeholder = "Name", @class = "removeSpace" })
+                @if (!IsValid)
+                {
+                    <small class="error removeSpace">
+                        @Html.ValidationMessageFor(model => model.name)
+                    </small>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="studio_id">
+                    Studio
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.DropDownList("studio_id", new SelectList(Model.studios, "id", "name", Model.studio_id))
+            </div>
+        </div>
+        @Html.Partial("../Helper/render_admin_l10n_field", Model.Short_description)
+        @Html.Partial("../Helper/render_admin_l10n_field_textarea", Model.Description)
+        @Html.Partial("../Helper/render_admin_l10n_field", Model.Genre)
+
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="iosDownloadLink">
+                    iOS Download Link
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.iosDownloadLink, new { @placeholder = "iOS Download Link", @type = "url" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="androidDownloadLink">
+                    Android Download Link
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.androidDownloadLink, new { @placeholder = "Android Download Link", @type = "url" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="apkDownloadLink">
+                    APK Download Link
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.apkDownloadLink, new { @placeholder = "APK Download Link", @type = "url" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="pcDownloadLink">
+                    PC Download Link
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.pcDownloadLink, new { @placeholder = "PC Download Link", @type = "url" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="youtubeLinks">
+                    Youtube Links
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.youtubeLinks, new { @placeholder = "Youtube Links", @type = "url" })
+            </div>
+        </div>
+
+        @if (Model.HasRoleAdmin)
+        {
+            <div class="row">
+                <div class="small-3 columns">
+                    <label class="right inline" for="is_active">
+                        Is Active
+                    </label>
+                </div>
+                <div class="small-9 columns">
+                    <div class="switch round small">
+                        <input type="checkbox" name="is_active" id="is_active" @((!string.IsNullOrEmpty(Model.is_active) && Model.is_active == "on") ? "checked" : string.Empty)>
+                        <label for="is_active">Is Active</label>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline" for="is_featured">
+                    Is Featured
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <div class="switch round small">
+                    <input type="checkbox" name="is_featured" id="is_featured" @((!string.IsNullOrEmpty(Model.is_featured) && Model.is_featured == "on") ? "checked" : string.Empty)>
+                    <label for="is_featured">Is Featured</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline" for="is_popular">
+                    Is Popular
+                </label>
+            </div>
+            <div class="small-9 columns">
+                <div class="switch round small">
+                    <input type="checkbox" name="is_popular" id="is_popular" @((!string.IsNullOrEmpty(Model.is_popular) && Model.is_popular == "on") ? "checked" : string.Empty)>
+                    <label for="is_popular">Is Popular</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="released_at">
+                    Release On
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.released_at, new { @placeholder = "Release On", @type = "datetime" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="icon">
+                    Icon
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.icon, new { @placeholder = "Icon", @type = "file", @accept = ".jpg,.png,.jpeg", @class = "removeSpace" })
+                @if (!IsValid)
+                {
+                    <small class="error removeSpace">
+                        @Html.ValidationMessageFor(model => model.icon)
+                    </small>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="thumb">
+                    Thumbnail
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.thumb, new { @placeholder = "Thumbnail", @type = "file", @accept = ".jpg,.png,.jpeg", @class = "removeSpace" })
+                @if (!IsValid)
+                {
+                    <small class="error removeSpace">
+                        @Html.ValidationMessageFor(model => model.thumb)
+                    </small>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="banner">
+                    Banner
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.banner, new { @placeholder = "Banner", @type = "file", @accept = ".jpg,.png,.jpeg", @class = "removeSpace" })
+                @if (!IsValid)
+                {
+                    <small class="error removeSpace">
+                        @Html.ValidationMessageFor(model => model.banner)
+                    </small>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="current_version">
+                    Current Version
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.current_version, new { @placeholder = "Current Version", @type = "text" })
+
+            </div>
+        </div>
+        @Html.Partial("../Helper/render_admin_l10n_field_textarea", Model.Current_changelog)
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="file_size">
+                    File size (MB, KB, etc.)
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.file_size, new { @placeholder = "File size (MB, KB, etc.)", @type = "text" })
+            </div>
+        </div>
+
+        @Html.Partial("../Helper/render_admin_l10n_field", Model.Content_rating)
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="endpoint">
+                    Exchange End Point
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.endpoint, new { @placeholder = "Exchange End Point", @type = "text" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="gtoken_client_id">
+                    GToken Client ID
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.gtoken_client_id, new { @placeholder = "GToken Client ID", @type = "text" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="gtoken_client_secret">
+                    GToken Client Secret
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.gtoken_client_secret, new { @placeholder = "GToken Client Secret", @type = "text" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline " for="game_invite_protocol">
+                    Game invite protocol
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.game_invite_protocol, new { @placeholder = "Game invite protocol", @type = "text" })
+            </div>
+        </div>
+
+        @Html.Partial("../Helper/render_admin_l10n_field", Model.Warning)
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="right inline" for="">
+                    Slider Images
+                </label>
+            </div>
+            <div class="small-9 columns">
+                @Html.TextBoxFor(m => m.sliderImages, new { @multiple = "", @type = "file", @accept = ".jpg,.png,.jpeg" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-9 small-offset-3 columns">
+                <a class="button small secondary" href="@urlBack">Back</a>
+                <input class="button small" id="submit" name="submit" type="submit" value="@actionValue">
+            </div>
+        </div>
+    </form>
+</section>
+@section page_foot_js{
+    <script src="/static/js/admin/game.js"></script>
+<script src="~/static/js/libs/foundation-datetimepicker/example/js/foundation-datetimepicker.js"></script>
+}

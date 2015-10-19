@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Pending GCoin Transactions";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@using System.Configuration
+@using Platform.Utility
+@model GoPlay.Web.Areas.Admin.Models.GcoinPendingTransaction
+
+
+<div class="row">
+    <h1>Pending GCoin Transactions</h1>
+
+    <table class="gcoin-table model-table" role="grid">
+        <thead>
+            <tr>
+                <th class="id width-20">Order Id</th>
+                <th class="">Username</th>
+                <th class="width-10">Amount</th>
+                <th class="width-30">Receiver Email</th>
+                <th class="width-13">Creation Date</th>
+                <th class="width-13">Expiration Date</th>
+                <th class="width-10">Process</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.transactions != null && Model.transactions.Count > 0)
+            {
+
+                foreach (var tr in Model.transactions)
+                {
+                    <tr id="tr-row-@tr.id">
+                        <td>@tr.order_id</td>
+                        <td>@tr.nickname</td>
+                        <td>@Helper.displayDecimal(-tr.amount) @("USD")</td>
+                        <td>@tr.receiver_email</td>
+                        <td>@tr.created_at.ToString(ConfigurationManager.AppSettings["FULLDATETIMEFORMAT"])</td>
+                        <td>@tr.pay_key_expiration_date</td>
+                        <td class="model-actions">
+                            <ul class="stack button-group">
+                                <li><a class="button small" href="@Url.Action("paypalPaymentExecute", "paypal", new { Area = "admin", id = tr.order_id })">Pay</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

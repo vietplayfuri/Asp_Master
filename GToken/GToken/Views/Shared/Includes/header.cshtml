@@ -1,0 +1,131 @@
+﻿@{
+    var languages = CultureHelper._languges;
+}
+<div ng-controller="LocaleSelectController">
+    <form id="update-locale-form" class="hide" action="@Url.Action("update-locale", "account", new { next = Request.Path + "?" + Request.QueryString.ToString() })" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="locale" ng-model="locale" />
+    </form>
+    <nav class="tab-bar">
+        <div class="contain-to-grid addition-top-bar show-for-large-up">
+
+            <div class="top-bar" data-topbar data-options="dropdown_autoclose: false" role="navigation">
+                <section class="top-bar-section ">
+                    <div class="columns">
+                        @*<ul class="left">
+                                <li class="has-dropdown language-select">
+                                    <a>@CultureHelper.DisplayLanguage(CultureHelper.GetCurrentCulture())</a>
+                                    <ul class="dropdown">
+                                        @foreach (var lang in languages)
+                                        {
+                                            <li>
+                                                <a ng-click="locale = '@lang.Key'; updateLocale()">@lang.Value</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>*@
+                        <ul class="right">
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li><a href="@Url.Action("index", "transaction")" class="icon-account">@Resources.Resources.My_Account</a></li>
+                                <li class="separator">|</li>
+                                if (ViewContext.Controller.HasPermission("access_admin_page"))
+                                {
+                                    <li><a href="@Url.Action("index", "admin")">@Resources.Resources.Admin_panel</a></li>
+                                    <li class="separator">|</li>
+                                }
+                                <li><a href="@Url.Action("logout", "account")">@Resources.Resources.Log_Out</a></li>
+                                <li class="separator">|</li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("login", "account")">@Resources.Resources.Login</a></li>
+                                <li class="separator">|</li>
+                                <li><a href="@Url.Action("register", "account")">@Resources.Resources.Signup</a></li>
+                                <li class="separator">|</li>
+                            }
+                            <li><a href="https://twitter.com/G_Token"><i class="icon twitter"></i></a></li>
+                            <li><a title="Facebook" href="https://www.facebook.com/gtoken.official.page"><i class="icon facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+        <div class="navbar contain-to-grid">
+
+            <nav role="navigation" class="top-bar main-nav">
+                <div class="columns">
+                    <div class="title-area">
+                        <h1><a title="GToken Homepage" href="@Url.Action("index", "main")"><img alt="GToken" src="/static/images/logo.png"></a></h1>
+                    </div>
+
+                    <section class="top-bar-section show-for-large-up">
+
+                        <ul class="right">
+                            <li><a href="@Url.Action("Deals", "main")">Campaigns</a></li>
+                            <li><a href="@Url.Action("about", "main")">@Resources.Resources.About</a></li>
+                            <li><a href="@Url.Action("clubs", "main")">@Resources.Resources.Clubs</a></li>
+                            <li><a href="@Url.Action("news", "main")">@Resources.Resources.News</a></li>
+                            <li><a href="@Url.Action("partners", "main")">@Resources.Resources.Partners</a></li>
+                            <li><a target="_blank" href="http://forums.gtoken.com/">@Resources.Resources.Forum</a></li>
+                            <li><a href="@Url.Action("support", "main")">@Resources.Resources.Support</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+            </nav>
+
+        </div>
+        <section class="right-small hide-for-large-up">
+            <a href="#" class="right-off-canvas-toggle menu-icon"><span></span></a>
+        </section>
+    </nav>
+    <aside class="right-off-canvas-menu">
+        <div class="right-off-canvas-menu-inner">
+            <h5>@Resources.Resources.Menu</h5>
+            <ul class="off-canvas-list">
+                @if (Request.IsAuthenticated)
+                {
+                    <li><a href="@Url.Action("index", "transaction")"><img src="/static/images/icon-account-white.png" alt="" class="mr-10">@Resources.Resources.My_Account</a></li>
+                    <li><a href="@Url.Action("logout", "account")">@Resources.Resources.Log_Out</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("login", "account")">@Resources.Resources.Login</a></li>
+                    <li><a href="@Url.Action("register", "account")">@Resources.Resources.Signup</a></li>
+                }
+            </ul>
+            <hr>
+            <ul class="off-canvas-list">
+                <li class="has-submenu language-off-canvas">
+                    <a>@CultureHelper.DisplayLanguage(CultureHelper.GetCurrentCulture())</a>
+                    <ul class="right-submenu">
+                        <li class="back"><a href="#">@Resources.Resources.Back</a></li>
+                        @foreach (var lang in languages)
+                        {
+                            <li>
+                                <a ng-click="locale = '@lang.Key'; updateLocale()">@lang.Value</a>
+                            </li>
+                        }
+                    </ul>
+            </ul>
+            <hr>
+            <ul class="off-canvas-list">
+                <li><a href="@Url.Action("index", "main")">@Resources.Resources.Home_page</a></li>
+                <li><a href="@Url.Action("Deals", "main")">Campaigns</a></li>
+                <li><a href="@Url.Action("about", "main")">@Resources.Resources.About</a></li>
+                <li><a href="@Url.Action("clubs", "main")">@Resources.Resources.Clubs</a></li>
+                <li><a href="@Url.Action("news", "main")">@Resources.Resources.News</a></li>
+                <li><a href="@Url.Action("partners", "main")">PARTNERS</a></li>
+                <li><a href="@Url.Action("support", "main")">@Resources.Resources.Support</a></li>
+            </ul>
+            <hr>
+            <p class="text-center">
+                <a href="https://twitter.com/G_Token"><i class="icon twitter"></i></a>
+                <a title="Facebook" href="https://www.facebook.com/gtoken.official.page"><i class="icon facebook"></i></a>
+            </p>
+        </div>
+    </aside>
+</div>

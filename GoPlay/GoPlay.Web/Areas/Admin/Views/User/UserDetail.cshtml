@@ -1,0 +1,111 @@
+﻿@using GoPlay.Web.Models
+@using GoPlay.Web.Helpers
+@using Platform.Models
+@using GoPlay.Models
+@using GoPlay.Web.Areas.Admin.Models
+@model AdminUserIndexModel
+@{
+    ViewBag.Title = Resources.Resources.User + (": " + Model.user.id);
+    string urlUserDetail = string.Format("/admin/user/username/{0}", Model.user.inviter_username);
+    var dateFormat = System.Configuration.ConfigurationManager.AppSettings["BABEL_DATETIME_READABLE_FORMAT"];
+}
+
+<div class="row ng-scope" ng-app="gtokenApp">
+    <h1> @Resources.Resources.User: @Model.user.GetDisplayName()</h1>
+    <table class="user-detail model-detail-table">
+        <tr>
+            <td class="width-20">ID</td>
+            <td id="user-detail-id">@Model.user.id</td>
+        </tr>
+        <tr>
+            <td>@Resources.Resources.Display_name</td>
+            <td>@Model.user.GetDisplayName()</td>
+        </tr>
+        <tr>
+            <td>@Resources.Resources.username</td>
+            <td>@Model.user.username</td>
+        </tr>
+        <tr>
+            <td>@Resources.Resources.email</td>
+            <td>@Model.user.email</td>
+        </tr>
+        <tr>
+            <td>@Resources.Resources.password</td>
+            <td>
+                @if (!ViewContext.Controller.HasRole(GoPlayConstantValues.S_ROLE_CUSTOMER_SUPPORT))
+                {
+                    @("Please contact developer for password revelation")
+                }
+                else if (!string.IsNullOrEmpty(Model.user.unhashed_password))
+                {
+                    <span class="label alert radius">
+                        @Model.user.unhashed_password
+                    </span>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>VIP</td>
+            <td>@(!string.IsNullOrEmpty(Model.user.vip) ? Model.user.vip : "None")</td>
+        </tr>
+        <tr>
+            <td>Referred At / Discount</td>
+            <td>@(Model.user.referred_at.HasValue ? Model.user.referred_at.Value.ToString(ConstantValues.S_DATETIME_FORMAT) : "None") / @Model.user.is_discount_permanent</td>
+        </tr>
+        <tr>
+            <td>@Resources.Resources.Play_Token / @Resources.Resources.Free_Play_Token</td>
+            <td>@Model.user.play_token / @Model.user.free_play_token</td>
+        </tr>
+        <tr>
+            <td>Recommender</td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.user.inviter_username))
+                {
+                    <a href="@urlUserDetail" target="_blank">
+                        @Model.user.inviter_username
+                    </a>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Resources.Resources.country</td>
+            <td>@Model.user.country_code / @Model.user.country_name</td>
+        </tr>
+        <tr>
+            <td>Account Manager</td>
+            <td>
+                <form method="POST" action="/admin/user/@Model.user.id">
+                    @Html.DropDownList("accountManager", Model.account_managers.Select(t => new SelectListItem() { Text = t, Value = t }), Model.user.account_manager)
+                    @Html.TextAreaFor(m => m.accountManagerNote, new { rows = "6", cols = "50" })
+                    <input type="submit" name="updateAccountManager" class="button small" value="Update Account Manager" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Transactions History</td>
+            <td ng-controller="TransactionCtrl" class="ng-scope">
+                @Html.Partial("~/Views/Shared/Transaction/_history.cshtml", new TransactionViewModel { transactions = Model.transactions })
+            </td>
+        </tr>
+        <tr>
+            <td>API Logs</td>
+            <td>
+                <table>
+                    @if (Model.logs != null && Model.logs.Any())
+                    {
+                        foreach (var log in Model.logs)
+                        {
+                            <tr>
+                                <td>@log.action</td>
+                                <td>@DateTimeHelper.localizeDatetime(log.created_at, dateFormat)</td>
+                                <td>@(!string.IsNullOrEmpty(log.game_name) ? log.game_name : "Venvici")</td>
+                                <td>@log.ip_address / @log.country_code</td>
+                                <td>@log.status</td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

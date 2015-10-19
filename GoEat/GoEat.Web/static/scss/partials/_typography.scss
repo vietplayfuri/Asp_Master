@@ -1,0 +1,125 @@
+﻿// Fonts Size ******************************************** //
+$font-notera: "Notera";
+$font-helvetica-neue: "CaviarDreams";
+$font-josefin-slab: "JosefinSlab";
+
+@font-face {
+	font-family:'NoteraPersonalUseOnly-Regular';
+	src: url('/static/fonts/notera/NoteraPersonalUseOnly_gdi.eot');
+	src: url('/static/fonts/notera/NoteraPersonalUseOnly_gdi.eot?#iefix') format('embedded-opentype'),
+		url('/static/fonts/notera/NoteraPersonalUseOnly_gdi.woff') format('woff'),
+		url('/static/fonts/notera/NoteraPersonalUseOnly_gdi.ttf') format('truetype'),
+		url('/static/fonts/notera/NoteraPersonalUseOnly_gdi.svg#NoteraPersonalUseOnly-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
+}
+@font-face {
+	font-family:'CaviarDreams';
+	src: url('/static/fonts/caviar_dreams/CaviarDreams_gdi.eot');
+	src: url('/static/fonts/caviar_dreams/CaviarDreams_gdi.eot?#iefix') format('embedded-opentype'),
+		url('/static/fonts/caviar_dreams/CaviarDreams_gdi.woff') format('woff'),
+		url('/static/fonts/caviar_dreams/CaviarDreams_gdi.ttf') format('truetype'),
+		url('/static/fonts/caviar_dreams/CaviarDreams_gdi.svg#CaviarDreams-Regular') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2265;
+}
+
+@font-face {
+	font-family:'CaviarDreams';
+	src: url('/static/fonts/caviar_dreams/CaviarDreams-Bold_gdi.eot');
+	src: url('/static/fonts/caviar_dreams/CaviarDreams-Bold_gdi.eot?#iefix') format('embedded-opentype'),
+		url('/static/fonts/caviar_dreams/CaviarDreams-Bold_gdi.woff') format('woff'),
+		url('/static/fonts/caviar_dreams/CaviarDreams-Bold_gdi.ttf') format('truetype'),
+		url('/static/fonts/caviar_dreams/CaviarDreams-Bold_gdi.svg#CaviarDreams-Bold') format('svg');
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2265;
+}
+
+@font-face {
+	font-family:'JosefinSlab';
+	src: url('/static/fonts/josefin_slab/JosefinSlab-Bold_gdi.eot');
+	src: url('/static/fonts/josefin_slab/JosefinSlab-Bold_gdi.eot?#iefix') format('embedded-opentype'),
+		url('/static/fonts/josefin_slab/JosefinSlab-Bold_gdi.woff') format('woff'),
+		url('/static/fonts/josefin_slab/JosefinSlab-Bold_gdi.ttf') format('truetype'),
+		url('/static/fonts/josefin_slab/JosefinSlab-Bold_gdi.svg#JosefinSlab-Bold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-203A;
+}
+
+body {
+    font-family: $font-helvetica-neue;
+}
+
+$sml-upper: 0.875rem;
+$med-upper: 1.25rem;
+$lrg-upper: 2.25rem;
+
+h1 {
+    font-size: 3.5rem; //56px
+}
+
+h2 {
+    font-size: 3rem; //48px
+}
+
+h3 {
+    font-size: 2.25rem; //36px
+}
+
+h4 {
+    font-size: 1.5rem; //24px
+}
+
+h5 {
+    font-size: 1.25rem; //20px
+}
+
+h6 {
+    font-size: 1rem; //16px
+}
+
+/*h1, h2, h3, h4, h5, h6 {
+    font-family: $font-josefin-slab;
+}*/
+
+//Typography Style Mixins ******************************************** //
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: $font-helvetica-neue;
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+}
+
+@mixin upper-font($upper-font-weight, $upper-font-size, $upper-font-color) {
+    font-family: $font-helvetica-neue;
+    text-transform: uppercase;
+    font-weight: $upper-font-weight;
+    font-size: $upper-font-size;
+    color: $upper-font-color;
+}
+
+@mixin h4-pri($font-color, $font-weight) {
+    font-family: $font-helvetica-neue;
+    font-size: 1.5rem;
+    font-weight: $font-weight;
+    color: $font-color;
+}
+
+@mixin subheader($font-color, $font-weight, $font-size) {
+    font-family: $font-helvetica-neue;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $font-color;
+}

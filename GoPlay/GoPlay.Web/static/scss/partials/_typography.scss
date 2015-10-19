@@ -1,0 +1,71 @@
+body {
+    font-family: 'Ubuntu';
+}
+
+h1 {
+    font-size: 1.875rem; //30px
+}
+
+h2 {
+    font-size: 1.5rem; //24px
+    line-height: 28px;
+}
+
+h3 {
+    font-size: 1.25rem; //20px
+}
+
+h4 {
+    font-size: 1.125rem; //18px
+}
+
+h5 {
+    font-size: 1rem; //16px
+}
+
+h6 {
+    font-size: 0.875rem; //14px
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #B7B7B7;
+}
+
+a.nml-link,
+a.sub-link {
+    font-size: 0.875rem;
+}
+
+a.nml-link {
+    color: #518DB8;
+    &:hover {
+        color: darken(#518DB8,5%);
+    }
+}
+
+a.sub-link {
+    color: #B7B7B7;
+}
+
+a.header-pri-link, 
+a.footer-link {
+    color: #B7B7B7;
+    font-size: 0.875rem;
+}
+
+a.header-link {
+    text-transform: uppercase;
+}
+
+h6.sect-title {
+    color: #F2C737;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    color: #B7B7B7;
+    font-size: 0.875rem;
+    line-height: 18px;
+    margin-bottom: 0;
+}

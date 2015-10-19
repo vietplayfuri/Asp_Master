@@ -1,0 +1,522 @@
+@import "account_main";
+
+div.progress-indict,
+div.panel-filter,
+div.notification-panel
+ {
+    &.hide {
+        display: none;
+    }
+}
+
+div.panel-filter {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+}
+
+
+div.progress-indict,
+div.notification-panel {
+    max-width: 260px;
+    display: block;
+    position: absolute;
+    top: 35%;
+    background: #24252a;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-height: 182px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50), inset 0px 1px 0px 0px #3C3C3C;
+    border-radius: 4px;
+    a {
+        margin-top: 12px;
+    }
+    img {
+        display: block;
+        margin: 0 auto 20px;
+    }
+}
+
+div.user-balance {
+    margin-bottom: 20px;
+    .sect-panel > p {
+        margin-bottom: 10px;
+    }
+    div.gtoken-wallet {
+        margin-bottom: 16px;
+    }
+    div.gtoken-wallet,
+    div.gcoin-wallet {
+        padding: 16px 12px;
+        ul {
+            list-style-type: none;
+            li {
+                font-size: 0.875rem;
+                color: $sub-grey;
+                &:first-child {
+                    margin-bottom: 16px;
+                }
+                span.gtoken-number,
+                span.free-gtoken,
+                span.gcoin-number {
+                    color: $pri-grey;
+                    font-size: 1.5rem;
+                    float: right;
+                    line-height: 22px;
+                    &:after {
+                        vertical-align: -3px;
+                        margin-left: 4px;
+                    }
+                }
+                span.gtoken-number,
+                span.free-gtoken {
+                    &:after {
+                        content: url(/static/images/tiny_gtoken.png);
+                    }
+                }
+                span.gcoin-number {
+                    &:after {
+                        content: url(/static/images/tiny_gcoin.png);
+                    }
+                }
+            }
+        }
+    }
+    div.gcoin-wallet {
+        ul li:first-child {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+div.transfer-panel {
+    padding: 36px 12px !important;
+    > h4 {
+        margin: 0px auto 14px;
+    }
+    text-align: center;
+    div.receiver-wrap {
+        max-width: 280px;
+        margin: 0px auto 14px;
+        padding: 12px;
+        text-align: left;
+        position: relative;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 2px;
+        }
+        a.close-panel {
+            color: $sub-grey;
+            font-size: 30px;
+            position: absolute;
+            right: 12px;
+            top: 24px;
+            &:hover {
+                color: white;
+            }
+        }
+        div.receiver-name {
+            display: inline-block;
+            vertical-align: -19px;
+            margin-left: 4px;
+            width: 186px;
+            span {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+                text-align: left;
+                &:first-child {
+                    color: $pri-grey;
+                }
+                &:last-child {
+                    color: $sub-grey;
+                    font-size: 0.875rem;
+                    margin-top: -2px;
+                }
+            }
+        }
+    }
+    div.break-line {
+        max-width: 280px;
+        margin: 0 auto;
+        height: 14px;
+        display: block;
+        border-top: 1px solid $dark-grey;
+    }
+    input {
+        max-width: 280px;
+        margin: 0 auto 14px;
+    }
+    ul.errors {
+        max-width: 280px;
+        margin: 0 auto 10px;
+        list-style-type: none;
+            li {
+            color: $pri-red;
+            font-size: 0.875rem;
+        }
+    }
+}
+
+div.sect-panel {
+    padding: 20px 12px;
+    div.search-wrap {
+        display: block;
+        max-width: 380px;
+        position: relative;
+        margin: 0 auto;
+        input.search-bar {
+            margin-bottom: 0px;
+            &::-webkit-input-placeholder,
+            &::-moz-placeholder,
+            &:-moz-placeholder,
+            &:-ms-input-placeholder {
+                color: #676767 !important;
+            }
+        }
+        a {
+            position: absolute;
+            top: 6px;
+            right: 10px;
+        }
+    }
+}
+
+div.sect-panel.friends-container,
+div.request-container {
+    padding: 20px 8px 10px;
+}
+
+div.search-result {
+    > h5 {
+        margin: 20px 0px 14px;
+    }
+    > ul {
+        padding-top: 20px;
+        border-top: 1px solid $dark-grey;
+    }
+    > a {
+        display: block;
+        margin: 10px auto 4px;
+        text-align: center;
+        max-width: 100px;
+    }
+    > p {
+        margin: 20px auto;
+        text-align: center;
+    }
+}
+
+section.search-panel {
+    div.pagination-centered {
+        margin: 20px auto;
+        li.current a {
+            background: $light-grey;
+        }
+        li a:hover {
+            background: $dark-grey;
+        }
+        li span.unavailable {
+            color: $pri-grey;
+        }
+    }
+}
+
+div.friend-bar.matched {
+    background: #2E3E4D !important;
+}
+
+div.friends-container ul,
+div.request-container ul,
+div.search-result ul {
+    li {
+        height: 70px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        &:after {
+            content:'';
+            display:block;
+            clear: both;
+        }
+        &.show-buttons .friend-buttons {
+            -webkit-transition: 0.4s;
+            -o-transition: 0.4s;
+            -ms-transition: 0.4s;
+            -moz-transition: 0.4s;
+            transition: 0.4s;
+            left: 0;
+        }
+        &.show-buttons .friend-name,
+        &.show-buttons .friend-avatar,
+        &.show-buttons .status {
+            opacity: 0;
+            -webkit-transition: opacity 0.4s ease-out;
+            -o-transition: opacity 0.4s ease;
+            -ms-transition: opacity 0.4s ease;
+            -moz-transition: opacity 0.4s ease;
+            transition: opacity 0.4s ease;
+        }
+        .status {
+            opacity: 1;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -moz-transition: 0.5s;
+            transition: 0.5s;
+        }
+    }
+    li div.friend-bar {
+        background-repeat: no-repeat;
+        background-position: right 10px top 20px;
+        background-color: $light-grey;
+        padding: 10px;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    li div.friend-buttons {
+        padding-left: 40px;
+        background-image: url(/static/images/prev_icon.png);
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        background-color: $light-grey;
+        border-radius: 2px;
+        font-size: 12px;
+        position: relative;
+        left: 103%;
+        top: -70px;
+        height: 70px;
+        margin-top: 10px;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+        -ms-transition: 0.5s;
+        -moz-transition: 0.5s;
+        transition: 0.5s;
+        cursor: pointer;
+        a {
+            color: $pri-grey;
+            display: inline-block;
+            width: 32%;
+            height: 70px;
+            text-align: center;
+            padding-top: 18px;
+            &:hover span {
+                color: white;
+            }
+            &.act-transfer {
+                border-left: 1px solid $panel-grey;
+                border-right: 1px solid $panel-grey;
+            }
+            span {
+                display: block;
+                margin-top: 2px;
+            }
+        }
+    }
+    a.friend-avatar {
+        display: inline-block;
+        opacity: 1;
+        -webkit-transition: opacity 0.5s ease-out;
+        -o-transition: opacity 1s ease;
+        -ms-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 2px;
+        }
+    }
+    a.friend-name {
+        width: 60%;
+        vertical-align: middle;
+        margin-left: 4px;
+        display: inline-block;
+        overflow: hidden;
+
+        opacity: 1;
+        -webkit-transition: opacity 0.5s ease-out;
+        -o-transition: opacity 0.5s ease;
+        -ms-transition: opacity 0.5s ease;
+        -moz-transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease;
+        h5,
+        p {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        h5 {
+            margin-bottom: 2px;
+            margin-top: -1px;
+        }
+        p {
+            color: $sub-grey;
+        }
+    }
+    div.action-section {
+        display: inline-block;
+        float: right;
+    }
+    a.friend-action {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    a.friend-status {
+        width: 30px;
+        height: 26px;
+        display: block;
+        padding: 0;
+        margin-top: 3px;
+        margin-bottom: 1px;
+        &.addfr {
+            background: url(/static/images/act_addfr.png) center center no-repeat,
+                        linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+            margin-top: 4px;
+            &:hover {
+                background: url(/static/images/act_addfr.png) center center no-repeat,
+                            linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+            }
+        }
+        &.sentfr {
+            background: url(/static/images/act_sentfr.png) center center no-repeat;
+            margin-top: 4px;
+            cursor: default;
+            box-shadow: none;
+            &:hover {
+                background: url(/static/images/act_sentfr.png) center center no-repeat;
+            }
+        }
+        &.friended {
+            display: none;
+        }
+    }
+    a.friend-status.addfr ~ div.online-status {
+        display: none;
+    } 
+    a.friend-status.friended + a.friend-action {
+        margin-top: 18px;
+        float: right;
+    }
+    a.friend-status.friended + div.online-status {
+        float: left;
+    }
+}
+
+div.online-status {
+    width: 8px;
+    height: 8px;
+    float: right;
+    display: inline-block;
+    border-radius: 50px;
+    background: $pri-green;
+    margin-top: -28px;
+    margin-right: 6px;
+}
+
+div.request-container {
+    ul a.friend-name {
+        width: 62%;
+        opacity: 1 !important;
+    }
+    ul li div.respond-option {
+        display: inline-block;
+        float: right;
+        margin-top: 15px;
+        a {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            border-radius: 50px;
+        }
+        a.remove-request {
+            margin-right: 3px;
+            background:   url(/static/images/re_close.png) center center no-repeat,
+                          linear-gradient(-179deg, #41444F 0%, #2E3337 100%);
+            &:hover {
+                background:   url(/static/images/re_close.png) center center no-repeat,
+                              linear-gradient(-179deg, #565A68 0%, #343A3F 100%);
+            }
+        }
+        a.accept-request {
+            background: url(/static/images/re_accept.png) center center no-repeat,
+                        linear-gradient(-180deg, #5FB657 0%, #549B4E 100%),
+                        radial-gradient(50% 82%, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0.15) 83%);
+            &:hover {
+                background: url(/static/images/re_accept.png) center center no-repeat,
+                            linear-gradient(-180deg, #6AC962 0%, #62B45A 100%),
+                            radial-gradient(50% 82%, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.15) 83%);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 670px) {
+
+    div.friends-container ul,
+    div.request-container ul,
+    div.search-result ul {
+        a.friend-name {
+            width: 60%;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 360px) {
+
+    div.friends-container ul,
+    div.request-container ul,
+    div.search-result ul {
+        a.friend-name {
+            width: 50%;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 759px) {
+    .act-chat.window {
+        display: none !important;
+    }
+    .act-chat.mobile {
+        display: inline-block !important;
+    }
+    div.status {
+        margin-right: 20px;
+    }
+    .friends-container {
+        .friend-bar {
+            background-image: url(/static/images/next_icon.png);
+        }
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    .act-chat.window {
+        display: inline-block !important;
+    }
+    .act-chat.mobile {
+        display: none !important;
+    }
+    .friends-container {
+        li.show-buttons .friend-bar {
+            background-image: none;
+        }
+        li:hover .friend-buttons {
+            left: 90%;
+        }
+    }
+    div.status {
+        margin-right: 30px;
+    }
+}

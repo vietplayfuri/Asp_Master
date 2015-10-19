@@ -1,0 +1,119 @@
+﻿@using Platform.Utility
+@using Platform.Models
+
+@{
+    ViewBag.Title = "Referal Campaigns List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h1>Referal Campaigns List</h1>
+</div>
+<div class="row tabs-content">
+
+    @Html.ActionLink("Create new Referal campaign", "Create", "Referral", new { Area = "Admin" })
+    <br />
+    <div class="table-wrap">
+        <!--<table class="wide-table">--><table>
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Created At</th>
+                    <th>Status</th>
+                    <th>Allocated Qty</th>
+                    <th>Consumed Qty</th>
+                    <th>Is Display</th>
+                    <th>Is Override</th>
+                    <th>Override Value</th>
+                    <th>Actions</th>
+                    <th>Order</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.ReferralCampaign != null)
+                {
+                    int maximum = ViewBag.ReferralCampaign.Count;
+                    // var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timeZone);
+                    for (int i = 0; i < ViewBag.ReferralCampaign.Count; i++)
+                    {
+                        var tr = ViewBag.ReferralCampaign[i];
+                        //  DateTime targetTime = TimeZoneInfo.ConvertTime(tr.created_at, est);
+                        <tr id="@tr.id">
+                            <td> @tr.game_name  </td>
+                            <td> @tr.start_date  </td>
+                            <td> @tr.end_date  </td>
+                            <td> @tr.created_at  </td>
+                            <td> @Helper.GetDescription((ReferralCampaignStatus)@tr.status)</td>
+                            <td> @tr.quantity</td>
+                            <td> @tr.gt_usage</td>
+                            <td>@(tr.is_display_only ? "True" : "False")</td>
+                            <td>@(tr.is_override ? "True" : "False")</td>
+                            <td>@tr.override_value</td>
+                            <td>
+                                <a href="@Url.Action("Edit","Referral", new { Area="Admin", id=tr.id})">Edit</a>
+                                <a class="delete-btn" data-id="@tr.id">Delete</a>
+                            </td>
+                            <td>
+                                <a class="up-btn" data-id="@tr.id" data-destination="@(i == 0 ? 0 : ViewBag.ReferralCampaign[i - 1].id)">@(i == 0 ? string.Empty : "Up")</a>
+                                <a class="down-btn" data-id="@tr.id" data-destination="@(i == maximum - 1 ? 0 : ViewBag.ReferralCampaign[i + 1].id)">@(i == maximum - 1 ? string.Empty : "Down")</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section page_foot_js{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".delete-btn").click(function () {
+                var r = confirm("Are you sure?");
+                if (r == true) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/admin/referral/delete/" + $(this).data("id"),
+                        data: "",
+                        success: function (msg) {
+                            if (msg.status == true) {
+                                location.reload();
+                            }
+                            else {
+                                alert("Can not remove this campaign.");
+                            }
+                        },
+                        error: function () {
+                            alert("Can not remove this campaign.");
+                        }
+                    });
+                }
+            });
+
+
+            $('.up-btn, .down-btn').click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/referral/order-referral-campaign",
+                    data: {
+                        source_id: $(this).data("id"),
+                        destination_id: $(this).data("destination")
+                    },
+                    success: function (msg) {
+                        if (msg.status == true) {
+                            location.reload();
+                        }
+                        else {
+                            alert("There's an error. Please try again later.");
+                        }
+                    },
+                    error: function () {
+                        alert("There's an error. Please try again later.");
+                    }
+                });
+            });
+        });
+    </script>
+}

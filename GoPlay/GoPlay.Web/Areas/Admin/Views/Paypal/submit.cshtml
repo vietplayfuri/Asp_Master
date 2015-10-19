@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "submit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model GoPlay.Web.Models.PaypalPreapprovalAdminForm
+
+@section page_stylesheets{
+
+    <link href="~/static/js/libs/foundation-datetimepicker/example/stylesheets/foundation-datepicker.css" rel="stylesheet" />
+}
+<h1 class="text-center">Paypal Preapproval Key Request</h1>
+<form id="admin-paypal-submit-form" class="model-form" method="post"
+      enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline " for="starting_date">
+                Start date *
+            </label>
+        </div>
+        <div class="small-9 columns">
+
+            <input id="starting_date" name="starting_date" placeholder="Start date" type="datetime" value="">
+            @Html.ValidationMessageFor(m => m.starting_date)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline " for="ending_date">
+                End date *
+            </label>
+        </div>
+        <div class="small-9 columns">
+
+            <input id="ending_date" name="ending_date" placeholder="End date" type="datetime" value="">
+            @Html.ValidationMessageFor(m => m.ending_date)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline " for="max_amount_per_payment">
+                Max amount per payment *
+            </label>
+        </div>
+        <div class="small-9 columns">
+
+            <input id="max_amount_per_payment" name="max_amount_per_payment" placeholder="Max amount per payment" step="any" type="number" value="@Model.max_amount_per_payment">
+            @Html.ValidationMessageFor(m => m.max_amount_per_payment)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline " for="max_number_of_payments">
+                Max number of payments *
+            </label>
+        </div>
+        <div class="small-9 columns">
+
+            <input id="max_number_of_payments" name="max_number_of_payments" placeholder="Max number of payments" step="1" type="number" value="@Model.max_number_of_payments">
+            @Html.ValidationMessageFor(m => m.max_number_of_payments)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline " for="max_total_amount_of_all_payments">
+                Max total amount of all payments *
+            </label>
+        </div>
+        <div class="small-9 columns">
+
+            <input id="max_total_amount_of_all_payments" name="max_total_amount_of_all_payments" placeholder="Max total amount of all payments" step="any" type="number" value="@Model.max_total_amount_of_all_payments">
+            @Html.ValidationMessageFor(m => m.max_total_amount_of_all_payments)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline " for="sender_email">
+                Sender email *
+            </label>
+        </div>
+        <div class="small-9 columns">
+
+            <input id="sender_email" name="sender_email" placeholder="Sender email" type="text" value="@Model.sender_email">
+            @Html.ValidationMessageFor(m => m.sender_email)
+        </div>
+    </div>
+
+    @if (!String.IsNullOrEmpty(Model.error))
+    {
+        <div class="errors-container">
+            <div class="error">@Model.error</div>
+        </div>
+    }
+
+    <div class="row">
+        <div class="small-9 small-offset-3 columns">
+            @{
+                var url = String.Empty;
+                if (Request.Params["previous_page"] != null)
+                {
+                    url = Request.Params["previous_page"];
+                }
+                else
+                {
+                    url = Url.Action("index", "paypal");
+                }
+            }
+            <a class="button small secondary"
+               href="@url">Back</a>
+            <input class="button small" type="submit" value="Submit" />
+        </div>
+    </div>
+</form>
+
+
+@section page_foot_js{
+    <script src="~/static/js/libs/foundation-datetimepicker/example/js/foundation-datetimepicker.js"></script>
+    <script src="/static/js/admin/transaction.js"></script>
+    <script src="~/static/js/admin/validation.js"></script>
+}

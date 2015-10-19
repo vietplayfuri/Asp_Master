@@ -1,0 +1,269 @@
+﻿@model GoPlay.Web.Models.GamesViewModel
+@using GoPlay.Web.Helpers
+@using Platform.Utility
+@using GoPlay.Web.Helpers.Extensions
+
+@{
+    ViewBag.Title = Resources.Resources.Home;
+}
+
+
+@section lib_stylesheets {
+    <link rel="stylesheet" type="text/css" href="/bower_components/slick.js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/bower_components/slick.js/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/static/stylesheets/home.css" />
+    <link rel="stylesheet" href="/static/stylesheets/home_abtest.css" />
+}
+<!---
+<div ng-controller="HomeCtrl" id="popupWindow" ng-init="init()" class="popuphide">
+  <div>
+    <div class="sect-title-bar">
+      <h6 class="sect-title">{{ _('GoPlay Announcement') }}!</h6>
+      <a ng-click="closePopup()" class="nml-link" href="">×</a>
+    </div>
+    <div class="sect-panel"><p>{{ _('From March 17th 2015, when registering with a referral code, user will receive 10&#37; discount on all Play Token purchase. User needs to make first purchase within 30 days after the referral code was entered to make this discount permanent. Existing users with referral code are granted the discount automatically.') }}</p></div>
+    <div class="sect-end-bar">
+    </div>
+  </div>
+</div>
+-->
+<section class="hero-container">
+    <div class="hero-content">
+    </div>
+    <div class="video-intro">
+        <!-- <a href="#" data-reveal-id="myModal">
+          <img src="/static/images/home_video.png" alt="">
+        </a>
+        <div id="myModal" class="reveal-modal medium hero-video-wrap" data-reveal>
+          <div class="flex-video hero-vid">
+            <iframe width="420" height="315" src="//www.youtube.com/embed/IajE16OnrMY" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <a class="close-reveal-modal vid-close"></a>
+        </div> -->
+        @*<h2>A Better Way to Enhance Your <br> Gaming Experience !</h2>*@
+
+        <div id="goplay-features" class="slick-slider">
+            <div><h2>@Resources.Resources.Homepage_introduce_1</h2></div>
+            <div><h2>@Resources.Resources.Homepage_introduce_2</h2></div>
+            <div><h2>@Resources.Resources.Homepage_introduce_3</h2></div>
+            <div><h2>@Resources.Resources.Homepage_introduce_4</h2></div>
+        </div>
+        <a href="/about" class="nml-button" id="abtest-learnmore" onclick="ga('send', 'event', 'button', 'click', 'cta - learnmore');">@Resources.Resources.Learn_more</a>
+        <p>OR</p>
+        <a href="/account/register" class="g-nml-button" id="abtest-signup" onclick="ga('send', 'event', 'button', 'click', 'cta - signup');">@Resources.Resources.Signup_1 <img src="/static/images/tiny_gtoken.png" class="img-token"></a>
+
+    </div>
+</section>
+@if (Model.featuredGames.Count > 0)
+{
+    <section class="feature-games row">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.FEATURED_GAMES</h6>
+                <p> - @Resources.Resources.Discover_new_best_releases</p>
+            </div>
+            <div class="sect-panel">
+                <div id="feature-games-slider">
+
+                    @foreach (var game in Model.featuredGames)
+                    {
+                        var downloadLink = GameHelper.getDownloadLinksForCurrentUser(game, Html.GetCurrentUser(), Request.GetClientIp());
+
+                        <div class="slide-content">
+                            <div class="large-8 columns">
+                                <div id="featuregames-slider" class="games-slider">
+                                    <div class="games-slide-contain">
+                                        <a href="@GameHelper.GenerateLinkGame(game)">
+                                            <img src="@game.banner_filename">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-intro large-4 columns">
+                                <ul>
+                                    <li><h3>@game.name</h3></li>
+                                    <li>
+                                        <h6>@Resources.Resources.Genre:</h6>
+                                        <a class="nml-link"
+                                           onclick="ga('send', 'event' , 'link' , 'click' , 'genre-click');"
+                                           href="@(string.Format("/game/#all-keyword/{0}/default/default/1",GameHelper.getLocalized(game, "genre")))">
+                                            @GameHelper.getLocalized(game, "genre")
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <h6>@Resources.Resources.Platform:</h6>
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            if (downloadLink["apple"] != null)
+                                            {
+                                                <a class="plat-icon ios-plat" href="@downloadLink["apple"]" target="_blank"></a>
+                                            }
+                                            if (downloadLink["google"] != null)
+                                            {
+                                                <a class="plat-icon gplay-plat" href="@downloadLink["google"]" target="_blank"></a>
+                                            }
+                                            if (downloadLink["pc"] != null)
+                                            {
+                                                <a class="plat-icon pc-plat" href="@downloadLink["pc"]" target="_blank"></a>
+                                            }
+                                            if (downloadLink["apk"] != null)
+                                            {
+                                                <a class="plat-icon apk-plat" href="@downloadLink["apk"]" target="_blank"></a>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (downloadLink["apple"] != null)
+                                            {
+                                                <a class="plat-icon ios-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                            }
+                                            if (downloadLink["google"] != null)
+                                            {
+                                                <a class="plat-icon gplay-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                            }
+                                            if (downloadLink["pc"] != null)
+                                            {
+                                                <a class="plat-icon pc-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                            }
+                                            if (downloadLink["apk"] != null)
+                                            {
+                                                <a class="plat-icon apk-plat" href="@Url.Action("login", "account", new { returnURL = GameHelper.GenerateLinkGame(game) })"></a>
+                                            }
+                                        }
+                                    </li>
+                                </ul>
+                                <p>
+                                    @GameHelper.getLocalized(game, "short_description")
+                                </p>
+                                <a class="nml-button" href="@GameHelper.GenerateLinkGame(game)">@Resources.Resources.More_detail></a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </section>
+}
+
+@if (Model.popularGames != null && Model.popularGames.Any())
+{
+    <section class="coming-soon row">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Popular_games</h6>
+                <p> - @Resources.Resources.Recommended_for_you</p>
+                <a class="nml-link" href="@Url.Action("index", "game" )" onclick="ga('send', 'event', 'link', 'click', 'popular-games-click');">@Resources.Resources.See_all ></a>
+            </div>
+            <div class="sect-panel">
+                <div class="content-wrap">
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                        @foreach (var game in Model.popularGames)
+                        {
+                            <li>
+                                <div>
+                                    <div class="games-thumb">
+                                        <a href="@GameHelper.GenerateLinkGame(game)">
+                                            <img src="@game.banner_filename">
+                                        </a>
+                                    </div>
+                                    <a href="@GameHelper.GenerateLinkGame(game)"><h5>@game.name</h5></a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </section>
+}
+
+@if (Model.games != null && Model.games.Any())
+{
+    <section class="coming-soon row">
+        <div class="large-12 columns">
+            <div class="sect-title-bar">
+                <h6 class="sect-title">@Resources.Resources.Coming_Soon</h6>
+                <p> - @Resources.Resources.Coming_soon_encourage</p>
+                <a class="nml-link" href="@Url.Action("index", "game" )">@Resources.Resources.See_all ></a>
+            </div>
+            <div class="sect-panel">
+                <div class="content-wrap">
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                        @foreach (var game in Model.games)
+                        {
+                            <li>
+                                <div>
+                                    <div class="games-thumb">
+                                        <a href="@GameHelper.GenerateLinkGame(game)">
+                                            <img src="@game.banner_filename">
+                                        </a>
+                                    </div>
+                                    <a href="@GameHelper.GenerateLinkGame(game)"><h5>@game.name</h5></a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="sect-end-bar">
+            </div>
+        </div>
+    </section>
+}
+
+<section class="bottom-cta">
+    <div class="cta-signup">
+        <h3>Join our gaming community and get access to hundreds of exciting titles</h3>
+        <a href="/account/register" class="g-nml-button" id="abtest-signup-2" onclick="ga('send', 'event', 'button', 'click', 'cta - signup bottom');">
+            @Resources.Resources.SignUp_1_Free
+            <img src="/static/images/tiny_gtoken.png" class="img-token">
+        </a>
+    </div>
+</section>
+
+
+@section foot_js_lib {
+
+    <script type="text/javascript" src="/bower_components/slick.js/slick/slick.min.js"></script>
+}
+
+@section page_foot_js{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#feature-games-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                autoplay: false,
+                autoplaySpeed: 10000,
+                arrows: false,
+                pauseOnHover: true
+            });
+        });
+
+        $(document).ready(function () {
+            $('#goplay-features').slick({
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+
+            });
+        });
+    </script>
+}
+
+<!--    $(window).bind("load resize scroll",function(e) {
+        var y = $(window).scrollTop();
+
+        $(".hero-container").filter(function() {
+            return $(this).offset().top < (y + $(window).height()) &&
+                   $(this).offset().top + $(this).height() > y;
+        }).css('background-position', '50%' + parseInt(-y / 20) + 'px');
+    });
+-->

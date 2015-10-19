@@ -1,0 +1,281 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GToken.Dal.Models.Game
+
+@using Newtonsoft.Json.Linq
+@using GoPlay.Web.Helpers
+@using GoPlay.Web.Helpers.Extensions
+@{
+    var gameHelper = new GameHelper();
+
+    var silderImages = Newtonsoft.Json.Linq.JObject.Parse(Model.slider_images)["images"];
+    var downloadLink = gameHelper.getDownloadLinksForCurrentUser(Model, Html.GetCurrentUser(), Request.GetRequestIP());
+    DateTimeOffset updated_at = DateTime.SpecifyKind(@Model.updated_at, DateTimeKind.Utc);
+}
+
+@section page_stylesheets{
+
+    <link rel="stylesheet" href="/static/stylesheets/games/games_detail.css" />
+}
+
+@section open_graph_meta_tags{
+    <meta property="og:image"
+          content="@Url.Action("static", new{filename=gameHelper.getThumbFilename(Model).Split('/')})" />
+    <meta property="og:site_name" content="GToken" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="@Model.short_description.GetValueFromJsonString("en")" />
+}
+
+<div class="game-detail-container">
+
+    <div class="game-intro row">
+        <div class="large-12 columns page-links-wrap">
+            <span class="page-links">
+                <a href="@Url.Action("index", "game")">@Resources.Resources.Games</a>
+                <a href="">@Model.name</a>
+            </span>
+        </div>
+
+        <div class="large-4 columns game-cover">
+
+            <div class="cover-img">
+                @if (gameHelper.isComingSoon(Model, Html.GetCurrentUser(), Request.GetRequestIP()))
+                {
+                    <p class="upcoming-text">@Resources.Resources.Coming_Soon</p>
+                    <img class="upcoming-game" src="/static/images/coming-soon-stripe.png">
+                }
+                <img src="@Model.banner_filename" alt="">
+            </div>
+        </div>
+        <div class="large-8 columns intro-info">
+            <section class="game-title-intro">
+                <h2>@Model.name</h2>
+
+                <p>
+                    <a href="">{{ game.studio.name }}</a> -
+                    @if (gameHelper.isComingSoon(Model, Html.GetCurrentUser(), Request.GetRequestIP()))
+                    {
+                        updated_at.ToOffset(ViewBag.TimeZoneOffset).ToString("g");
+                    }
+                </p>
+                <a href="">@gameHelper.getLocalized(Model, "genre")</a>
+            </section>
+            <section class="game-action-intro">
+                <ul>
+                    <li class="game-download no-flick">
+                        @if (downloadLink["apple"] != null)
+                        {
+                            <a href="@downloadLink["apple"]" class="game-download-link appstore">
+                            </a>
+                        }
+                        @if (downloadLink["google"] != null)
+                        {
+                            <a href="@downloadLink["google"]" class="game-download-link android">
+                            </a>
+                        }
+                        @if (@downloadLink["pc"] != null)
+                        {
+                            if (@Model.name.ToLower() == "endgods")
+                            {
+                                <a href="@downloadLink["pc"]" class="game-download-link pc button split">
+                                    <span class="red-noti" data-dropdown="download-notify-drop" data-options="is_hover:true" aria-expanded="true"></span>
+                                </a>
+                                <ul id="download-notify-drop" class="f-dropdown" data-dropdown-content>
+                                    <li>
+                                        If you are upgrading EndGods PC build from 2.0.7, you will need to uninstall the game first
+                                        before installing the newer version. If you are upgrading from 2.0.8 then you can just
+                                        run the newer version installer.
+                                    </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <a href="@downloadLink["pc"]" class="game-download-link pc"></a>
+                            }
+                        }
+
+                        @if (@downloadLink["apk"] != null)
+                        {
+                            <a href="@downloadLink["apk"]" class="game-download-link apk">
+                            </a>
+                        }
+                    </li>
+                    <li class="star-container">
+                        <div class="star-rating">
+                            <div class="current-rating"></div>
+                        </div>
+                        <div class="rating-count">
+                            <p>127 Ratings</p>
+                        </div>
+                    </li>
+                    <li class="support-links">
+                        <a href="@Url.Action("support", "main")">@Resources.Resources.Support</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="game-screenshot">
+        <div class="row">
+            <div class="large-12 columns">
+                @if (Model.slider_images.GetValueFromJsonString("images").Length > 0)
+                {
+                    <ul>
+
+                        @foreach (var slider in silderImages)
+                        {
+                            <li><a href=""><img src="@slider["filename"]" alt=""></a></li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="game-additional-info row">
+        <div class="large-4 columns game-statistic">
+            <section class="statistic">
+                <h5>Additional Information</h5>
+                <ul>
+                    <li>
+                        <span class="app-icon">
+                            <img src="@Model.icon_filename" alt="">
+                            <div class="app-name">
+                                <a href="">@Model.name</a>
+                                <a href="">{{ game.studio.name }}</a>
+                            </div>
+                        </span>
+                        <br class="clear-fix" />
+                    </li>
+                    @if (!String.IsNullOrEmpty(gameHelper.getLocalized(Model, "genre")))
+                    {
+                        <li>@Resources.Resources.Genre<span>@gameHelper.getLocalized(Model, "genre")</span><br class="clear-fix" /></li>
+                    }
+                    @if (gameHelper.isComingSoon(Model, Html.GetCurrentUser(), Request.GetRequestIP()))
+                    {
+                        if (Model.released_at != null)
+                        {
+                            DateTimeOffset date = DateTime.SpecifyKind(@Model.released_at.Value, DateTimeKind.Utc);
+                            <li>@Resources.Resources.Release_Date<span>@date.ToOffset(ViewBag.TimeZoneOffset).ToString("g")</span><br class="clear-fix" /></li>
+                        }
+                    }
+                    else
+                    {
+                        <li>@Resources.Resources.Updated<span>@updated_at.ToOffset(ViewBag.TimeZoneOffset).ToString("g")</span><br class="clear-fix" /></li>
+                        <li>@Resources.Resources.Size<span>@Model.file_size</span><br class="clear-fix" /></li>
+                        <li>@Resources.Resources.Current_Version<span>@Model.current_version</span><br class="clear-fix" /></li>
+                    }
+                    @if (!String.IsNullOrEmpty(gameHelper.getLocalized(Model, "content_rating")))
+                    {
+                        <li>@Resources.Resources.Content_Rating<span>@gameHelper.getLocalized(Model, "content_rating") </span><br class="clear-fix" /></li>
+                    }
+                </ul>
+            </section>
+            <section class="recommendation">
+                <h5>@Resources.Resources.Other_Recommendations</h5>
+
+                <div class="recom-game">
+                    <a href=""><img src="/static/images/recom-game-cover.png" alt=""></a>
+
+                    <div class="recom-game-name">
+                        <a href="">Slamdunk Battle</a>
+                        <a href="">Lechao Ltd</a>
+                        <span class="platform">
+                            <a class="gplay-plat" href=""></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="recom-game">
+                    <a href=""><img src="/static/images/recom-game-cover.png" alt=""></a>
+
+                    <div class="recom-game-name">
+                        <a href="">Slamdunk Battle</a>
+                        <a href="">Lechao Ltd</a>
+                        <span class="platform">
+                            <a class="gplay-plat" href=""></a>
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="large-8 columns game-description">
+            <section class="introduction" ng-init="isCollapsed = true">
+                <h5>@Resources.Resources.Introduction</h5>
+                @if (!String.IsNullOrEmpty(@gameHelper.getLocalized(Model, "content_rating")) && @gameHelper.getLocalized(Model, "content_rating").Length >= 150
+                                  )
+                {
+                    <div class="intro-text" ng-class="{collapsed: isCollapsed}">
+                        @Html.Raw(@gameHelper.getLocalized(Model, "description")))
+                        <div class="fadeout"></div>
+                    </div>
+                    <a class="toggle-collapse-button" href="" ng-show="isCollapsed" ng-click="isCollapsed = false">
+                        @Resources.Resources.See_More
+                    </a>
+                    <a class="toggle-collapse-button" href="" ng-show="!isCollapsed" ng-click="isCollapsed = true">
+                        @Resources.Resources.See_Less
+                    </a>
+                }
+                else
+                {
+                    <div class="intro-text">
+                        @Html.Raw(@gameHelper.getLocalized(Model, "description")))
+                    </div>
+                }
+            </section>
+            @if (gameHelper.getLocalized(Model, "current_changelog").Length > 0)
+            {
+                <section class="lasted-ver">
+                    <h5>
+                        What's New in Latest Version ?
+                        &nbsp;
+                        <i>v."@Model.current_version" - @updated_at.ToOffset(ViewBag.TimeZoneOffset).ToString("g") </i>
+                    </h5>
+
+                    <div class="changelog-text">
+                        @Html.Raw(@gameHelper.getLocalized(Model, "current_changelog"))
+                    </div>
+                </section>
+            }
+            <section class="share-joy">
+                <h5>Share Your Joy</h5>
+                <!-- Facebook JS SDK -->
+                <div id="fb-root"></div>
+                <script>
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-like" data-href="https://gtoken.com" data-layout="button_count" data-action="like"
+                     data-show-faces="false" data-share="true"></div>
+                <br><br>
+                <!-- Facebook JS SDK -->
+                <!-- Twitter Button -->
+                <script>
+                    !function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');</script>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://gtoken.com"
+                   data-text="GToken - A better way to enhance your gaming experience" data-via="khangnamnguyen"
+                   data-size="large" data-hashtags="gtoken">Tweet</a>
+                <!-- Twitter Button -->
+            </section>
+        </div>
+    </div>
+
+</div>
+@Html.Partial("Includes/bottom_call_to_action_register")
+
+

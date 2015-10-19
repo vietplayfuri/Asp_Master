@@ -1,0 +1,109 @@
+﻿@using Platform.Models
+@using Platform.Utility
+@model GoPlay.Web.Areas.Admin.Models.AdminUserModel
+@{
+    ViewBag.Title = Resources.Resources.Users;
+}
+
+<link href="~/static/js/libs/foundation-datetimepicker/example/stylesheets/foundation-datepicker.css" rel="stylesheet" />
+
+<div>
+    <div class="row">
+        <h1>@Resources.Resources.Users</h1>
+        <form class="model-form" method="post">
+            <div class="row">
+                <div class="small-3 columns">
+                    <input id="username" name="username" placeholder="Nick, username or email" type="text" value='@Model.username'>
+                </div>
+                <div class="small-3 columns">
+                    <input id="referrer" name="referrer" placeholder="Referrer nick, username or email" type="text" value="@Model.referrer">
+                </div>
+                <div class="small-3 columns">
+                    @Html.DropDownListFor(m => m.account_manager, Model.account_managers.Select(x => new SelectListItem() { Text = x, Value = x }))
+                </div>
+                <div class="small-3 columns">
+                    @Html.DropDownListFor(m => m.game_id, Model.games.Select(x => new SelectListItem() { Text = x.name, Value = x.id.ToString() }))
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <input id="regStartTime" name="regStartTime" placeholder="Registered from" type="datetime" value="@Model.regStartTime">
+                </div>
+                <div class="small-3 columns">
+                    <input id="regEndTime" name="regEndTime" placeholder="Until" type="datetime" value="@Model.regEndTime">
+                </div>
+                <div class="small-3 columns">
+                    <input id="loginStartTime" name="loginStartTime" placeholder="Log in from" type="datetime" value="@Model.loginStartTime">
+                </div>
+                <div class="small-3 columns">
+                    <input id="loginEndTime" name="loginEndTime" placeholder="Until" type="datetime" value="@Model.loginEndTime">
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    @Html.DropDownListFor(m => m.timezone, Helper.GetTimeZones().Select(x => new SelectListItem() { Text = x.DisplayName, Value = x.Id }))
+                </div>
+            </div>
+            <div class="row">
+                <input class="button small" id="query" name="query" type="submit" value="Query">
+                <input class="button small" id="export" name="export" type="submit" value="Export">
+            </div>
+        </form>
+    </div>
+    <div class="table-wrap">
+        <table class="wide-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nickname</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Play Token</th>
+                    <th>Free Play Token</th>
+                    <th>VIP</th>
+                    <th>Source</th>
+                    <th>Country</th>
+                    <th>Register time</th>
+                    <th>Last login at</th>
+                    <th>Recommender</th>
+                    <th>Account Manager</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.users != null && Model.users.Any())
+                {
+                    var est = TimeZoneInfo.FindSystemTimeZoneById(Model.timezone);
+                    foreach (var user in Model.users)
+                    {
+                        user.created_at = TimeZoneInfo.ConvertTimeFromUtc(user.created_at, est);
+                        user.last_login_at = TimeZoneInfo.ConvertTimeFromUtc(user.last_login_at, est);
+                        <tr>
+                            <td><a href="/admin/user/@(user.id)">@user.id</a></td>
+                            <td>@user.nickname</td>
+                            <td>@user.username</td>
+                            <td>@user.email</td>
+                            <td>@user.play_token</td>
+                            <td>@user.free_play_token</td>
+                            <td>@user.vip</td>
+                            <td>@(!string.IsNullOrEmpty(user.game_name) ? user.game_name : "Website")</td>
+                            <td>@user.country_name</td>
+                            <td>@user.created_at.ToString(ConstantValues.S_DATETIME_FORMAT)</td>
+                            <td>@user.last_login_at.ToString(ConstantValues.S_DATETIME_FORMAT)</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(user.inviter_username))
+                                {
+                                    <a href="@Url.Action("UserName", "user", new{area="admin", username=user.inviter_username})">@user.inviter_username</a>
+                                }
+                            </td>
+                            <td>@(!string.IsNullOrEmpty(user.account_manager) ? user.account_manager : string.Empty)</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section page_foot_js{
+    <script src="~/static/js/libs/foundation-datetimepicker/example/js/foundation-datetimepicker.js"></script>
+    <script src="/static/js/admin/transaction.js"></script>
+}

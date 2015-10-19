@@ -1,0 +1,51 @@
+﻿@model GoPlay.Models.Active_page
+@using Resources
+@using GoPlay.Models
+@{
+    var currentUser = Html.GetCurrentUser();
+}
+<section class="account-topbar cover-pic">
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="user-account">
+                <div class="account-content">
+                    <a class="user-avatar" href="account/profile"><img src="@currentUser.avatar_filename"></a>
+                    <a href="account/profile" class="user-name">
+                        <h2>@currentUser.display_name</h2><!--<h6> (username)</h6>-->
+                    </a>
+                </div>
+                <div class="account-nav-bar">
+                    <ul>
+                        @{
+                            string activeProfile = string.Empty;
+                            string activeTrans = string.Empty;
+                            string activeFriend = string.Empty;
+                            switch (Model)
+                            {
+                                case Active_page.Profile:
+                                    activeProfile = "acc-nav-link-active";
+                                    break;
+                                case Active_page.Transaction:
+                                    activeTrans = "acc-nav-link-active";
+                                    break;
+                                case Active_page.Friend:
+                                    activeFriend = "acc-nav-link-active";
+                                    break;
+                                default:
+                                    break;
+                            }
+                            if (Model == Active_page.Profile)
+                            {
+
+                            }
+                        }
+                        <li><a class="@activeProfile" target="_self" href="@Url.Action("profile", "account")" data-active-page="@activeProfile">@Resources.Profile</a></li>
+                        <li><a class="@activeTrans" target="_self" href="@Url.Action("index", "transaction")">@Resources.Transactions</a></li>
+                        <li><a class="@activeFriend" target="_self" href="@Url.Action("index", "friend")">@Resources.Friends</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = @Resources.Resources.Partners;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string urlPartners = "/partners";
+
+    string partner = (Request.Url.Segments.Count() > 2 && !string.IsNullOrEmpty(Request.Url.Segments[2])) ? Request.Url.Segments[2] : string.Empty;
+    bool isGDine = partner == "GDine";
+    bool isGoPlay = partner == "GoPlay";
+    bool isIAH = partner == "IAH";
+
+    string href = string.Empty;
+    if (isGoPlay)
+        href = "http://goplay.la";
+    else if (isIAH)
+        href = "http://www.iahgames.com";
+}
+
+@section page_stylesheets{
+    <link rel="stylesheet" href="/static/stylesheets/static_pages.css" />
+}
+
+
+<section class="main-section">
+    <div class="content row">
+        <div class="columns medium-8 large-8 medium-centered">
+            <ul class="breadcrumbs">
+                <li><a href="@urlPartners">Partners</a></li>
+                <li class="current"><a href="#">@partner</a></li>
+            </ul>
+            <div class="panel">
+                <p class="partner-title clearfix">
+                    <img src="/static/images/partners/@(partner.ToLower())1.png" class="partner-logo" alt="">
+                    @if (!isGDine)
+                    {
+                        <a href="@href" class="partner-link">Visit website</a>
+                    }
+                </p>
+                <div class="orbit-container partner-slider">
+                    <ul data-orbit>
+                        @if (isGoPlay)
+                        {
+                            <li class="active" data-orbit-slide="slide-1">
+                                <img src="/static/images/partner-details/goplay/Goplay1.jpg" alt="slide 1" />
+                                <div class="orbit-caption">
+                                    Caption One.
+                                </div>
+                            </li>
+                            <li data-orbit-slide="slide-2">
+                                <img src="/static/images/partner-details/goplay/Goplay2.jpg" alt="slide 2" />
+                                <div class="orbit-caption">
+                                    Caption Two.
+                                </div>
+                            </li>
+                            <li data-orbit-slide="slide-3">
+                                <img src="/static/images/partner-details/goplay/Goplay3.jpg" alt="slide 3" />
+                                <div class="orbit-caption">
+                                    Caption Three.
+                                </div>
+                            </li>
+                        }
+                        @if (isGDine)
+                        {
+                            <li class="active" data-orbit-slide="slide-1">
+                                <img src="/static/images/partner-details/GDine/GDine1.jpg" alt="slide 1" />
+                                <div class="orbit-caption">
+                                    Caption One.
+                                </div>
+                            </li>
+                            <li data-orbit-slide="slide-2">
+                                <img src="/static/images/partner-details/GDine/GDine2.jpg" alt="slide 2" />
+                                <div class="orbit-caption">
+                                    Caption Two.
+                                </div>
+                            </li>
+                            <li data-orbit-slide="slide-3">
+                                <img src="/static/images/partner-details/GDine/GDine3.jpg" alt="slide 3" />
+                                <div class="orbit-caption">
+                                    Caption Three.
+                                </div>
+                            </li>
+                        }
+                        @if (isIAH)
+                        {
+                            <li class="active" data-orbit-slide="slide-1">
+                                <img src="/static/images/partner-details/IAH/IAH1.jpg" alt="slide 1" />
+                                <div class="orbit-caption">
+                                    Caption One.
+                                </div>
+                            </li>
+                            <li data-orbit-slide="slide-2">
+                                <img src="/static/images/partner-details/IAH/IAH2.jpg" alt="slide 2" />
+                                <div class="orbit-caption">
+                                    Caption Two.
+                                </div>
+                            </li>
+                            <li data-orbit-slide="slide-3">
+                                <img src="/static/images/partner-details/IAH/IAH3.jpg" alt="slide 3" />
+                                <div class="orbit-caption">
+                                    Caption Three.
+                                </div>
+                            </li>
+                        }
+                    </ul>
+
+                    <div class="orbit-control">
+
+                        <a class="orbit-nav prev">&lt;</a>
+                        <ol class="orbit-bullets">
+                            <li data-orbit-link="slide-1"></li>
+                            <li data-orbit-link="slide-2"></li>
+                            <li data-orbit-link="slide-3"></li>
+                        </ol>
+                        <a class="orbit-nav next">&gt;</a>
+                    </div>
+                </div>
+                @if (isGoPlay)
+                {
+                    <p>GoPlay is part of GToken group of lifestyle companies, with presence in Singapore, Malaysia, Thailand, Vietnam, Indonesia and China serving over 60,000 registered gamers.<br /><br />GoPlay publishes quality mobile games in SE Asia, specializes in matchmaking high-value gamers possessing great spending power with mobile games developed by established developers, maximizing growth in this fast growing industry.<br /><br />GoPlay co-publishes exciting games with intriguing and innovative game-play like "EndGods", "Pocket Heroes", "Overkill 3" and many more titles of different genres to cater to discerning players.<br /><br />GoPlay works closely with industry partners and upcoming developers to develop the mobile gaming industry by engaging users to play, learn and discover the joys of gaming, providing premium venue for face-to-face interaction while gaming at GToken Clubs around the world. GoPlay assists developers by providing development funding, localization, marketing and game management support from our committed and professional team.</p>
+                }
+                @if (isGDine)
+                {
+                    <p>The latest addition to Gtoken is <a href="http://www.gdine.co">Gdine.co</a>. We love to eat and dining has become a lifestyle.<br /><br />GDine provides diners savings and convenience when it comes to dinning. GDine can be used across at participating merchants. GDine is the gateway to your dining privileges.<br /><br />GDine aims to work closely with F&B merchants. For merchants, GDine will publish and promote your establishments to the pool of existing members. Click <a href="mailto:melvin@gtoken.com">here</a> to find out more on how you can work with GDine as a merchant.<br /><br />Come to <a href="http://www.gdine.co">GDine</a> now for the latest promotion, offers and dining privileges.</p>
+                }
+                @if (isIAH)
+                {
+                    <p>Success in the diverse and intricate Southeast Asian market depends on a combination of knowledge, experience and resources.<br /><br />Infocomm Asia Holdings aims to consolidate the online games market in Southeast Asia and be the leading operator and distributor in the region.<br /><br />We offer publishers and developers a single point of access to bring the best games from around the world to gamers in Southeast Asia.<br /><br />We have the local knowledge, management experience and technical expertise necessary to be successful in this diverse market.</p>
+                }
+
+                @if (Html.GetCurrentUser() == null)
+                {
+                    <hr>
+                    <div class="row partner-cta">
+                        <div class="columns large-7 small-text-center large-text-left cta-text">Join to get hundreds of great discounts from us</div>
+                        <div class="columns large-5 small-text-center large-text-right cta-button">
+                            <a href="/" class="button large">Sign up - It's free</a>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>

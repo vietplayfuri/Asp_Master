@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "ImportReferral";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using GToken.Web.Helpers.Extensions
+@model GToken.Areas.Admin.Models.ImportReferalViewModel
+
+
+<div class="row">
+    <h2>Import referral campaign</h2>
+</div>
+<div class="row" ng-controller="ImportRefferralCtrl">
+    <form action="@Url.Action("ImportReferral", "Referral", new { Area = "Admin" })" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="small-8 columns">
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Game</label>
+                    </div>
+                    @*<div class="small-9 columns">
+                            @Html.DropDownListFor(m => m.campaign_id, Model.referral_campaigns.Select(x => new SelectListItem() { Text = x.title, Value = x.id.ToString() }),
+                            new
+                            {
+                                id = "campaign-select",
+                                ng_model = "referral_campaign",
+                                ng_change = "change_Referral_campaign()",
+                            })
+                        </div>*@
+
+                    <div class="small-9 columns">
+
+                        <select name="campaign_id" id="campaign-select"
+                                ng-options="option.name for option in list_campaigns track by option.id"
+                                ng_change="change_Referral_campaign()"
+                                ng-model="referral_campaign"></select>
+
+                        @*@Html.DropDownListFor(m => m.campaign_id, Model.referral_campaigns.Select(x => new SelectListItem() { Text = x.title, Value = x.id.ToString() }), new { @onchange = "angular.element(this).scope().reValidateFile()" })*@
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">File name(.csv):</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <input type="file" name="file" id="csv-file" accept=".csv" onchange="angular.element(this).scope().handleFileSelect(event)" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Total:</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <span for="right-label" class="right inline">{$ total $}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Used:</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <span for="right-label" class="right inline">{$ used $}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="right-label" class="right inline">Percent:</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <span for="right-label" class="right inline">{$ percent $}</span>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="small-3 columns">
+                    </div>
+                    <div class="small-9 columns">
+                        @if (Model.errorMsg != null && Model.errorMsg.Any())
+                        {
+                            foreach (var item in Model.errorMsg)
+                            {
+                                <small class="error">@item</small>
+                            }
+                        }
+                    </div>
+                </div>
+                @if (Model.ImportResult != null && Model.ImportResult.ImportResult != null)
+                {
+                    <div class="row">
+                        <div class="small-3 columns">
+                        </div>
+                        <div class="small-9 columns">
+                            ============
+                            <br />
+                            IMPORT
+                            <br />
+                            Total : @Model.ImportResult.ImportResult.total
+                            <br />
+                            Pass: @Model.ImportResult.ImportResult.pass
+                            <br />
+                            Failed : @Model.ImportResult.ImportResult.failed
+                            <br />
+                            Click to download <a href="@string.Format("/admin/referral/download/import/{0}", Model.ImportResult.id)"
+                                                 ng-attr-href="@string.Format("/admin/referral/download/import/{0}", Model.ImportResult.id)">Imported file</a>
+                            <br />
+                            @if (!string.IsNullOrEmpty(Model.ImportResult.ImportResult.file_path))
+                            {
+                                <span>
+                                    Click to download <a href="@string.Format("/admin/referral/download/fail/{0}", Model.ImportResult.id)"
+                                                         ng-attr-href="@string.Format("/admin/referral/download/fail/{0}", Model.ImportResult.id)">Failed List</a>
+                                </span>
+
+                                <br />
+                            }
+                            ============
+                        </div>
+                    </div>
+                }
+
+                <br />
+                <div class="row">
+                    <button type="submit">Import</button>
+                    <a href="@Url.Action("Index", "Referral", new { Area = "Admin" })" class="button">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <h4>Import history</h4>
+    <br />
+
+    <div class="table-wrap" ng-init="init()">
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Game</th>
+                    <th>File Name</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                    <th>Failed Result</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="history in importHistory" class="ng-scope">
+                <tr>
+                    <td>{$ history.campaign_name $}</td>
+                    <td class="ng-binding" scope="row">{$ history.game_name $}</td>
+                    <td class="ng-binding" scope="row">{$ history.file_name $}</td>
+                    <td>{$ history.created_at $}</td>
+                    <td><a ng-attr-href="{$ history.file_path $}">Download</a></td>
+                    <td ng-if="history.failed_path.length > 0">
+                        <a ng-attr-href="{$ history.failed_path $}">Download</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@section page_foot_js{
+    <script src="~/static/js/admin/import-referral.js"></script>
+    <script src="~/static/libs/papaparse.min.js"></script>
+}
+

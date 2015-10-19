@@ -1,0 +1,116 @@
+﻿@using GoPlay.Web.Areas.Admin.Models
+@using GoPlay.Models
+@model AdminExchangeModel
+@{
+    ViewBag.Title = Resources.Resources.Games;
+    string formatView = "/admin/exchange/{0}/{1}";
+    string formatEdit = "/admin/exchange/{0}/{1}/edit";
+}
+
+<div class="row">
+    <h1>Exchange Options</h1>
+    <h2> Credit Types </h2>
+
+    <table class="creditTypes-table model-table" role="grid">
+        <thead>
+            <tr>
+                <th class="id width-10">ID</th>
+                <th class="width-10">Icon</th>
+                <th>Name</th>
+                <th class="width-15">Game</th>
+                <th class="width-15">Exchange Rate</th>
+                <th class="width-15">Free Exchange Rate</th>
+                <th class="width-10">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.CreditTypes != null && Model.CreditTypes.Any())
+            {
+                foreach (var creditType in Model.CreditTypes)
+                {
+                    <tr id="creditType-row@(creditType.id)">
+                        <td>@(creditType.id)</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(creditType.icon_filename))
+                            {
+                                <img src="@creditType.icon_filename" alt="" width="64" height="64" />
+                            }
+                            else
+                            {
+                                @("None")
+                            }
+                        </td>
+                        <td>@creditType.name</td>
+                        <td>@creditType.game_name</td>
+                        <td>@creditType.exchange_rate (per Play Token)</td>
+                        <td>@creditType.free_exchange_rate (per Play Token)</td>
+                        <td class="model-actions">
+                            <ul class="stack button-group">
+
+                                <li><a class="button small" href="@(string.Format(formatView, "creditType", creditType.id))">View</a></li>
+                                <li><a class="button small" href="@(string.Format(formatEdit, "creditType", creditType.id))">Edit</a></li>
+
+
+                                <li>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+    <h2> Packages </h2>
+    @if (Html.ViewContext.Controller.HasRole(GoPlayConstantValues.S_ROLE_GAME_ADMIN))
+    {
+        <a class="button" href="/admin/exchange/package/add">Add Package</a>
+    }
+    <table class="packages-table model-table" role="grid">
+        <thead>
+            <tr>
+                <th class="id width-10">ID</th>
+                <th class="width-10">Icon</th>
+                <th>Name</th>
+                <th class="width-15">Game</th>
+                <th class="width-15">Play Token Value</th>
+                <th class="width-15">Free Play Token Value</th>
+                <th class="width-10">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Packages != null && Model.Packages.Any())
+            {
+                foreach (var package in Model.Packages)
+                {
+                    <tr id="packge-row@(package.id)">
+                        <td>@package.id</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(package.icon_filename))
+                            {
+                                <img src="@package.icon_filename" alt="" width="64" height="64" />
+                            }
+                            else
+                            {
+                                @("None")
+                            }
+                        </td>
+                        <td>@package.name</td>
+                        <td>@package.game_name</td>
+                        <td>@package.play_token_value Play Token</td>
+                        <td>@package.free_play_token_value Free Play Token</td>
+                        <td class="model-actions">
+                            <ul class="stack button-group">
+                                <li><a class="button small" href="@(string.Format(formatView, "package", package.id))">View</a></li>
+                                <li><a class="button small" href="@(string.Format(formatEdit, "package", package.id))">Edit</a></li>
+                                <li>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

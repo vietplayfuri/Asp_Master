@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Partners";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section page_stylesheets{
+    <link href="~/static/stylesheets/account/partners.css" rel="stylesheet" />
+    <link href="~/bower_components/slick.js/slick/slick.css" rel="stylesheet" />
+}
+
+<div>
+    <div class="page-container main-page">
+        <div class="small-12 medium-12">
+            <div class="wow fadeIn animated" id="food-slider">
+                
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-2.jpg" alt="">
+                </div>
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-3.jpg" alt="">
+                </div>
+                <div class="food-slide">
+                    <img src="~/static/images/slider/slide-4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="text-center">
+                <h4>OUR DINING PARTNERS</h4>
+            </div>
+            <div class="small-12 text-center slogan">
+                SATISFACTION GUARANTEED!
+            </div>
+            <br />
+            <div class="small-12  text-center">
+                <img src="~/static/images/Rounded-Rectangle.png" />
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="row small-12">
+                <div class="small-12 medium-3 columns text-center">
+                    <img src="~/static/images/ghouse-logo.png" />
+                </div>
+                <div class="ghouse-introduce small-12 medium-9 columns">
+                    A wide selection of cuisines awaits you. With menus specially crafted for you, the kitchen, run by a group of talented and inspired individuals will ensure that every calorie spent is well deserved.
+                    The outdoor bistro area is a great place to enjoy dining or coffee catch-up sessions with your loved ones and friends.
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row small-12">
+                <div class="small-12 medium-3 columns text-center">
+                    <img src="~/static/images/Litle-house-logo.png" />
+                </div>
+                <div class="ghouse-introduce small-12 medium-9 columns">
+                    How about desserts and pastries after your meal? Enjoy the sinfully delicious delights freshly baked by Little House of Dreams. The mouth-watering selection of cupcakes, cakes, waffles and other sweet treats will complete your meal on the right note.
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/bower_components/slick.js/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#food-slider').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 10000
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+

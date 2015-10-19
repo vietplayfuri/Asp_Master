@@ -1,0 +1,1751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Awesome_games_supported" xml:space="preserve">
+    <value>AWESOME GAMES SUPPORTED</value>
+  </data>
+  <data name="A_better_way" xml:space="preserve">
+    <value>A better way</value>
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value>Clubs</value>
+  </data>
+  <data name="Dedicated_staffs_to_provide_assistance" xml:space="preserve">
+    <value>Dedicated staffs to provide assistance. Need technical support or a friend to play with? We are here for you!</value>
+  </data>
+  <data name="Discover_fun_unique" xml:space="preserve">
+    <value>Discover fun, unique and innovative games from up-and-coming developers!</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="Introducing_GToken" xml:space="preserve">
+    <value>Introducing GToken</value>
+  </data>
+  <data name="It_transferable" xml:space="preserve">
+    <value>It’s transferable</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>News</value>
+    <comment>Header</comment>
+  </data>
+  <data name="Share_PlayToken_Token_with_your_friends" xml:space="preserve">
+    <value>Share PlayToken Token with your friends and loved ones, and empower them with the freedom to upgrade whichever games they like to play ♥</value>
+  </data>
+  <data name="Signup" xml:space="preserve">
+    <value>Sign Up</value>
+    <comment>Register page</comment>
+  </data>
+  <data name="Simply_because" xml:space="preserve">
+    <value>Simply because...</value>
+  </data>
+  <data name="Stay_supported" xml:space="preserve">
+    <value>Stay supported</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Terms</value>
+  </data>
+  <data name="to_enhance_your_gaming_experience" xml:space="preserve">
+    <value>to enhance your gaming experience</value>
+  </data>
+  <data name="Why_choose_GToken" xml:space="preserve">
+    <value>Why choose GToken ?</value>
+  </data>
+  <data name="Get_more_with_GToken" xml:space="preserve">
+    <value>Get more with GToken</value>
+  </data>
+  <data name="Get_special_deals_best_price" xml:space="preserve">
+    <value>Get special deals, best price for in-game items and exclusive content only available to our GToken members.</value>
+  </data>
+  <data name="Register_your_account_now" xml:space="preserve">
+    <value>Register your account now to get free Play Token and start playing today!</value>
+  </data>
+  <data name="A_Gateway_to_Play" xml:space="preserve">
+    <value>A Gateway to Play</value>
+  </data>
+  <data name="Home_page" xml:space="preserve">
+    <value>Home page</value>
+  </data>
+  <data name="We_hope_to_bring_happiness" xml:space="preserve">
+    <value>We hope to bring happiness and share the joy with you</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+    <comment>Register page</comment>
+  </data>
+  <data name="Available_from_Mon_Fri_11am_to_7pm" xml:space="preserve">
+    <value>Available from Mon - Fri, 11am to 7pm.</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Call_our_support_agent" xml:space="preserve">
+    <value>Call our support agent and get your answer immediately.</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Easy_simple_no_credit_card" xml:space="preserve">
+    <value>Easy &amp; simple, no credit card needed</value>
+  </data>
+  <data name="Games_that_GToken_distributes" xml:space="preserve">
+    <value>Games that GToken distributes</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Game_version" xml:space="preserve">
+    <value>game version</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="PlayToken_Token_is_a_digital_currency_platform" xml:space="preserve">
+    <value>PlayToken is a digital currency platform for mobile games that delivers greater choices, convenience and simplicity to our customers in all that we do.We seek out popular and quality games to introduce to our users. We reward our users who achieve VIP status with loyalty rewards, which can be used to redeem exclusive and limited edition items for the games you play.</value>
+  </data>
+  <data name="GToken_is_a_gateway_to_play" xml:space="preserve">
+    <value>GToken is a gateway to play: when you play, you get happiness. We hope to bring happiness and share the joy with your friends and loved ones when you play with us.</value>
+  </data>
+  <data name="GToken_website" xml:space="preserve">
+    <value>GToken website</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Need_Immediate_Help" xml:space="preserve">
+    <value>Need Immediate Help?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="OS_version" xml:space="preserve">
+    <value>OS version</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Our_customer_support_team" xml:space="preserve">
+    <value>Our customer support team are happy to answer your questions</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Phone_Call" xml:space="preserve">
+    <value>Phone Call</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Send_Us_A_Message" xml:space="preserve">
+    <value>Send Us A Message</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Send_your_message" xml:space="preserve">
+    <value>send your message</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Skype" xml:space="preserve">
+    <value>Skype</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>Subject</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="We_provide_our_undivided_attention" xml:space="preserve">
+    <value>We provide our undivided attention and support to our users who requires help and attention, be it regarding a technical issue, advice on how to clear a stage you are stuck with, or even a gaming companion when you wish to find someone you can play with. PlayToken is a gateway to play: when you play, you get happiness. We hope to bring happiness and share the joy with your friends and loved ones when you play with us.</value>
+  </data>
+  <data name="We_will_get_back_to_you_shortly" xml:space="preserve">
+    <value>We will get back to you shortly.</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="What_On_Your_Mind" xml:space="preserve">
+    <value>What's On Your Mind</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="WHAT_YOUR_ISSUE_ABOUT" xml:space="preserve">
+    <value>WHAT'S YOUR ISSUE ABOUT?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="WHICH_GAME_TROUBLES_YOU" xml:space="preserve">
+    <value>WHICH GAME TROUBLES YOU?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="YOUR_CURRENT_OS" xml:space="preserve">
+    <value>Your current OS?</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_device_model" xml:space="preserve">
+    <value>Your device model</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_email" xml:space="preserve">
+    <value>Your email</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_message" xml:space="preserve">
+    <value>Your Message</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Your_name" xml:space="preserve">
+    <value>Your name</value>
+    <comment>Support page</comment>
+  </data>
+  <data name="Already_a_member" xml:space="preserve">
+    <value>Already a member?</value>
+  </data>
+  <data name="Dont_have_an_account" xml:space="preserve">
+    <value>Don't have an account?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Forgot_Password" xml:space="preserve">
+    <value>Forgot Password ?</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="I_agree_to_GToken" xml:space="preserve">
+    <value>I agree to GToken's</value>
+  </data>
+  <data name="Login_and_having_fun" xml:space="preserve">
+    <value>Login and having fun!</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>Remember me</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="retype_email" xml:space="preserve">
+    <value>Retype Email</value>
+  </data>
+  <data name="Sign_up_get_1_free" xml:space="preserve">
+    <value>Sign up &amp; get 1 free</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Sign_up_get_a_free" xml:space="preserve">
+    <value>Sign up &amp; get a free</value>
+  </data>
+  <data name="Terms_of_Service" xml:space="preserve">
+    <value>Terms of Service</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Friends</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Log_Out" xml:space="preserve">
+    <value>Log Out</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>Transaction</value>
+    <comment>Header page</comment>
+  </data>
+  <data name="Username_and_or_password_are_not_correct" xml:space="preserve">
+    <value>*Username and/or password are not correct</value>
+    <comment>Login page</comment>
+  </data>
+  <data name="Coming_Soon" xml:space="preserve">
+    <value>Coming Soon</value>
+    <comment>Game page</comment>
+  </data>
+  <data name="Content_Rating" xml:space="preserve">
+    <value>Content Rating</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Current_Version" xml:space="preserve">
+    <value>Current Version</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Genre</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>Introduction</value>
+    <comment>Game deatal page</comment>
+  </data>
+  <data name="Other_Recommendations" xml:space="preserve">
+    <value>Other Recommendations</value>
+    <comment>Game deatail page</comment>
+  </data>
+  <data name="Release_Date" xml:space="preserve">
+    <value>Release Date</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="See_Less" xml:space="preserve">
+    <value>See Less</value>
+    <comment>Game deatal page</comment>
+  </data>
+  <data name="See_More" xml:space="preserve">
+    <value>See More</value>
+    <comment>Game deatal page</comment>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Updated</value>
+    <comment>Game detail page</comment>
+  </data>
+  <data name="Admin_Panel" xml:space="preserve">
+    <value>Admin Panel</value>
+  </data>
+  <data name="Get_to_know_more_about_us" xml:space="preserve">
+    <value>Get to know more about us</value>
+  </data>
+  <data name="PlayToken_News" xml:space="preserve">
+    <value>PlayToken News</value>
+  </data>
+  <data name="All_Genres" xml:space="preserve">
+    <value>All Genres</value>
+  </data>
+  <data name="All_Platforms" xml:space="preserve">
+    <value>All Platforms</value>
+  </data>
+  <data name="Games_List" xml:space="preserve">
+    <value>Games List</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>Platform</value>
+  </data>
+  <data name="Search_games" xml:space="preserve">
+    <value>Search games...</value>
+  </data>
+  <data name="Reset_password" xml:space="preserve">
+    <value>Reset password</value>
+    <comment>Reset Password Page</comment>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>Reset your password</value>
+    <comment>Reset Password Page</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Your_Username" xml:space="preserve">
+    <value>Your username</value>
+    <comment>Reset Password Page</comment>
+  </data>
+  <data name="Enter_New_Password" xml:space="preserve">
+    <value>Enter New Password</value>
+    <comment>Enter New Password</comment>
+  </data>
+  <data name="Retype_password" xml:space="preserve">
+    <value>Retype password</value>
+    <comment>Enter New Password</comment>
+  </data>
+  <data name="country" xml:space="preserve">
+    <value>Country</value>
+    <comment>Register page</comment>
+  </data>
+  <data name="Cannnot_find_this_country" xml:space="preserve">
+    <value>Cannot find this country</value>
+    <comment>Register</comment>
+  </data>
+  <data name="ReferralId_Optional" xml:space="preserve">
+    <value>Referral ID (Optional)</value>
+    <comment>Register page</comment>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>Select</value>
+    <comment>Register page</comment>
+  </data>
+  <data name="with_facebook" xml:space="preserve">
+    <value>WITH FACEBOOK</value>
+    <comment>Register page</comment>
+  </data>
+  <data name="Cannot_find_the_PlayToken_account_linked_to_Facebook" xml:space="preserve">
+    <value>Cannot find the PlayToken account linked to your Facebook account.</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="I_already_have_PlayToken_account" xml:space="preserve">
+    <value>I already have PlayToken account</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Login_and_Connect_my_Facebook" xml:space="preserve">
+    <value>Login and Connect my Facebook</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Login_PlayToken" xml:space="preserve">
+    <value>Login PlayToken</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Login_with_Facebook" xml:space="preserve">
+    <value>Login with Facebook</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Sign_Up_with_my_Facebook" xml:space="preserve">
+    <value>Sign Up with my Facebook</value>
+    <comment>Login Page</comment>
+  </data>
+  <data name="Exchange" xml:space="preserve">
+    <value>Exchange</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Exchange_your_PlayToken_for_in_game" xml:space="preserve">
+    <value>Exchange your PlayToken for in-game items and have fun playing</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Getting_Started" xml:space="preserve">
+    <value>Getting Started</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Get_more_PlayToken_and_exchange_in_game" xml:space="preserve">
+    <value>Get more PlayToken and exchange in-game items for a better rate</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="My_profile" xml:space="preserve">
+    <value>My profile</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Something_you_might_want_to_do" xml:space="preserve">
+    <value>Something you might want to do</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Top_Up" xml:space="preserve">
+    <value>Top Up</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Transfer_PlayToken_to_your_friends" xml:space="preserve">
+    <value>Transfer PlayToken to your friends and enjoy the fun together</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="You_have_played_games" xml:space="preserve">
+    <value>You have played {number} games</value>
+    <comment>Profile Page</comment>
+  </data>
+  <data name="Basic_Info" xml:space="preserve">
+    <value>Basic Info</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Cannot_find_this_country" xml:space="preserve">
+    <value>Cannot find this country</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>change</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>edit</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Edit_Profile" xml:space="preserve">
+    <value>Edit Profile</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="ex_LordofGame" xml:space="preserve">
+    <value>ex: LordofGame</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="hide" xml:space="preserve">
+    <value>hide</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Join_Date" xml:space="preserve">
+    <value>Join Date</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Referee" xml:space="preserve">
+    <value>Referee</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="referral_id_optional" xml:space="preserve">
+    <value>referral id (optional)</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Referral_Link" xml:space="preserve">
+    <value>Referral Link</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="show" xml:space="preserve">
+    <value>show</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Write_your_short_bio_here" xml:space="preserve">
+    <value>Write your short bio here...</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Your_Country" xml:space="preserve">
+    <value>Your Country</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Your_Nickname" xml:space="preserve">
+    <value>Your Nickname</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Your_Short_Bio" xml:space="preserve">
+    <value>Your Short Bio</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="characters_left" xml:space="preserve">
+    <value>{0} characters left</value>
+    <comment>Account Info</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Games_you_might_want_to_play_too" xml:space="preserve">
+    <value>Games you might want to play too</value>
+  </data>
+  <data name="Game_About" xml:space="preserve">
+    <value>Game About</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="Recommended_Games" xml:space="preserve">
+    <value>Recommended Games</value>
+  </data>
+  <data name="Screenshots" xml:space="preserve">
+    <value>Screenshots</value>
+  </data>
+  <data name="Update_in_Latest_Version" xml:space="preserve">
+    <value>Update in Latest Version</value>
+  </data>
+  <data name="Get_more_with_PlayToken" xml:space="preserve">
+    <value>Get more with PlayToken</value>
+    <comment>About</comment>
+  </data>
+  <data name="Get_special_deals" xml:space="preserve">
+    <value>Get special deals, best price for in-game items and exclusive content only available to our PlayToken members.</value>
+    <comment>About</comment>
+  </data>
+  <data name="PlayToken_is_a_gateway_to_play" xml:space="preserve">
+    <value>PlayToken is a gateway to play: when you play, you get happiness. We hope to bring happiness and share the joy with your friends and loved ones when you play with us.</value>
+    <comment>About</comment>
+  </data>
+  <data name="Share_Play_Token" xml:space="preserve">
+    <value>Share Play Token with your friends and loved ones, and empower them with the freedom to upgrade whichever games they like to play</value>
+    <comment>About</comment>
+  </data>
+  <data name="Why_choose_PlayToken" xml:space="preserve">
+    <value>Why choose PlayToken</value>
+    <comment>About</comment>
+  </data>
+  <data name="Come_and_hangout_with_us" xml:space="preserve">
+    <value>Come and hangout with us!</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Company_Address" xml:space="preserve">
+    <value>Company Address:</value>
+    <comment>Support</comment>
+  </data>
+  <data name="GToken_believes_that_gaming_is_about_connecting_people" xml:space="preserve">
+    <value>GToken believes that gaming is about connecting people and having fun, so we've committed ourselves to build lifestyle clubs all over SEA that are free to use for our members and friends, where people can hang out with like-minded people, connect to high-speed internet wifi, enjoy free refreshments while playing games and chilling out in a conducive environment.</value>
+    <comment>Club</comment>
+  </data>
+  <data name="GToken_Clubs" xml:space="preserve">
+    <value>GToken Clubs</value>
+    <comment>Club</comment>
+  </data>
+  <data name="GToken_Thailand_Co" xml:space="preserve">
+    <value>GToken (Thailand) Co., Ltd.</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Kuala_Lumpur_Malaysia" xml:space="preserve">
+    <value>Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Malaysia" xml:space="preserve">
+    <value>Malaysia</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Mountbatten_Road_Singapore" xml:space="preserve">
+    <value>229 Mountbatten Road Mountbatten Square #01-08/09/10 Singapore 398007</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>(Optional)</value>
+    <comment>Support</comment>
+  </data>
+  <data name="Select_game" xml:space="preserve">
+    <value>Select game</value>
+    <comment>Support</comment>
+  </data>
+  <data name="Send_Message" xml:space="preserve">
+    <value>Send Message</value>
+    <comment>Support</comment>
+  </data>
+  <data name="Singapore" xml:space="preserve">
+    <value>Singapore</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Srinakarin_Road_Thailand" xml:space="preserve">
+    <value>306/1 Srinakarin Road, Huamark, Bangapi, Bangkok 10240</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Thailand" xml:space="preserve">
+    <value>Thailand</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Thailand_Tel" xml:space="preserve">
+    <value>Tel: +66 2 7044879</value>
+    <comment>Club</comment>
+  </data>
+  <data name="The_Horizon_Malaysia" xml:space="preserve">
+    <value>The Horizon, Bangsar South. No 8, Jalan Kerinchi, Level 6 Tower 9 Avenue 5, 59200</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Where_you_share_Happiness_playing_Together" xml:space="preserve">
+    <value>Where you share Happiness playing Together</value>
+    <comment>Club</comment>
+  </data>
+  <data name="Write_your_message_here" xml:space="preserve">
+    <value>Write your message here...</value>
+    <comment>Support</comment>
+  </data>
+  <data name="After_this_there_is_no_turning_back" xml:space="preserve">
+    <value>After this, there is no turning back.</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="Back_to_Profile_page" xml:space="preserve">
+    <value>Back to Profile page</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="Changed_your_mind" xml:space="preserve">
+    <value>Changed your mind?</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="Change_your_password" xml:space="preserve">
+    <value>Change your password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="Confirm_new_password" xml:space="preserve">
+    <value>Confirm new password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="New_password" xml:space="preserve">
+    <value>New password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="Old_password" xml:space="preserve">
+    <value>Old password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="All_Games" xml:space="preserve">
+    <value>All Games</value>
+  </data>
+  <data name="Release" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="Search_Result" xml:space="preserve">
+    <value>Search Result</value>
+  </data>
+  <data name="There_no_games_found" xml:space="preserve">
+    <value>There's no games found</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+  <data name="Free_Play_Token" xml:space="preserve">
+    <value>Free Play Token</value>
+  </data>
+  <data name="My_Transactions" xml:space="preserve">
+    <value>My Transactions</value>
+  </data>
+  <data name="Your_wallet_balance" xml:space="preserve">
+    <value>Your wallet balance</value>
+  </data>
+  <data name="Change_your_email" xml:space="preserve">
+    <value>Change your email</value>
+    <comment>Change email</comment>
+  </data>
+  <data name="Your_new_email" xml:space="preserve">
+    <value>Your new email</value>
+    <comment>Change email</comment>
+  </data>
+  <data name="Your_password" xml:space="preserve">
+    <value>Your password</value>
+    <comment>Change email</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+    <comment>Transaction idx</comment>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+    <comment>Transaction idx</comment>
+  </data>
+  <data name="Friend_request" xml:space="preserve">
+    <value>Friend request</value>
+    <comment>Friend index page</comment>
+  </data>
+  <data name="No_results_were_returned" xml:space="preserve">
+    <value>No results were returned for that query</value>
+    <comment>Friend index page</comment>
+  </data>
+  <data name="people" xml:space="preserve">
+    <value>people</value>
+    <comment>Friend index page</comment>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Request</value>
+    <comment>Friend index page</comment>
+  </data>
+  <data name="Unfriend" xml:space="preserve">
+    <value>Unfriend</value>
+    <comment>Friend index page</comment>
+  </data>
+  <data name="Card_Number" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="Card_Password" xml:space="preserve">
+    <value>Card Password</value>
+  </data>
+  <data name="Expiration" xml:space="preserve">
+    <value>Expiration</value>
+  </data>
+  <data name="PayPal" xml:space="preserve">
+    <value>PayPal</value>
+    <comment>transaction idx</comment>
+  </data>
+  <data name="Play_Token" xml:space="preserve">
+    <value>Play Token</value>
+  </data>
+  <data name="Select_your_payment_method" xml:space="preserve">
+    <value>Select your payment method</value>
+    <comment>transaction idx</comment>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Top_Up_Card" xml:space="preserve">
+    <value>Top Up Card</value>
+    <comment>transaction idx</comment>
+  </data>
+  <data name="UPoint" xml:space="preserve">
+    <value>UPoint</value>
+    <comment>transaction idx</comment>
+  </data>
+  <data name="xxx_xxx_xxx" xml:space="preserve">
+    <value>xxx-xxx-xxx</value>
+  </data>
+  <data name="Transfer_play_token_to" xml:space="preserve">
+    <value>Transfer Play Token to...</value>
+    <comment>Friend page</comment>
+  </data>
+  <data name="Hang_on_our_server_is_crunching_" xml:space="preserve">
+    <value>Hang on! Our server is crunching your order!</value>
+    <comment>Friend page</comment>
+  </data>
+  <data name="Input_play_token_number" xml:space="preserve">
+    <value>input Play Token number</value>
+    <comment>Friend page</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+    <comment>Friend Page</comment>
+  </data>
+  <data name="Coin_des_exchange" xml:space="preserve">
+    <value>Exchange for {0} in {1}</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="Coin_des_Payment" xml:space="preserve">
+    <value>Payment to {0}</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="Coin_des_Receive" xml:space="preserve">
+    <value>Receive from {0}</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="Coin_des_Received" xml:space="preserve">
+    <value>Received from {0}</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="Coin_des_topup" xml:space="preserve">
+    <value>Top-up</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="Coin_des_Transfer" xml:space="preserve">
+    <value>Transfer to {0}</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="For_Play_For_Happiness_For_People" xml:space="preserve">
+    <value>For Play For Happiness For People</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Gcoin_description" xml:space="preserve">
+    <value>You received {0} GCoin from {1} ({2})</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="PlayToken_Electronic_Receipt" xml:space="preserve">
+    <value>PlayToken - Electronic Receipt</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="if_you_have_any_questions" xml:space="preserve">
+    <value>if you have any questions or concerns. Please be sure to forward this email as well to expedite processing of your request.</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Issue_Date" xml:space="preserve">
+    <value>Issue Date</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Item_Name" xml:space="preserve">
+    <value>Item Name</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Item_Price" xml:space="preserve">
+    <value>Item Price</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="No_invoice_available_for_you" xml:space="preserve">
+    <value>No invoice available for you!</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>Payer</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Payment_Mode" xml:space="preserve">
+    <value>Payment Mode</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Please_kindly_contact" xml:space="preserve">
+    <value>Please kindly contact</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Receive_Free_Token" xml:space="preserve">
+    <value>Receive Free Play Token</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="Thank_You" xml:space="preserve">
+    <value>Thank You!</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Total_Play_Token" xml:space="preserve">
+    <value>Total Play Token</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Total_Price" xml:space="preserve">
+    <value>Total Price</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Transaction_ID" xml:space="preserve">
+    <value>Transaction ID</value>
+    <comment>Invoice Page</comment>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+    <comment>TransaciontDescription</comment>
+  </data>
+  <data name="Unused" xml:space="preserve">
+    <value>Unused</value>
+  </data>
+  <data name="input_credit_amount" xml:space="preserve">
+    <value>input credit amount</value>
+  </data>
+  <data name="select_exchange_option" xml:space="preserve">
+    <value>select exchange option</value>
+  </data>
+  <data name="Assignment" xml:space="preserve">
+    <value>1.3 Assignment.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Assignment_description" xml:space="preserve">
+    <value>You may not transfer or assign any rights or obligations you have under this Agreement without PlayToken’s prior written consent. PlayToken reserves the right to transfer or assign this Agreement or any right or obligation under this Agreement at any time.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Balances" xml:space="preserve">
+    <value>4.1 Balances.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Balances_description" xml:space="preserve">
+    <value>You do not need to maintain a Balance in your PlayToken account in order to possess a PlayToken account. If there is a Balance in your PlayToken account, it will expire in 365 days pending on the date when the Play Tokens has been purchased and charged into the PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_Limits" xml:space="preserve">
+    <value>3.2 Charging Limits.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_Limits_description" xml:space="preserve">
+    <value>We may, at our discretion, impose limits on the amount of Play Tokens you can charge into your PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_of_Play_Tokens_to_your_PlayToken_account" xml:space="preserve">
+    <value>3.1 Charging of Play Tokens to your PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Charging_of_Play_Tokens_to_your_PlayToken_account_description" xml:space="preserve">
+    <value>Users are to charge their Play Tokens into personal or authorize PlayToken which is registered having abided by the User Agreement. PlayToken will not be held responsible and/or carry out rectification should we deem that the Play Tokens are charged misappropriated or by errors resulting from Users misapplication during charging process or practices.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Closing_Your_PlayToken_account" xml:space="preserve">
+    <value>5. Closing Your PlayToken account.</value>
+  </data>
+  <data name="Default_Transaction_Sources" xml:space="preserve">
+    <value>3.4 Default Transaction Sources.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Default_Transaction_Sources_description" xml:space="preserve">
+    <value>When you make a payment, Play Tokens will be deducted from your registered PlayToken account directly. If there are insufficient Play Tokens in your PlayToken account, transaction will be denied.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Dormant_PlayToken_account" xml:space="preserve">
+    <value>5.2 Dormant PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Dormant_PlayToken_account_description" xml:space="preserve">
+    <value>PlayToken will not close any dormant PlayToken account for indefinite period. Play Tokens left in Balance will expire in 365 days pending on the date when the Play Tokens has been purchased and charged into the PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Eligibility_and_Verification" xml:space="preserve">
+    <value>2. Eligibility and Verification</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Eligibility_and_Verification_description" xml:space="preserve">
+    <value>You authorize PlayToken, directly or through third parties, to make any inquiries we consider necessary to validate your identity. This may include asking you for further information, requiring you to take steps to confirm ownership of your email address and verifying your Information against third party databases or through other sources.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="How_to_Close_Your_PlayToken_account" xml:space="preserve">
+    <value>5.1 How to Close Your PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="How_to_Close_Your_PlayToken_account_description" xml:space="preserve">
+    <value>Upon registration for a PlayToken account, Users will not be allowed to close their PlayToken account. PlayToken will exercise discretion in maintaining and making available of information of the PlayToken account for investigation if any. Users may however make limited changes to specific PlayToken account particulars deem non-conflicting with the Privacy Policies and Users Agreement subjected to approval of PlayToken at sole discretion. Should a PlayToken account be terminated on basis of special circumstances, User of the terminated PlayToken account will remain liable for all obligations related to the PlayToken account even after it is closed.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Intellectual_Property" xml:space="preserve">
+    <value>1.2 Intellectual Property.</value>
+  </data>
+  <data name="Intellectual_Property_description" xml:space="preserve">
+    <value>"PlayToken.com", "PlayToken", and all related logos, products and services described in our website are either trademarks or registered trademarks of PlayToken. You may not copy, imitate or use them without PlayToken prior written consent. In addition, all page headers, custom graphics, button icons, and scripts are service marks, trademarks, and/or trade dress of PlayToken. You may not alter, modify or change these HTML logos in any way, use them in a manner that is disparaging to PlayToken or the Service or display them in any manner that implies PlayToken’s sponsorship or endorsement.</value>
+  </data>
+  <data name="Liability_Disclaimers" xml:space="preserve">
+    <value>7. Liability Disclaimers</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchant_Processing_Delay" xml:space="preserve">
+    <value>3.6 Merchant Processing Delay.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchant_Processing_Delay_description" xml:space="preserve">
+    <value>When you send a payment to certain merchants, you are providing an Authorization to the merchant to process your payment and complete the transaction. The payment will be held as pending until the merchant processes your payment. Some merchants may delay processing your payment. In such an instance, your Authorization will remain valid for up to 30 Days.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Notices_to_You" xml:space="preserve">
+    <value>1.4 Notices to You.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Notices_to_You_description" xml:space="preserve">
+    <value>You agree that PlayToken may provide notice to you by posting it on our website or emailing it to the email address listed in your PlayToken Profile. PlayToken reserves the right to close your PlayToken account if you withdraw your consent to receive electronic communications.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Privacy_of_Others" xml:space="preserve">
+    <value>1.6 Privacy of Others.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Privacy_of_Others_description" xml:space="preserve">
+    <value>If you receive Information about another PlayToken User through the Service, you must keep the Information confidential and only use it in connection with the Service. You may not disclose or distribute a PlayToken User's Information to a third party or use the Information for marketing purposes unless you receive the User's express consent to do so.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Purchasing_using_Play_Tokens" xml:space="preserve">
+    <value>3.3 Purchasing using Play Tokens.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Purchasing_using_Play_Tokens_description" xml:space="preserve">
+    <value>Payment and transactions to participating merchants affiliated to PlayToken will be conducted solely between the PlayToken account holder of the PlayToken account and the transacting merchant. Payment in form of Play Tokens will be deducted from the participating User’s PlayToken account as and when the transaction is successful. Refer to 3.4 should the Transaction be refused.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refund_Policy" xml:space="preserve">
+    <value>4.2 Refund Policy.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refund_Policy_description" xml:space="preserve">
+    <value>All unused balances are not refundable nor returnable.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refused_Transaction" xml:space="preserve">
+    <value>3.5 Refused Transaction.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Refused_Transaction_description" xml:space="preserve">
+    <value>When you conduct a transaction, the recipient is not required to accept it. You agree that you will not hold PlayToken liable for any damages resulting from a recipient's decision not to accept the transaction made through the Service.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities" xml:space="preserve">
+    <value>6. Restricted Activities.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description" xml:space="preserve">
+    <value>Restricted Activities. In connection with your use of our website, your PlayToken account, or the Services, or in the course of your interactions with PlayToken, a User or a third party, you will not:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_a" xml:space="preserve">
+    <value>(a) Breach this Agreement, the Users Agreement and any other Agreements that you have entered into with PlayToken (including a Policy);</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_b" xml:space="preserve">
+    <value>(b) Violate any law, statute, ordinance, or regulation (for example, those governing financial services, consumer protections, unfair competition, anti-discrimination or false advertising);</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_c" xml:space="preserve">
+    <value>(c) Infringe PlayToken or any third party's copyright, patent, trademark, trade secret or other intellectual property rights, or rights of publicity or privacy;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_e" xml:space="preserve">
+    <value>(e) Provide false, inaccurate or misleading Information;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_f" xml:space="preserve">
+    <value>(f) Send or receive what we reasonably believe to be potentially fraudulent funds;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_g" xml:space="preserve">
+    <value>(g) Refuse to cooperate in an investigation or provide confirmation of your identity or any Information you provide to us;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_h" xml:space="preserve">
+    <value>(h) Attempt to "double dip" during the course of a dispute by receiving or attempting to receive funds from both PlayToken and Merchants for the same transaction.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_i" xml:space="preserve">
+    <value>(i) Use an anonymizing proxy;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_j" xml:space="preserve">
+    <value>(j) Control a PlayToken account that is linked to another PlayToken account that has engaged in any of these Restricted Activities.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_k" xml:space="preserve">
+    <value>(k) Conduct your business or use the Services in a manner that results in or may result in complaints,</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_l" xml:space="preserve">
+    <value>(l) Use your PlayToken account or the Services in a manner that PlayToken, reasonably believe to be an abuse of the PlayToken system or a violation of E-Payment and billing solutions.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_m" xml:space="preserve">
+    <value>(m) Access the Services from a country that is not included on PlayToken permitted countries list.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_n" xml:space="preserve">
+    <value>(n) Disclose or distribute another User's Information to a third party, or use the Information for marketing purposes unless you receive the User's express consent to do so;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_o" xml:space="preserve">
+    <value>(o) Send unsolicited email to a User or use the Services to collect payments for sending, or assisting in sending, unsolicited email to third parties;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_p" xml:space="preserve">
+    <value>(p) Take any action that imposes an unreasonable or disproportionately large load on our infrastructure;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_q" xml:space="preserve">
+    <value>(q) Facilitate any viruses, Trojan horses, worms or other computer programming routines that may damage, detrimentally interfere with, surreptitiously intercept or expropriate any system, data or Information;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_r" xml:space="preserve">
+    <value>(r) Use any robot, spider, other automatic device, or manual process to monitor or copy our website without our prior written permission;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_s" xml:space="preserve">
+    <value>(s) Use any device, software or routine to bypass our robot exclusion headers, or interfere or attempt to interfere, with our website or the Services;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_t" xml:space="preserve">
+    <value>(t) Take any action that may cause us to lose any of the services from our internet service providers, payment processors, or other suppliers.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Termination_of_PlayToken_account" xml:space="preserve">
+    <value>5.3 Termination of PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Termination_of_PlayToken_account_description" xml:space="preserve">
+    <value>Should a PlayToken account be terminated in relation to clause 5.1, 6 &amp; 7, there will be no refund of Play Tokens given or provided to the involved, User or third parties.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="User_agreement" xml:space="preserve">
+    <value>User Agreement</value>
+  </data>
+  <data name="User_agreement_description" xml:space="preserve">
+    <value>This Agreement is a contract between you and PlayToken and applies to your use of PlayToken’s Services. You must read, agree with and accept all of the terms and conditions contained in this Agreement. We may amend this Agreement at any time by posting a revised version on our website. The revised version will be effective at the time we post it. We last modified this Agreement on 24th March 2015.</value>
+  </data>
+  <data name="Using_Play_Tokens" xml:space="preserve">
+    <value>3. Using Play Tokens</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Privacy" xml:space="preserve">
+    <value>1.5 Your Privacy.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Privacy_description" xml:space="preserve">
+    <value>Protecting your privacy is very important to PlayToken. Please review our Privacy Policy in order to better understand our commitment to maintaining your privacy, as well as our use and disclosure of your Information.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Complete_Agreement" xml:space="preserve">
+    <value>10.8 Complete Agreement.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Complete_Agreement_description" xml:space="preserve">
+    <value>This Agreement sets forth the entire understanding between you and PlayToken with respect to the Service. Sections 1, 7, 10 and 14, as well as any other terms which by their nature should survive, will survive the termination of this Agreement. If any provision of this Agreement is held to be invalid or unenforceable, such provision shall be struck and the remaining provisions shall be enforced.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_PlayToken_First" xml:space="preserve">
+    <value>10.1 Contact PlayToken First.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_PlayToken_First_description" xml:space="preserve">
+    <value>If a dispute arises between you and PlayToken, will be glad to assist and direct your concerns to solving your problems. Such disputes encompass PlayToken Services only, non-related to Merchant Services. Disputes between you and PlayToken regarding our Services may be reported to Customer Service online.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_the_Merchant" xml:space="preserve">
+    <value>10.2 Contact the Merchant.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Contact_the_Merchant_description" xml:space="preserve">
+    <value>If a dispute arises between you and the Merchant regarding their goods and services, kindly approach the Merchant directly for advice. Should the dispute implicate PlayToken Services, we will assist in the solving the dispute with the Users and Merchants promptly.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition" xml:space="preserve">
+    <value>11. Definition</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description" xml:space="preserve">
+    <value>With reference to the User Agreement:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayToken" xml:space="preserve">
+    <value>• The company, GToken Pte Ltd providing E-payment solutions using Physical Scratch Cards as an alternative to conventional use of Credit Cards of Debit Cards.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayToken_account" xml:space="preserve">
+    <value>• Users who intend to use PlayToken to make purchases online with related merchants must register a PlayToken account. Play Tokens charged into the PlayToken account can be used to make online payments. PlayToken account can be considered as an electronic online account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_Merchants" xml:space="preserve">
+    <value>• Related Partners and Merchants can apply to PlayToken for the use of our online payment facilities to enhance and promote their products and services.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Definition_description_PlayTokens" xml:space="preserve">
+    <value>• Play Tokens is a virtual credit used for transaction between the User of the PlayToken account and Merchants for online purchases. Play Tokens is operated solely and exclusively by GToken Ltd.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Disputes_with_PlayToken" xml:space="preserve">
+    <value>10. Disputes with PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>9.5 Errors.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_and_Unauthorized_Transactions" xml:space="preserve">
+    <value>9. Errors and Unauthorized Transactions.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_1" xml:space="preserve">
+    <value>If we discover a processing error, we will rectify the error. If the error resulted in Play Tokens not deducted for a payment of service or goods, PlayToken will deduct the amount appropriately. If the error result in Play Tokens deducted but no goods or services received, PlayToken will investigate and advice the Merchant and User accordingly.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2" xml:space="preserve">
+    <value>If the error resulted in our not completing a transaction on time or in the correct amount, rectify the situation promptly, unless:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_a" xml:space="preserve">
+    <value>(a) Through no fault of ours, you did not have enough available Play Tokens to complete the transaction,</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_b" xml:space="preserve">
+    <value>(b) Our system was not working properly and you knew about the breakdown when you started the transaction, or</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Errors_description_2_c" xml:space="preserve">
+    <value>(c) Circumstances beyond our control (such as fire or flood or loss of Internet connection) prevented the transaction, despite our reasonable precautions.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken" xml:space="preserve">
+    <value>PlayToken:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken_account" xml:space="preserve">
+    <value>PlayToken account:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken_account_Balances" xml:space="preserve">
+    <value>4. PlayToken account Balances.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="PlayToken_and_You" xml:space="preserve">
+    <value>1. PlayToken and You</value>
+  </data>
+  <data name="PlayToken_is_only_a_Payment_Service_Provider" xml:space="preserve">
+    <value>1.1 PlayToken is only a Payment Service Provider.</value>
+  </data>
+  <data name="PlayToken_is_only_a_Payment_Service_Provider_description" xml:space="preserve">
+    <value>PlayToken helps you make payments to and accept payments from third parties. PlayToken is an independent contractor for all purposes, except that PlayToken acts as your agent only with respect to the custody of your virtual Play Tokens. PlayToken does not have control of or liability for the products or services that are paid for with our Service. We do not guarantee the identity of any User or ensure that a buyer or a seller will complete a transaction.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.1 Identifying Errors and/or Unauthorized Transactions.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>You can inspect your transaction history at any time by logging in to your PlayToken account on the PlayToken website and clicking the "History" tab. It is very important that you immediately notify PlayToken if you have reason to believe any of the following activities have occurred:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_a" xml:space="preserve">
+    <value>(a) There has been an unauthorized transaction from your PlayToken account;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_b" xml:space="preserve">
+    <value>(b) There has been an unauthorized access to your PlayToken account;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_c" xml:space="preserve">
+    <value>(c) Your password for your PlayToken account has been compromised;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Identifying_Errors_and_or_Unauthorized_Transactions_description_d" xml:space="preserve">
+    <value>(d) Someone has transferred or may transfer money using your PlayToken account without your permission.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Indemnification" xml:space="preserve">
+    <value>10.7 Indemnification.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Indemnification_description" xml:space="preserve">
+    <value>You agree to defend, indemnify and hold PlayToken, its parent, officers, directors and employees harmless from any claim or demand (including attorneys' fees) made or incurred by any third party due to or arising out of your breach of this Agreement and/or your use of the Services.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_1" xml:space="preserve">
+    <value>7.1 The Material contained in this Web Site, (including text, images, graphics, links, sound files, animation files, video files or other items and their arrangement) are provided "as is", "as available". PlayToken does not warrant the accuracy, adequacy or completeness of these Materials.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_2" xml:space="preserve">
+    <value>7.2 No warranty of any kind, implied, expressed or statutory, including but not limited to the warranties of non-infringement of the third party's rights, title, satisfactory quality, merchantability, fitness for any particular purpose and freedom from any computer virus or other malicious, destructive or corrupting code, programmed or macro, is given in conjunction with the information and materials contained in or linked to PlayToken.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_3" xml:space="preserve">
+    <value>7.3 PlayToken may include publications with technical inaccuracies or typographical errors that will be corrected as they are discovered at PlayToken’s sole discretion. Also, changes are periodically added to the material contained herein. These corrections and changes may be incorporated into the Web Site at a later date. PlayToken may at any time make modifications, improvements and/or changes to these Terms and Conditions and the material (names, images, pictures, logo and icons) displayed on the Web Site or products and services referred to within, with or without notice. Advice received via this Web Site should not be relied upon for personal, legal or financial decisions and you should consult an appropriate professional for specific advice tailored to your situation.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4" xml:space="preserve">
+    <value>7.4 PlayToken shall in no event be liable for any damages, loss or expense including without limitation, special damage, or consequential damage, or economic loss arising from or in connection with:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_a" xml:space="preserve">
+    <value>(a) any access, use or the delay or inability to access or use of PlayToken Services, or reliance on the Materials and/or any other information contained related to PlayToken Services;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_b" xml:space="preserve">
+    <value>(b) any system, server or connection failure, error, omission, interruption, delay in transmission, or computer failure;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_c" xml:space="preserve">
+    <value>(c) any use of or access to any other web site linked to this PlayToken.com;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_Disclaimers_description_4_d" xml:space="preserve">
+    <value>(d) any services, products, information, date, software or other material obtained from this PlayToken.com or from any other web site linked to this Web Site.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_for_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.4 Liability for Unauthorized Transactions.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Liability_for_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>Reimbursement of Play Tokens or Monies due to Improper PlayToken account Access related to your PlayToken account (Hacking, compromise of security, compromise of personal information) will not be entertained. PlayToken account holders will hold full responsibility to safeguarding the security of the individual’s PlayToken account.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Limitations_of_Liability" xml:space="preserve">
+    <value>10.4 Limitations of Liability.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Limitations_of_Liability_description" xml:space="preserve">
+    <value>IN NO EVENT SHALL WE, OUR PARENT, EMPLOYEES OR OUR SUPPLIERS BE LIABLE FOR LOST PROFITS OR ANY SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH OUR WEB SITE, OUR SERVICE, OR THIS AGREEMENT (HOWEVER ARISING, INCLUDING NEGLIGENCE OUR LIABILITY, AND THE LIABILITY OF OUR PARENT, EMPLOYEES AND SUPPLIERS, TO YOU OR ANY THIRD PARTIES IN ANY CIRCUMSTANCE IS LIMITED TO THE ACTUAL AMOUNT OF DIRECT DAMAGES.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Merchants" xml:space="preserve">
+    <value>Merchants</value>
+  </data>
+  <data name="Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.2 Notifying PlayToken of Errors and/or Unauthorized Transactions.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Notifying_PlayToken_of_Errors_and_or_Unauthorized_Transactions_description" xml:space="preserve">
+    <value>To notify us if you believe there has been or will be an error or unauthorized transaction on your PlayToken account contact us through customer support.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Waiver" xml:space="preserve">
+    <value>10.3 No Waiver.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Waiver_description" xml:space="preserve">
+    <value>Our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty" xml:space="preserve">
+    <value>10.5 No Warranty.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_1" xml:space="preserve">
+    <value>PlayToken, OUR PARENT, EMPLOYEES AND OUR SUPPLIERS PROVIDE OUR SERVICES "AS IS" AND WITHOUT ANY WARRANTY OR CONDITION, EXPRESS, IMPLIED OR STATUTORY. PlayToken, OUR PARENT, EMPLOYEES AND OUR SUPPLIERS SPECIFICALLY DISCLAIM ANY IMPLIED WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_2" xml:space="preserve">
+    <value>PlayToken does not have any control over the products or services that are paid for with our Service and PlayToken cannot ensure that a buyer or a seller you are dealing with will actually complete the transaction.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_3" xml:space="preserve">
+    <value>PlayToken does not guarantee continuous, uninterrupted or secure access to our Service, and operation of our site may be interfered with by numerous factors outside of our control.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="No_Warranty_description_4" xml:space="preserve">
+    <value>PlayToken will make reasonable efforts to ensure that requests and transaction involving the use of PlayToken Physical Scratch Cards and Merchants’ transaction mechanism (E-payments) involving PlayToken are processed in a timely manner but PlayToken makes no representations or warranties regarding the amount of time needed to complete processing because our Service is dependent upon many factors outside of our control, such as technical difficulties experienced by PlayToken’s Internet Providers, User’s Internet Providers as well as other online third parties involvement in internet functionality. Some countries do not allow the disclaimer of implied warranties, so the foregoing disclaimers may not apply to you. This paragraph gives you specific legal rights and you may also have other legal rights that vary from countries to countries.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Play_Tokens" xml:space="preserve">
+    <value>Play Tokens:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Restricted_Activities_description_d" xml:space="preserve">
+    <value>(d) Act in a manner that is defamatory, trade libellous, unlawfully threatening or unlawfully harassing;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions" xml:space="preserve">
+    <value>9.3 Review of Reports of Errors and/or Unauthorized Transactions.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_1" xml:space="preserve">
+    <value>We will advise you of the results of our investigation within 2 Business Days after we receive your notice. If we have made an error, we will correct it promptly. If we need more time, however, we may take up to 7 Days to investigate your complaint or question.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Review_of_Reports_of_Errors_and_or_Unauthorized_Transactions_description_2" xml:space="preserve">
+    <value>At the end of our investigation, we will advise you of the results within 2 Business Days. If we determine that there was no error, we will send you a written explanation.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Terms_and_condition" xml:space="preserve">
+    <value>Terms and Conditions</value>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take" xml:space="preserve">
+    <value>8. Your Liability - Actions We May Take.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1" xml:space="preserve">
+    <value>8.1 Actions by PlayToken. If you engage in any Restricted Activities, we may take various actions to protect PlayToken, a User, a third party, or you from, Claims, fees, fines, penalties and any other liability. The actions we may take include but are not limited to the following:</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_a" xml:space="preserve">
+    <value>(a) We may close, suspend, or limit your access to your PlayToken account or the Services (such as limiting access to any of your Play Tokens, and your ability to Charge Play Tokens, make purchases, or remove personal Information);</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_b" xml:space="preserve">
+    <value>(b) We may update inaccurate Information you provided us;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_c" xml:space="preserve">
+    <value>(c) We may refuse to provide our Services to you in the future;</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_1_d" xml:space="preserve">
+    <value>(d) We may take legal action against you.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_2" xml:space="preserve">
+    <value>8.2 PlayToken, in its sole discretion, reserves the right to terminate this Agreement, access to its website, or access to the Service for any reason.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Your_Liability_Actions_We_May_Take_description_3" xml:space="preserve">
+    <value>8.3 PlayToken account Closure, Termination of Service, or Limited PlayToken account Access. If we close your PlayToken account or terminate your use of our Services for any reason, we will provide you with notice of our actions. If we limit access to your PlayToken account, we will provide you with notice of our actions and the opportunity to request restoration of access if appropriate.</value>
+    <comment>Term</comment>
+  </data>
+  <data name="Password_changed_successfully" xml:space="preserve">
+    <value>Password changed successfully</value>
+  </data>
+  <data name="Verification_code_is_invalid_or_expired" xml:space="preserve">
+    <value>Verification code is invalid or expired. Please reset your password again.</value>
+  </data>
+  <data name="_for" xml:space="preserve">
+    <value>for</value>
+  </data>
+  <data name="GCoin_transaction_is_successful" xml:space="preserve">
+    <value>GCoin transaction is successful.</value>
+  </data>
+  <data name="Invalid_GCoin_Convert" xml:space="preserve">
+    <value>Invalid GCoin Convert</value>
+  </data>
+  <data name="Invalid_paypal_account" xml:space="preserve">
+    <value>Unverified account or cannot determine PayPal Account status</value>
+  </data>
+  <data name="Password_is_not_correct" xml:space="preserve">
+    <value>Password is not correct</value>
+  </data>
+  <data name="Convert_G_Coin" xml:space="preserve">
+    <value>Convert G-Coin</value>
+    <comment>Convert Gcoin</comment>
+  </data>
+  <data name="Hang_on_Our_server_is_crunching_your_order" xml:space="preserve">
+    <value>Hang on! Our server is crunching your order!</value>
+  </data>
+  <data name="Input_Paypal_Email" xml:space="preserve">
+    <value>Input Paypal Email</value>
+    <comment>Convert Gcoin</comment>
+  </data>
+  <data name="Please_acknowledge_the_money" xml:space="preserve">
+    <value>Please acknowledge the money will be transferred directly to your PayPal account.</value>
+    <comment>Convert Gcoin</comment>
+  </data>
+  <data name="We_only_accept_transaction_through_PayPal" xml:space="preserve">
+    <value>We only accept transaction through PayPal at the moment</value>
+    <comment>Convert Gcoin</comment>
+  </data>
+  <data name="You_dont_have_any_gcoin_to_convert_to_money" xml:space="preserve">
+    <value>You don't have any gcoin to convert to money.</value>
+    <comment>Convert Gcoin</comment>
+  </data>
+  <data name="INPUT_PASSWORD" xml:space="preserve">
+    <value>INPUT PASSWORD</value>
+  </data>
+  <data name="Please_input_your_PlayToken_password_to_convert" xml:space="preserve">
+    <value>Please input your PlayToken password to convert</value>
+  </data>
+  <data name="CREDIT_TYPE_DOES_NOT_EXIST" xml:space="preserve">
+    <value>CreditType with id {0} doesn't exist</value>
+    <comment>Error message</comment>
+  </data>
+  <data name="PACKAGE_DOES_NOT_EXIST" xml:space="preserve">
+    <value>Package with id {0} doesn't exist</value>
+    <comment>Error message</comment>
+  </data>
+  <data name="STRING_IDENTIFIER_DUPLICATE" xml:space="preserve">
+    <value>String identifier already exists</value>
+    <comment>Error message</comment>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+    <comment>Header</comment>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Display_name" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="It_take_forever" xml:space="preserve">
+    <value>It'd take forever. Really.</value>
+    <comment>404</comment>
+  </data>
+  <data name="Page_not_found" xml:space="preserve">
+    <value>Page not found</value>
+    <comment>404</comment>
+  </data>
+  <data name="The_page_that_youre_looking_for_cannot_be_found" xml:space="preserve">
+    <value>Well, the page that you’re looking for can’t be found.</value>
+    <comment>404</comment>
+  </data>
+  <data name="Why_not_explore_our_games_instead" xml:space="preserve">
+    <value>Why not explore our {0} instead?</value>
+    <comment>404</comment>
+  </data>
+  <data name="Something_is_wrong" xml:space="preserve">
+    <value>Something is wrong</value>
+    <comment>500</comment>
+  </data>
+  <data name="System_Failed" xml:space="preserve">
+    <value>System Failed</value>
+    <comment>500</comment>
+  </data>
+  <data name="This_is_just_180_wrong" xml:space="preserve">
+    <value>This is just 180° wrong.</value>
+    <comment>500</comment>
+  </data>
+  <data name="We_sorry_that_the_system_encountered_an_internal_error" xml:space="preserve">
+    <value>Oops! We're sorry that the system encountered an internal error.</value>
+    <comment>500</comment>
+  </data>
+  <data name="Why_not_go_back_to_our_Home_page_instead" xml:space="preserve">
+    <value>Why not go back to our {0} instead?</value>
+    <comment>500</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="You_dont_have_any_account_authorized_with_Facebook" xml:space="preserve">
+    <value>You don’t have any account authorized with Facebook.</value>
+  </data>
+  <data name="You_dont_want_to_sign_in_with_Facebook" xml:space="preserve">
+    <value>You don’t want to sign in with Facebook? So sad :(</value>
+  </data>
+  <data name="Exchange_panel_Exchange_your_play_token" xml:space="preserve">
+    <value>Exchange your Play Token for in-game items</value>
+  </data>
+  <data name="Coming_soon_encourage" xml:space="preserve">
+    <value>Don't miss any of our exciting new releases</value>
+  </data>
+  <data name="Homepage_introduce_1" xml:space="preserve">
+    <value>Exclusive in-game content for all our users</value>
+  </data>
+  <data name="Homepage_introduce_2" xml:space="preserve">
+    <value>Big discounts on the game items</value>
+  </data>
+  <data name="Homepage_introduce_3" xml:space="preserve">
+    <value>Never lose your playing progress with our secure and private cloud server</value>
+  </data>
+  <data name="Homepage_introduce_4" xml:space="preserve">
+    <value>Dedicated support from our friendly customer service</value>
+  </data>
+  <data name="Learn_more" xml:space="preserve">
+    <value>Learn More</value>
+  </data>
+  <data name="More_detail" xml:space="preserve">
+    <value>More Detail</value>
+  </data>
+  <data name="Popular_games" xml:space="preserve">
+    <value>Popular games</value>
+  </data>
+  <data name="Recommended_for_you" xml:space="preserve">
+    <value>Recommended for you</value>
+  </data>
+  <data name="See_all" xml:space="preserve">
+    <value>See All</value>
+  </data>
+  <data name="Signup_1" xml:space="preserve">
+    <value>Sign Up +1</value>
+  </data>
+  <data name="SignUp_1_Free" xml:space="preserve">
+    <value>Sign Up +1 Free</value>
+    <comment>Home page</comment>
+  </data>
+  <data name="Discover_new_best_releases" xml:space="preserve">
+    <value>Discover new best releases</value>
+  </data>
+  <data name="FEATURED_GAMES" xml:space="preserve">
+    <value>Featured Games</value>
+  </data>
+  <data name="Transaction_History" xml:space="preserve">
+    <value>Transaction History</value>
+  </data>
+  <data name="This_PlayToken_account_is_linked_to_another_Facebook_account" xml:space="preserve">
+    <value>This PlayToken account is linked to another Facebook account.</value>
+  </data>
+  <data name="I_agree_to_PlayToken" xml:space="preserve">
+    <value>I agree to PlayToken's {0}</value>
+  </data>
+  <data name="Top_Up_Play_Token" xml:space="preserve">
+    <value>Top Up Play Token</value>
+  </data>
+  <data name="Card_Number_Password_combination_does_not_match" xml:space="preserve">
+    <value>Card Number/Password combination does not match</value>
+  </data>
+  <data name="Confirm_email_does_not_match" xml:space="preserve">
+    <value>Confirm email does not match</value>
+  </data>
+  <data name="Confirm_password_does_not_match" xml:space="preserve">
+    <value>Confirm password does not match</value>
+  </data>
+  <data name="Exchanged_successfully" xml:space="preserve">
+    <value>Exchanged successfully.</value>
+  </data>
+  <data name="Incorrect_password_Please_try_again" xml:space="preserve">
+    <value>Incorrect password. Please try again.</value>
+  </data>
+  <data name="Invalid_email_address" xml:space="preserve">
+    <value>Invalid email address</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="Password_must_be_more_than_characters" xml:space="preserve">
+    <value>Password must be more than 3 characters</value>
+  </data>
+  <data name="Referral_Code_does_not_exist" xml:space="preserve">
+    <value>Referral Code does not exist</value>
+  </data>
+  <data name="The_card_has_already_been_used" xml:space="preserve">
+    <value>The card has already been used</value>
+  </data>
+  <data name="The_card_has_already_expired" xml:space="preserve">
+    <value>The card has already expired</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Free_Play_Token" xml:space="preserve">
+    <value>This exchange will cost you {0} Free Play Token.</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Free_Play_Token_and_Play_Token" xml:space="preserve">
+    <value>This exchange will cost you {0} Free Play Token and {1} Play Token.</value>
+  </data>
+  <data name="This_exchange_will_cost_you_Play_Token" xml:space="preserve">
+    <value>This exchange will cost you {0} Play Token.</value>
+  </data>
+  <data name="This_field_is_required" xml:space="preserve">
+    <value>This field is required</value>
+  </data>
+  <data name="This_username_is_already_taken" xml:space="preserve">
+    <value>This username is already taken</value>
+  </data>
+  <data name="Username_can_only_contain_letters_numbers" xml:space="preserve">
+    <value>Username can only contain letters, numbers, "_", "-" and "."</value>
+  </data>
+  <data name="Username_is_between_characters" xml:space="preserve">
+    <value>Username is between 3-20 characters</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>Username is required</value>
+  </data>
+  <data name="You_topped_up_Free_Play_Token" xml:space="preserve">
+    <value>You topped up {0} Free Play Token</value>
+  </data>
+  <data name="You_topped_up_Play_Token" xml:space="preserve">
+    <value>You topped up {0} Play Token</value>
+  </data>
+</root>
